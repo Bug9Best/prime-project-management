@@ -1,0 +1,29 @@
+<!-- Sidebar -->
+<p-sidebar
+  appendTo="body" 
+  styleClass="chaos-sidebar" 
+  [style]="{ width: '350px' }" 
+  [showCloseIcon]="false" 
+  [(visible)]="visible">
+  
+  <div class="flex flex-column h-full surface-section">
+    <c-pageMenu />
+    <ng-container [ngTemplateOutlet]="cSidebarFooter"></ng-container>
+  </div>
+  
+</p-sidebar>
+
+<!-- Sidebar Footer -->
+<ng-template #cSidebarFooter>
+  <div class="mt-auto">
+    <ul class="list-none m-0 p-2 border-top-1 surface-border">
+      <li>
+        <c-pageItem
+          icon="logout"
+          label="ออกจากระบบ"
+          (onSelect)="signOut()">
+        </c-pageItem>
+      </li>
+    </ul>
+  </div>
+</ng-template>

@@ -1,0 +1,12 @@
+{
+  "name": "ngchaos",
+  "version": "1.0.107",
+  "peerDependencies": {
+    "@angular/common": "16 - 18",
+    "@angular/core": "16 - 18"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}

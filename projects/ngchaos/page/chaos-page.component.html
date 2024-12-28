@@ -1,0 +1,56 @@
+<!-- Page -->
+<div class="app">
+
+  <!-- Toolbar -->
+  <div class="app-toolbar">
+    <div class="flex align-items-center justify-content-between h-full">
+      <div class="flex align-items-center">
+        <c-pageToggle (open)="openSidebar()" />
+        
+        @if(template['title']) {
+          <ng-container [ngTemplateOutlet]="template['title']" />
+        }
+        @else {
+          <div class="text-xl font-bold">
+            CONSOLE
+          </div>
+        }
+        
+      </div>
+      <div class="flex align-items-center">
+        
+        @if(template['actions']) {
+          <ng-container [ngTemplateOutlet]="template['actions']" />
+        }
+        
+        <c-pageTheme />
+        <c-pageUser />
+      </div>
+    </div>
+    
+    
+  </div>
+  
+  @if(template['header']) {
+    <div class="app-header">
+      <ng-container [ngTemplateOutlet]="template['header']" />
+    </div>
+  }
+
+  <!-- Content -->
+  <div class="app-content">
+    
+    @if(template['sidebar']) {
+      <div class="app-sidebar">
+        <ng-container *ngTemplateOutlet="template['sidebar']" />
+      </div>
+    }
+    
+    <div class="app-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+
+</div>
+
+<c-pageSidebar />

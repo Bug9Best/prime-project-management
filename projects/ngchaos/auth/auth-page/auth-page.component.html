@@ -1,0 +1,33 @@
+@if(loading) {
+  <c-loading></c-loading>
+}
+
+@else {
+  <div>
+    <div class="mb-5 text-center">
+      <div class="p-3">
+        <p-avatar
+          styleClass="w-6rem h-6rem lg:w-10rem lg:h-10rem mx-auto"
+          [image]="config.icon">
+        </p-avatar>
+      </div>
+      <div class="mb-1 text-lg lg:text-2xl font-bold">
+        {{ config.title }}
+      </div>
+      <div class="text-xs lg:text-base text-gray-500">
+        {{ config.subTitle }}
+      </div>
+    </div>
+
+    <div class="h-2rem"></div>
+
+    <div class="my-5 text-center">
+      <button type="button"
+        (click)="login()"
+        class="p-button-rounded"
+        [label]="'เข้าสู่ระบบ'"
+        pButton>
+      </button>
+    </div>
+  </div>
+}

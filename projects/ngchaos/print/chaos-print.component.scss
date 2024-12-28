@@ -1,0 +1,61 @@
+@import '../styles/page';
+
+::ng-deep chaos-print {
+  
+  @media print {
+    background-color: white;
+  }
+
+  .print {
+    background-color: darkgrey;
+    height: 100vh;
+    @media print {
+      height: initial;
+      background-color: white;
+    }
+  }
+  
+  .print-toolbar {
+    margin: 0;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 0 4px #2e2e2e;
+    height: 100px;
+
+    @media print {
+      display: none;
+    }
+  }
+  
+  .print-header {
+    display: table-header-group;
+  }
+  
+  .print-body {
+    @media screen {
+      overflow: auto;
+      height: calc(100vh - 100px);
+      padding-bottom: 3rem;
+    }
+  }
+   
+  .print-section {
+    margin: 1rem auto;
+    background-color: white;
+    border: 1px solid #2e2e2e;
+    box-shadow: 0 0 2px #2e2e2e;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    
+    @media print {
+      margin: 0;
+      border: none;
+      box-shadow: none;
+      page-break-after: always;
+      background-color: white;
+    }
+  }
+  
+}

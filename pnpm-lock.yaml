@@ -29,6 +29,9 @@ dependencies:
   '@angular/router':
     specifier: ^19.0.0
     version: 19.0.5(@angular/common@19.0.5)(@angular/core@19.0.5)(@angular/platform-browser@19.0.5)(rxjs@7.8.1)
+  '@auth0/angular-jwt':
+    specifier: ^5.2.0
+    version: 5.2.0(@angular/common@19.0.5)
   '@ngx-translate/core':
     specifier: ^16.0.4
     version: 16.0.4(@angular/common@19.0.5)(@angular/core@19.0.5)
@@ -47,9 +50,9 @@ dependencies:
   date-fns:
     specifier: ^4.1.0
     version: 4.1.0
-  ngx-drag-drop:
-    specifier: ^18.0.2
-    version: 18.0.2(@angular/common@19.0.5)(@angular/core@19.0.5)
+  laravel-echo:
+    specifier: ^1.17.1
+    version: 1.17.1
   primeflex:
     specifier: ^3.3.1
     version: 3.3.1
@@ -59,6 +62,9 @@ dependencies:
   primeng:
     specifier: ^19.0.1
     version: 19.0.1(@angular/animations@19.0.5)(@angular/cdk@19.0.4)(@angular/common@19.0.5)(@angular/core@19.0.5)(@angular/forms@19.0.5)(@angular/platform-browser@19.0.5)(@angular/router@19.0.5)(rxjs@7.8.1)
+  pusher-js:
+    specifier: 8.4.0-rc2
+    version: 8.4.0-rc2
   quill:
     specifier: ^2.0.3
     version: 2.0.3
@@ -543,6 +549,15 @@ packages:
       '@angular/core': 19.0.5(rxjs@7.8.1)(zone.js@0.15.0)
       '@angular/platform-browser': 19.0.5(@angular/animations@19.0.5)(@angular/common@19.0.5)(@angular/core@19.0.5)
       rxjs: 7.8.1
+      tslib: 2.8.1
+    dev: false
+
+  /@auth0/angular-jwt@5.2.0(@angular/common@19.0.5):
+    resolution: {integrity: sha512-9FS2L0QwGNlxA/zgeehCcsR9CZscouyXkoIj1fODM36A8BLfdzg9k9DWAXUQ2Drjk0AypGAFzeNZR4vsLMhdeQ==}
+    peerDependencies:
+      '@angular/common': '>=14.0.0'
+    dependencies:
+      '@angular/common': 19.0.5(@angular/core@19.0.5)(rxjs@7.8.1)
       tslib: 2.8.1
     dev: false
 
@@ -5603,6 +5618,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /laravel-echo@1.17.1:
+    resolution: {integrity: sha512-ORWc4vDfnBj/Oe5ThZ5kYyGItRjLDqAQUyhD/7UhehUOqc+s5x9HEBjtMVludNMP6VuXw6t7Uxt8bp63kaTofg==}
+    engines: {node: '>=10'}
+    dev: false
+
   /launch-editor@2.9.1:
     resolution: {integrity: sha512-Gcnl4Bd+hRO9P9icCP/RVVT2o8SFlPXofuCxvA2SaZuH45whSvf5p8x5oih5ftLiVhEI4sp5xDY+R+b3zJBh5w==}
     dependencies:
@@ -6123,17 +6143,6 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
-
-  /ngx-drag-drop@18.0.2(@angular/common@19.0.5)(@angular/core@19.0.5):
-    resolution: {integrity: sha512-I2u5hhUGysRfAhxFCReG9DVUGnPZpu5r3qXZuU9dS22PfzriwtkGrBeD/pgGlUB1BREZd77fb8tY6okpUTvIBw==}
-    peerDependencies:
-      '@angular/common': ^18.0.0
-      '@angular/core': ^18.0.0
-    dependencies:
-      '@angular/common': 19.0.5(@angular/core@19.0.5)(rxjs@7.8.1)
-      '@angular/core': 19.0.5(rxjs@7.8.1)(zone.js@0.15.0)
-      tslib: 2.8.1
-    dev: false
 
   /node-addon-api@6.1.0:
     resolution: {integrity: sha512-+eawOlIgy680F0kBzPUNFhMZGtJ1YmqM6l4+Crf4IkImjYrO/mqPwRMh352g23uIaQKFItcQ64I7KMaJxHgAVA==}
@@ -6716,6 +6725,12 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
     dev: true
+
+  /pusher-js@8.4.0-rc2:
+    resolution: {integrity: sha512-d87GjOEEl9QgO5BWmViSqW0LOzPvybvX6WA9zLUstNdB57jVJuR27zHkRnrav2a3+zAMlHbP2Og8wug+rG8T+g==}
+    dependencies:
+      tweetnacl: 1.0.3
+    dev: false
 
   /qjobs@1.2.0:
     resolution: {integrity: sha512-8YOJEHtxpySA3fFDyCRxA+UUV+fA+rTWnuWvylOK/NCjhY+b4ocCtmu8TtsWb+mYeU+GCHf/S66KZF/AsteKHg==}
@@ -7674,6 +7689,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /tweetnacl@1.0.3:
+    resolution: {integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==}
+    dev: false
 
   /type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}

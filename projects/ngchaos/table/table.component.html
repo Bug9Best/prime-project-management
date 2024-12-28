@@ -1,0 +1,78 @@
+<p-table
+  [(selection)]="selectedData"
+  [selectionMode]="selectionMode"
+  [rowHover]="rowHover"
+  [dataKey]="dataKey"
+  [columns]="columns"
+  [scrollable]="scrollable"
+  [scrollDirection]="scrollDirection"
+  [scrollHeight]="scrollHeight"
+  [style]="tableStyle"
+  [styleClass]="tableStyleClass"
+  [value]="value">
+
+  <ng-container *ngIf="showColumn">
+    <ng-template pTemplate="header">
+      <tr>
+        <ng-container *ngFor="let c of columns">
+          <th [style]="c.style">
+            <div [innerHTML]="c.label"></div>
+          </th>
+        </ng-container>
+      </tr>
+    </ng-template>
+  </ng-container>
+
+  <ng-template pTemplate="body" let-item let-i="rowIndex">
+    <tr [pSelectableRow]="item">
+      <ng-container *ngFor="let c of columns">
+        <td [colSpan]="c.colSpan" [style]="c.style">
+          <ng-template #cDefault>
+            <ng-container [ngSwitch]="c.type">
+              <ng-container *ngSwitchCase="'string'">
+                {{ getFieldValue(item, c.field) }}
+              </ng-container>
+              <ng-container *ngSwitchCase="'number'">
+                {{ getFieldValue(item, c.field) | number: c.numberFormat }}
+              </ng-container>
+              <!-- Date -->
+              <ng-container *ngSwitchCase="'date'">
+                <!-- Date Format -->
+                <ng-container [ngSwitch]="c.dateFormat">
+                  <ng-container *ngSwitchCase="'relative'">
+                    <div class="text-green-600">
+                      {{ getFieldValue(item, c.field) | thdate }}
+                    </div>
+                    <div class="text-xs text-gray-600">
+                      {{ getFieldValue(item, c.field) | thdate: "dateTime" }}
+                    </div>
+                  </ng-container>
+                  <ng-container *ngSwitchDefault>
+                    {{ getFieldValue(item, c.field) | thdate: c.dateFormat }}
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+              <ng-container *ngSwitchCase="'checked'">
+                <p-checkbox [binary]="true" [value]="getFieldValue(item, c.field)"></p-checkbox>
+              </ng-container>
+              <ng-container *ngSwitchDefault>
+                {{ getFieldValue(item, c.field) }}
+              </ng-container>
+            </ng-container>
+          </ng-template>
+          <ng-container
+            [ngTemplateOutlet]="field[c.field] || cDefault"
+            [ngTemplateOutletContext]="{ $implicit: item, column: c, rowIndex: i, value: getFieldValue(item, c.field) }">
+          </ng-container>
+        </td>
+      </ng-container>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <ng-container *ngIf="footerTemplate"
+      [ngTemplateOutlet]="footerTemplate">
+    </ng-container>
+  </ng-template>
+
+</p-table>

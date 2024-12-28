@@ -1,0 +1,55 @@
+@import '../styles/variables';
+
+::ng-deep chaos-page {
+
+  .app {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    @media print {
+      display: block;
+      height: auto;
+    }
+  }
+
+  .app-toolbar {
+    height: $toolbar-height;
+    background-color: light-dark(var(--primary-600), var(--surface-50));
+    border-bottom: 1px solid light-dark(var(--primary-600), var(--surface-100));
+  }
+  
+  .app-header {
+    background-color: light-dark(white, var(--surface-50));
+    border-bottom: 1px solid var(--surface-200);
+  }
+
+  .app-content {
+    flex-grow: 1;
+    display: flex;
+    background-color: var(--surface-ground);
+
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  
+  .app-sidebar {
+    flex-grow: 1;
+    max-width: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    background-color: light-dark(var(--primary-50), var(--surface-ground));
+    border-right: 1px solid light-dark(var(--primary-200), var(--surface-border));
+  }
+
+  .app-body {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+

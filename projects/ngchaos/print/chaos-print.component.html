@@ -1,0 +1,25 @@
+<div class="print">
+  <div class="print-toolbar">
+    <chaos-print-toolbar (onPrint)="print()"></chaos-print-toolbar>
+  </div>
+  
+  <ng-container *ngIf="sections.length">
+    <div class="print-body">
+      <ng-container *ngFor="let section of sections">
+        <div class="print-section" 
+          [ngClass]="paperSize()"
+          [style]="{
+            fontFamily: fontFamily(),
+            fontSize: fontSize(),
+            fontWeight: fontWeight(),
+          }">
+          <ng-container
+            [ngTemplateOutlet]="section"
+            [ngTemplateOutletContext]="{ $implicit: config }">
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+  
+</div>

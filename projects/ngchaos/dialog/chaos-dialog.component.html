@@ -1,0 +1,92 @@
+
+<p-dialog
+  [focusOnShow]="focusOnShow"
+  [autofocus]="autofocus"
+  [styleClass]="'chaos-dialog'"
+  [modal]="modal"
+  [dismissableMask]="dismissableMask"
+  [draggable]="draggable"
+  [closable]="false"
+  [appendTo]="appendTo"
+  [style]="style"
+  [contentStyle]="{ padding: '0px' }"
+  [(visible)]="visible">
+
+  <!-- Header -->
+  <ng-template pTemplate="header">
+    <div class="w-full border-bottom-1 border-400 {{ headerStyleClass }}">
+      <div class="flex align-items-center justify-content-between">
+        <div class="flex align-items-center">
+          <ng-container *ngIf="showBack">
+            <div class="mr-2">
+              <button type="button"
+                (click)="onBackClick.emit()"
+                class="p-button-text p-button-rounded p-button-secondary mr-2"
+                icon="pi pi-arrow-left"
+                pButton>
+              </button>
+            </div>
+          </ng-container>
+          <div>
+            <ng-container *ngIf="showHeader">
+              <div class="text-xl font-bold">
+                {{ header || "Dialog" }}
+              </div>
+            </ng-container>
+            <ng-container *ngIf="showSubHeader">
+              <div class="text-muted">
+                {{ subHeader || "" }}
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div>
+          <ng-container *ngIf="showEdit">
+            <button type="button"
+              (click)="onEditClick.emit(data)"
+              class="p-button-text p-button-rounded p-button-warning mr-2"
+              icon="pi pi-pencil"
+              pButton>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="showTrash">
+            <button type="button"
+              (click)="onTrashClick.emit(data)"
+              class="p-button-text p-button-rounded p-button-danger mr-2"
+              icon="pi pi-trash"
+              pButton>
+            </button>
+          </ng-container>
+          <ng-container *ngIf="showClose">
+            <button type="button"
+              (click)="onClose()"
+              class="p-button-text p-button-rounded p-button-secondary mr-2"
+              icon="pi pi-times"
+              pButton>
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Content -->
+  <div [class]="contentStyleClass">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Footer -->
+  <ng-container *ngIf="footerTemplate">
+    <ng-template pTemplate="footer">
+      <div class="w-full border-top-1 border-400 p-3">
+        <div [class]="footerStyleClass">
+          <ng-container
+            [ngTemplateOutlet]="footerTemplate"
+            [ngTemplateOutletContext]="{ $implicit: header }">
+          </ng-container>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+
+</p-dialog>

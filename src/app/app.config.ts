@@ -11,6 +11,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import MyPreset from '../preset/preset';
+import { ChaosModule } from 'ngchaos/core';
+import { ChaosAuthModule } from 'ngchaos/auth';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, '/i18n/', '.json');
@@ -32,6 +34,18 @@ export const appConfig: ApplicationConfig = {
           deps: [HttpClient],
         },
       }),
+      ChaosModule.forRoot({
+        appId: 'prime',
+        clientId: 'prime',
+        title: 'prime',
+        subTitle: 'prime project management',
+        icon: 'logo.png',
+        endpoint: 'http://localhost:8080',
+        databaseUrl: 'http://localhost:8080/api',
+        authPath: '/auth',
+        home: '/home'
+      }),
+      ChaosAuthModule.forRoot(),
     ]),
     provideAnimationsAsync(),
     providePrimeNG({

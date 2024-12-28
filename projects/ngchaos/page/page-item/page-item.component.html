@@ -1,0 +1,11 @@
+<a (click)="onSelect.emit()"
+  class="menu-item">
+    <ng-container *ngIf="icon">
+      <span class="material-symbols-outlined w-3rem">
+        {{ icon }}
+      </span>
+    </ng-container>
+    <span class="menu-text">
+      {{ label }}
+    </span>
+</a>

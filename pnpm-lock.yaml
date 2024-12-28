@@ -38,9 +38,15 @@ dependencies:
   '@primeng/themes':
     specifier: ^19.0.1
     version: 19.0.1
+  '@worktile/gantt':
+    specifier: ^18.0.5
+    version: 18.0.5(@angular/cdk@19.0.4)(@angular/common@19.0.5)(@angular/core@19.0.5)(date-fns@4.1.0)(rxjs@7.8.1)
   chart.js:
     specifier: ^4.4.7
     version: 4.4.7
+  date-fns:
+    specifier: ^4.1.0
+    version: 4.1.0
   ngx-drag-drop:
     specifier: ^18.0.2
     version: 18.0.2(@angular/common@19.0.5)(@angular/core@19.0.5)
@@ -3427,6 +3433,23 @@ packages:
       '@xtuc/long': 4.2.2
     dev: true
 
+  /@worktile/gantt@18.0.5(@angular/cdk@19.0.4)(@angular/common@19.0.5)(@angular/core@19.0.5)(date-fns@4.1.0)(rxjs@7.8.1):
+    resolution: {integrity: sha512-LCcWaFBmeg5u9cVDEmREHdR+qJJHE3Ld4VxdoJpTXfhDkx2f19tp0wMR9MkwOLRwwTCx/5gGJ1kTbz4P0Zfc1Q==}
+    peerDependencies:
+      '@angular/cdk': '>=17.0.0'
+      '@angular/common': '>=17.0.0'
+      '@angular/core': '>=17.0.0'
+      date-fns: '>=2.0.0'
+      rxjs: ^6.5.0 || ^7.0.0
+    dependencies:
+      '@angular/cdk': 19.0.4(@angular/common@19.0.5)(@angular/core@19.0.5)(rxjs@7.8.1)
+      '@angular/common': 19.0.5(@angular/core@19.0.5)(rxjs@7.8.1)
+      '@angular/core': 19.0.5(rxjs@7.8.1)(zone.js@0.15.0)
+      date-fns: 4.1.0
+      rxjs: 7.8.1
+      tslib: 2.8.1
+    dev: false
+
   /@xtuc/ieee754@1.2.0:
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
     dev: true
@@ -4161,6 +4184,10 @@ packages:
   /custom-event@1.0.1:
     resolution: {integrity: sha512-GAj5FOq0Hd+RsCGVJxZuKaIDXDf3h6GQoNEjFgbLLI/trgtavwUbSnZ5pVfg27DVCaWjIohryS0JFwIJyT2cMg==}
     dev: true
+
+  /date-fns@4.1.0:
+    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
+    dev: false
 
   /date-format@4.0.14:
     resolution: {integrity: sha512-39BOQLs9ZjKh0/patS9nrT8wc3ioX3/eA/zgbKNopnF2wCqJEoxywwwElATYvRsXdnOxA/OQeQoFZ3rFjVajhg==}

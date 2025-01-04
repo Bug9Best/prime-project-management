@@ -1,0 +1,98 @@
+{
+    "LANGUAGE": "English",
+    "SEARCH_TEXT": "Search",
+  
+    "TITLE_PLANNING": "Planning",
+    "MENU_DASHBOARD": "Dashboard",
+    "TITLE_DASHBOARD": "Dashboard",
+    "DASHBOARD_PROJECT_TASK": "Project Task",
+    "DASHBOARD_PROJECT_INFO": "Project Info",
+    "DASHBOARD_PROJECT_ACTIVITY": "Recent Activity",
+  
+    "MENU_GANTT": "Gantt Chart",
+    "TITLE_GANTT": "Gantt Chart",
+    "TITLE_GANTT_CHART": "Task Title",
+  
+    "MENU_WORK_BREAK_DOWN": "Work Break Down",
+    "TITLE_WORK_BREAK_DOWN": "Work Break Down",
+  
+    "MENU_SPRINT": "Sprint",
+    "TITLE_SPRINT": "Sprint",
+    "PAGE_SPRINT_EMPTY" :"No sprint in this project. Please create a new sprint.",
+    "TITLE_DETAIL_SPRINT": "Sprint Detail",
+  
+    "MENU_BACKLOG": "Backlog",
+    "TITLE_BACKLOG": "Backlog",
+    "TITLE_ISSUE": "Task",
+    "LABEL_NO_SPRINT": "No Sprint",
+    "DESCRIPTION_NO_SPRINT": "There is no sprint in this project. Please create a new sprint.",
+    "BUTTON_CREATE_SPRINT": "Create new sprint",
+    "LABEL_NO_ISSUE": "No Task",
+    "DESCRIPTION_NO_ISSUE": "There is no task in this project. Please create a new task.",
+    "BUTTON_CREATE_ISSUE": "Create new task",
+    "TITLE_DETAIL_ISSUE": "Task Detail",
+  
+    "MENU_TIMELINE": "Timeline",
+    "TITLE_TIMELINE": "Timeline",
+  
+    "MENU_LIST": "Task",
+    "TITLE_LIST": "Task",
+    "BUTTON_CREATE_LIST": "Create new Task",
+    "PAGE_ISSUE_EMPTY": "No task in this project. Please create a new task.",
+    
+    "MENU_BOARD": "Board",
+    "TITLE_BOARD": "Board",
+    "BUTTON_LABEL_BOARD_ADD": "Add New Board",
+  
+    "MENU_RESOURCE": "Project Resource",
+    "TITLE_RESOURCE": "Project Resource",
+    "BUTTON_ADD_RESOURCE_LABEL": "Create Resource",
+    "PAGE_RESOURCE_EMPTY": "No resource in this project.",
+  
+    "TITLE_CONFIG": "Configuration",
+    "MENU_PROJECT_MEMBER": "Project Member",
+    "BUTTON_LABEL_ADD_MEMBER": "Add Member",
+  
+    "MENU_PROJECT_SETTING": "Project Setting",
+  
+    "BUTTON_CREATE": "Create",
+    "BUTTON_SAVE": "Save",
+    "BUTTON_CANCEL": "Cancel",
+    "BUTTON_CLOSE": "Close",
+  
+    "FOOTER_UNIVERSITY_NAME": "King Mongkut's Institute of Technology Ladkrabang",
+    "FOOTER_UNIVERSITY_LOCATE": "1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520, Thailand",
+    "FOOTER_CONTACT": "Contact Us",
+
+    "SECTION_GET_START": "Get Started",
+    "SECTION_FEATURES": "Features",
+    "SECTION_DEVELOPERS": "Developers Team",
+
+    "FEATURE_TITLE": "One Product, ",
+    "FEATURE_TITLE_EXTRA": "Many Solutions",
+    "FEATURE_DESCRIPTION": "Our platform is designed to help you build and scale your business with ease.",
+    "FEATURE_SCRUM": "Scrum",
+    "FEATURE_SCRUM_DESCRIPTION": "Framework that helps teams organize tasks, assign them to team members, and efficiently track task progress within well-defined work cycles.",
+    "FEATURE_WATER_FALL": "Waterfall",
+    "FEATURE_WATER_FALL_DESCRIPTION": "Project development model that emphasizes a clear sequence of steps, starting from requirement gathering, design, development, and testing.",
+    "FEATURE_KANBAN": "Kanban",
+    "FEATURE_KANBAN_DESCRIPTION": "Tool that provides an overview of tasks in the form of boards, helping to flexibly manage and track task progress across different stages of the workflow.",
+    "FEATURE_MEMBER": "Project Member",
+    "FEATURE_MEMBER_DESCRIPTION": "System for managing project team members, allowing roles to be assigned and permissions to be defined, ensuring smooth and efficient collaboration.",
+    "FEATURE_RESOURCE": "Project Resource",
+    "FEATURE_RESOURCE_DESCRIPTION": "Centralized space for collecting all project-related documents, making storage and access convenient while aligning with project requirements.",
+    "FEATURE_NOTIFY": "Notification",
+    "FEATURE_NOTIFY_DESCRIPTION": "System that alerts team members about important project updates, including notifications for assigned tasks or issues, via both in-system alerts and emails.",
+  
+    "DEVELOPER_TEAM_TITLE": "Developers Team",
+    "DEVELOPER_TEAM_DESCRIPTION": "We take pride in our diverse and dedicated development team. Every member plays a crucial role in the creation and success of the Prime Project Manager.",
+    "DEVELOPER_TEAM_DESCRIPTION_EXTRA": "Get to know the team members who are ready to work hard and are committed to bringing your project to success.",
+    "ADVISER_PORNSUREE": "Asst.Prof.Dr. Pornsuree Jamsri",
+    "ADVISER_PORNSUREE_POSITION": "Project Adviser",
+    "ADVISER_TARAVICHET": "Asst.Prof.Dr. Taravichet Titijaroonroj",
+    "ADVISER_TARAVICHET_POSITION": "Project Adviser",
+    "DEVELOPER_NATTHAPHON": "PO1 Natthaphon Ditthaviboon",
+    "DEVELOPER_NATTHAPHON_POSITION": "Software Developer",
+    "DEVELOPER_PHURI": "Mr. Phuri Siripool",
+    "DEVELOPER_PHURI_POSITION": "Software Developer"
+  }

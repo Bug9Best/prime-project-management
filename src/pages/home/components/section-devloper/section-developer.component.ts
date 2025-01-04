@@ -1,0 +1,16 @@
+import { Component } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { listProjectContributes } from '../../../../data/project-ontributes';
+
+@Component({
+  selector: 'section-developer',
+  imports: [
+    TranslateModule
+  ],
+  templateUrl: './section-developer.component.html',
+  styleUrl: './section-developer.component.scss'
+})
+export class SectionDeveloper {
+
+  listProjectContributes = listProjectContributes;
+}

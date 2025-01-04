@@ -1,0 +1,20 @@
+<div class="surface-overlay px-4 py-2 md:px-6 lg:px-8">
+  <div class="grid">
+    <div class="surface-overlay w-full text-center mb-4">
+      <div class="text-900 text-5xl font-bold mb-3"> {{ 'DEVELOPER_TEAM_TITLE' | translate }} </div>
+      <p class="text-700 text-lg line-height-3 m-0"> {{ 'DEVELOPER_TEAM_DESCRIPTION' | translate }} </p>
+      <p class="text-700 text-lg line-height-3 m-0"> {{ 'DEVELOPER_TEAM_DESCRIPTION_EXTRA' | translate }} </p>
+    </div>
+    <div class="col-12 lg:col-12 text-center">
+      <div class="grid">
+        @for (item of listProjectContributes; track $index) {
+          <div class="col-12 md:col-6 p-3">
+            <img [src]="item.imageURL" class="mb-4 w-full md:w-20rem" />
+            <div class="font-medium text-xl mb-1 text-900"> {{ item.full_name| translate }} </div>
+            <span class="text-600 font-medium"> {{ item.position| translate }} </span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

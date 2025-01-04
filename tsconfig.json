@@ -3,11 +3,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "paths": {
-      "ngchaos/*": [
-        "./projects/ngchaos/*/index.ts"
-      ],
-    },
+    "paths": {},
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,

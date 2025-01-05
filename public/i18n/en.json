@@ -68,6 +68,13 @@
     "SECTION_FEATURES": "Features",
     "SECTION_DEVELOPERS": "Developers Team",
 
+    "BUTTON_SIGNIN":"Sign In",
+    "BUTTON_SIGNUP":"Sign Up",
+
+    "GETSTART_TITLE": "Make project simple and Efficient with",
+    "GETSTART_DESCRIPTION": "Prime Project Manager is a project management software that helps you plan, track, and manage your projects effectively. It is a simple and easy-to-use tool that helps you manage your projects efficiently.",
+    "GETSTART_BUTTON":"Get Started",
+
     "FEATURE_TITLE": "One Product, ",
     "FEATURE_TITLE_EXTRA": "Many Solutions",
     "FEATURE_DESCRIPTION": "Our platform is designed to help you build and scale your business with ease.",
@@ -85,8 +92,7 @@
     "FEATURE_NOTIFY_DESCRIPTION": "System that alerts team members about important project updates, including notifications for assigned tasks or issues, via both in-system alerts and emails.",
   
     "DEVELOPER_TEAM_TITLE": "Developers Team",
-    "DEVELOPER_TEAM_DESCRIPTION": "We take pride in our diverse and dedicated development team. Every member plays a crucial role in the creation and success of the Prime Project Manager.",
-    "DEVELOPER_TEAM_DESCRIPTION_EXTRA": "Get to know the team members who are ready to work hard and are committed to bringing your project to success.",
+    "DEVELOPER_TEAM_DESCRIPTION": "We take pride in our diverse and dedicated development team. Every member plays a crucial role in the creation and success of the Prime Project Manager. Get to know the team members who are ready to work hard and are committed to bringing your project to success.",
     "ADVISER_PORNSUREE": "Asst.Prof.Dr. Pornsuree Jamsri",
     "ADVISER_PORNSUREE_POSITION": "Project Adviser",
     "ADVISER_TARAVICHET": "Asst.Prof.Dr. Taravichet Titijaroonroj",

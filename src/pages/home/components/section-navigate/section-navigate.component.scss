@@ -1,0 +1,20 @@
+.hover-primary {
+    color: var(--surface-600);
+}
+
+.hover-primary:hover {
+    color: var(--surface-900);
+    background-color: var(--surface-100);
+}
+
+@media (min-width: 1024px) {
+    .lg-hover-primary {
+        color: white;
+        background-color: var(--blue-500);
+    }
+
+    .lg-hover-primary:hover {
+        color: white;
+        background-color: var(--blue-600);
+    }
+}

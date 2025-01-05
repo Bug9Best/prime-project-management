@@ -1,18 +1,19 @@
-<div class="surface-overlay px-4 py-5 md:px-6 lg:px-8 text-center">
+<div class="px-4 py-5 md:px-6 lg:px-8 text-center">
   <div class="mb-1 font-bold text-5xl">
-    <span class="text-900">{{ "FEATURE_TITLE" | translate}}</span>
-    <span class="text-blue-600">{{ "FEATURE_TITLE_EXTRA" | translate}}</span>
+    <span>{{ "FEATURE_TITLE" | translate}}</span>
+    <span class="text-blue-500">{{ "FEATURE_TITLE_EXTRA" | translate}}</span>
   </div>
-  <div class="text-lg text-700 mb-8">
+  <div class="text-lg mb-8">
     <span>{{ "FEATURE_DESCRIPTION" | translate}}</span>
   </div>
   <div class="grid">
     @for (item of listFeatures; track $index) {
       <div class="col-12 md:col-4 sm:col-6 mb-4 px-5">
-        <span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
+        <span style="border-radius: 10px"
+          class="p-3 shadow-2 mb-3 inline-block transition-delay-100">
           <i class="pi text-4xl text-blue-500" [class]="item.icon"></i>
         </span>
-        <div class="text-900 text-xl mb-3 font-medium">{{ item.title | translate}}</div>
+        <div class="text-xl mb-3 font-medium">{{ item.title | translate}}</div>
         <span class="text-700 line-height-3"> {{ item.description | translate}} </span>
       </div>
     }

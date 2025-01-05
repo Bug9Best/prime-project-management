@@ -1,4 +1,4 @@
-import { Component, inject, output } from '@angular/core';
+import { Component, ElementRef, inject, output, ViewChild } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
@@ -40,8 +40,18 @@ export class SectionNavigate {
     this.onSignUpEvent.emit(true);
   }
 
+  @ViewChild('overlay') overlay!: ElementRef;
+  onOpenOverlayPanel() {
+    this.overlay.nativeElement.style.display = 'block';
+  }
+
+  onCloseOverlayPanel() {
+    this.overlay.nativeElement.style.display = 'none';
+  }
+
   translateService = inject(TranslateService);
   changeLanguage(lang: string) {
     this.translateService.use(lang);
+    this.onCloseOverlayPanel();
   }
 }

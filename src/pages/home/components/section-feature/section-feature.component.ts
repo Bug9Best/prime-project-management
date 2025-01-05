@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { listProjectFeatures } from '../../../../data/project-features';
+import { Component } from '@angular/core';
+import { listProjectFeatures, ProjectFeature } from '../../../../data/project-features';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 
@@ -14,5 +14,5 @@ import { CommonModule } from '@angular/common';
 })
 export class SectionFeature {
 
-  listFeatures = listProjectFeatures;
+  listFeatures: ProjectFeature[] = listProjectFeatures;
 }

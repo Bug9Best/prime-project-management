@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { listProjectContributes } from '../../../../data/project-ontributes';
+import { listProjectContributes, ProjectContribute } from '../../../../data/project-ontributes';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -14,5 +14,5 @@ import { CommonModule } from '@angular/common';
 })
 export class SectionDeveloper {
 
-  listProjectContributes = listProjectContributes;
+  listProjectContributes: ProjectContribute[] = listProjectContributes;
 }

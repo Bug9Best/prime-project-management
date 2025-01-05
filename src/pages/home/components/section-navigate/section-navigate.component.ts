@@ -5,6 +5,12 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { CommonModule } from '@angular/common';
 import { StyleClass } from 'primeng/styleclass';
 
+export interface menuItem {
+  id: number;
+  label: string;
+  element: string;
+}
+
 @Component({
   selector: 'section-navigate',
   imports: [
@@ -19,38 +25,38 @@ import { StyleClass } from 'primeng/styleclass';
 })
 export class SectionNavigate {
 
-  listMenu: any[] = [
+  listMenu: menuItem[] = [
     { id: 1, label: 'SECTION_GET_START', element: 'getstarted' },
     { id: 2, label: 'SECTION_FEATURES', element: 'features' },
     { id: 3, label: 'SECTION_DEVELOPERS', element: 'team' },
   ];
 
   onScrollToElementEvent = output<string>();
-  onScrollToElement(element: string) {
+  onScrollToElement(element: string): void {
     this.onScrollToElementEvent.emit(element);
   }
 
   onSignInEvent = output<boolean>();
-  onSignin() {
+  onSignin(): void {
     this.onSignInEvent.emit(true);
   }
 
   onSignUpEvent = output<boolean>();
-  onSignup() {
+  onSignup(): void {
     this.onSignUpEvent.emit(true);
   }
 
   @ViewChild('overlay') overlay!: ElementRef;
-  onOpenOverlayPanel() {
+  onOpenOverlayPanel(): void {
     this.overlay.nativeElement.style.display = 'block';
   }
 
-  onCloseOverlayPanel() {
+  onCloseOverlayPanel(): void {
     this.overlay.nativeElement.style.display = 'none';
   }
 
   translateService = inject(TranslateService);
-  changeLanguage(lang: string) {
+  changeLanguage(lang: string): void {
     this.translateService.use(lang);
     this.onCloseOverlayPanel();
   }

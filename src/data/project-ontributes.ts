@@ -1,4 +1,10 @@
-export var listProjectContributes = [
+export interface ProjectContribute {
+  full_name: string;
+  position: string;
+  imageURL: string;
+}
+
+export var listProjectContributes: ProjectContribute[] = [
   {
     full_name: 'ADVISER_PORNSUREE',
     position: 'ADVISER_PORNSUREE_POSITION',

@@ -1,4 +1,10 @@
-export var listProjectFeatures = [
+export interface ProjectFeature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export var listProjectFeatures: ProjectFeature[] = [
   {
     title: 'FEATURE_SCRUM',
     description: 'FEATURE_SCRUM_DESCRIPTION',

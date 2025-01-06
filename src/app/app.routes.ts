@@ -5,5 +5,9 @@ export const routes: Routes = [
   {
     path: '',
     component: HomePage
+  },
+  {
+    path: 'workspace',
+    loadChildren: () => import('../pages/workspace/workspace.module').then(m => m.WorkspaceModule)
   }
 ];

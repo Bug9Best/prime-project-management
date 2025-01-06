@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { listProjectContributes, ProjectContribute } from '../../../../data/project-ontributes';
+import { listProjectContributes, ProjectContribute } from '../../../../public/data/project-ontributes';
 import { CommonModule } from '@angular/common';
 
 @Component({

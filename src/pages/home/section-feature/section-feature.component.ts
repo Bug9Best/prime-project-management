@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { listProjectFeatures, ProjectFeature } from '../../../../data/project-features';
+import { listProjectFeatures, ProjectFeature } from '../../../../public/data/project-features';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 

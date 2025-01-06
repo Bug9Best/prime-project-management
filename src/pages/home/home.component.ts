@@ -1,8 +1,8 @@
 import { Component, inject, ViewChild } from '@angular/core';
-import { SectionNavigate } from './components/section-navigate/section-navigate.component';
-import { SectionGetstart } from './components/section-getstart/section-getstart.component';
-import { SectionFeature } from './components/section-feature/section-feature.component';
-import { SectionDeveloper } from './components/section-devloper/section-developer.component';
+import { SectionNavigate } from './section-navigate/section-navigate.component';
+import { SectionGetstart } from './section-getstart/section-getstart.component';
+import { SectionFeature } from './section-feature/section-feature.component';
+import { SectionDeveloper } from './section-devloper/section-developer.component';
 import { environment } from '../../environments/environment';
 
 @Component({

@@ -1,4 +1,4 @@
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { SectionNavigate } from './section-navigate/section-navigate.component';
 import { SectionGetstart } from './section-getstart/section-getstart.component';
 import { SectionFeature } from './section-feature/section-feature.component';

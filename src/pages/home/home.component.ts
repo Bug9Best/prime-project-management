@@ -4,6 +4,7 @@ import { SectionGetstart } from './section-getstart/section-getstart.component';
 import { SectionFeature } from './section-feature/section-feature.component';
 import { SectionDeveloper } from './section-devloper/section-developer.component';
 import { environment } from '../../environments/environment';
+import { SectionFooter } from './section-footer/section-footer.component';
 
 @Component({
   selector: 'home-page',
@@ -12,6 +13,7 @@ import { environment } from '../../environments/environment';
     SectionGetstart,
     SectionFeature,
     SectionDeveloper,
+    SectionFooter
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

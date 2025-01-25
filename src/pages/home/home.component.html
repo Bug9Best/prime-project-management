@@ -1,24 +1,30 @@
-<section-navigate 
-  (onScrollToElementEvent)="onScrollToElementEvent($event)"
-  (onSignInEvent)="onSignin()"
-  (onSignUpEvent)="onSignUp()">
-</section-navigate>
-<div>
-  <div class="px-8">
-    <section class="first section page-container" id="getstarted">
-      <section-getstart>
-      </section-getstart>
-    </section>
+<div class="surface-section">
+  <section-navigate 
+    (onScrollToElementEvent)="onScrollToElementEvent($event)"
+    (onSignInEvent)="onSignin()"
+    (onSignUpEvent)="onSignUp()">
+  </section-navigate>
+  <div>
+    <div class="px-8">
+      <section class="first section page-container" id="getstarted">
+        <section-getstart>
+        </section-getstart>
+      </section>
 
-    <section class="section page-container" id="features">
-      <section-feature>
-      </section-feature>
-    </section>
+      <section class="section page-container" id="features">
+        <section-feature>
+        </section-feature>
+      </section>
 
-    <section class="section page-container" id="team">
-      <section-developer>
-      </section-developer>
+      <section class="section page-container" id="team">
+        <section-developer>
+        </section-developer>
+      </section>
+    </div>
+
+    <section class="section " id="contact">
+      <section-footer>
+      </section-footer>
     </section>
   </div>
 </div>
-

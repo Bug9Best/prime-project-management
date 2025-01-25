@@ -29,6 +29,7 @@ export class SectionNavigate {
     { id: 1, label: 'SECTION_GET_START', element: 'getstarted' },
     { id: 2, label: 'SECTION_FEATURES', element: 'features' },
     { id: 3, label: 'SECTION_DEVELOPERS', element: 'team' },
+    { id: 3, label: 'SECTION_CONTACT', element: 'contact' },
   ];
 
   onScrollToElementEvent = output<string>();

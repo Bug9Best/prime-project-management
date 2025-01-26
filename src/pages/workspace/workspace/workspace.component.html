@@ -1,1 +1,11 @@
-<p>workspace works!</p>
+<workspace-topbar>
+  <div class="app-content-height flex flex-row">
+    <workspace-sidebar 
+      (onChangeTabIndexEvent)="currentTabIndex = $event">
+    </workspace-sidebar>
+
+    <workspace-content 
+      [currentTabIndex]="currentTabIndex">
+    </workspace-content>
+  </div>
+</workspace-topbar>

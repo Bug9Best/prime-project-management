@@ -4,8 +4,8 @@
       @for (item of listMenu; track $index) {
         @if (item.type === 'menu') {
           <li>
-            <a pRipple (click)="onChangeTabIndex(item.tabIndex)"
-              class="flex align-items-center cursor-pointer border-round text-700 hover:surface-100 mb-2 p-3 transition-duration-150 transition-colors"
+            <a pRipple (click)="onChangeTabIndex(item.tabIndex)" style="padding: .75rem;"
+              class="flex align-items-center cursor-pointer border-round text-700 hover:surface-100 mb-2 transition-duration-150 transition-colors"
               [ngClass]="{'text-white bg-blue-400 hover:bg-blue-400': currentTabIndex === item.tabIndex}">
               <i class="pi mr-2" [ngClass]="item.icon"></i>
               <span class="text-sm font-medium"> {{ item.label | translate }} </span>

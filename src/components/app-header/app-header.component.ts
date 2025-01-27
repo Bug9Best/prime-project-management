@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { DividerModule } from 'primeng/divider';
@@ -5,6 +6,7 @@ import { DividerModule } from 'primeng/divider';
 @Component({
   selector: 'app-header',
   imports: [
+    CommonModule,
     DividerModule,
     TranslateModule
   ],
@@ -15,4 +17,7 @@ export class AppHeader {
 
   @Input()
   title: string = 'Default';
+
+  @Input()
+  subtitle?: string;
 }

@@ -4,6 +4,13 @@
 @import "primeicons/primeicons.css";
 @import "primeflex/themes/primeone-light.css";
 
+:root {
+    --topbar-height: 80px;
+    --sidebar-width: 325px;
+    --content-height: calc(100vh - var(--topbar-height));
+    --content-height-with-padding: calc(100vh - var(--topbar-height) - 2rem);
+}
+
 html {
     box-sizing: border-box;
     font-size: 0.875rem;
@@ -18,6 +25,23 @@ body {
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--surface-ground);
+}
+
+.topbar-height {
+    height: var(--topbar-height);
+}
+
+.sidebar-width {
+    width: var(--sidebar-width);
+}
+
+.content-height {
+    height: var(--content-height);
+}
+
+.content-height-with-padding {
+    height: var(--content-height-with-padding);
 }
 
 .phantom-scrollbar::-webkit-scrollbar {

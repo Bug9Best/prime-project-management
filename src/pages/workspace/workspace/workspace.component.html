@@ -4,8 +4,10 @@
       (onChangeTabIndexEvent)="currentTabIndex = $event">
     </workspace-sidebar>
 
-    <workspace-content 
-      [currentTabIndex]="currentTabIndex">
-    </workspace-content>
+    <div class="w-full">
+      <workspace-content 
+        [currentTabIndex]="currentTabIndex">
+      </workspace-content>
+    </div>
   </div>
 </workspace-topbar>

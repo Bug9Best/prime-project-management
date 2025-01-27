@@ -1,8 +1,8 @@
 <div class="w-full p-3">
   <div class="flex align-items-center justify-content-between">
     <div class="flex flex-column">
-      <div class="text-2xl font-medium text-900">{{ title | translate }}</div>
-      <div *ngIf="subtitle" class="text-sm text-500 ">{{ subtitle | translate }}</div>
+      <div class="text-2xl font-medium text-900 select-none">{{ title | translate }}</div>
+      <div *ngIf="subtitle" class="text-sm text-500 select-none">{{ subtitle | translate }}</div>
     </div>
     <ng-content>
     </ng-content>

@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { DividerModule } from 'primeng/divider';
 import { AppHeader } from '../../../components/app-header/app-header.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppFilter } from '../../../components/app-filter/app-filter.component';
-import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { AccordionModule } from 'primeng/accordion';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
 
@@ -20,9 +18,6 @@ export type Mode = 'NONE' | 'GROUP';
     AppFilter,
     AppScrolling,
     ButtonModule,
-    DividerModule,
-
-    ScrollPanelModule,
     AccordionModule
   ],
   templateUrl: './workspace-content-project.component.html',

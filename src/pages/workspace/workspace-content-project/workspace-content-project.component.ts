@@ -10,6 +10,7 @@ import { AppDialog } from '../../../components/app-dialog/app-dialog.component';
 import { FormProjectCreate } from '../form-project-create/form-project-create.component';
 import { MessageService } from 'primeng/api';
 import { ProjectService } from '../../../services/project/project.service';
+import { Router } from '@angular/router';
 
 export type Mode = 'NONE' | 'GROUP';
 
@@ -45,6 +46,7 @@ export class WorkspaceContentProject {
   grouplistProject: { [key: string]: any[] } = {};
 
   constructor(
+    private router: Router,
     private messageService: MessageService,
     private projectService: ProjectService
   ) { }
@@ -199,5 +201,9 @@ export class WorkspaceContentProject {
           this.showMessage('error', 'Error', 'Create project failed');
         }
       });
+  }
+
+  onSelectedProject(project: any) {
+    this.router.navigate(['/project', project.id]);
   }
 }

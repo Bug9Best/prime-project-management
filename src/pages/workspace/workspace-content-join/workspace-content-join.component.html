@@ -6,11 +6,16 @@
       [ngClass]="{'text-blue-400 bg-blue-50': isShowToolbar}"
       (click)="isShowToolbar = !isShowToolbar">
     </button>
-    <button pButton
-      icon="pi pi-folder-plus"
-      label="Join Project"
-      class="border-round-lg">
-    </button>
+    <app-dialog 
+      [icon]="'pi pi-plus'"
+      [width]="'40vw'"
+      [label]="'WORKSPACE_BUTTON_PROJECT_JOIN'"
+      [header]="'WORKSPACE_BUTTON_PROJECT_JOIN'"
+      [submitLabel]="'BUTTON_JOIN'"
+      (onSubmitEvent)="onValidateForm()">
+        <form-project-join>
+        </form-project-join>
+    </app-dialog>
   </div>
 </app-header>
 <div *ngIf="isShowToolbar">
@@ -29,13 +34,15 @@
       @for (project of listProject; track $index) {
       <div class="col-12 sm:col-6 md:col-4 lg:col-3 select-none">
         <div class="selector-card surface-card shadow-1 border-round border-rounded-sm cursor-pointer">
-          <img src="http://dummyimage.com/250x150.png/ff4444/ff4444" height="150"
+          <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" height="150"
             class="mb-1 w-full border-round-top-sm" />
           <div class="flex flex-column px-3 pb-3">
             <div class="font-medium text-900">{{ project.project_name }}</div>
             <div class="text-sm text-500">{{ project.project_type }}</div>
-            <button pButton pRipple label="Join Project" 
-              class="p-button mt-2 w-full">
+            <button pButton pRipple 
+              class="p-button mt-2 w-full"
+              [label]="'WORKSPACE_BUTTON_PROJECT_JOIN' | translate" 
+              (click)="onJoinProjectManual(project)">
             </button>
           </div>
         </div>
@@ -52,13 +59,15 @@
               <div class="grid pt-2">
                 <div *ngFor="let project of project.value" class="col-12 sm:col-6 md:col-4 lg:col-3 select-none">
                   <div class="selector-card surface-card shadow-1 border-round border-rounded-sm cursor-pointer">
-                    <img src="http://dummyimage.com/250x150.png/ff4444/ff4444" height="150"
-                      class="mb-1 w-full border-round-top-sm" />
+                  <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" height="150"
+                    class="mb-1 w-full border-round-top-sm" />
                     <div class="flex flex-column px-3 pb-3">
                       <div class="font-medium text-900">{{ project.project_name }}</div>
                       <div class="text-sm text-500">{{ project.project_type }}</div>
-                      <button pButton pRipple label="Join Project" 
-                        class="p-button mt-2 w-full">
+                      <button pButton pRipple 
+                        class="p-button mt-2 w-full"
+                        [label]="'WORKSPACE_BUTTON_PROJECT_JOIN' | translate" 
+                        (click)="onJoinProjectManual(project)">
                       </button>
                     </div>
                   </div>

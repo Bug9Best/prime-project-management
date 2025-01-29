@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { AppHeader } from '../../../components/app-header/app-header.component';
@@ -7,17 +7,25 @@ import { AppFilter } from '../../../components/app-filter/app-filter.component';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
 import { Mode } from '../workspace-content-project/workspace-content-project.component';
 import { AccordionModule } from 'primeng/accordion';
+import { AppDialog } from '../../../components/app-dialog/app-dialog.component';
+import { FormProjectJoin } from '../form-project-join/form-project-join.component';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ProjectService } from '../../../services/project/project.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'workspace-content-join',
   imports: [
     CommonModule,
     AppHeader,
+    AppDialog,
     AppFilter,
     AppScrolling,
+    FormProjectJoin,
     InputTextModule,
     ButtonModule,
-    AccordionModule
+    AccordionModule,
+    TranslateModule
   ],
   templateUrl: './workspace-content-join.component.html',
   styleUrl: './workspace-content-join.component.scss'
@@ -38,28 +46,26 @@ export class WorkspaceContentJoin {
   templistProject: any[] = [];
   grouplistProject: { [key: string]: any[] } = {};
 
+  constructor(
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+    private translaterService: TranslateService,
+    private projectService: ProjectService
+  ) { }
+
   ngOnInit() {
-    this.listProject = [
-      {
-        id: 1,
-        project_name: "Y-find",
-        project_type: "Scrum Project",
-        created_at: "10/1/2024"
-      },
-      {
-        id: 2,
-        project_name: "Konklux",
-        project_type: "Scrum Project",
-        created_at: "1/29/2024"
-      },
-      {
-        id: 3,
-        project_name: "Opela",
-        project_type: "Kanban Project",
-        created_at: "11/2/2024"
-      },
-    ];
-    this.templistProject = [...this.listProject];
+    this.getProjects();
+  }
+
+  getProjects() {
+    this.projectService
+      .getAllPublicProject()
+      .subscribe({
+        next: (response: any) => {
+          this.listProject = response.data;
+          this.templistProject = [...this.listProject];
+        },
+      });
   }
 
   onSearch(event: any) {
@@ -147,5 +153,74 @@ export class WorkspaceContentJoin {
       }
       this.listProject.sort(sortFunction);
     }
+  }
+
+  showMessage(severity: string, summary: string, detail: string): void {
+    this.messageService.add({
+      key: 'app',
+      severity: severity,
+      summary: summary,
+      detail: detail
+    });
+  }
+
+  resetForm() {
+    this.formProjectJoin.formGroup.reset();
+  }
+
+  @ViewChild(FormProjectJoin) formProjectJoin!: FormProjectJoin;
+  onValidateForm() {
+    if (this.formProjectJoin.formGroup.invalid) {
+      this.formProjectJoin.formGroup.markAllAsTouched();
+      console.log('Form invalid');
+      return;
+    }
+
+    let values = this.formProjectJoin.formGroup.value;
+    this.onJoinProject(values);
+  }
+
+  @ViewChild(AppDialog) appDialog!: AppDialog;
+  onJoinProject(param: any) {
+    this.projectService
+      .joinProject(param)
+      .subscribe({
+        next: (response) => {
+          this.showMessage('success', 'Success', 'Join project successfully');
+          this.appDialog.visible = false;
+          this.resetForm();
+          this.getProjects();
+        },
+        error: (error) => {
+          console.log(error);
+          this.showMessage('error', 'Error', 'Join project failed');
+        }
+      });
+  }
+
+  onJoinProjectManual(project: any) {
+    let lang = this.translaterService.currentLang;
+    let isThaiLanguage = lang === 'th';
+    this.confirmationService.confirm({
+      header: isThaiLanguage ? 'แน่ใจหรือไม่' : 'Confirmation',
+      message: isThaiLanguage ? 'ท่านต้องการเข้าร่วมโปรเจค "'+ project.project_name +'" หรือไม่?' : 'Are you sure you want to join "' + project.project_name + '" project?',
+      acceptLabel: isThaiLanguage ? 'ตกลง' : 'Join Project',
+      rejectLabel: isThaiLanguage ? 'ยกเลิก' : 'Cancel',
+      icon: 'pi pi-exclamation-circle',
+      accept: () => {
+        this.projectService
+          .joinProject(project.id)
+          .subscribe({
+            next: (response) => {
+              this.showMessage('success', 'Success', 'Join project successfully');
+              this.getProjects();
+            },
+            error: (error) => {
+              console.log(error);
+              this.showMessage('error', 'Error', 'Join project failed');
+            }
+          });
+      }
+    });
   }
 }

@@ -1,1 +1,18 @@
 <router-outlet />
+
+<p-toast 
+  key="app" 
+  position="bottom-right">
+</p-toast>
+
+<p-confirmDialog 
+  [header]="'แน่ใจหรือไม่?'" 
+  [baseZIndex]="9999" 
+  [style]="{ minWidth: '40vw' , maxWidth: '60vw'}"
+  icon="fas fa-exclamation-triangle"
+  acceptLabel="ตกลง" 
+  rejectLabel="ยกเลิก" 
+  acceptButtonStyleClass="p-button-success"
+  rejectButtonStyleClass="p-button-secondary p-button-text">
+</p-confirmDialog>
+

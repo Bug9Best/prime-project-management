@@ -17,6 +17,6 @@ export const routes: Routes = [
   },
   {
     path: 'project/:id',
-    loadChildren: () => import('../pages/project/project/project.module').then(m => m.ProjectModule)
+    loadChildren: () => import('../pages/project/project.module').then(m => m.ProjectModule)
   },
 ];

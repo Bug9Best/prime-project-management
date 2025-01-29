@@ -2,20 +2,24 @@
 <div class="px-3">
   <div class="flex justify-content-between align-items-center">
     <div class="flex">
-      <button pButton
-        icon="pi pi-th-large"
-        [label]="groupValue.value !== 'NONE' ? (groupValue.label | translate)  : ('APP_BUTTON_GROUP' | translate)"
-        [ngClass]="{'bg-blue-400 text-white border-round-lg' : groupValue.value !== 'NONE' }"
-        class="mr-2 p-button-secondary p-button-sm border-round-lg"
-        (click)="groupMenu.toggle($event)">
-      </button>
-      <button pButton
-        icon="pi pi-sort-alt"
-        [label]="'APP_BUTTON_SORT' | translate"
-        [ngClass]="{'bg-blue-400 text-white border-round-lg' : sortValue.value !== 'NONE' }"
-        class="p-button-secondary p-button-sm border-round-lg"
-        (click)="sortMenu.toggle($event)">
-      </button>
+      @if (showGroupList()) {
+        <button pButton
+          icon="pi pi-th-large"
+          [label]="groupValue.value !== 'NONE' ? (groupValue.label | translate)  : ('APP_BUTTON_GROUP' | translate)"
+          [ngClass]="{'bg-blue-400 text-white border-round-lg' : groupValue.value !== 'NONE' }"
+          class="mr-2 p-button-secondary p-button-sm border-round-lg"
+          (click)="groupMenu.toggle($event)">
+        </button>
+      }
+      @if (showSortList()) {
+        <button pButton
+          icon="pi pi-sort-alt"
+          [label]="'APP_BUTTON_SORT' | translate"
+          [ngClass]="{'bg-blue-400 text-white border-round-lg' : sortValue.value !== 'NONE' }"
+          class="p-button-secondary p-button-sm border-round-lg"
+          (click)="sortMenu.toggle($event)">
+        </button>
+      }
     </div>
     <div class="flex">
       <input pInputText
@@ -32,7 +36,7 @@
       </button>
     </div>
   </div>
-  <p-divider></p-divider>
+  <p-divider class="mb-3 pb-0"></p-divider>
 </div>
 
 <p-menu #groupMenu  [model]="groupItems" [popup]="true" class="flex justify-center">

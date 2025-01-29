@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, output } from '@angular/core';
+import { Component, model, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
@@ -24,6 +24,9 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
   styleUrl: './app-filter.component.scss'
 })
 export class AppFilter {
+
+  showGroupList = model<boolean>(true);
+  showSortList = model<boolean>(true);
 
   searchValue: string = '';
 
@@ -50,6 +53,10 @@ export class AppFilter {
 
   sortItems = [
     {
+      label: 'APP_FILTER_SORT_NONE',
+      value: 'NONE',
+    },
+    {
       label: 'APP_FILTER_SORT_NAME_ASC',
       value: 'NAME_ASC',
     },
@@ -68,19 +75,19 @@ export class AppFilter {
   ]
 
   setGroupValueEvent = output<any>();
-  setGroupValue(value: { label: string, value: string }) {
+  setGroupValue(value: { label: string, value: string }): void {
     this.groupValue = value;
     this.setGroupValueEvent.emit(value);
   }
 
   setSortValueEvent = output<any>();
-  setSortValue(value: { label: string, value: string }) {
+  setSortValue(value: { label: string, value: string }): void {
     this.sortValue = value;
     this.setSortValueEvent.emit(value);
   }
 
   onSearchEvent = output<string>();
-  onSearch() {
+  onSearch(): void {
     this.onSearchEvent.emit(this.searchValue);
   }
 }

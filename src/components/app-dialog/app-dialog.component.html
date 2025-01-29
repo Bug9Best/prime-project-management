@@ -3,6 +3,7 @@
     [icon]="icon()"
     [label]="label() | translate"
     [class]="buttonStyleClass()"
+    class="w-10rem"
     (click)="visible = true">
   </button>
 }
@@ -28,7 +29,7 @@
       (click)="visible = false" />
     <p-button 
       icon="pi pi-save"
-      [label]="'BUTTON_CREATE' | translate" 
+      [label]="submitLabel() | translate" 
       severity="primary" 
       styleClass="w-8rem"
       (click)="onSubmit()" />

@@ -32,6 +32,7 @@ export class AppDialog {
   closeOnEscape = input(true);
   dismissableMask = input(true);
   showHeader = input(true);
+  submitLabel = input('BUTTON_CREATE');
 
   onSubmitEvent = output<void>();
   onSubmit() {

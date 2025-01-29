@@ -20,10 +20,11 @@
               {{ form.label | translate }}
             </label>
             <div class="flex flex-column">
-              <input type="text" pInputText 
+              <input type="text" pInputText
                 [id]="form.label"
                 [placeholder]="form.label | translate" 
                 [readOnly]="form.disabled"
+                [maxlength]="form.maxLength || 255"
                 [formControlName]="form.field"
                 class="w-full">   
                 <ng-container *ngIf="invalid(form.field)">

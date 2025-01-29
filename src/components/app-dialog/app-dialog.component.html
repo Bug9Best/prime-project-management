@@ -1,0 +1,36 @@
+@if (showButton()) {
+  <button pButton
+    [icon]="icon()"
+    [label]="label() | translate"
+    [class]="buttonStyleClass()"
+    (click)="visible = true">
+  </button>
+}
+
+<p-dialog
+  [(visible)]="visible"
+  [header]="header() | translate"
+  [modal]="modal()"
+  [draggable]="draggable()"
+  [resizable]="resizable()"
+  [closable]="closable()"
+  [closeOnEscape]="closeOnEscape()"
+  [dismissableMask]="dismissableMask()"
+  [style]="{width: width()}">
+  <ng-content></ng-content>
+
+  <ng-template #footer>
+    <p-button 
+      severity="secondary" 
+      [label]="'BUTTON_CANCEL' | translate" 
+      [text]="true" 
+      styleClass="w-8rem"
+      (click)="visible = false" />
+    <p-button 
+      icon="pi pi-save"
+      [label]="'BUTTON_CREATE' | translate" 
+      severity="primary" 
+      styleClass="w-8rem"
+      (click)="onSubmit()" />
+  </ng-template>
+</p-dialog>

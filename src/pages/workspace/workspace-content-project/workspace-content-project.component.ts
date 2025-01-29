@@ -164,7 +164,6 @@ export class WorkspaceContentProject {
     this.formProjectCreate.formGroup.reset();
   }
 
-
   @ViewChild(FormProjectCreate) formProjectCreate!: FormProjectCreate;
   onValidateForm() {
     let project_type = this.formProjectCreate.getProjectType();
@@ -200,6 +199,5 @@ export class WorkspaceContentProject {
           this.showMessage('error', 'Error', 'Create project failed');
         }
       });
-
   }
 }

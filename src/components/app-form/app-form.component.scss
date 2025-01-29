@@ -1,0 +1,18 @@
+.required:after {
+    content: " *";
+    color: red;
+}
+
+.invalid-input {
+    color: red;
+    font-size: 12px;
+    margin-left: 2px;
+}
+
+:host ::ng-deep .p-togglebutton.p-togglebutton-checked {
+    color: white;
+}
+
+:host ::ng-deep .p-togglebutton.p-togglebutton-checked::before {
+    background-color: var(--blue-400);
+}

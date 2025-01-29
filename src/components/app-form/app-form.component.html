@@ -1,0 +1,113 @@
+<div [formGroup]="formGroup">
+  <div class="grid">
+    <ng-container *ngFor="let form of listForm">
+      <ng-container *ngIf="form.type == 'header'">
+        <div class="col-{{form.colWidth}} my-3">
+          <div class="font-bold">
+            {{ form.label }}
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="form.type == 'divider'">
+        <p-divider></p-divider>
+      </ng-container>
+
+      <ng-container *ngIf="form.type == 'text'">
+        <div class="col-{{form.colWidth}} mt-2">
+          <div class="flex flex-column">
+            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+              {{ form.label | translate }}
+            </label>
+            <div class="flex flex-column">
+              <input type="text" pInputText 
+                [id]="form.label"
+                [placeholder]="form.label | translate" 
+                [readOnly]="form.disabled"
+                [formControlName]="form.field"
+                class="w-full">   
+                <ng-container *ngIf="invalid(form.field)">
+                  <div class="invalid-input mb-2 ml-1">
+                    *กรุณากรอกข้อมูล
+                  </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="form.type == 'textarea'">
+        <div class="col-{{form.colWidth}} mt-2">
+          <div class="flex flex-column">
+            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+              {{ form.label | translate }}
+            </label>
+            <div class="flex flex-column">
+              <textarea pTextarea
+                rows="5"                
+                [id]="form.label"
+                [autoResize]="false"
+                [readOnly]="form.disabled"
+                [formControlName]="form.field">
+              </textarea>
+              <ng-container *ngIf="invalid(form.field)">
+                <div class="invalid-input mb-2 ml-1">
+                  *กรุณากรอกข้อมูล
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="form.type == 'toggle'">
+        <div class="col-{{form.colWidth}} mt-2">
+          <div class="flex flex-column">
+            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+              {{ form.label | translate }}
+            </label>
+            <div class="flex flex-column">
+              <p-selectbutton 
+                optionLabel="label"
+                optionValue="value"
+                [options]="toggleOptions"
+                [formControlName]="form.field">
+                <ng-template #item let-item>
+                  <div>{{ item.label | translate }}</div>
+                </ng-template>
+              </p-selectbutton>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="form.type == 'project_type'">
+        <div class="col-{{form.colWidth}} mt-2">
+          <div class="flex flex-column">
+            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+              {{ form.label | translate }}
+            </label>
+            <div class="grid">
+              @for (item of listProjectType; track $index) {
+                <div class="col-12 lg:col-4">
+                  <div class="shadow-1 border-round border-2 cursor-pointer surface-card h-full"
+                    [ngClass]="{'border-transparent': selectedProjectType !== item.value, 'border-blue-500': selectedProjectType === item.value, 'shadow-3': selectedProjectType === item.value}"
+                    (click)="selectedProjectType = item.value">
+                    <div class="p-3 flex flex-column align-items-center gap-3">
+                      <span class="flex justify-content-center align-items-center" [ngClass]="'bg-' + item.color + '-100'"
+                        style="border-radius: 4px; width: 45px; height: 45px">
+                        <i class="pi text-2xl" [ngClass]="item.icon + ' text-' + item.color + '-500'"></i>
+                      </span>
+                      <div class="text-900 text-xl font-medium"> {{ item.title | translate }} </div>
+                      <p class="m-0"> {{ item.description | translate }}</p>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>

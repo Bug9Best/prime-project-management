@@ -17,7 +17,15 @@ export interface ProjectsModel extends BaseModel {
 export class ProjectService extends BaseService<ProjectsModel> {
   public override path: string = "project";
 
+  getAllPublicProject() {
+    return this.client.get<any>(`${this.getBaseUrl}/getAllPublicProject`);
+  }
+
   createProject(project: any) {
     return this.client.post<any>(`${this.getBaseUrl}/createProject`, project);
+  }
+
+  joinProject(project: any) {
+    return this.client.post<any>(`${this.getBaseUrl}/joinProject`, project);
   }
 }

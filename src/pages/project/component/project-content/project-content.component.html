@@ -1,0 +1,40 @@
+<div class="content-height-with-padding w-full surface-section border-1 surface-border border-round shadow-1">
+  @switch (currentTabIndex) {
+    @case (0) {
+      <project-dashboard>
+      </project-dashboard>
+    }
+    @case (1) {
+      <project-sprint>
+      </project-sprint>
+    }
+    @case (2) {
+      <project-backlog>
+      </project-backlog>
+    }
+    @case (3) {
+      <project-gantt>
+      </project-gantt>
+    }
+    @case (4) {
+      <project-board>
+      </project-board>
+    }
+    @case (5) {
+      <project-task>
+      </project-task>
+    }
+    @case (6) {
+      <project-resource>
+      </project-resource>
+    }
+    @case (7) {
+      <project-member>
+      </project-member>
+    }
+    @case (8) {
+      <project-setting>
+      </project-setting>
+    }
+  }
+</div>

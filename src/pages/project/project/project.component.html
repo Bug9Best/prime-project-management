@@ -1,1 +1,14 @@
-<p>project works!</p>
+<project-topbar>
+  <div class="app-content-height flex gap-3">
+    <project-sidebar 
+      [projectType]="projectType"
+      (onChangeTabIndexEvent)="currentTabIndex = $event">
+    </project-sidebar>
+
+    <div class="w-full">
+      <project-content 
+        [currentTabIndex]="currentTabIndex">
+      </project-content>
+    </div>
+  </div>
+</project-topbar>

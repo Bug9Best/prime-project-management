@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { WorkspaceContentProject } from '../workspace-content-project/workspace-content-project.component';
-import { WorkspaceContentMember } from '../workspace-content-member/workspace-content-member.component';
-import { WorkspaceContentJoin } from '../workspace-content-join/workspace-content-join.component';
+import { WorkspaceContentProject } from '../../workspace-content-project/workspace-content-project.component';
+import { WorkspaceContentMember } from '../../workspace-content-member/workspace-content-member.component';
+import { WorkspaceContentJoin } from '../../workspace-content-join/workspace-content-join.component';
 
 @Component({
   selector: 'workspace-content',

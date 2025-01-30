@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { WorkspaceTopbar } from '../workspace-topbar/workspace-topbar.component';
-import { WorkspaceContentPage } from '../workspace-content/workspace-content.component';
-import { WorkspaceSidebar } from '../workspace-sidebar/workspace-sidebar.component';
+import { WorkspaceTopbar } from '../component/workspace-topbar/workspace-topbar.component';
+import { WorkspaceContentPage } from '../component/workspace-content/workspace-content.component';
+import { WorkspaceSidebar } from '../component/workspace-sidebar/workspace-sidebar.component';
 
 @Component({
   selector: 'workspace',

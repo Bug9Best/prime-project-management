@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppLayoutTopbar } from '../../../components/app-layout-topbar/app-layout-topbar.component';
+import { AppLayoutTopbar } from '../../../../components/app-layout-topbar/app-layout-topbar.component';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -16,6 +16,10 @@ export class WorkspaceTopbar {
     {
       label: 'SECTION_GET_START',
       routerLink: '/home'
+    },
+    {
+      label: 'SECTION_FEEDBACK',
+      routerLink: '/feedback'
     },
   ];
 }

@@ -7,10 +7,10 @@ import { AppFilter } from '../../../components/app-filter/app-filter.component';
 import { AccordionModule } from 'primeng/accordion';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
 import { AppDialog } from '../../../components/app-dialog/app-dialog.component';
-import { FormProjectCreate } from '../form-project-create/form-project-create.component';
 import { MessageService } from 'primeng/api';
 import { ProjectService } from '../../../services/project/project.service';
 import { Router } from '@angular/router';
+import { FormProjectCreate } from '../component/form-project-create/form-project-create.component';
 
 export type Mode = 'NONE' | 'GROUP';
 

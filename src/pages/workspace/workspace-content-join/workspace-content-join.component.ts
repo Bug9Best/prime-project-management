@@ -8,10 +8,10 @@ import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.co
 import { Mode } from '../workspace-content-project/workspace-content-project.component';
 import { AccordionModule } from 'primeng/accordion';
 import { AppDialog } from '../../../components/app-dialog/app-dialog.component';
-import { FormProjectJoin } from '../form-project-join/form-project-join.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ProjectService } from '../../../services/project/project.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { FormProjectJoin } from '../component/form-project-join/form-project-join.component';
 
 @Component({
   selector: 'workspace-content-join',

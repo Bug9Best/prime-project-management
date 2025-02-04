@@ -1,0 +1,52 @@
+<p-scrollpanel 
+  [style]="{ width: '100%', height: 'var(--content-height-with-subheader)' }">
+  <div class="font-medium text-lg text-900"> General Project Information </div>
+  <div class="text-sm text-500 mb-3">  Display general information of project. </div>
+  <div class="mt-3 flex flex-column">
+    <div class="flex w-full">
+      <div class="flex flex-column">
+        <p-image 
+          width="250" 
+          class="border-round"
+          src="https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg" 
+          [preview]="true" >
+          <ng-template #indicator>
+            <i class="pi pi-eye"></i>
+          </ng-template>      
+        </p-image>
+        <p-fileupload 
+          mode="basic" 
+          name="demo[]" 
+          [auto]="true" 
+          chooseLabel="Change Image"
+          chooseIcon="pi pi-image" 
+          accept="image/*" maxFileSize="1000000" 
+          url="https://www.primefaces.org/cdn/api/upload.php" 
+          (onUpload)="onBasicUploadAuto($event)" />
+      </div>
+    </div>
+
+    <div class="mt-4 w-full">
+      <div class="surface-section">
+        <ul class="list-none p-0 m-0">
+          <li class="flex align-items-center py-4 border-top-1 surface-border flex-wrap">
+            <div class="text-500 w-6 md:w-2">Project Name</div>
+            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Prime Project Manager</div>
+          </li>
+          <li class="flex align-items-center py-4 border-top-1 surface-border flex-wrap">
+            <div class="text-500 w-6 md:w-2">Project Type</div>
+            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Waterfall Project</div>
+          </li>
+          <li class="flex align-items-center py-4 border-top-1 surface-border flex-wrap">
+            <div class="text-500 w-6 md:w-2">Project Owner</div>
+            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Natthaphon D. Best</div>
+          </li>
+          <li class="flex align-items-center py-4 border-top-1 surface-border flex-wrap">
+            <div class="text-500 w-6 md:w-2">Create Date</div>
+            <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">16-September-2024</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</p-scrollpanel>

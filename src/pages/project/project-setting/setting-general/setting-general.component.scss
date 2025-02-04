@@ -1,0 +1,10 @@
+:host ::ng-deep .p-image-toolbar {
+    padding: .25rem;
+}
+
+:host ::ng-deep .p-button {
+    width: 250px;
+    color: var(--p-button-secondary-color);
+    border: 1px solid var(--p-button-secondary-border-color);
+    background: var(--p-button-secondary-background);
+}

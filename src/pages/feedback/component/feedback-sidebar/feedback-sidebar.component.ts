@@ -20,9 +20,7 @@ export class FeedbackSidebar {
 
   ngOnInit(): void {
     this.listMenu = [
-      { type: 'menu', tabIndex: 0, label: 'FEEDBACK_MENU_SUBMIT', icon: 'pi pi-send' },
-      { type: 'divider', },
-      { type: 'menu', tabIndex: 1, label: 'FEEDBACK_MENU_LIST', icon: 'pi pi-list' },
+      { type: 'menu', tabIndex: 0, label: 'FEEDBACK_MENU_SUBMIT', icon: 'pi pi-list' },
     ];
   }
 

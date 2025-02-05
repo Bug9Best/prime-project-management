@@ -1,1 +1,13 @@
-<p>feedback works!</p>
+<feedback-topbar>
+  <div class="app-content-height flex gap-3">
+    <feedback-sidebar 
+      (onChangeTabIndexEvent)="currentTabIndex = $event">
+    </feedback-sidebar>
+
+    <div class="w-full">
+      <feedback-content 
+        [currentTabIndex]="currentTabIndex">
+      </feedback-content>
+    </div>
+  </div>
+</feedback-topbar>

@@ -33,6 +33,7 @@ export class AppDialog {
   dismissableMask = input(true);
   showHeader = input(true);
   submitLabel = input('BUTTON_CREATE');
+  submitIcon = input('pi pi-save');
 
   onSubmitEvent = output<void>();
   onSubmit() {

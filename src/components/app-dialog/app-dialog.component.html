@@ -28,7 +28,7 @@
       styleClass="w-8rem"
       (click)="visible = false" />
     <p-button 
-      icon="pi pi-save"
+      [icon]="submitIcon()"
       [label]="submitLabel() | translate" 
       severity="primary" 
       styleClass="w-8rem"

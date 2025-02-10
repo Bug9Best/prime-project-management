@@ -1,0 +1,22 @@
+@switch (currentStep) {
+  @case (Step.SelectType) {
+    <resource-type-selection
+      (onCancelCreateEvent)="onCancelCreate(false)"
+      (onSelectTypeEvent)="onSelectType($event)">
+    </resource-type-selection>
+  }
+  @case (Step.InputData) {
+    @switch (currentType) {
+      @case (Type.Content) {
+        <resource-create-content
+          (onBackPreviousStepEvent)="prevStep($event)">
+        </resource-create-content>
+      }
+      @case (Type.Attachment) {
+        <resource-create-attachment
+          (onBackPreviousStepEvent)="prevStep($event)">
+        </resource-create-attachment>
+      }
+    }
+  }
+}

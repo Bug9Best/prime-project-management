@@ -1,9 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, output } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
-import { TextareaModule } from 'primeng/textarea';
 import { EditorModule } from 'primeng/editor';
 import { ButtonModule } from 'primeng/button';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -12,11 +10,8 @@ import { ProjectResourceModel, ProjectResourceService, ProjectResourceType } fro
 @Component({
   selector: 'resource-create-content',
   imports: [
-    CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     InputTextModule,
-    TextareaModule,
     EditorModule,
     ButtonModule,
     AutoCompleteModule

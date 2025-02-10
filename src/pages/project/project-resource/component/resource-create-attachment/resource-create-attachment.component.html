@@ -1,0 +1,103 @@
+<div [formGroup]="formGroup">
+  <div class="mb-2">
+    <label for="topic">Topic</label>
+    <input pInputText
+      id="topic"
+      placeholder="Enter topic"
+      class="w-full"
+      formControlName="topic"/>
+  </div>
+
+  <div class="mb-2">
+    <label for="tag">Tag</label>
+    <p-autocomplete
+      multiple fluid
+      [typeahead]="false"
+      formControlName="tag"
+      inputId="multiple-ac-2"
+      class="w-full"
+      (keyup.enter)="filterBlank()" >
+    </p-autocomplete>
+  </div>
+
+  <p-fileUpload 
+    [multiple]="true" 
+    [files]="uploadedFiles"
+    accept="
+      image/*, video/*, audio/*,
+      text/plain, 
+      application/pdf, 
+      application/json, 
+      application/msword, 
+      application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+      application/vnd.ms-excel, 
+      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+      application/vnd.ms-powerpoint, 
+      application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    [maxFileSize]="fileSizeLimit" 
+    (onSelect)="onSelectedFiles($event)">
+
+    <ng-template #header let-files 
+      let-chooseCallback="chooseCallback" 
+      let-clearCallback="clearCallback"
+      let-uploadCallback="uploadCallback">
+      <div class="flex flex-wrap justify-content-end align-items-center">
+        <div class="flex gap-2">
+          <p-button 
+            [text]="true" 
+            [rounded]="true" 
+            [size]="'small'"
+            [icon]="'pi pi-images'" 
+            (onClick)="choose(chooseCallback)"/>
+          <p-button 
+            [text]="true" 
+            [rounded]="true" 
+            [size]="'small'"
+            [severity]="'danger'"
+            [icon]="'pi pi-times'" 
+            [disabled]="!files || files.length === 0" 
+            (onClick)="clearCallback()" />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template 
+      #content
+      styleClass="p-0"
+      let-files 
+      let-uploadedFiles="uploadedFiles"
+      let-removeFileCallback="removeFileCallback" 
+      let-removeUploadedFileCallback="removeUploadedFileCallback">
+      <div *ngIf="files?.length > 0">
+        <attachments-item *ngFor="let file of files; let index=index"
+          [file]="file" 
+          [index]="index">
+        </attachments-item>
+      </div>
+    </ng-template>
+
+    <ng-template #file></ng-template>
+    <ng-template #empty>
+      <div class="flex align-items-center justify-content-center flex-column py-4">
+        <img src="image/assets/upload.png" alt="upload" width="300">
+        <p class="mt-2 text-2xl text-gray-500">Drag and drop your files here</p>
+        <p class="text-gray-400"> File supported : image, video, audio, pdf, doc, xls, ppt, txt, json</p>
+        <p class="text-gray-400">Maximum size: {{fileSizeLimit}}MB</p>
+      </div>
+    </ng-template>
+  </p-fileUpload>
+</div>
+
+<div class="pt-3 flex justify-content-end">
+  <button pButton pRipple
+    label="Back"
+    class="p-button-text p-button-secondary w-8rem"
+    (click)="onBackPreviousStep()">
+  </button>
+  <button pButton pRipple
+    icon="pi pi-save"
+    label="Add Resource"
+    class="p-button-sm ml-2"
+    (click)="onValidateForm()">
+  </button>
+</div>

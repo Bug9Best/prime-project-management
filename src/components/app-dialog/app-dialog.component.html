@@ -18,21 +18,23 @@
   [closable]="closable()"
   [closeOnEscape]="closeOnEscape()"
   [dismissableMask]="dismissableMask()"
-  [style]="{width: width()}">
+  [style]="{width: width(), minHeight : height() }">
   <ng-content></ng-content>
 
-  <ng-template #footer>
-    <p-button 
-      severity="secondary" 
-      [label]="'BUTTON_CANCEL' | translate" 
-      [text]="true" 
-      styleClass="w-8rem"
-      (click)="visible = false" />
-    <p-button 
-      [icon]="submitIcon()"
-      [label]="submitLabel() | translate" 
-      severity="primary" 
-      styleClass="w-8rem"
-      (click)="onSubmit()" />
-  </ng-template>
+  @if (showFooter()) {
+    <ng-template #footer>
+      <p-button 
+        severity="secondary" 
+        [label]="'BUTTON_CANCEL' | translate" 
+        [text]="true" 
+        styleClass="w-8rem"
+        (click)="visible = false" />
+      <p-button 
+        [icon]="submitIcon()"
+        [label]="submitLabel() | translate" 
+        severity="primary" 
+        styleClass="w-8rem"
+        (click)="onSubmit()" />
+    </ng-template>
+  }
 </p-dialog>

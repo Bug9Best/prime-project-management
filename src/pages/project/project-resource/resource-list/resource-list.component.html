@@ -41,8 +41,20 @@
           </span>
         </ng-template>
         <ng-template #content>
-          <div [innerHTML]="resource.content" class="custom">
-          </div>
+          @switch (resource.resource_type) {
+            @case (ProjectResourceType.ATTACHMENT) {
+              @for (attachment of resource.attachment; track $index) {
+                <attachments-item 
+                  [file]="attachment" 
+                  [isOpenFile]="true">
+                </attachments-item>
+              }
+            }
+            @case (ProjectResourceType.CONTENT) {
+              <div [innerHTML]="resource.content" class="custom">
+              </div>
+            }
+          }
           <p-divider></p-divider>
           <div class="flex align-items-center gap-2">
             <p-avatar 

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, Input, output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
@@ -9,6 +9,7 @@ import { ResourceTag } from '../component/resource-tag/resource-tag.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProjectResourceModel, ProjectResourceType } from '../../../../services/project-resource/project-resource.service';
 import { FormsModule } from '@angular/forms';
+import { AttachmentsItem } from '../component/attachment-item/attachment-item.component';
 
 @Component({
   selector: 'resource-list',
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     AvatarModule,
     CardModule,
     ResourceTag,
+    AttachmentsItem
   ],
   templateUrl: './resource-list.component.html',
   styleUrl: './resource-list.component.scss'

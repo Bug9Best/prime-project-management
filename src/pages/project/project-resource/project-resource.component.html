@@ -1,4 +1,47 @@
 <app-header 
   [title]="title" 
   [subtitle]="subtitle">
+  <div class="flex">
+    <button pButton
+      icon="pi pi-sliders-h"
+      class="mr-2 p-button-text p-button-secondary border-round-xl"
+      [ngClass]="{'text-blue-400 bg-blue-50': isShowToolbar}"
+      (click)="isShowToolbar = !isShowToolbar">
+    </button>
+    <app-dialog 
+      [icon]="'pi pi-file-plus'"
+      [width]="'60vw'"
+      [label]="'RESOURCE_BUTTON_CREATE'"
+      [header]="'RESOURCE_BUTTON_CREATE'"
+      [showFooter]="false"
+      (onSubmitEvent)="onValidateForm()">
+      <resource-create-dialog 
+        (onCloseDialogEvent)="onCloseDialog($event)">
+      </resource-create-dialog>
+    </app-dialog>
+  </div>
 </app-header>
+<div *ngIf="isShowToolbar">
+  <app-filter
+    [showGroupList]="false"
+    (onSearchEvent)="onSearch($event)"
+    (setSortValueEvent)="setSortValue($event)">
+  </app-filter>
+</div>
+
+<p-menu #menu [model]="listMenu" [popup]="true" >
+  <ng-template #item let-item>
+    <div class="p-menu-item-link text-700" >
+      <span [class]="item.icon"></span>
+      <span class="ml-2 text-sm">{{ item.label | translate }}</span>
+    </div>
+  </ng-template>
+</p-menu>
+
+<app-scrolling 
+  [isShowToolbar]="isShowToolbar">
+  <resource-list
+    [listResource]="listResource"
+    (onToggleMenuEvent)="menu.toggle($event.event); setPermission($event.data)">
+  </resource-list>
+</app-scrolling>

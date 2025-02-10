@@ -62,7 +62,7 @@ export class WorkspaceContentJoin {
       .getAllPublicProject()
       .subscribe({
         next: (response: any) => {
-          this.listProject = response.data;
+          this.listProject = response;
           this.templistProject = [...this.listProject];
         },
       });
@@ -177,6 +177,7 @@ export class WorkspaceContentJoin {
     }
 
     let values = this.formProjectJoin.formGroup.value;
+    values.user_id = 1;
     this.onJoinProject(values);
   }
 

@@ -1,0 +1,36 @@
+<div class="text-center">
+  <div class="text-900 font-medium text-2xl mb-1"> Choose resource type </div>
+  <div class="text-700 line-height-3 mb-4"> Select the type of resource you want to add to your project. </div>
+
+  <div class="grid px-5">
+    @for (item of listType; track $index) {
+    <div class="col-12 lg:col-6">
+      <div class="shadow-1 border-round border-2 cursor-pointer surface-card py-3"
+        [ngClass]="{'border-transparent': selectedType !== item.value, 'border-blue-300': selectedType === item.value, 'shadow-3': selectedType === item.value}"
+        (click)="selectedType = item.value">
+        <img [src]="item.imageSrc" height="100" width="100" />
+        <div class="p-3 flex flex-column align-items-center">
+          <div class="text-900 text-xl font-medium"> {{ item.title }} </div>
+          <div class="text-sm text-500"> {{ item.description }} </div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>
+
+<div class="pt-5 flex justify-content-end">
+  <button pButton pRipple  
+    label="Cancel" 
+    class="p-button-text p-button-secondary w-8rem"
+    (click)="onCancelCreate()">
+  </button>
+  <button pButton pRipple 
+    icon="pi pi-arrow-right"
+    iconPos="right"
+    label="Next" 
+    class="p-button-sm ml-2 w-8rem" 
+    [disabled]="!selectedType"
+    (click)="onSelectedType()">
+  </button>
+</div>

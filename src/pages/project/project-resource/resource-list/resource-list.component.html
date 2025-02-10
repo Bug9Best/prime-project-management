@@ -1,0 +1,68 @@
+@for (resource of listResource(); track $index; let resourceIndex = $index) {
+  <div class="border-1 surface-border border-round-lg shadow-1 mb-3">
+    <div class="p-3">
+      <div class="flex align-items-center justify-content-between">
+        <div class="flex align-items-center gap-2">
+          <span class="flex justify-content-center align-items-center border-circle" 
+            [ngClass]="{
+              'bg-blue-100': resource.resource_type === ProjectResourceType.CONTENT, 
+              'bg-orange-100': resource.resource_type === ProjectResourceType.ATTACHMENT }"
+            style="width: 32px; height: 32px">
+            <i 
+            [class]="resource.resource_type === ProjectResourceType.CONTENT ? 'pi pi-file-edit' : 'pi pi-paperclip'"
+            [ngClass]="{
+              'text-blue-500': resource.resource_type === ProjectResourceType.CONTENT, 
+              'text-orange-500 ': resource.resource_type === ProjectResourceType.ATTACHMENT }">
+            </i>
+          </span>
+          <span> {{ resource.topic }} </span>
+        </div>
+        <div class="flex align-items-center gap-2">
+          <div class="flex gap-2">
+            @for (tag of resource.tag; track $index) {
+            <resource-tag [value]="tag">
+            </resource-tag>
+            }
+          </div>
+          <button pButton 
+            icon="pi pi-ellipsis-v" 
+            class="p-button-rounded p-button-text p-button-secondary text-500"
+            (click)="onToggleMenu($event, resource)">
+          </button>
+        </div>
+      </div>
+      <p-divider></p-divider>
+
+      <p-inplace #inplace>
+        <ng-template #display>
+          <span class="inline-flex align-items-center gap-2">
+            <span class="pi pi-eye text-700" style="vertical-align: middle"></span>
+            <span class="ml-2 text-700"> {{ 'RESOURCE_BUTTON_SHOW' | translate}} </span>
+          </span>
+        </ng-template>
+        <ng-template #content>
+          <div [innerHTML]="resource.content" class="custom">
+          </div>
+          <p-divider></p-divider>
+          <div class="flex align-items-center gap-2">
+            <p-avatar 
+              shape="circle"
+              image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" />
+            <div class="flex flex-column">
+              <span class="text-700"> {{ resource.owner_name }} </span>
+              <span class="text-xs text-700"> {{ resource.created_at | date: 'dd MMMM yyyy hh:mm:aa' }} </span>
+            </div>
+          </div>
+          <p-divider></p-divider>
+          <div class="w-full">
+            <button pButton icon="pi pi-eye-slash" 
+              [label]="'RESOURCE_BUTTON_HIDE' | translate" 
+              class="p-button-secondary p-button-text w-full"
+              (click)="inplace.deactivate()">
+            </button>
+          </div>
+        </ng-template>
+      </p-inplace>
+    </div>
+  </div>
+}

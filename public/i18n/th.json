@@ -5,6 +5,9 @@
   "SECTION_FEATURES": "ฟีเจอร์",
   "SECTION_DEVELOPERS": "ทีมพัฒนา",
   "SECTION_CONTACT": "ติดต่อเรา",
+  "SECTION_WORKSPACE": "เวิร์กสเปซ",
+  "SECTION_FEEDBACK": "ข้อเสนอแนะ",
+  "SECTION_PROFILE": "โปรไฟล์",
 
   "BUTTON_SIGNIN":"เข้าสู่ระบบ",
   "BUTTON_SIGNUP":"สมัครสมาชิก",
@@ -76,6 +79,13 @@
   "WORKSPACE_MENU_USERS_TITLE": "จัดการผู้ใช้งาน",
   "WORKSPACE_MENU_USERS_SUBTITLE": "จัดการผู้ใช้งานทั้งหมดในเว็บไซต์",
 
+  "FEEDBACK_MENU_SUBMIT": "ข้อเสนอแนะ",
+  "FEEDBACK_HEADER_SUBMIT": "ส่งข้อเสนอแนะใหม่",
+  "FEEDBACK_BUTTON_SUBMIT": "ข้อเสนอแนะใหม่",
+
+  "FORM_FEEDBACK_DESCRIPTION": "กรอกข้อเสนอแนะของท่าน หรือปัญหาที่ท่านพบ ทางทีมพัฒนาจะรีบดำเนินการแก้ไขให้เร็วที่สุด",
+  "FORM_FEEDBACK_CONTENT": "เนื้อหาข้อเสนอแนะ",
+
   "FORM_PROJECT_NAME": "ชื่อโปรเจค",
   "FORM_PROJECT_DESCRIPTION": "คำอธิบายโปรเจค (ไม่บังคับ)",
   "FORM_PROJECT_TYPE": "ประเภทโปรเจค",
@@ -92,17 +102,90 @@
   "PROJECT_KANBAN": "Kanban",
   "PROJECT_KANBAN_DESCRIPTION": "Kanban เหมาะสำหรับโครงการที่ต้องการบริหารจัดการงานแบบต่อเนื่อง หรือโครงการที่มีปริมาณงานเข้ามาอย่างสม่ำเสมอ โดยมุ่งเน้นการจัดลำดับความสำคัญและการไหลของงานอย่างมีประสิทธิภาพ",
 
-  
-  
-  
-  
+  "PROJECT_MENU_DASHBOARD": "แดชบอร์ด",
+  "PROJECT_MENU_DASHBOARD_TITLE": "แดชบอร์ด",
+  "PROJECT_MENU_DASHBOARD_SUBTITLE": "แสดงภาพรวม ติดตามความคืบหน้า และสรุปข้อมูลสำคัญของโปรเจค",
+  "PROJECT_MENU_SPRINT": "สปรินต์",
+  "PROJECT_MENU_SPRINT_TITLE": "สปรินต์",
+  "PROJECT_MENU_SPRINT_SUBTITLE": "จัดการสปรินต์ ติดตามความคืบหน้า และสรุปข้อมูลสปรินต์",
+  "PROJECT_MENU_BACKLOG": "แบคล็อก",
+  "PROJECT_MENU_BACKLOG_TITLE": "แบคล็อก",
+  "PROJECT_MENU_BACKLOG_SUBTITLE": "จัดการงาน และนำงานเข้าสู่สปรินต์ได้อย่างรวดเร็ว",
+  "PROJECT_MENU_GANTT": "แผนภูมิแกรนต์",
+  "PROJECT_MENU_GANTT_TITLE": "แผนภูมิแกรนต์",
+  "PROJECT_MENU_GANTT_SUBTITLE": "จัดการงาน ในรูปแบบของแผนภูมิแกรนต์",
+  "PROJECT_MENU_BOARD": "กระดาน",
+  "PROJECT_MENU_BOARD_TITLE": "กระดาน",
+  "PROJECT_MENU_BOARD_SUBTITLE": "จัดการงาน ในรูปแบบของกระดาน",
+  "PROJECT_MENU_TASK": "งาน",
+  "PROJECT_MENU_TASK_TITLE": "งาน",
+  "PROJECT_MENU_TASK_SUBTITLE": "จัดการงาน มอบหมายงานให้สมาชิกในทีม และติดตามความคืบหน้าของงาน",
+  "PROJECT_MENU_RESOURCE": "เอกสารในโครงการ",
+  "PROJECT_MENU_RESOURCE_TITLE" : "เอกสารในโครงการ",
+  "PROJECT_MENU_RESOURCE_SUBTITLE": "จัดการเอกสารในโครงการ และเข้าถึงเอกสารที่เกี่ยวข้องกับโครงการได้อย่างสะดวก",
+  "PROJECT_MENU_MEMBER": "สมาชิก",
+  "PROJECT_MENU_MEMBER_TITLE" : "สมาชิก",
+  "PROJECT_MENU_MEMBER_SUBTITLE": "จัดการสมาชิกในโครงการ",
+  "PROJECT_MENU_SETTING": "การตั้งค่า",
+  "PROJECT_MENU_SETTING_TITLE" : "การตั้งค่า",
+  "PROJECT_MENU_SETTING_SUBTITLE": "ตั้งค่าโปรเจค",
+
+  "DASHBOARD_PROJECT_INFO": "ข้อมูลโปรเจค",
+  "DASHBOARD_PRIORITY_OVERVIEW": "ภาพรวมความสำคัญของงาน",
+  "DASHBOARD_TASK_OVERVIEW": "ภาพรวมสถานะของงาน",
+  "DASHBOARD_BURN_UP": "แผนภูมิเปรียบเทียบงานที่สำเร็จ",
+  "DASHBOARD_BURN_DOWN": "แผนภูมิงานคงเหลือทั้งหมด",
+  "DASHBOARD_TASK_LIST": "รายการงาน",
+
+  "TASK_BUTTON_CREATE": "เพิ่มงาน",
+
+  "RESOURCE_BUTTON_CREATE": "เพิ่มเอกสาร",
+  "RESOURCE_BUTTON_SHOW": "ดูเนื้อหา",
+  "RESOURCE_BUTTON_HIDE": "ซ่อนเนื้อหา",
+
+  "MEMBER_BUTTON_INVITE": "เชิญสมาชิก",
+  "MEMBER_INVITE_TITLE": "เชิญสมาชิกเข้าร่วมโครงการ",
+  "MEMBER_INVITE_DESCRIPTION": "กรอกอีเมลของผู้ใช้งานที่ต้องการเชิญเข้าร่วมโครงการ",
+  "MEMBER_DETAIL_HEADER": "รายละเอียดสมาชิก",
+
+  "BUTTON_CREATE": "สร้าง",
+  "BUTTON_SUBMIT": "ส่ง",
+  "BUTTON_SAVE": "บันทึก",
+  "BUTTON_JOIN": "เข้าร่วม",
+  "BUTTON_ADD": "เพิ่ม",
+  "BUTTON_INVITE": "เชิญ",
+  "BUTTON_EDIT": "แก้ไข",
+  "BUTTON_DELETE": "ลบ",
+  "BUTTON_CANCEL": "ยกเลิก",
+  "BUTTON_BACK": "ย้อนกลับ",
+  "BUTTON_CLOSE": "ปิด",
+
+
+  "APP_BUTTON_GROUP": "จัดกลุ่ม",
+  "APP_BUTTON_SORT": "จัดเรียง",
+  "APP_BUTTON_SEARCH": "ค้นหา",
+
+  "APP_FILTER_GROUP_NONE": "ไม่จัดกลุ่ม",
+  "APP_FILTER_GROUP_TYPE": "จัดกลุ่มตามประเภท",
+
+  "APP_FILTER_SORT_NONE": "ไม่จัดเรียง",
+  "APP_FILTER_SORT_NAME_ASC": "จัดเรียงตามชื่อจากน้อยไปมาก (A-Z)",
+  "APP_FILTER_SORT_NAME_DESC": "จัดเรียงตามชื่อจากมากไปน้อย (Z-A)",
+  "APP_FILTER_SORT_TYPE_ASC": "จัดเรียงตามประเภทจากน้อยไปมาก (A-Z)",
+  "APP_FILTER_SORT_TYPE_DESC": "จัดเรียงตามประเภทจากมากไปน้อย (Z-A)",
+
+
+
+
+
+
   "SEARCH_TEXT": "ค้นหา",
 
   "TITLE_PLANNING": "การวางแผนงาน",
   "MENU_DASHBOARD": "แดชบอร์ด",
   "TITLE_DASHBOARD": "แดชบอร์ด",
   "DASHBOARD_PROJECT_TASK": "งานในโปรเจค",
-  "DASHBOARD_PROJECT_INFO": "ข้อมูลโปรเจค",
+
   "DASHBOARD_PROJECT_ACTIVITY": "กิจกรรมล่าสุด",
 
   "MENU_GANTT": "แผนภูมิแกรนต์",
@@ -146,27 +229,5 @@
   "PAGE_RESOURCE_EMPTY": "ไม่มีทรัพยากรในโครงการนี้",
   
   "TITLE_CONFIG": "การตั้งค่า",
-  "MENU_PROJECT_MEMBER": "สมาชิกโปรเจค",
-  "BUTTON_LABEL_ADD_MEMBER": "เพิ่มสมาชิก",
-
-  "MENU_PROJECT_SETTING": "ตั้งค่าโปรเจค",
-
-  "BUTTON_CREATE": "สร้าง",
-  "BUTTON_SAVE": "บันทึก",
-  "BUTTON_JOIN": "เข้าร่วม",
-  "BUTTON_CANCEL": "ยกเลิก",
-  "BUTTON_EDIT": "แก้ไข",
-
-  "APP_BUTTON_GROUP": "จัดกลุ่ม",
-  "APP_BUTTON_SORT": "จัดเรียง",
-  "APP_BUTTON_SEARCH": "ค้นหา",
-
-  "APP_FILTER_GROUP_NONE": "ไม่จัดกลุ่ม",
-  "APP_FILTER_GROUP_TYPE": "จัดกลุ่มตามประเภท",
-
-  "APP_FILTER_SORT_NONE": "ไม่จัดเรียง",
-  "APP_FILTER_SORT_NAME_ASC": "จัดเรียงตามชื่อจากน้อยไปมาก (A-Z)",
-  "APP_FILTER_SORT_NAME_DESC": "จัดเรียงตามชื่อจากมากไปน้อย (Z-A)",
-  "APP_FILTER_SORT_TYPE_ASC": "จัดเรียงตามประเภทจากน้อยไปมาก (A-Z)",
-  "APP_FILTER_SORT_TYPE_DESC": "จัดเรียงตามประเภทจากมากไปน้อย (Z-A)"
+  "BUTTON_LABEL_ADD_MEMBER": "เพิ่มสมาชิก"
 }

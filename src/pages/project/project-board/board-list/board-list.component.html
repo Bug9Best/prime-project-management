@@ -1,0 +1,57 @@
+<p-virtualscroller [items]="listBoard" [itemSize]="50"
+  [scrollHeight]="true ? 'var(--content-height-with-header)' : 'var(--content-height-with-filter)'"
+  orientation="horizontal" styleClass="border border-surface">
+
+  <ng-template #item let-item let-options="options">
+    <div class="mr-3">
+      <p-panel pDroppable (onDrop)="onDropItem(item)">
+        <ng-template pTemplate="header">
+          <div [ngClass]="item.isHidden ? 'opacity-30' : ''"
+            class="w-full flex align-items-center justify-content-between select-none">
+            <div class="font-bold">
+              {{item.name}}
+            </div>
+            <div class="flex">
+              <ng-container *ngIf="item.isHidden">
+                <button pButton icon="pi pi-eye"
+                  class="p-button-rounded p-button-text p-button-sm p-button-info border-none"
+                  (click)="onToggleHidden(item)">
+                </button>
+              </ng-container>
+              <button pButton icon="pi pi-cog"
+                class="p-button-rounded p-button-text p-button-sm p-button-secondary border-none"
+                (click)="menu.toggle($event); selectedBoard = item">
+              </button>
+            </div>
+          </div>
+          <p-menu #menu [model]="items" [popup]="true" />
+        </ng-template>
+
+        <div *ngFor="let item of item.items" pDraggable (onDragEnd)="onDragEnd()"
+          (onDragStart)="onDragStart(item, item)" (click)="viewDetail(item, item)"
+          [ngClass]="item.isHidden ? 'opacity-30' : ''"
+          class="flex p-3 surface-overlay border-1 surface-border border-round mb-2 cursor-pointer align-content-center justify-content-between select-none">
+          <div>
+            <div class="p-card-header font-bold">{{ item.title }}</div>
+            <div class="p-card-body text-500 text-sm">{{ item.description }}</div>
+            <div class="p-card-body text-500 text-xs">{{ item.due_date }}</div>
+          </div>
+          <div>
+            <p-avatarGroup class="flex align-items-center"
+              [pTooltip]="'Natthaphon D. Best' + '\n' + 'Phuriq' + '\n' + 'and 1 others'">
+              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+            </p-avatarGroup>
+          </div>
+        </div>
+
+        <ng-template pTemplate="footer" style="padding: 0">
+          <div [ngClass]="item.isHidden ? 'opacity-30' : ''">
+            <button pButton pRipple icon="pi pi-plus" label="Create Task" (click)="onOpenCreate(item)"
+              class="p-button-secondary p-button-outlined p-button-sm w-full">
+            </button>
+          </div>
+        </ng-template>
+      </p-panel>
+    </div>
+  </ng-template>
+</p-virtualscroller>

@@ -3,13 +3,37 @@
   [subtitle]="subtitle">
 </app-header>
 
-<div class="grid">
-  <div class="col-5">
-    <project-info>
-    </project-info>
+<p-scrollpanel 
+  [style]="{ width: '100%', height: 'var(--content-height-with-header)'}">
+  <div class="grid padding-custom">
+    <div class="col-12 xl:col-5">
+      <div class="flex flex-column gap-3">
+        <project-info>
+        </project-info>
+
+        <project-priority-overview>
+        </project-priority-overview>
+
+        <project-task-overview>
+        </project-task-overview>
+      </div>
+    </div>
+    
+    <div class="col-12 xl:col-7">
+      @if (burnType === 'burnup') {
+        <project-burnup
+        (onSelectedTypeEvent)="onSelectedType($event)">
+        </project-burnup>
+      } @else {
+        <project-burndown
+        (onSelectedTypeEvent)="onSelectedType($event)">
+        </project-burndown>
+      }
+    </div>
+
+    <div class="col-12">
+      <project-task-list>
+      </project-task-list>
+    </div>
   </div>
-  <div class="col-7">
-    <project-info>
-    </project-info>
-  </div>
-</div>
+</p-scrollpanel>

@@ -1,4 +1,26 @@
 <app-header 
   [title]="title" 
   [subtitle]="subtitle">
+  <app-dialog 
+    [icon]="'pi pi-plus'"
+    [width]="'40vw'"
+    [label]="'MEMBER_BUTTON_INVITE'"
+    [header]="'MEMBER_BUTTON_INVITE'"
+    [submitLabel]="'BUTTON_INVITE'"
+    (onSubmitEvent)="onValidateForm()">
+    <project-member-invite>
+    </project-member-invite>
+  </app-dialog>
 </app-header>
+
+<app-scrolling>
+  <div class="grid">
+    @for (item of listMember; track $index) {
+    <div class="col-12 xl:col-6">
+      <project-member-item 
+        [member]="item">
+      </project-member-item>
+    </div>
+    }
+  </div>
+</app-scrolling>

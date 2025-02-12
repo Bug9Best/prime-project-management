@@ -3,11 +3,13 @@ import { Component } from '@angular/core';
 import { ImageModule } from 'primeng/image';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 
 @Component({
   selector: 'setting-general',
   imports: [
     CommonModule,
+    AppDialog,
     ImageModule,
     FileUploadModule,
     ScrollPanelModule

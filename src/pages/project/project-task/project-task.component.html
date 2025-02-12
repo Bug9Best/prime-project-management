@@ -1,4 +1,59 @@
 <app-header 
   [title]="title" 
   [subtitle]="subtitle">
+  <div class="flex">
+    <button pButton
+      icon="pi pi-sliders-h"
+      class="mr-2 p-button-text p-button-secondary border-round-xl"
+      [ngClass]="{'text-blue-400 bg-blue-50': isShowToolbar}"
+      (click)="isShowToolbar = !isShowToolbar">
+    </button>
+    <app-dialog 
+      [icon]="'pi pi-file-plus'"
+      [width]="'60vw'"
+      [label]="'TASK_BUTTON_CREATE'"
+      [header]="'TASK_BUTTON_CREATE'"
+      [showFooter]="false"
+      (onSubmitEvent)="onValidateForm()">
+    </app-dialog>
+  </div>
 </app-header>
+<div *ngIf="isShowToolbar">
+  <app-filter
+    [showGroupList]="false"
+    (onSearchEvent)="onSearch($event)"
+    (setSortValueEvent)="setSortValue($event)">
+  </app-filter>
+</div>
+
+<div class="w-full overflow-hidden">
+  <p-table 
+    [value]="customers" 
+    [size]="'large'"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    class="p-datatable-striped p-datatable-hoverable-rows"
+    [scrollable]="true" [scrollHeight]="isShowToolbar ? 'var(--content-height-with-filter)' : 'var(--content-height-with-header)'">
+    <ng-template #header>
+      <tr>
+        <th style="width: 50px;">No.</th>
+        <th style="min-width: 300px;">Task name</th>
+        <th style="min-width: 200px;">Type</th>
+        <th style="min-width: 200px;">Priority</th>
+        <th style="min-width: 200px;">Assignee</th>
+        <th style="min-width: 150px;">Estimate Time</th>
+        <th style="min-width: 150px;">Actualw Time</th>
+      </tr>
+  </ng-template>
+    <ng-template #body let-customer let-rowIndex="rowIndex">
+      <tr>
+        <td>{{rowIndex+1}}</td>
+        <td>Task {{rowIndex+1}}</td>
+        <td>{{customer.type || '-'}}</td>
+        <td>{{customer.priority || '-'}}</td>
+        <td>{{customer.assignee}}</td>
+        <td>{{customer.estimate_time}}</td>
+        <td>{{customer.actual_timme}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

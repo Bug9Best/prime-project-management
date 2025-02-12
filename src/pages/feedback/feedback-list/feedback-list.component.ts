@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/api';
 import { TableModule } from 'primeng/table';
 import { CommonModule } from '@angular/common';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'feedback-list',
@@ -15,6 +16,7 @@ import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.co
     AppHeader,
     AppDialog,
     AppScrolling,
+    TranslateModule,
     FormFeedbackSubmit,
     TableModule
   ],

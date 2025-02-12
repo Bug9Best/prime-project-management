@@ -1,25 +1,44 @@
+<div class="border-bottom-1 surface-border">
+  <div class="flex justify-content-between align-items-center">
+    <div class="flex flex-column">
+      <div class="font-medium text-lg text-900"> Customer Information </div>
+      <div class="text-sm text-500 mb-3"> 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </div>
+    </div>
+    <app-dialog 
+      [icon]="'pi pi-file-edit'"
+      [width]="'60vw'"
+      [label]="'BUTTON_EDIT'"
+      [header]="'BUTTON_EDIT'"
+      [buttonStyleClass]="'p-button-secondary'"
+      [showFooter]="false">
+    </app-dialog>
+  </div>
+</div>
 <p-scrollpanel 
   [style]="{ width: '100%', height: 'var(--content-height-with-subheader)' }">
-  <div class="font-medium text-lg text-900"> Customer Information </div>
-  <div class="text-sm text-500 mb-3"> Manage customer of project information. </div>
-  <div class="surface-section">
-    <ul class="list-none p-0 m-0">
-      <li class="flex align-items-center py-4 border-top-1 surface-border flex-wrap">
-        <div class="text-500 w-6 md:w-2">Customer Name</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Prime Project Manager</div>
-      </li>
-      <li class="flex align-items-center py-4 border-top-1 surface-border flex-wrap">
-        <div class="text-500 w-6 md:w-2">Customer Email</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Waterfall Project</div>
-      </li>
-      <li class="flex align-items-center py-4 border-top-1 surface-border flex-wrap">
-        <div class="text-500 w-6 md:w-2">Start Date</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">Natthaphon D. Best</div>
-      </li>
-      <li class="flex align-items-center py-4 border-top-1 surface-border flex-wrap">
-        <div class="text-500 w-6 md:w-2">End Date</div>
-        <div class="text-900 w-full md:w-8 md:flex-order-0 flex-order-1">16-September-2024</div>
-      </li>
-    </ul>
+  <div class="grid grid-nogutter ">
+    <div class="col-12 md:col-6 py-3">
+      <div class="text-500 mb-2">Name</div>
+      <div class="text-900">Ecart Studio</div>
+    </div>
+    <div class="col-12 md:col-6 py-3">
+      <div class="text-500 mb-2">Email</div>
+      <div class="text-900">elliot.aldersonemail.com</div>
+    </div>
+    <div class="col-12 md:col-6 py-3">
+      <div class="text-500 mb-2">Employment Start Date</div>
+      <div class="text-900">22 January 2025</div>
+    </div>
+    <div class="col-12 md:col-6 py-3">
+      <div class="text-500 mb-2">Employment End Date </div>
+      <div class="text-900"> 22 December 2025 </div>
+    </div>
+    <div class="col-12 py-3">
+      <div class="text-500 mb-2">Address</div>
+      <div class="text-900 line-height-3">Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Eget felis eget nunc lobortis mattis aliquam faucibus purus in.</div>
+    </div>
   </div>
 </p-scrollpanel>

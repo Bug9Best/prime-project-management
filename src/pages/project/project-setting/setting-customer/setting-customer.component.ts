@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 
 @Component({
   selector: 'setting-customer',
   imports: [
+    AppDialog,
     ScrollPanelModule
   ],
   templateUrl: './setting-customer.component.html',

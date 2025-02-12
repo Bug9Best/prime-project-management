@@ -1,0 +1,19 @@
+<section class="flex flex-column w-full">
+  <div class="flex w-full justify-content-between mb-4">
+    <span class="w-4rem h-4rem border-circle flex justify-content-center align-items-center bg-blue-100"><i
+        class="pi pi-shield text-blue-700 text-4xl"></i></span>
+    <button pButton pRipple type="button" icon="pi pi-times"
+      class="p-button-rounded p-button-secondary p-button-text align-self-start" (click)="visible = false"></button>
+  </div>
+  <p class="font-semibold text-xl mt-0 mb-2 text-900">Change Position</p>
+  <p class="font-normal text-base mt-0 mb-3 text-600">
+    You can adjust the position of team members in this project to ensure they utilize resources according to their
+    roles. </p>
+  <p-dropdown 
+    appendTo="body"
+    placeholder="Select Position" 
+    optionLabel="name" 
+    styleClass="w-full border-round-lg"
+    [options]="positions">
+  </p-dropdown>
+</section>

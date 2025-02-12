@@ -1,0 +1,31 @@
+:host ::ng-deep .p-panel {
+  width: 300px;
+
+  .p-panel-header {
+    background-color: var(--surface-overlay);
+    border-bottom: 1px solid var(--surface-border);
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  .p-panel-content {
+    height: calc(var(--content-height-with-filter) - 3.75rem);
+    padding: 0.5rem;
+    background-color: var(--surface-ground);
+  }
+
+  .p-panel-footer {
+    padding: 0.5rem;
+  }
+}
+
+:host ::ng-deep .p-button-secondary {
+  border: 1px solid var(--surface-border);
+}
+
+:host ::ng-deep .p-panel .p-panel-header {
+  padding: 0.75rem;
+}
+
+:host ::ng-deep .p-menu .p-submenu-header {
+  padding: 0;
+}

@@ -1,0 +1,85 @@
+
+<p-drawer 
+  [(visible)]="visible" 
+  position="right" 
+  modal="true" 
+  appendTo="body"
+  styleClass="w-30rem">
+  <ng-template pTemplate="header">
+    <span class="font-bold">
+      {{ 'MEMBER_DETAIL_HEADER' | translate }}
+    </span>
+  </ng-template>
+  
+  <div class="flex flex-column p-3 h-full ">
+    <div class="text-center mb-4" style="position: sticky; top: 0; z-index: 1; background: white;">
+      <p-avatar 
+        [shape]="'circle'"
+        [image]="member?.image" 
+        [style]="{ height: '10rem', width: '10rem', 'background-color': '#dee9fc', color: 'gray' }"/>
+      <div class="text-900 mt-3 mb-2 text-xl font-medium"> {{ member?.full_name }} </div>
+      <span class="text-700"> {{ member?.position }} </span>
+      <div class="mt-4">
+        <button pButton 
+          label="View Profile"
+          class="p-button-sm p-button-text"
+          routerLink="/profile/{{member?.id}}">
+        </button>
+      </div>
+    </div>
+
+    <div class="phantom-scrollbar flex-auto relative overflow-y-auto border-bottom-1 surface-border" style="max-height: calc(100vh - 12rem);">
+      <ul class="list-none p-0 m-0 overflow-y-auto">
+        <li class="surface-100 text-sm text-700 font-medium p-2 border-round mt-4 mb-1">Join Date</li>
+        <li class="text-900 p-2"> {{ member?.join_date | date:'dd MMMM yyyy' }} </li>
+        <li class="surface-100 text-sm text-700 font-medium p-2 border-round mt-4 mb-1">Task Overview</li>
+          <ul class="list-none p-3 mx-0">
+              <li class="flex align-items-center pb-3">
+                  <span style="width:1rem;height:1rem" class="border-round bg-blue-500 mr-3 flex-shrink-0"></span>
+                  <span class="text-sm font-medium text-90">To-Do</span>
+                  <span class="text-600 text-sm font-medium ml-auto">8</span>
+              </li>
+              <li class="flex align-items-center py-3">
+                  <span style="width:1rem;height:1rem" class="border-round bg-red-500 mr-3 flex-shrink-0"></span>
+                  <span class="text-sm font-medium text-90">Bug</span>
+                  <span class="text-600 text-sm font-medium ml-auto">10</span>
+              </li>
+              <li class="flex align-items-center py-3">
+                  <span style="width:1rem;height:1rem" class="border-round bg-orange-500 mr-3 flex-shrink-0"></span>
+                  <span class="text-s  font-medium text-90">Doing</span>
+                  <span class="text-600 text-sm font-medium ml-auto">5</span>
+              </li>
+              <li class="flex align-items-center py-3">
+                  <span style="width:1rem;height:1rem" class="border-round bg-green-500 mr-3 flex-shrink-0"></span>
+                  <span class="text-sm font-medium text-90">Done</span>
+                  <span class="text-600 text-sm font-medium ml-auto">20</span>
+              </li>
+          </ul>
+      </ul>
+    </div>
+
+    <div class="flex gap-2 mt-3">
+      <div class="w-full"> 
+        <button pButton pRipple 
+          type="button" 
+          icon="pi pi-trash"
+          label="Remove Member" 
+          class="p-button-text p-button-danger w-full" 
+          (click)="removeMember(member)">
+        </button>
+      </div>
+      <div class="w-full">
+        <app-dialog 
+          [icon]="'pi pi-plus'"
+          [width]="'40vw'"
+          [label]="'WORKSPACE_BUTTON_PROJECT_JOIN'"
+          [header]="'WORKSPACE_BUTTON_PROJECT_JOIN'"
+          [submitLabel]="'BUTTON_JOIN'"
+          (onSubmitEvent)="onValidateForm()">
+          <project-member-position>
+          </project-member-position>
+        </app-dialog>
+      </div>
+    </div>
+  </div>
+</p-drawer>

@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-empty',
   imports: [
-    CommonModule
+    CommonModule,
+    TranslateModule
   ],
   templateUrl: './app-empty.component.html',
   styleUrl: './app-empty.component.scss'

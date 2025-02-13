@@ -2,7 +2,9 @@ export const environment = {
     production: false,
     apiUrl: "http://localhost:8000/api/",
     authenUrl: 'http://localhost:8000/login',
+    authorizeUrl: 'http://localhost:8000/user',
     signupUrl: 'http://localhost:8000/register',
+    signoutUrl: 'http://localhost:8000/logout',
 
     firebaseConfig: {
         apiKey: 'AIzaSyBvz-0QN5DEZ5qDjXmSV-7mw5m7qjXYLE8',

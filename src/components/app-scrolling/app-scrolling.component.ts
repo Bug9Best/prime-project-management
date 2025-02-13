@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @Component({
@@ -11,6 +11,5 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 })
 export class AppScrolling {
 
-  @Input()
-  isShowToolbar = false;
+  isShowToolbar = input<boolean>(false);
 }

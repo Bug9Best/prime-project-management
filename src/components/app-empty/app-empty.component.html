@@ -1,0 +1,9 @@
+<div [style]="{ width: '100%', height: !isShowToolbar() 
+  ? 'var(--content-height-with-header)' 
+  : 'var(--content-height-with-filter)'}">
+  <div class="flex flex-column align-items-center justify-content-center h-full">
+    <i style="font-size: 5rem; padding: 2.5rem;" class="text-500 bg-gray-100 border-circle" [ngClass]="icon()"></i>
+    <div class="text-500 text-lg mt-2">{{ title() }}</div>
+    <div class="text-500 text-sm mt-1">{{ description() }}</div>
+  </div>
+</div>

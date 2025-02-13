@@ -31,6 +31,5 @@ export class WorkspaceSidebar {
   onChangeTabIndex(index: any): void {
     this.currentTabIndex = index;
     this.onChangeTabIndexEvent.emit(this.currentTabIndex);
-    console.log('Current Tab Index: ', this.currentTabIndex);
   }
 }

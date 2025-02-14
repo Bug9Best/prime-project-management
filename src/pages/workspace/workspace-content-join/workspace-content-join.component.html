@@ -27,56 +27,66 @@
 </div>
 
 
-<app-scrolling 
-  [isShowToolbar]="isShowToolbar">
-  @if (mode === 'NONE') {
-    <div class="grid mx-1">
-      @for (project of listProject; track $index) {
-      <div class="col-12 sm:col-6 md:col-4 lg:col-3 select-none">
-        <div class="selector-card surface-card shadow-1 border-round border-rounded-sm cursor-pointer">
-          <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" height="150"
-            class="mb-1 w-full border-round-top-sm" />
-          <div class="flex flex-column px-3 pb-3">
-            <div class="font-medium text-900">{{ project.project_name }}</div>
-            <div class="text-sm text-500">{{ project.project_type }}</div>
-            <button pButton pRipple 
-              class="p-button mt-2 w-full"
-              [label]="'WORKSPACE_BUTTON_PROJECT_JOIN' | translate" 
-              (click)="onJoinProjectManual(project)">
-            </button>
+@if (!listProject.length) {
+  <app-empty 
+    [icon]="'pi pi-folder-open'" 
+    [title]="'WORKSPACE_JOIN_EMPTY_TITLE'" 
+    [description]="'WORKSPACE_JOIN_EMPTY_SUBTITLE'">
+  </app-empty>
+} @else {
+  <app-scrolling 
+    [isShowToolbar]="isShowToolbar">
+    @if (mode === 'NONE') {
+      <div class="grid mx-1">
+        @for (project of listProject; track $index) {
+        <div class="col-12 sm:col-6 md:col-4 lg:col-3 select-none">
+          <div class="selector-card surface-card shadow-1 border-round border-rounded-sm cursor-pointer">
+            <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" height="150"
+              class="mb-1 w-full border-round-top-sm" />
+            <div class="flex flex-column px-3 pb-3">
+              <div class="font-medium text-900">{{ project.project_name }}</div>
+              <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_OWNER' | translate }} {{ project.owner_name }}</div>
+              <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_PROJECT_TYPE' | translate}} {{ project.project_type }}</div>
+              <button pButton pRipple 
+                class="p-button mt-2 w-full"
+                [label]="'WORKSPACE_BUTTON_PROJECT_JOIN' | translate" 
+                (click)="joinPublicProject(project)">
+              </button>
+            </div>
           </div>
         </div>
+        }
       </div>
-      }
-    </div>
-  } @else if (mode === 'GROUP') {
-    <div class="mx-3 -mt-2">
-      @for (project of grouplistProject | keyvalue; track $index) {
-        <p-accordion [multiple]="true" [value]="[project.key]">
-          <p-accordion-panel [value]="project.key">
-            <p-accordion-header>{{ project.key }}</p-accordion-header>
-            <p-accordion-content>
-              <div class="grid pt-2">
-                <div *ngFor="let project of project.value" class="col-12 sm:col-6 md:col-4 lg:col-3 select-none">
-                  <div class="selector-card surface-card shadow-1 border-round border-rounded-sm cursor-pointer">
-                  <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" height="150"
-                    class="mb-1 w-full border-round-top-sm" />
-                    <div class="flex flex-column px-3 pb-3">
-                      <div class="font-medium text-900">{{ project.project_name }}</div>
-                      <div class="text-sm text-500">{{ project.project_type }}</div>
-                      <button pButton pRipple 
-                        class="p-button mt-2 w-full"
-                        [label]="'WORKSPACE_BUTTON_PROJECT_JOIN' | translate" 
-                        (click)="onJoinProjectManual(project)">
-                      </button>
+    } @else if (mode === 'GROUP') {
+      <div class="mx-3 -mt-2">
+        @for (project of grouplistProject | keyvalue; track $index) {
+          <p-accordion [multiple]="true" [value]="[project.key]">
+            <p-accordion-panel [value]="project.key">
+              <p-accordion-header>{{ project.key }}</p-accordion-header>
+              <p-accordion-content>
+                <div class="grid pt-2">
+                  <div *ngFor="let project of project.value" class="col-12 sm:col-6 md:col-4 lg:col-3 select-none">
+                    <div class="selector-card surface-card shadow-1 border-round border-rounded-sm cursor-pointer">
+                    <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" height="150"
+                      class="mb-1 w-full border-round-top-sm" />
+                      <div class="flex flex-column px-3 pb-3">
+                        <div class="font-medium text-900">{{ project.project_name }}</div>
+                        <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_OWNER' | translate }} {{ project.owner_name }}</div>
+                        <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_PROJECT_TYPE' | translate}} {{ project.project_type }}</div>
+                        <button pButton pRipple 
+                          class="p-button mt-2 w-full"
+                          [label]="'WORKSPACE_BUTTON_PROJECT_JOIN' | translate" 
+                          (click)="joinPublicProject(project)">
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </p-accordion-content>
-          </p-accordion-panel>
-        </p-accordion>
-        }
-    </div>
-  }
-</app-scrolling>
+              </p-accordion-content>
+            </p-accordion-panel>
+          </p-accordion>
+          }
+      </div>
+    }
+  </app-scrolling>
+}

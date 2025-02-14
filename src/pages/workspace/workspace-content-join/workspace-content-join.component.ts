@@ -12,6 +12,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { ProjectService } from '../../../services/project/project.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormProjectJoin } from '../component/form-project-join/form-project-join.component';
+import { AppEmpty } from '../../../components/app-empty/app-empty.component';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'workspace-content-join',
@@ -21,6 +23,7 @@ import { FormProjectJoin } from '../component/form-project-join/form-project-joi
     AppDialog,
     AppFilter,
     AppScrolling,
+    AppEmpty,
     FormProjectJoin,
     InputTextModule,
     ButtonModule,
@@ -32,6 +35,7 @@ import { FormProjectJoin } from '../component/form-project-join/form-project-joi
 })
 export class WorkspaceContentJoin {
 
+  currentUser: any = {};
   mode: Mode = 'NONE';
 
   isShowToolbar = false;
@@ -47,6 +51,7 @@ export class WorkspaceContentJoin {
   grouplistProject: { [key: string]: any[] } = {};
 
   constructor(
+    private authService: AuthService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private translaterService: TranslateService,
@@ -54,12 +59,13 @@ export class WorkspaceContentJoin {
   ) { }
 
   ngOnInit() {
+    this.currentUser = this.authService.getUserData();
     this.getProjects();
   }
 
   getProjects() {
     this.projectService
-      .getAllPublicProject()
+      .getAllPublicProject(this.currentUser.id)
       .subscribe({
         next: (response: any) => {
           this.listProject = response;
@@ -178,13 +184,13 @@ export class WorkspaceContentJoin {
 
     let values = this.formProjectJoin.formGroup.value;
     values.user_id = 1;
-    this.onJoinProject(values);
+    this.onJoinPrivateProject(values);
   }
 
   @ViewChild(AppDialog) appDialog!: AppDialog;
-  onJoinProject(param: any) {
+  onJoinPrivateProject(param: any) {
     this.projectService
-      .joinProject(param)
+      .joinPrivateProject(param)
       .subscribe({
         next: (response) => {
           this.showMessage('success', 'Success', 'Join project successfully');
@@ -193,32 +199,35 @@ export class WorkspaceContentJoin {
           this.getProjects();
         },
         error: (error) => {
-          console.log(error);
-          this.showMessage('error', 'Error', 'Join project failed');
+          this.showMessage('error', 'Error', error.error.message);
         }
       });
   }
 
-  onJoinProjectManual(project: any) {
+  joinPublicProject(project: any) {
+    let values = {
+      project_id: project.id,
+      user_id: this.currentUser.id
+    }
+
     let lang = this.translaterService.currentLang;
     let isThaiLanguage = lang === 'th';
     this.confirmationService.confirm({
       header: isThaiLanguage ? 'แน่ใจหรือไม่' : 'Confirmation',
-      message: isThaiLanguage ? 'ท่านต้องการเข้าร่วมโปรเจค "'+ project.project_name +'" หรือไม่?' : 'Are you sure you want to join "' + project.project_name + '" project?',
+      message: isThaiLanguage ? 'ท่านต้องการเข้าร่วมโปรเจค "' + project.project_name + '" หรือไม่?' : 'Are you sure you want to join "' + project.project_name + '" project?',
       acceptLabel: isThaiLanguage ? 'ตกลง' : 'Join Project',
       rejectLabel: isThaiLanguage ? 'ยกเลิก' : 'Cancel',
       icon: 'pi pi-exclamation-circle',
       accept: () => {
         this.projectService
-          .joinProject(project.id)
+          .joinPublicProject(values)
           .subscribe({
             next: (response) => {
               this.showMessage('success', 'Success', 'Join project successfully');
               this.getProjects();
             },
             error: (error) => {
-              console.log(error);
-              this.showMessage('error', 'Error', 'Join project failed');
+              this.showMessage('error', 'Error', error.error.message);
             }
           });
       }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppLayoutTopbar } from '../../../../components/app-layout-topbar/app-layout-topbar.component';
 import { MenuItem } from 'primeng/api';
+import { AuthService } from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'workspace-topbar',
@@ -11,15 +12,38 @@ import { MenuItem } from 'primeng/api';
   styleUrl: './workspace-topbar.component.scss'
 })
 export class WorkspaceTopbar {
+  isUser: boolean = false;
+  listMenu: MenuItem[] = [];
 
-  listMenu: MenuItem[] = [
-    {
-      label: 'SECTION_GET_START',
-      routerLink: '/home'
-    },
-    {
-      label: 'SECTION_FEEDBACK',
-      routerLink: '/feedback'
-    },
-  ];
+  constructor(
+    private authService: AuthService,
+  ) {
+    this.isUser = this.authService.isUser();
+  }
+
+  ngOnInit() {
+    this.initMenu();
+  }
+
+  initMenu() {
+    if (this.isUser) {
+      this.listMenu = [
+        {
+          label: 'SECTION_GET_START',
+          routerLink: '/home'
+        },
+      ];
+    } else {
+      this.listMenu = [
+        {
+          label: 'SECTION_GET_START',
+          routerLink: '/home'
+        },
+        {
+          label: 'SECTION_FEEDBACK',
+          routerLink: '/feedback'
+        },
+      ];
+    }
+  }
 }

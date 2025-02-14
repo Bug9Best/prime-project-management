@@ -1,5 +1,5 @@
 <div class="sidebar-width content-height-with-padding surface-section border-1 surface-border border-round shadow-1 p-3">
-  <div class="w-full flex flex-column">
+  <div class="w-full h-full flex flex-column relative">
     <ul class="list-none p-0 m-0 overflow-hidden">
       @for (item of listMenu; track $index) {
         @if (item.type === 'menu') {
@@ -7,7 +7,7 @@
             <a pRipple (click)="onChangeTabIndex(item.tabIndex)" style="padding: .75rem;"
               class="flex align-items-center cursor-pointer border-round text-700 hover:surface-100 select-none	 mb-2 transition-duration-150 transition-colors"
               [ngClass]="{'text-white bg-blue-500 hover:bg-blue-500': currentTabIndex === item.tabIndex}">
-              <i class="pi mr-2" [ngClass]="item.icon"></i>
+              <i class="pi mr-3" [ngClass]="item.icon"></i>
               <span class="text-sm font-medium"> {{ item.label | translate }} </span>
             </a>
           </li>

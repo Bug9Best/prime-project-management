@@ -16,9 +16,35 @@
   </app-filter>
 </div>
 
-<app-scrolling 
-  [isShowToolbar]="isShowToolbar">
-  <app-table 
-    [listItem]="listUser">
-  </app-table>
-</app-scrolling>
+
+@if (!listUser.length) {
+  <app-empty 
+    [icon]="'pi pi-users'" 
+    [title]="'WORKSPACE_USER_EMPTY_TITLE'" 
+    [description]="'WORKSPACE_USER_EMPTY_SUBTITLE'">
+  </app-empty>
+} @else {
+  <app-scrolling
+    [isShowToolbar]="isShowToolbar">
+    <app-table
+      [selectionMode]="''"
+      [listItem]="listUser"
+      [listColumns]="listColumn"
+      [isShowToolbar]="isShowToolbar"
+      (onClickItemEvent)="onClickItem($event)">
+      <ng-template appTableField="email" let-item>
+        <span [ngClass]="{'text-red-500' : item.is_disable}">{{ item.email }}</span>
+      </ng-template>
+      <ng-template appTableField="name" let-item>
+        <span [ngClass]="{'text-red-500' : item.is_disable}">{{ item.name }}</span>
+      </ng-template>
+      <ng-template appTableField="role" let-item>
+        <member-role-tag [role]="item.role">
+        </member-role-tag>
+      </ng-template>
+    </app-table>
+    <member-detail-dialog
+      (onReloadUser)="onReloadUser($event)">
+    </member-detail-dialog>
+  </app-scrolling>
+}

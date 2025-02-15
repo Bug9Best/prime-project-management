@@ -1,42 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ContextMenuModule } from 'primeng/contextmenu';
+import { Component, ViewChild } from '@angular/core';
 import { AppFilter } from '../../../components/app-filter/app-filter.component';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
 import { AppHeader } from '../../../components/app-header/app-header.component';
 import { Mode } from '../workspace-content-project/workspace-content-project.component';
-import { ButtonModule } from 'primeng/button';
 import { listUser, UserProfile } from '../../../../public/data/user';
-import { TableModule } from 'primeng/table';
-import { IconFieldModule } from 'primeng/iconfield';
-import { InputIconModule } from 'primeng/inputicon';
-import { MultiSelectModule } from 'primeng/multiselect';
-import { SelectModule } from 'primeng/select';
-import { TagModule } from 'primeng/tag';
-import { InputTextModule } from 'primeng/inputtext';
-import { AppTable } from '../../../components/app-table/app-table.component';
+import { AppTable, AppTableColumn, AppTableFieldDirective } from '../../../components/app-table/app-table.component';
+import { ButtonModule } from 'primeng/button';
+import { MemberRoleTag } from '../component/member-role-tag/member-role-tag.component';
+import { UserService } from '../../../services/user/user.service';
+import { MemberDetailDialog } from '../component/member-detail-dialog/member-detail-dialog.component';
+import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 
 @Component({
   selector: 'workspace-content-member',
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
     AppHeader,
     AppFilter,
+    AppEmpty,
     AppScrolling,
     AppTable,
-
     ButtonModule,
-    TableModule,
-    IconFieldModule,
-    InputIconModule,
-    ContextMenuModule,
-    MultiSelectModule,
-    SelectModule,
-    TagModule,
-    InputTextModule 
+    MemberRoleTag,
+    MemberDetailDialog,
+    AppTableFieldDirective
   ],
   templateUrl: './workspace-content-member.component.html',
   styleUrl: './workspace-content-member.component.scss'
@@ -57,15 +45,43 @@ export class WorkspaceContentMember {
   templistUser: UserProfile[] = [];
   grouplistUser: { [key: string]: UserProfile[] } = {};
 
-  items = [
-    { label: 'Add to Project', icon: 'pi pi-plus' },
-    { separator: true },
-    { label: 'Disable', icon: 'pi pi-times' }
-  ]
+  listColumn: AppTableColumn[] = [
+    { label: 'TABLE_HEADER_EMAIL', field: 'email', type: 'string', style: { width: '30%' } },
+    { label: 'TABLE_HEADER_NAME', field: 'name', type: 'string', style: { width: '30%' } },
+    { label: 'TABLE_HEADER_CREATE_DATE', field: 'created_at', type: 'date', style: { width: '20%' } },
+    { label: 'TABLE_HEADER_ROLE', field: 'role', type: 'string', style: { width: '20%', textAlign: 'center' } },
+  ];
+
+  constructor(
+    private userService: UserService
+  ) { }
 
   ngOnInit() {
-    this.listUser = listUser;
     this.isLoading = false;
+    this.getUserList();
+  }
+
+  getUserList() {
+    this.userService
+      .getAllUser()
+      .subscribe((res) => {
+        this.listUser = res;
+        this.templistUser = this.listUser;
+        console.log(this.listUser);
+      });
+  }
+
+  onReloadUser(state: boolean) {
+    if (state) {
+      this.getUserList();
+      return;
+    }
+  }
+
+
+  @ViewChild(MemberDetailDialog) memberDetailDialog!: MemberDetailDialog;
+  onClickItem(user: any) {
+    this.memberDetailDialog.showDialog(user);
   }
 
   onSearch(event: any) {
@@ -154,5 +170,4 @@ export class WorkspaceContentMember {
       this.listUser.sort(sortFunction);
     }
   }
-
 }

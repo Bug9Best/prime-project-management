@@ -14,6 +14,8 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormProjectJoin } from '../component/form-project-join/form-project-join.component';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { AuthService } from '../../../services/auth/auth.service';
+import { firstValueFrom } from 'rxjs';
+import { UserService } from '../../../services/user/user.service';
 
 @Component({
   selector: 'workspace-content-join',
@@ -52,6 +54,7 @@ export class WorkspaceContentJoin {
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private translaterService: TranslateService,
@@ -175,7 +178,12 @@ export class WorkspaceContentJoin {
   }
 
   @ViewChild(FormProjectJoin) formProjectJoin!: FormProjectJoin;
-  onValidateForm() {
+  async onValidateForm() {
+    const isDisabled = await this.checkPermission();
+    if (isDisabled) {
+      this.showMessage('warn', 'Warning', 'You have been blocked by the admin');
+      return;
+    }
     if (this.formProjectJoin.formGroup.invalid) {
       this.formProjectJoin.formGroup.markAllAsTouched();
       console.log('Form invalid');
@@ -204,7 +212,13 @@ export class WorkspaceContentJoin {
       });
   }
 
-  joinPublicProject(project: any) {
+  async joinPublicProject(project: any) {
+    const isDisabled = await this.checkPermission();
+    if (isDisabled) {
+      this.showMessage('warn', 'Warning', 'You have been blocked by the admin');
+      return;
+    }
+
     let values = {
       project_id: project.id,
       user_id: this.currentUser.id
@@ -232,5 +246,14 @@ export class WorkspaceContentJoin {
           });
       }
     });
+  }
+
+  async checkPermission(): Promise<boolean> {
+    try {
+      const response = await firstValueFrom(this.userService.checkPermission(this.currentUser.id));
+      return response.is_disabled;
+    } catch (error) {
+      return false;
+    }
   }
 }

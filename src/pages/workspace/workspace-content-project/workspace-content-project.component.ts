@@ -14,6 +14,8 @@ import { FormProjectCreate } from '../component/form-project-create/form-project
 import { AuthService } from '../../../services/auth/auth.service';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { UserService } from '../../../services/user/user.service';
+import { firstValueFrom } from 'rxjs';
 
 export type Mode = 'NONE' | 'GROUP';
 
@@ -55,6 +57,7 @@ export class WorkspaceContentProject {
 
   constructor(
     private router: Router,
+    private userService: UserService,
     private authService: AuthService,
     private messageService: MessageService,
     private projectService: ProjectService
@@ -217,7 +220,21 @@ export class WorkspaceContentProject {
       });
   }
 
-  onSelectedProject(project: any) {
+  async onSelectedProject(project: any) {
+    const isDisabled = await this.checkPermission();
+    if (isDisabled) {
+      this.showMessage('warn', 'Warning', 'You have been blocked by the admin');
+      return;
+    }
     this.router.navigate(['/project', project.id]);
+  }
+
+  async checkPermission(): Promise<boolean> {
+    try {
+      const response = await firstValueFrom(this.userService.checkPermission(this.currentUser.id));
+      return response.is_disabled;
+    } catch (error) {
+      return false;
+    }
   }
 }

@@ -4,7 +4,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { providePrimeNG } from 'primeng/config';
 import { routes } from './app.routes';
 import { MessageService, ConfirmationService } from 'primeng/api';
-import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -17,11 +17,15 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 
+// Cookie Service
+import { CookieService } from 'ngx-cookie-service';
+
 // Preset for PrimeNG Theme
 import MyPreset from '../preset/preset';
 
 // Environment
 import { environment } from '../environments/environment';
+import { AppInterceptor } from '../helper/intercepter/app.intercepter';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, '/i18n/', '.json');
@@ -30,9 +34,12 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withFetch()),
+    provideHttpClient(
+      withFetch(),
+      withInterceptors([AppInterceptor])),
     MessageService,
     ConfirmationService,
+    CookieService,
     importProvidersFrom(
       [
         BrowserModule,

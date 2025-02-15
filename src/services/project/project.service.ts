@@ -17,15 +17,31 @@ export interface ProjectsModel extends BaseModel {
 export class ProjectService extends BaseService<ProjectsModel> {
   public override path: string = "project";
 
-  getAllPublicProject() {
-    return this.client.get<any>(`${this.getBaseUrl}/getAllPublicProject`);
+  getAllJoinedProject(user_id: string | number) {
+    return this.client.get<any>(`${this.getBaseUrl}/getAllJoinedProject`, {
+      params: {
+        user_id: user_id,
+      },
+    });
   }
 
-  createProject(project: any) {
-    return this.client.post<any>(`${this.getBaseUrl}/createProject`, project);
+  getAllPublicProject(user_id: string | number) {
+    return this.client.get<any>(`${this.getBaseUrl}/getAllPublicProject`, {
+      params: {
+        user_id: user_id,
+      },
+    });
   }
 
-  joinProject(project: any) {
-    return this.client.post<any>(`${this.getBaseUrl}/joinProject`, project);
+  createProject(data: any) {
+    return this.client.post<any>(`${this.getBaseUrl}/createProject`, data);
+  }
+
+  joinPrivateProject(data: any) {
+    return this.client.post<any>(`${this.getBaseUrl}/joinPrivateProject`, data);
+  }
+
+  joinPublicProject(data: any) {
+    return this.client.post<any>(`${this.getBaseUrl}/joinPublicProject` ,data);
   }
 }

@@ -9,6 +9,8 @@ import { ProjectResourceType, ProjectResourceService, ProjectResourceModel, File
 import { FileUploadModule } from 'primeng/fileupload';
 import { AttachmentsItem } from '../attachment-item/attachment-item.component';
 import { FirebaseStorageService } from '../../../../../services/stroage/storage.service';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../../../services/auth/auth.service';
 
 @Component({
   selector: 'resource-create-attachment',
@@ -27,6 +29,9 @@ import { FirebaseStorageService } from '../../../../../services/stroage/storage.
 })
 export class ResourceCreateAttachment {
 
+  currentUserData: any = {};
+  currentProjectId: string = '';
+
   selectedFiles = [];
   uploadedFiles: any = [];
   fileSizeLimit = 40 * 1024 * 1024; // 40MB
@@ -38,11 +43,20 @@ export class ResourceCreateAttachment {
   });
 
   constructor(
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
     private firebaseStorageService: FirebaseStorageService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private projectResourceService: ProjectResourceService
-  ) { }
+  ) {
+    this.currentUserData = this.authService.getUserData();
+    this.activatedRoute.paramMap.subscribe(params => {
+      if (params.get('id')) {
+        this.currentProjectId = params.get('id')!;
+      }
+    });
+  }
 
   get tag() {
     return this.formGroup.get('tag') as FormControl;
@@ -136,9 +150,8 @@ export class ResourceCreateAttachment {
   onCreateResourceEvent = output<boolean>();
   onCreateResource() {
     let values = this.formGroup.value as ProjectResourceModel;
-    // TODO: Binding User ID and Project ID
-    values.project_id = 13;
-    values.owner_id = 1;
+    values.project_id = this.currentProjectId;
+    values.owner_id = this.currentUserData.id;
     values.attachment = this.uploadedFiles;
     this.projectResourceService
       .createProjectResource(values)

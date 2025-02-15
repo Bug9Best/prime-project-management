@@ -74,10 +74,22 @@
   "WORKSPACE_MENU_JOIN_TITLE": "Join Project",
   "WORKSPACE_MENU_JOIN_SUBTITLE": "Join a public project or join a private project using a code.",
   "WORKSPACE_BUTTON_PROJECT_JOIN": "Join Project",
+  "WORKSPACE_LABEL_OWNER": "Owner : ",
+  "WORKSPACE_LABEL_PROJECT_TYPE": "Type : ",
 
   "WORKSPACE_MENU_USERS": "Users Manage",
   "WORKSPACE_MENU_USERS_TITLE": "Users Manage",
   "WORKSPACE_MENU_USERS_SUBTITLE": "Manage all users in this website.",
+  "USERS_MANAGE_HEADER": "User Detail",
+
+  "WORKSPACE_PROJECT_EMPTY_TITLE": "No project found",
+  "WORKSPACE_PROJECT_EMPTY_SUBTITLE": "You have not created or joined any projects yet.",
+
+  "WORKSPACE_JOIN_EMPTY_TITLE": "No project found",
+  "WORKSPACE_JOIN_EMPTY_SUBTITLE": "There are no public projects available for you to join.",
+
+  "WORKSPACE_USER_EMPTY_TITLE": "No users found",
+  "WORKSPACE_USER_EMPTY_SUBTITLE": "No users found in this website.",
 
   "FORM_PROJECT_NAME": "Project Name",
   "FORM_PROJECT_DESCRIPTION": "Project Description (Optional)",
@@ -159,6 +171,8 @@
   "BUTTON_CANCEL": "Cancel",
   "BUTTON_BACK": "Back",
   "BUTTON_CLOSE": "Close",
+  "BUTTON_BLOCK": "Block this user for this site",
+  "BUTTON_UNBLOCK": "Unblock this user",
 
   "APP_BUTTON_GROUP": "Group",
   "APP_BUTTON_SORT": "Sort",
@@ -171,5 +185,15 @@
   "APP_FILTER_SORT_NAME_ASC": "Sort by name in ascending order (A-Z)",
   "APP_FILTER_SORT_NAME_DESC": "Sort by name in descending order (Z-A)",
   "APP_FILTER_SORT_TYPE_ASC": "Sort by type in ascending order (A-Z)",
-  "APP_FILTER_SORT_TYPE_DESC": "Sort by type in descending order (Z-A)"
+  "APP_FILTER_SORT_TYPE_DESC": "Sort by type in descending order (Z-A)",
+
+  "TABLE_HEADER_ORDER": "No.",
+  "TABLE_HEADER_NAME": "Name",
+  "TABLE_HEADER_EMAIL": "Email",
+  "TABLE_HEADER_ROLE": "Role",
+  "TABLE_HEADER_CREATE_DATE": "Member Register Date",
+  "TABLE_HEADER_TYPE": "Type",
+  "TABLE_HEADER_STATUS": "Status",
+  "TABLE_HEADER_PRIORITY": "Priority"
+
 }

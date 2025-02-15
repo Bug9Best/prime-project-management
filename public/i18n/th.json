@@ -74,10 +74,22 @@
   "WORKSPACE_MENU_JOIN_TITLE": "เข้าร่วมโปรเจค",
   "WORKSPACE_MENU_JOIN_SUBTITLE": "เข้าร่วมโครงการสาธารณะ หรือเข้าร่วมโครงการส่วนตัวโดยใช้รหัส",
   "WORKSPACE_BUTTON_PROJECT_JOIN": "เข้าร่วมโปรเจค",
+  "WORKSPACE_LABEL_OWNER": "เจ้าของโปรเจค : ",
+  "WORKSPACE_LABEL_PROJECT_TYPE": "ประเภทโปรเจค : ",
 
   "WORKSPACE_MENU_USERS": "จัดการผู้ใช้งาน",
   "WORKSPACE_MENU_USERS_TITLE": "จัดการผู้ใช้งาน",
   "WORKSPACE_MENU_USERS_SUBTITLE": "จัดการผู้ใช้งานทั้งหมดในเว็บไซต์",
+  "USERS_MANAGE_HEADER": "รายละเอียดผู้ใช้งาน",
+
+  "WORKSPACE_PROJECT_EMPTY_TITLE": "ไม่พบโปรเจค",
+  "WORKSPACE_PROJECT_EMPTY_SUBTITLE": "สร้างโปรเจคใหม่หรือเข้าร่วมโปรเจคเพื่อเริ่มต้นการทำงาน",
+
+  "WORKSPACE_JOIN_EMPTY_TITLE": "ไม่พบโปรเจค",
+  "WORKSPACE_JOIN_EMPTY_SUBTITLE": "ยังไม่มีโปรเจคสาธารณะที่คุณสามารถเข้าร่วมได้",
+
+  "WORKSPACE_USER_EMPTY_TITLE": "ไม่พบผู้ใช้งาน",
+  "WORKSPACE_USER_EMPTY_SUBTITLE": "ยังไม่มีผู้ใช้งานที่สมัครเข้าใช้งาน",
 
   "FEEDBACK_MENU_SUBMIT": "ข้อเสนอแนะ",
   "FEEDBACK_HEADER_SUBMIT": "ส่งข้อเสนอแนะใหม่",
@@ -159,7 +171,8 @@
   "BUTTON_CANCEL": "ยกเลิก",
   "BUTTON_BACK": "ย้อนกลับ",
   "BUTTON_CLOSE": "ปิด",
-
+  "BUTTON_BLOCK": "บล็อคผู้ใช้งานนี้ออกจากเว็บไซต์",
+  "BUTTON_UNBLOCK": "ยกเลิกการบล็อคผู้ใช้งาน",
 
   "APP_BUTTON_GROUP": "จัดกลุ่ม",
   "APP_BUTTON_SORT": "จัดเรียง",
@@ -229,5 +242,12 @@
   "PAGE_RESOURCE_EMPTY": "ไม่มีทรัพยากรในโครงการนี้",
   
   "TITLE_CONFIG": "การตั้งค่า",
-  "BUTTON_LABEL_ADD_MEMBER": "เพิ่มสมาชิก"
+  "BUTTON_LABEL_ADD_MEMBER": "เพิ่มสมาชิก",
+
+  "TABLE_HEADER_ORDER": "ลำดับ",
+  "TABLE_HEADER_NAME": "ชื่อ",
+  "TABLE_HEADER_EMAIL": "อีเมล",
+  "TABLE_HEADER_ROLE": "บทบาท",
+  "TABLE_HEADER_CREATE_DATE": "วันที่สมัครสมาชิก"
+
 }

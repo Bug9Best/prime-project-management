@@ -6,6 +6,8 @@ import { EditorModule } from 'primeng/editor';
 import { ButtonModule } from 'primeng/button';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ProjectResourceModel, ProjectResourceService, ProjectResourceType } from '../../../../../services/project-resource/project-resource.service';
+import { AuthService } from '../../../../../services/auth/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'resource-create-content',
@@ -21,6 +23,9 @@ import { ProjectResourceModel, ProjectResourceService, ProjectResourceType } fro
 })
 export class ResourceCreateContent {
 
+  currentUserData: any = {};
+  currentProjectId: string = '';
+
   formGroup: FormGroup = new FormGroup({
     topic: new FormControl(null, Validators.required),
     resource_type: new FormControl(ProjectResourceType.CONTENT, Validators.required),
@@ -29,10 +34,19 @@ export class ResourceCreateContent {
   });
 
   constructor(
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
     private projectResourceService: ProjectResourceService
-  ) { }
+  ) {
+    this.currentUserData = this.authService.getUserData();
+    this.activatedRoute.paramMap.subscribe(params => {
+      if (params.get('id')) {
+        this.currentProjectId = params.get('id')!;
+      }
+    });
+  }
 
   get tag() {
     return this.formGroup.get('tag') as FormControl;
@@ -90,9 +104,8 @@ export class ResourceCreateContent {
   onCreateResourceEvent = output<boolean>();
   onCreateResource() {
     let values = this.formGroup.value as ProjectResourceModel;
-    // TODO: Binding User ID and Project ID
-    values.project_id = 13;
-    values.owner_id = 1;
+    values.project_id = this.currentProjectId;
+    values.owner_id = this.currentUserData.id;
 
     this.projectResourceService
       .createProjectResource(values)

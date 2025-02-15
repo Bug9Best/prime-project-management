@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { ProjectTopbar } from '../component/project-topbar/project-topbar.component';
 import { ProjectSidebar } from '../component/project-sidebar/project-sidebar.component';
 import { ProjectContent } from '../component/project-content/project-content.component';
-import { ProjectFooter } from '../component/project-footer/project-footer.component';
 import { ProjectService } from '../../../services/project/project.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,7 +13,6 @@ type ProjectType = 'SCRUM' | 'WATERFALL' | 'KANBAN';
     ProjectTopbar,
     ProjectSidebar,
     ProjectContent,
-    // ProjectFooter
   ],
   templateUrl: './project.component.html',
   styleUrl: './project.component.scss'
@@ -34,6 +32,7 @@ export class ProjectPage {
     this.activatedRoute.paramMap.subscribe(params => {
       if (params.get('id')) {
         this.projectID = params.get('id')!;
+
         this.getProject();
       }
     });

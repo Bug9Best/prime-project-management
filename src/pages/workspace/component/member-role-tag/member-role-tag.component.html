@@ -1,14 +1,14 @@
 @switch (role()) {
   @case (UserRole.Admin) {
-      <p-tag icon="pi pi-crown" severity="danger" value="Admin" class="w-full"/>
+      <p-tag icon="pi pi-crown" severity="danger" value="Admin" [class]="styleClass()"/>
   }
   @case (UserRole.Instructor) {
-      <p-tag icon="pi pi-graduation-cap" severity="warn" value="Instructor" class="w-full"/>
+      <p-tag icon="pi pi-graduation-cap" severity="warn" value="Instructor" [class]="styleClass()"/>
   }
   @case (UserRole.User) {
-      <p-tag icon="pi pi-user" value="User" class="w-full"/>
+      <p-tag icon="pi pi-user" value="User" [class]="styleClass()"/>
   }
   @default {
-      <p-tag icon="pi pi-user" value="User" class="w-full"/>
+      <p-tag icon="pi pi-user" value="User" [class]="styleClass()"/>
   }
 }

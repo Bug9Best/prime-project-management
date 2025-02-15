@@ -14,5 +14,5 @@ export class MemberRoleTag {
 
   UserRole = UserRole;
   role = input<UserRole>(UserRole.User);
-
+  styleClass = input<string>('w-full');
 }

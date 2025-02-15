@@ -18,7 +18,7 @@
   [closable]="closable()"
   [closeOnEscape]="closeOnEscape()"
   [dismissableMask]="dismissableMask()"
-  [style]="{width: width(), minHeight : height() }">
+  [style]="{width: width(), maxWidth: maxWidth(), minHeight : height() }">
   <ng-content></ng-content>
 
   @if (showFooter()) {

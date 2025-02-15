@@ -17,6 +17,8 @@ import { DialogModule } from 'primeng/dialog';
 })
 export class AppDialog {
 
+  data = input<any>();
+
   showButton = input(true);
   showFooter = input(true);
   icon = input('pi pi-plus');
@@ -30,6 +32,7 @@ export class AppDialog {
   resizable = input(false);
   closable = input(true);
   width = input('50vw');
+  maxWidth = input('80vw');
   height = input();
   closeOnEscape = input(true);
   dismissableMask = input(true);

@@ -11,6 +11,9 @@ import { MessageService } from 'primeng/api';
 import { ProjectService } from '../../../services/project/project.service';
 import { Router } from '@angular/router';
 import { FormProjectCreate } from '../component/form-project-create/form-project-create.component';
+import { AuthService } from '../../../services/auth/auth.service';
+import { AppEmpty } from '../../../components/app-empty/app-empty.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 export type Mode = 'NONE' | 'GROUP';
 
@@ -19,10 +22,12 @@ export type Mode = 'NONE' | 'GROUP';
   imports: [
     CommonModule,
     FormsModule,
+    TranslateModule,
     AppHeader,
     AppDialog,
     AppFilter,
     AppScrolling,
+    AppEmpty,
     FormProjectCreate,
     ButtonModule,
     AccordionModule
@@ -31,6 +36,9 @@ export type Mode = 'NONE' | 'GROUP';
   styleUrl: './workspace-content-project.component.scss'
 })
 export class WorkspaceContentProject {
+
+  currentUser: any = {};
+  isUser: boolean = false;
 
   mode: Mode = 'NONE';
   isOnSearch = false;
@@ -41,26 +49,32 @@ export class WorkspaceContentProject {
   sortValue = 'NONE';
   groupValue = 'NONE';
 
-  listProject: any[] = []
+  listProject: any[] = [];
   templistProject: any[] = [];
   grouplistProject: { [key: string]: any[] } = {};
 
   constructor(
     private router: Router,
+    private authService: AuthService,
     private messageService: MessageService,
     private projectService: ProjectService
-  ) { }
+  ) {
+    this.currentUser = this.authService.getUserData();
+    this.isUser = this.authService.isUser();
+  }
 
   ngOnInit() {
     this.getProjects();
   }
 
   getProjects() {
+    if (!this.currentUser) return;
+    let user_id = this.currentUser.id;
     this.projectService
-      .getAll()
+      .getAllJoinedProject(user_id)
       .subscribe({
         next: (response: any) => {
-          this.listProject = response.data;
+          this.listProject = response;
           this.templistProject = [...this.listProject];
         },
       });
@@ -181,12 +195,12 @@ export class WorkspaceContentProject {
     }
 
     let values = this.formProjectCreate.formGroup.value;
+    values.owner_id = this.currentUser.id;
     this.onCreateProject(values);
   }
 
   @ViewChild(AppDialog) appDialog!: AppDialog;
   onCreateProject(param: any) {
-    console.log(param);
     this.projectService
       .createProject(param)
       .subscribe({

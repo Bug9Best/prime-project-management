@@ -1,21 +1,96 @@
-<p-table 
-  [value]="listItem" 
-  [scrollable]="true"
-  styleClass="p-datatable-borderless mx-3">
-  @if (showHeader) {
+<div class="w-full overflow-hidden">
+  <p-table
+    stripedRows
+    [dataKey]="dataKey()"
+    [value]="listItem()"
+    [selectionMode]="selectionMode()"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [scrollable]="scrollable()" [scrollHeight]="isShowToolbar() ? 'var(--content-height-with-filter)' : 'var(--content-height-with-header)'">
+
     <ng-template #header>
       <tr>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Category</th>
+        @for (item of listColumns(); track $index; let index = $index) {
+          @if (showOrder() && showOrderIndex() === index) {
+            <th [style.minWidth]="'70px'" class="text-center">
+              {{ 'TABLE_HEADER_ORDER' | translate }}
+            </th>
+          }
+          <th [style]="item.style" [colSpan]="item.colSpan">
+            {{ item.label | translate }}
+          </th>
+        }
       </tr>
     </ng-template>
-  }
-  <ng-template #body let-product let-rowIndex="rowIndex">
-    <tr>
-      <td>{{ rowIndex+1 }}</td>
-      <td>{{ product.full_name }}</td>
-      <td>{{ product.email }}</td>
-    </tr>
-  </ng-template>
-</p-table>
+
+    <ng-template pTemplate="body" let-item let-rowIndex="rowIndex">
+      <ng-template #pTableRow>
+        <ng-container *ngFor="let col of listColumns(); index as i">
+          <ng-container *ngIf="showOrder() && showOrderIndex() === i">
+            <td [style.minWidth]="'70px'">
+              <div class="text-center">{{ rowIndex + 1 }}</div>
+            </td>
+          </ng-container>
+
+          <td [colSpan]="col.colSpan" [style]="col.style" (click)="onClickItem(item)">
+            <ng-template #pDefault>
+              <ng-container *ngIf="item[col.field]; else pElse">
+                <ng-container [ngSwitch]="col.type">
+                  <ng-container *ngSwitchCase="'string'">
+                    {{ item[col.field] }}
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'number'">
+                    {{ item[col.field] | number : col.numberFormat }}
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'date'">
+                      {{ item[col.field] | thdate:'long' }}
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'html'">
+                    <div [innerHTML]="item[col.field]"></div>
+                  </ng-container>
+
+                  <ng-container *ngSwitchDefault>
+                    {{ item[col.field] }}
+                  </ng-container>
+                </ng-container>
+              </ng-container>
+            </ng-template>
+
+            <ng-template #pElse>
+              {{ col.emptyText || "-" }}
+            </ng-template>
+
+            <ng-container
+              [ngTemplateOutlet]="template[col.field] || pDefault"
+              [ngTemplateOutletContext]="{ $implicit: item, column: col }">
+            </ng-container>
+          </td>
+        </ng-container>
+      </ng-template>
+
+      <!-- Selectable -->
+      <tr *ngIf="selectionMode"
+        [pContextMenuRow]="item"
+        [pSelectableRow]="item"
+        [pSelectableRowIndex]="rowIndex"
+        [pReorderableRow]="rowIndex">
+        <ng-container
+          [ngTemplateOutlet]="pTableRow"
+          [ngTemplateOutletContext]="{ $implicit: item }">
+        </ng-container>
+      </tr>
+
+      <!-- Not Selectable -->
+      <tr *ngIf="!selectionMode"
+        [pContextMenuRow]="item"
+        [pReorderableRow]="rowIndex">
+        <ng-container
+          [ngTemplateOutlet]="pTableRow"
+          [ngTemplateOutletContext]="{ $implicit: item }">
+        </ng-container>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

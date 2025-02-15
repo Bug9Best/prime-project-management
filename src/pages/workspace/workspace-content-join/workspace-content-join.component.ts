@@ -183,7 +183,7 @@ export class WorkspaceContentJoin {
     }
 
     let values = this.formProjectJoin.formGroup.value;
-    values.user_id = 1;
+    values.user_id = this.currentUser.id;
     this.onJoinPrivateProject(values);
   }
 

@@ -7,6 +7,8 @@ import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'layout-topbar',
@@ -28,30 +30,18 @@ export class AppLayoutTopbar {
   @Input()
   listMenu: MenuItem[] = [];
 
-  items = [
+  items: MenuItem[] = [
     {
-      separator: true
+      label: 'User Profile',
+      icon: 'pi pi-user',
     },
     {
-      label: 'Profile',
-      items: [
-        {
-          label: 'Settings',
-          icon: 'pi pi-cog',
-          shortcut: '⌘+O'
-        },
-        {
-          label: 'Messages',
-          icon: 'pi pi-inbox',
-          badge: '2'
-        },
-        {
-          label: 'Logout',
-          icon: 'pi pi-sign-out',
-          shortcut: '⌘+Q'
-        }
-      ]
-    },
+      label: 'Sign out',
+      icon: 'pi pi-sign-out',
+      command: () => {
+        this.onSignOut();
+      }
+    }
   ];
 
 
@@ -69,4 +59,19 @@ export class AppLayoutTopbar {
     this.translateService.use(lang);
     this.onCloseOverlayPanel();
   }
+
+  authService = inject(AuthService);
+  onSignOut() {
+    this.authService.signOut().subscribe({
+      next: (response) => {
+        this.authService.removeToken();
+        this.authService.removeUserData();
+        window.location.href = environment.authenUrl;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
+  }
 }
+

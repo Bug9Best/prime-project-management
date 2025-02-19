@@ -3,7 +3,7 @@ import { BaseModel, BaseService } from '../base/base.service';
 
 export interface ProjectsModel extends BaseModel {
   id: string;
-  project_name: string | number;
+  project_name: string;
   project_description: number;
   project_type: string;
   project_privacy_type: string;
@@ -42,6 +42,14 @@ export class ProjectService extends BaseService<ProjectsModel> {
   }
 
   joinPublicProject(data: any) {
-    return this.client.post<any>(`${this.getBaseUrl}/joinPublicProject` ,data);
+    return this.client.post<any>(`${this.getBaseUrl}/joinPublicProject`, data);
+  }
+
+  getProjectMembers(project_id: string | number) {
+    return this.client.get<any>(`${this.getBaseUrl}/getProjectMembers`, {
+      params: {
+        project_id: project_id,
+      },
+    });
   }
 }

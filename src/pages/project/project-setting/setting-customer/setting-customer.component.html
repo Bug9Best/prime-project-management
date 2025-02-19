@@ -11,9 +11,12 @@
       [icon]="'pi pi-file-edit'"
       [width]="'60vw'"
       [label]="'BUTTON_EDIT'"
-      [header]="'BUTTON_EDIT'"
+      [header]="'SETTING_CUSTOMER_HEADER'"
+      [submitLabel]="'BUTTON_SAVE'"
       [buttonStyleClass]="'p-button-secondary'"
-      [showFooter]="false">
+      (onSubmitEvent)="onValidateForm()">
+        <customer-form>
+        </customer-form>
     </app-dialog>
   </div>
 </div>
@@ -22,23 +25,39 @@
   <div class="grid grid-nogutter ">
     <div class="col-12 md:col-6 py-3">
       <div class="text-500 mb-2">Name</div>
-      <div class="text-900">Ecart Studio</div>
+      <div class="text-900"> {{ customerData?.customer_name || 'ไม่มีข้อมูล' }} </div>
     </div>
     <div class="col-12 md:col-6 py-3">
       <div class="text-500 mb-2">Email</div>
-      <div class="text-900">elliot.aldersonemail.com</div>
+      <div class="text-900">
+        @if (customerData?.customer_email) {
+          <a href="mailto:{{ customerData?.customer_email }}" class="text-900"> {{ customerData?.customer_email || '-' }}</a>
+        } @else {
+          <div> {{ customerData?.customer_email || 'ไม่มีข้อมูล' }} </div>
+        }
+      </div>
     </div>
     <div class="col-12 md:col-6 py-3">
-      <div class="text-500 mb-2">Employment Start Date</div>
-      <div class="text-900">22 January 2025</div>
+      <div class="text-500 mb-2">Phone Number</div>
+      <div class="text-900">
+          {{ customerData?.customer_phone || 'ไม่มีข้อมูล' }}
+      </div>
     </div>
     <div class="col-12 md:col-6 py-3">
-      <div class="text-500 mb-2">Employment End Date </div>
-      <div class="text-900"> 22 December 2025 </div>
+      <div class="text-500 mb-2">Employment Duration </div>
+      <div class="text-900">
+        @if (customerData?.employ_start_date && customerData?.employ_end_date) {
+          {{ customerData?.employ_start_date | date: 'dd/MM/yyyy' }} - {{ customerData?.employ_end_date | date: 'dd/MM/yyyy' }}
+        } @else {
+          <div> ไม่มีข้อมูล </div>
+        }
+      </div>
     </div>
     <div class="col-12 py-3">
       <div class="text-500 mb-2">Address</div>
-      <div class="text-900 line-height-3">Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Commodo odio aenean sed adipiscing diam donec adipiscing tristique. Eget felis eget nunc lobortis mattis aliquam faucibus purus in.</div>
+      <div class="text-900 line-height-3">
+        {{ customerData?.customer_address || 'ไม่มีข้อมูล' }}
+      </div>
     </div>
   </div>
 </p-scrollpanel>

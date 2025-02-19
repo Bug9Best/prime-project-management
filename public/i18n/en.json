@@ -91,14 +91,12 @@
   "WORKSPACE_USER_EMPTY_TITLE": "No users found",
   "WORKSPACE_USER_EMPTY_SUBTITLE": "No users found in this website.",
 
-  "FORM_PROJECT_NAME": "Project Name",
-  "FORM_PROJECT_DESCRIPTION": "Project Description (Optional)",
-  "FORM_PROJECT_TYPE": "Project Type",
-  "FORM_PROJECT_CODE": "Project Code (10 characters)",
-  "FORM_PROJECT_HELPER_TEXT": "Ask your project owner for the project code, then enter it here.",
-  "FORM_PROJECT_PRIVACY_TYPE": "Privacy Type",
-  "FORM_PROJECT_PRIVACY_TYPE_PRIVATE": "Private",
-  "FORM_PROJECT_PRIVACY_TYPE_PUBLIC": "Public",
+  "FORM_CUSTOMER_NAME": "Name",
+  "FORM_CUSTOMER_EMAIL": "Email",
+  "FORM_CUSTOMER_EMPLOY_START": "Employ Start Date",
+  "FORM_CUSTOMER_EMPLOY_END": "Employ End Date",
+  "FORM_CUSTOMER_PHONE": "Phone Number",
+  "FORM_CUSTOMER_ADDRESS": "Address (Optional)",
 
   "FEEDBACK_MENU_SUBMIT": "Feedback",
   "FEEDBACK_HEADER_SUBMIT": "Submit New Feedback",
@@ -160,6 +158,16 @@
   "MEMBER_INVITE_DESCRIPTION": "Enter the email address of the person you want to invite to this project.",
   "MEMBER_DETAIL_HEADER": "Member Detail",
   
+  "SETTING_CUSTOMER_HEADER": "Customer Setting",
+  "FORM_PROJECT_NAME": "Project Name",
+  "FORM_PROJECT_DESCRIPTION": "Project Description (Optional)",
+  "FORM_PROJECT_TYPE": "Project Type",
+  "FORM_PROJECT_CODE": "Project Code (10 characters)",
+  "FORM_PROJECT_HELPER_TEXT": "Ask your project owner for the project code, then enter it here.",
+  "FORM_PROJECT_PRIVACY_TYPE": "Privacy Type",
+  "FORM_PROJECT_PRIVACY_TYPE_PRIVATE": "Private",
+  "FORM_PROJECT_PRIVACY_TYPE_PUBLIC": "Public",
+
   "BUTTON_CREATE": "Create",
   "BUTTON_SUBMIT": "Submit",
   "BUTTON_SAVE": "Save",
@@ -173,7 +181,8 @@
   "BUTTON_CLOSE": "Close",
   "BUTTON_BLOCK": "Block this user for this site",
   "BUTTON_UNBLOCK": "Unblock this user",
-
+  "VALID_LABEL": "*This field is required.",
+  
   "APP_BUTTON_GROUP": "Group",
   "APP_BUTTON_SORT": "Sort",
   "APP_BUTTON_SEARCH": "Search",

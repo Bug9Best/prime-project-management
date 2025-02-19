@@ -8,6 +8,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { TextareaModule } from 'primeng/textarea';
 import { listProjectType, ProjectType } from '../../../public/data/project-type';
 import { SelectButton } from 'primeng/selectbutton';
+import { DatePickerModule } from 'primeng/datepicker';
 
 export type InputAppFormType = "text" | "email" | "textarea" | 'editor' | "number" | "date" | "dropdown" | 'checkbox' | 'radio' | 'toggle' | 'file' | "autocomplete" | 'divider' | 'header' | 'project_type';
 export class InputAppForm {
@@ -34,7 +35,8 @@ export class InputAppForm {
     InputTextModule,
     TextareaModule,
     RadioButtonModule,
-    SelectButton
+    SelectButton,
+    DatePickerModule
   ],
   templateUrl: './app-form.component.html',
   styleUrl: './app-form.component.scss'

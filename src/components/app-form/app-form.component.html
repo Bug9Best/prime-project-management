@@ -29,7 +29,7 @@
                 class="w-full">   
                 <ng-container *ngIf="invalid(form.field)">
                   <div class="invalid-input mb-2 ml-1">
-                    *กรุณากรอกข้อมูล
+                    {{ 'VALID_LABEL' | translate }}
                   </div>
               </ng-container>
             </div>
@@ -53,7 +53,29 @@
               </textarea>
               <ng-container *ngIf="invalid(form.field)">
                 <div class="invalid-input mb-2 ml-1">
-                  *กรุณากรอกข้อมูล
+                  {{ 'VALID_LABEL' | translate }}
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="form.type == 'date'">
+        <div class="col-{{form.colWidth}} mt-2">
+          <div class="flex flex-column">
+            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+              {{ form.label | translate }}
+            </label>
+            <div class="flex flex-column">
+              <p-datepicker 
+                appendTo="body"
+                dateFormat="dd/mm/yy"
+                styleClass="w-full"
+                [formControlName]="form.field"/>
+              <ng-container *ngIf="invalid(form.field)">
+                <div class="invalid-input mb-2 ml-1">
+                  {{ 'VALID_LABEL' | translate }}
                 </div>
               </ng-container>
             </div>

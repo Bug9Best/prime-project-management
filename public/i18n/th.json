@@ -160,6 +160,14 @@
   "MEMBER_INVITE_DESCRIPTION": "กรอกอีเมลของผู้ใช้งานที่ต้องการเชิญเข้าร่วมโครงการ",
   "MEMBER_DETAIL_HEADER": "รายละเอียดสมาชิก",
 
+  "SETTING_CUSTOMER_HEADER": "ตั้งค่าลูกค้า",
+  "FORM_CUSTOMER_NAME": "ชื่อลูกค้า",
+  "FORM_CUSTOMER_EMAIL": "อีเมลลูกค้า",
+  "FORM_CUSTOMER_EMPLOY_START": "วันที่เริ่มงาน",
+  "FORM_CUSTOMER_EMPLOY_END": "วันที่สิ้นสุดงาน",
+  "FORM_CUSTOMER_PHONE": "เบอร์โทรศัพท์",
+  "FORM_CUSTOMER_ADDRESS": "ที่อยู่ลูกค้า (ไม่บังคับ)",
+
   "BUTTON_CREATE": "สร้าง",
   "BUTTON_SUBMIT": "ส่ง",
   "BUTTON_SAVE": "บันทึก",
@@ -173,6 +181,7 @@
   "BUTTON_CLOSE": "ปิด",
   "BUTTON_BLOCK": "บล็อคผู้ใช้งานนี้ออกจากเว็บไซต์",
   "BUTTON_UNBLOCK": "ยกเลิกการบล็อคผู้ใช้งาน",
+  "VALID_LABEL": "*กรุณากรอกข้อมูล",
 
   "APP_BUTTON_GROUP": "จัดกลุ่ม",
   "APP_BUTTON_SORT": "จัดเรียง",

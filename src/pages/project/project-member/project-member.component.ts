@@ -4,8 +4,8 @@ import { AppHeader } from '../../../components/app-header/app-header.component';
 import { ProjectMemberInvite } from './project-member-invite/project-member-invite.component';
 import { ProjectMemberItem } from './project-member-item/project-member-item.component';
 import { AppDialog } from '../../../components/app-dialog/app-dialog.component';
-import { listMember } from '../../../../public/data/member';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
+import { AppFilter } from '../../../components/app-filter/app-filter.component';
 
 @Component({
   selector: 'project-member',
@@ -13,6 +13,7 @@ import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.co
     CommonModule,
     AppHeader,
     AppDialog,
+    AppFilter,
     AppScrolling,
     ProjectMemberInvite,
     ProjectMemberItem,
@@ -22,10 +23,16 @@ import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.co
 })
 export class ProjectMember {
 
+  isShowToolbar = false;
+
   title: string = 'PROJECT_MENU_MEMBER_TITLE';
   subtitle: string = 'PROJECT_MENU_MEMBER_SUBTITLE';
 
-  listMember: any = listMember;
+  onSearch(event: any): void {
+  }
+
+  setSortValue(event: any): void {
+  }
 
   onValidateForm() {
   }

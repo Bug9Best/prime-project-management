@@ -68,18 +68,6 @@
           (click)="removeMember(member)">
         </button>
       </div>
-      <div class="w-full">
-        <app-dialog 
-          [icon]="'pi pi-plus'"
-          [width]="'40vw'"
-          [label]="'WORKSPACE_BUTTON_PROJECT_JOIN'"
-          [header]="'WORKSPACE_BUTTON_PROJECT_JOIN'"
-          [submitLabel]="'BUTTON_JOIN'"
-          (onSubmitEvent)="onValidateForm()">
-          <project-member-position>
-          </project-member-position>
-        </app-dialog>
-      </div>
     </div>
   </div>
 </p-drawer>

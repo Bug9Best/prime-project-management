@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SettingGeneral } from './setting-general/setting-general.component';
 import { SettingCustomer } from './setting-customer/setting-customer.component';
 import { SettingNotification } from './setting-notification/setting-notification.component';
+import { SettingPrivacy } from './setting-privacy/setting-privacy.component';
 
 @Component({
   selector: 'project-setting',
@@ -17,7 +18,8 @@ import { SettingNotification } from './setting-notification/setting-notification
     AppHeader,
     SettingGeneral,
     SettingCustomer,
-    SettingNotification
+    SettingNotification,
+    SettingPrivacy
   ],
   templateUrl: './project-setting.component.html',
   styleUrl: './project-setting.component.scss'

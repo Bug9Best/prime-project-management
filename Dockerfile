@@ -1,7 +1,7 @@
 FROM node:22
 WORKDIR /app
 
-RUN npm install -g pnpm
+RUN npm install -g pnpm@8
 
 ADD package*.json .
 ADD pnpm-lock.yaml .

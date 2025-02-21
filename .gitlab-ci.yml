@@ -1,6 +1,4 @@
 build:
   script: 
-    - cd /home/myadmin/prime/prime-project
-    - git fetch
-    - git pull
     - ng build 
+    - cp -R dist /home/myadmin/prime

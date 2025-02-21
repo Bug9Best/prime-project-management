@@ -4,8 +4,6 @@ import { RouterLink } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
 import { DrawerModule } from 'primeng/drawer';
-import { ProjectMemberPosition } from '../project-member-position/project-member-position.component';
-import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 import { ButtonModule } from 'primeng/button';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -15,11 +13,9 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     RouterLink,
     TranslateModule,
-    AppDialog,
     DrawerModule,
     AvatarModule,
     ButtonModule,
-    ProjectMemberPosition
   ],
   templateUrl: './project-member-detail.component.html',
   styleUrl: './project-member-detail.component.scss'

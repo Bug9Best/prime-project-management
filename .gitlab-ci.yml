@@ -1,4 +1,6 @@
 build:
   script: 
-    - cd /home/myadmin/prime
-    - touch test.txt
+    - cd /home/myadmin/prime/prime-project
+    - git fetch
+    - git pull
+    - ng build 

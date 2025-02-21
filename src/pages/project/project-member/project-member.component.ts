@@ -29,6 +29,7 @@ export class ProjectMember {
   subtitle: string = 'PROJECT_MENU_MEMBER_SUBTITLE';
 
   onSearch(event: any): void {
+    console.log(event);
   }
 
   setSortValue(event: any): void {

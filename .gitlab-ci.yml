@@ -1,4 +1,5 @@
 build:
   script: 
+    - npm install
     - ng build 
     - cp -R dist /home/myadmin/prime

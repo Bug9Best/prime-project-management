@@ -58,6 +58,21 @@
         <div class="text-500 mb-1">Create Date</div>
         <div class="text-900">21 January 2025</div>
       </div>
+      <div class="col-12 md:col-6 py-3">
+        <div class="flex align-items-center">
+          <div class="flex flex-column">
+            <div class="text-500 mb-1">Project Code</div>
+            <div class="text-900">{{ projectData?.project_code }}</div>
+            </div>
+            <button 
+              icon="pi pi-clipboard"
+              label="Copy code"
+              class="p-button-secondary p-button-outlined p-button-sm w-8rem ml-3"
+              (click)="copyMessage(projectData ? projectData.project_code : '')"
+              pButton> 
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </p-scrollpanel>

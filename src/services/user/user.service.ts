@@ -1,20 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BaseModel, BaseService } from '../base/base.service';
 
-export interface ProjectsModel extends BaseModel {
+export interface UserModel extends BaseModel {
   id: string;
-  project_name: string | number;
-  project_description: number;
-  project_type: string;
-  project_privacy_type: string;
-  project_code: string;
-  is_disabled: boolean;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends BaseService<ProjectsModel> {
+export class UserService extends BaseService<UserModel> {
   public override path: string = "users";
 
   getAllUser() {

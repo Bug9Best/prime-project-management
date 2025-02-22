@@ -6,7 +6,6 @@ import { CookieService } from 'ngx-cookie-service';
 
 export enum UserRole {
   Admin = 'ADMIN',
-  Instructor = 'INSTRUCTOR',
   User = 'USER',
 }
 
@@ -58,11 +57,6 @@ export class AuthService extends BaseService<any> {
     const user: any = this.getUserData();
     console.log(user);
     return user?.role === UserRole.Admin;
-  }
-
-  isInstructor() {
-    const user: any = this.getUserData();
-    return user?.role === UserRole.Instructor;
   }
 
   isUser() {

@@ -1,0 +1,43 @@
+<app-header [title]="title" [subtitle]="subtitle">
+  <div class="flex">
+    <button pButton
+      icon="pi pi-sliders-h"
+      class="mr-2 p-button-text p-button-secondary border-round-xl"
+      [ngClass]="{'text-blue-400 bg-blue-50': isShowToolbar}"
+      (click)="isShowToolbar = !isShowToolbar">
+    </button>
+  </div>
+</app-header>
+<div *ngIf="isShowToolbar">
+  <app-filter
+    [showGroupList]="false"
+    (onSearchEvent)="onSearch($event)"
+    (setGroupValueEvent)="setGroupValue($event)"
+    (setSortValueEvent)="setSortValue($event)">
+  </app-filter>
+</div>
+
+@if (!listProject.length) {
+  <app-empty 
+    [icon]="'pi pi-users'" 
+    [title]="emptyTitle" 
+    [description]="emptyDescription">
+  </app-empty>
+} @else {
+  <app-scrolling
+    [isShowToolbar]="isShowToolbar">
+    <app-table
+      [selectionMode]="''"
+      [listItem]="listProject"
+      [listColumns]="listColumn"
+      [isShowToolbar]="isShowToolbar"
+      (onClickItemEvent)="onClickItem($event)">
+      <ng-template appTableField="project_type" let-item>
+        <project-type-tag [type]="item.project_type">
+        </project-type-tag>
+      </ng-template>
+    </app-table>
+    <project-detail-dialog>
+    </project-detail-dialog>
+  </app-scrolling>
+}

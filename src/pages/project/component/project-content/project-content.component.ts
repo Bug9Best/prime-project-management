@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ProjectDashboard } from '../../project-dashboard/project-dashboard.component';
 import { ProjectSprint } from '../../project-sprint/project-sprint.component';
 import { ProjectBacklog } from '../../project-backlog/project-backlog.component';
@@ -26,6 +26,6 @@ import { ProjectBoard } from '../../project-board/project-board.component';
   styleUrl: './project-content.component.scss'
 })
 export class ProjectContent {
-  @Input()
-  currentTabIndex: number = 0;
+
+  currentTabIndex = input<number>(0);
 }

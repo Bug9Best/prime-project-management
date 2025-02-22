@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BaseModel, BaseService } from '../base/base.service';
 
+export enum ProjectType {
+  SCRUM = 'SCRUM',
+  WATERFALL = 'WATERFALL',
+  KANBAN = 'KANBAN',
+}
+
 export interface ProjectsModel extends BaseModel {
   id: string;
   project_name: string;

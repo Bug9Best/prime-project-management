@@ -18,4 +18,12 @@ export class FeedbackService extends BaseService<FeedbackModel> {
   createFeedback(data: any) {
     return this.client.post<any>(`${this.getBaseUrl}/createFeedback`, data);
   }
+
+  getByUser(userId: string) {
+    return this.client.get<any>(`${this.getBaseUrl}/getByUser`, {
+      params: {
+        user_id: userId,
+      }
+    });
+  }
 }

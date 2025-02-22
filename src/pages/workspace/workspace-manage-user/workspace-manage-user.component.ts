@@ -4,7 +4,7 @@ import { AppFilter } from '../../../components/app-filter/app-filter.component';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
 import { AppHeader } from '../../../components/app-header/app-header.component';
 import { Mode } from '../workspace-content-project/workspace-content-project.component';
-import { listUser, UserProfile } from '../../../../public/data/user';
+import { UserProfile } from '../../../../public/data/user';
 import { AppTable, AppTableColumn, AppTableFieldDirective } from '../../../components/app-table/app-table.component';
 import { ButtonModule } from 'primeng/button';
 import { MemberRoleTag } from '../component/member-role-tag/member-role-tag.component';
@@ -79,7 +79,6 @@ export class WorkspaceManageUser {
       return;
     }
   }
-
 
   @ViewChild(MemberDetailDialog) memberDetailDialog!: MemberDetailDialog;
   onClickItem(user: any) {

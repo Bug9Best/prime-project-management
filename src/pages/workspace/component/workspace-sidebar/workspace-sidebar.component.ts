@@ -38,7 +38,7 @@ export class WorkspaceSidebar {
         { type: 'menu', tabIndex: 1, label: 'workspace.menu.join', icon: 'pi pi-sign-in' },
         { type: 'divider', },
         { type: 'menu', tabIndex: 2, label: 'workspace.menu.manageProject', icon: 'pi pi-file' },
-        { type: 'menu', tabIndex: 2, label: 'workspace.menu.manageUser', icon: 'pi pi-users' },
+        { type: 'menu', tabIndex: 3, label: 'workspace.menu.manageUser', icon: 'pi pi-users' },
       ];
     } else {
       this.listMenu = [

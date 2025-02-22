@@ -26,12 +26,15 @@
       <ng-template #pTableRow>
         <ng-container *ngFor="let col of listColumns(); index as i">
           <ng-container *ngIf="showOrder() && showOrderIndex() === i">
-            <td [style.minWidth]="'70px'">
+            <td [style.minWidth]="'70px'" class="unselect">
               <div class="text-center">{{ rowIndex + 1 }}</div>
             </td>
           </ng-container>
 
-          <td [colSpan]="col.colSpan" [style]="col.style" (click)="onClickItem(item)">
+          <td [colSpan]="col.colSpan"
+            class="cursor-pointer"
+            [ngClass]="{ 'unselect': !col.selectable }"
+            [style]="col.style" (click)="onClickItem(item)">
             <ng-template #pDefault>
               <ng-container *ngIf="item[col.field]; else pElse">
                 <ng-container [ngSwitch]="col.type">

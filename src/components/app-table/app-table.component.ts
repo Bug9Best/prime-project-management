@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component, ContentChildren, Directive, input, Input, output, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ContentChildren, Directive, input, Input, output, TemplateRef } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TableModule } from 'primeng/table';
 import { ContextMenuModule } from 'primeng/contextmenu';
 
 import { ThaiDatePipe } from '../../helper/pipe/thdate.pipe';
-import { Menu, MenuModule } from 'primeng/menu';
+import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
-import { MenuItem } from 'primeng/api';
 
 @Directive({
   selector: '[appTableField]'
@@ -34,6 +33,7 @@ export class AppTableColumn {
   style?: any = { minWidth: '200px' };
   styleClass?: string = "";
   colSpan?: number = 0;
+  selectable?: boolean = false;
   numberFormat?: string = "0.0-0";
   dateFormat?: string = "date";
   emptyText?: string = "-";
@@ -56,7 +56,7 @@ export class AppTableColumn {
 export class AppTable {
 
   isShowToolbar = input<boolean>(false);
-  
+
   listItem = input<any[]>([]);
   listColumns = input<AppTableColumn[]>([]);
   showOrder = input<boolean>(true);

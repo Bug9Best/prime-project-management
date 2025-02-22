@@ -16,6 +16,10 @@ import { ButtonModule } from 'primeng/button';
 })
 export class SectionGetstart {
 
+  title = 'getStart.title';
+  description = 'getStart.description';
+  buttonLabel = 'getStart.buttonLabel';
+
   router = inject(Router);
   getStarted() {
     this.router.navigate(['/workspace']);

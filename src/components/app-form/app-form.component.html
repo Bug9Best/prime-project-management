@@ -40,20 +40,29 @@
       <ng-container *ngIf="form.type == 'textarea'">
         <div class="col-{{form.colWidth}} mt-2">
           <div class="flex flex-column">
-            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
-              {{ form.label | translate }}
-            </label>
+            <div class="flex justify-content-between">
+              <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+                {{ form.label | translate }}
+              </label>
+              @if (form.isLimitLength) {
+                <label class="mr-1 mb-1 text-500 text-sm">
+                  {{ notesLength }} / {{ form.maxLength || 255 }}
+                </label>
+              }
+            </div>
             <div class="flex flex-column">
               <textarea pTextarea
-                rows="5"                
+                rows="5"     
                 [id]="form.label"
+                [maxlength]="form.maxLength || 255"           
                 [autoResize]="false"
                 [readOnly]="form.disabled"
+                (keyup)="onTyping($event)"
                 [formControlName]="form.field">
               </textarea>
               <ng-container *ngIf="invalid(form.field)">
                 <div class="invalid-input mb-2 ml-1">
-                  {{ 'VALID_LABEL' | translate }}
+                  {{ labelValidation | translate }}
                 </div>
               </ng-container>
             </div>

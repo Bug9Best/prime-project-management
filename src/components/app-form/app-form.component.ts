@@ -22,6 +22,7 @@ export class InputAppForm {
   options?: any;
   helpText?: string = "";
   filter?: boolean = false;
+  isLimitLength?: boolean = false;
 }
 
 @Component({
@@ -43,6 +44,11 @@ export class InputAppForm {
 })
 export class AppForm {
 
+  maxNotesLength: number = 255;
+  notesLength: number = 0;
+
+  labelValidation: string = 'app.validation.required';
+
   @Input()
   listForm: InputAppForm[] = [];
 
@@ -62,5 +68,12 @@ export class AppForm {
         && (formControl.touched || formControl.dirty);
     }
     return false;
+  }
+
+  onTyping(event: any) {
+    this.notesLength = event.target.textLength;
+    if (this.notesLength > this.maxNotesLength) {
+      this.notesLength = this.maxNotesLength;
+    }
   }
 }

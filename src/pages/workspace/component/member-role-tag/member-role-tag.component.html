@@ -1,9 +1,6 @@
 @switch (role()) {
   @case (UserRole.Admin) {
-      <p-tag icon="pi pi-crown" severity="danger" value="Admin" [class]="styleClass()"/>
-  }
-  @case (UserRole.Instructor) {
-      <p-tag icon="pi pi-graduation-cap" severity="warn" value="Instructor" [class]="styleClass()"/>
+      <p-tag icon="pi pi-crown" severity="warn" value="Admin" [class]="styleClass()"/>
   }
   @case (UserRole.User) {
       <p-tag icon="pi pi-user" value="User" [class]="styleClass()"/>

@@ -1,34 +1,26 @@
 <app-header 
   [title]="title" 
   [subtitle]="subtitle">
-  <div class="flex">
-    <app-dialog 
-      [icon]="'pi pi-plus'"
-      [width]="'40vw'"
-      [label]="'FEEDBACK_BUTTON_SUBMIT'"
-      [header]="'FEEDBACK_HEADER_SUBMIT'"
-      [submitLabel]="'BUTTON_SUBMIT'"
-      [submitIcon]="'pi pi-send'"
-      (onSubmitEvent)="onValidateForm()">
-        <form-feedback-submit>
-        </form-feedback-submit>
-        <div class="text-500 text-sm">
-          {{ 'FORM_FEEDBACK_DESCRIPTION' | translate }}
-        </div>
-    </app-dialog>
-  </div>
 </app-header>
 
-<app-scrolling>
-  @for (item of listFeedbacks; track $index) {
-    <div class="border-1 surface-border border-round shadow-1 w-full p-3 mb-3">
-      <div class="flex flex-column">
-        <div class="text-lg">{{ item.content }}</div>
-        <div class="flex justify-content-between">
-          <div class="text-500 text-sm">{{ item.submitter_email }}</div>
-          <div class="text-500 text-sm">{{ item.created_at | date:'d MMMM yyyy hh:mm:aa' }}</div>
+@if (!listFeedbacks.length) {
+  <app-empty 
+    [icon]="'pi pi-comments'" 
+    [title]="emptyTitle" 
+    [description]="emptyDescription">
+  </app-empty>
+} @else {
+  <app-scrolling>
+    @for (item of listFeedbacks; track $index) {
+      <div class="border-1 surface-border border-round shadow-1 w-full p-3 mb-3">
+        <div class="flex flex-column">
+          <div class="text-lg">{{ item.content }}</div>
+          <div class="flex justify-content-between">
+            <div class="text-500 text-sm">{{ item.submitter_email }}</div>
+            <div class="text-500 text-sm">{{ item.created_at | date:'d MMMM yyyy hh:mm:aa' }}</div>
+          </div>
         </div>
       </div>
-    </div>
-  }
-</app-scrolling>
+    }
+  </app-scrolling>
+}

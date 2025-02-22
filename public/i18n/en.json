@@ -1,8 +1,10 @@
 {
-  "LANGUAGE": "English",
+  "lang": "English",
 
   "app": {
     "button": {
+      "signin": "Sign In",
+      "signup": "Sign Up",
       "create": "Create",
       "submit": "Submit",
       "save": "Save",
@@ -17,62 +19,76 @@
       "block": "Block this user for this site",
       "unblock": "Unblock this user"
     },
+    "filter": {
+      "search": "Search",
+      "group": "Group",
+      "sort": "Sort"
+    },
+    "group": {
+      "none": "Group by none",
+      "type": "Group by type"
+    },
+    "sort": {
+      "none": "Sort by none",
+      "nameAsc": "Sort by name in ascending order (A-Z)",
+      "nameDesc": "Sort by name in descending order (Z-A)",
+      "typeAsc": "Sort by type in ascending order (A-Z)",
+      "typeDesc": "Sort by type in descending order (Z-A)"
+    },
     "validation": {
       "required": "*This field is required."
     }
   },
 
-  "section": {
-    "getStart": "Get Started",
-    "features": "Features",
-    "developers": "Developers Team",
-    "contact": "Contact Us",
-    "workspace": "Workspace",
-    "feedback": "Feedback",
-    "profile": "Profile"
-  },
-
-  "getStart": {
-    "title": "Make project simple and Efficient with",
-    "description": "Prime Project Manager is a project management software that helps you plan, track, and manage your projects effectively. It is a simple and easy-to-use tool that helps you manage your projects efficiently.",
-    "buttonLabel": "Get Started"
-  },
-
-  "feature": {
-    "title": "One Product,",
-    "subtitle": "Many Solutions",
-    "description": "Our platform is designed to help you build and scale your business with ease.",
-    "scrum": "Scrum",
-    "scrumDescription": "Framework that helps teams organize tasks, assign them to team members, and efficiently track task progress within well-defined work cycles.",
-    "waterfall": "Waterfall",
-    "waterfallDescription": "Project development model that emphasizes a clear sequence of steps, starting from requirement gathering, design, development, and testing.",
-    "kanban": "Kanban",
-    "kanbanDescription": "Tool that provides an overview of tasks in the form of boards, helping to flexibly manage and track task progress across different stages of the workflow.",
-    "member": "Project Member",
-    "memberDescription": "System for managing project team members, allowing roles to be assigned and permissions to be defined, ensuring smooth and efficient collaboration.",
-    "resource": "Project Resource",
-    "resourceDescription": "Centralized space for collecting all project-related documents, making storage and access convenient while aligning with project requirements.",
-    "notify": "Notification",
-    "notifyDescription": "System that alerts team members about important project updates, including notifications for assigned tasks or issues, via both in-system alerts and emails."
-  },
-
-  "team": {
-    "title": "Developers Team",
-    "description": "We take pride in our diverse and dedicated development team. Every member plays a crucial role in the creation and success of the Prime Project Manager. Get to know the team members who are ready to work hard and are committed to bringing your project to success.",
-    "adviserPornsuree": "Asst.Prof.Dr. Pornsuree Jamsri",
-    "adviserPornsureePosition": "Project Adviser",
-    "adviserTaravichet": "Asst.Prof.Dr. Taravichet Titijaroonroj",
-    "adviserTaravichetPosition": "Project Adviser",
-    "developerNatthaphon": "PO1 Natthaphon Ditthaviboon",
-    "developerNatthaphonPosition": "Software Developer",
-    "developerPhuri": "Mr. Phuri Siripool ",
-    "developerPhuriPosition": "Software Developer"
-  },
-
-  "footer": {
-    "contact": "Contact Us",
-    "university": "King Mongkut's Institute of Technology Ladkrabang",
-    "locate": "1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520, Thailand"
+  "home": {
+    "menu": {
+      "getStart": "Get Started",
+      "features": "Features",
+      "developers": "Developers Team",
+      "contact": "Contact Us",
+      "workspace": "Workspace",
+      "feedback": "Feedback",
+      "profile": "Profile"
+    },
+    "getStart": {
+      "title": "Make project simple and Efficient with",
+      "description": "Prime Project Manager is a project management software that helps you plan, track, and manage your projects effectively. It is a simple and easy-to-use tool that helps you manage your projects efficiently.",
+      "buttonLabel": "Get Started"
+    },
+    "feature": {
+      "title": "One Product,",
+      "subtitle": "Many Solutions",
+      "description": "Our platform is designed to help you build and scale your business with ease.",
+      "scrum": "Scrum",
+      "scrumDescription": "Framework that helps teams organize tasks, assign them to team members, and efficiently track task progress within well-defined work cycles.",
+      "waterfall": "Waterfall",
+      "waterfallDescription": "Project development model that emphasizes a clear sequence of steps, starting from requirement gathering, design, development, and testing.",
+      "kanban": "Kanban",
+      "kanbanDescription": "Tool that provides an overview of tasks in the form of boards, helping to flexibly manage and track task progress across different stages of the workflow.",
+      "member": "Project Member",
+      "memberDescription": "System for managing project team members, allowing roles to be assigned and permissions to be defined, ensuring smooth and efficient collaboration.",
+      "resource": "Project Resource",
+      "resourceDescription": "Centralized space for collecting all project-related documents, making storage and access convenient while aligning with project requirements.",
+      "notify": "Notification",
+      "notifyDescription": "System that alerts team members about important project updates, including notifications for assigned tasks or issues, via both in-system alerts and emails."
+    },
+    "team": {
+      "title": "Developers Team",
+      "description": "We take pride in our diverse and dedicated development team. Every member plays a crucial role in the creation and success of the Prime Project Manager. Get to know the team members who are ready to work hard and are committed to bringing your project to success.",
+      "adviserPornsuree": "Asst.Prof.Dr. Pornsuree Jamsri",
+      "adviserPornsureePosition": "Project Adviser",
+      "adviserTaravichet": "Asst.Prof.Dr. Taravichet Titijaroonroj",
+      "adviserTaravichetPosition": "Project Adviser",
+      "developerNatthaphon": "PO1 Natthaphon Ditthaviboon",
+      "developerNatthaphonPosition": "Software Developer",
+      "developerPhuri": "Mr. Phuri Siripool ",
+      "developerPhuriPosition": "Software Developer"
+    },
+    "footer": {
+      "contact": "Contact Us",
+      "university": "King Mongkut's Institute of Technology Ladkrabang",
+      "locate": "1 Chalong Krung 1 Alley, Lat Krabang, Khet Lat Krabang, Krung Thep Maha Nakhon 10520, Thailand"
+    }
   },
 
   "workspace": {
@@ -151,15 +167,55 @@
     }
   },
 
-  "form": {
-    "customer": {
-      "name": "Name",
-      "email": "Email",
-      "employStart": "Employ Start Date",
-      "employEnd": "Employ End Date",
-      "phone": "Phone Number",
-      "address": "Address (Optional)"
+  "project": {
+    "menu":{
+      "dashboard": "Dashboard",
+      "sprint": "Sprint",
+      "backlog": "Backlog",
+      "gantt": "Gantt Chart",
+      "board": "Board",
+      "task": "Task",
+      "resource": "Resource",
+      "member": "Member",
+      "setting": "Setting"
     },
+    "title": {
+      "dashboard": "Dashboard",
+      "sprint": "Sprint",
+      "backlog": "Backlog",
+      "gantt": "Gantt Chart",
+      "board": "Board",
+      "task": "Task",
+      "resource": "Resource",
+      "member": "Member",
+      "setting": "Setting"
+    },
+    "subtitle": {
+      "dashboard": "Display an overview, track progress, and summarize essential project information.",
+      "sprint": "Manage sprints, track progress, and summarize sprint information.",
+      "backlog": "Manage tasks and quickly add them to sprints.",
+      "gantt": "Manage tasks in Gantt chart format.",
+      "board": "Manage tasks in Kanban board format.",
+      "task": "Manage tasks, assign tasks to team members, and track task progress.",
+      "resource": "Manage project documents and conveniently access relevant files.",
+      "member": "Manage project members.",
+      "setting": "Project setting."
+    },
+    "scrum": {
+      "title": "Scrum",
+      "description": "Scrum is suitable for projects that are complex or have frequently changing requirements, emphasizing flexibility and collaboration to accommodate adjustments during project execution."
+    },
+    "waterfall": {
+      "title": "Waterfall",
+      "description": "Waterfall is suitable for projects with clearly defined timelines and scopes, following a structured sequence of steps with minimal changes to requirements."
+    },
+    "kanban": {
+      "title": "Kanban",
+      "description": "Kanban is suitable for projects requiring continuous workflow management or those with a steady influx of tasks, focusing on prioritization and efficient task flow."
+    }
+  },
+
+  "form": {
     "feedback": {
       "content": "Feedback Content",
       "description": "Enter your feedback or problems you encounter. Our team will address them as soon as possible."
@@ -173,6 +229,14 @@
       "privacyType": "Privacy Type",
       "privacyTypePrivate": "Private",
       "privacyTypePublic": "Public"
+    },
+    "customer": {
+      "name": "Name",
+      "email": "Email",
+      "employStart": "Employ Start Date",
+      "employEnd": "Employ End Date",
+      "phone": "Phone Number",
+      "address": "Address (Optional)"
     }
   },
 
@@ -235,6 +299,13 @@
       "name": "Name",
       "description": "Description",
       "createDate": "Create Date"
+    },
+    "member": {
+      "header": "Member Detail",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "createDate": "Member Register Date"
     }
   },
 
@@ -252,8 +323,7 @@
         "name": "Name",
         "email": "Email",
         "role": "Role",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "project": {
@@ -263,8 +333,7 @@
         "type": "Type",
         "status": "Status",
         "owner": "Owner",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "user": {
@@ -272,15 +341,13 @@
         "name": "Name",
         "email": "Email",
         "role": "Role",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Member Register Date"
       }
     },
     "feedback": {
       "header": {
         "content": "Content",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "task": {
@@ -290,16 +357,14 @@
         "priority": "Priority",
         "status": "Status",
         "assignee": "Assignee",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "resource": {
       "header": {
         "name": "Name",
         "description": "Description",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "member": {
@@ -307,125 +372,8 @@
         "name": "Name",
         "email": "Email",
         "role": "Role",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     }
-  },
-
-  "BUTTON_SIGNIN":"Sign In",
-  "BUTTON_SIGNUP":"Sign Up",
-
-  "SIGNIN_HEADER": "Sign In",
-  "SIGNIN_ACCOUNT_EXIST": "Don't have an account?",
-  "SIGNIN_SIGNUP": "Sign Up",
-  "SIGNIN_EMAIL": "Email",
-  "SIGNIN_PASSWORD": "Password",
-  "SIGNIN_BUTTON": "Sign In",
-  "SIGNIN_BUTTON_GOOGLE": "Sign in with Google",
-  "SIGNIN_PASSWORD_PROMPT": "Enter a password:",
-  "SIGNIN_PASSWORD_WEAK": "Weak",
-  "SIGNIN_PASSWORD_MEDIUM": "Medium",
-  "SIGNIN_PASSWORD_STRONG": "Strong",
-  "SIGNIN_PASSWORD_REQUIRED_LOWER": "At least one lowercase",
-  "SIGNIN_PASSWORD_REQUIRED_UPPER": "At least one uppercase",
-  "SIGNIN_PASSWORD_REQUIRED_NUMBER": "At least one numeric",
-  "SIGNIN_PASSWORD_REQUIRED_LENGTH": "Minimum 8 characters",
-
-  "SIGNUP_HEADER": "Sign Up",
-
-  "FORM_CUSTOMER_NAME": "Name",
-  "FORM_CUSTOMER_EMAIL": "Email",
-  "FORM_CUSTOMER_EMPLOY_START": "Employ Start Date",
-  "FORM_CUSTOMER_EMPLOY_END": "Employ End Date",
-  "FORM_CUSTOMER_PHONE": "Phone Number",
-  "FORM_CUSTOMER_ADDRESS": "Address (Optional)",
-
-  "PROJECT_SCRUM": "Scrum",
-  "PROJECT_SCRUM_DESCRIPTION": "Scrum is suitable for projects that are complex or have frequently changing requirements, emphasizing flexibility and collaboration to accommodate adjustments during project execution.",
-  "PROJECT_WATERFALL": "Waterfall",
-  "PROJECT_WATERFALL_DESCRIPTION": "Waterfall is suitable for projects with clearly defined timelines and scopes, following a structured sequence of steps with minimal changes to requirements.",
-  "PROJECT_KANBAN": "Kanban",
-  "PROJECT_KANBAN_DESCRIPTION": "Kanban is suitable for projects requiring continuous workflow management or those with a steady influx of tasks, focusing on prioritization and efficient task flow.",
-
-  "PROJECT_MENU_DASHBOARD": "Dashboard",
-  "PROJECT_MENU_DASHBOARD_TITLE": "Dashboard",
-  "PROJECT_MENU_DASHBOARD_SUBTITLE": "Display an overview, track progress, and summarize essential project information.",
-  "PROJECT_MENU_SPRINT": "Sprint",
-  "PROJECT_MENU_SPRINT_TITLE": "Sprint",
-  "PROJECT_MENU_SPRINT_SUBTITLE": "Manage sprints, track progress, and summarize sprint information.",
-  "PROJECT_MENU_BACKLOG": "Backlog",
-  "PROJECT_MENU_BACKLOG_TITLE": "Backlog",
-  "PROJECT_MENU_BACKLOG_SUBTITLE": "Manage tasks and quickly add them to sprints.",
-  "PROJECT_MENU_GANTT": "Gantt Chart",
-  "PROJECT_MENU_GANTT_TITLE": "Gantt Chart",
-  "PROJECT_MENU_GANTT_SUBTITLE": "Manage tasks in Gantt chart format.",
-  "PROJECT_MENU_BOARD": "Board",
-  "PROJECT_MENU_BOARD_TITLE": "Board",
-  "PROJECT_MENU_BOARD_SUBTITLE": "Manage tasks in Kanban board format.",
-  "PROJECT_MENU_TASK": "Task",
-  "PROJECT_MENU_TASK_TITLE": "Task",
-  "PROJECT_MENU_TASK_SUBTITLE": "Manage tasks, assign tasks to team members, and track task progress.",
-  "PROJECT_MENU_RESOURCE": "Project Resource",
-  "PROJECT_MENU_RESOURCE_TITLE" : "Project Resource",
-  "PROJECT_MENU_RESOURCE_SUBTITLE": "Manage project documents and conveniently access relevant files.",
-  "PROJECT_MENU_MEMBER": "Member",
-  "PROJECT_MENU_MEMBER_TITLE" : "Member",
-  "PROJECT_MENU_MEMBER_SUBTITLE": "Manage project members.",
-  "PROJECT_MENU_SETTING": "Setting",
-  "PROJECT_MENU_SETTING_TITLE" : "Setting",
-  "PROJECT_MENU_SETTING_SUBTITLE": "Project setting.",
-
-  "DASHBOARD_PROJECT_INFO": "Project Information",
-  "DASHBOARD_PRIORITY_OVERVIEW": "Priority Overview",
-  "DASHBOARD_TASK_OVERVIEW": "Task Status Overview",
-  "DASHBOARD_BURN_UP": "Burn Up Chart",
-  "DASHBOARD_BURN_DOWN": "Burn Down Chart",
-  "DASHBOARD_TASK_LIST": "Task List",
-
-  "TASK_BUTTON_CREATE": "Add Task",
-
-  "RESOURCE_BUTTON_CREATE": "Add Resource",
-  "RESOURCE_BUTTON_SHOW": "Show Content",
-  "RESOURCE_BUTTON_HIDE": "Hide Content",
-
-  "MEMBER_BUTTON_INVITE": "Invite Member",
-  "MEMBER_INVITE_TITLE": "Invite Team Member",
-  "MEMBER_INVITE_DESCRIPTION": "Enter the email address of the person you want to invite to this project.",
-  "MEMBER_DETAIL_HEADER": "Member Detail",
-
-  "SETTING_CUSTOMER_HEADER": "Customer Setting",
-  "FORM_PROJECT_NAME": "Project Name",
-  "FORM_PROJECT_DESCRIPTION": "Project Description (Optional)",
-  "FORM_PROJECT_TYPE": "Project Type",
-  "FORM_PROJECT_CODE": "Project Code (10 characters)",
-  "FORM_PROJECT_HELPER_TEXT": "Ask your project owner for the project code, then enter it here.",
-  "FORM_PROJECT_PRIVACY_TYPE": "Privacy Type",
-  "FORM_PROJECT_PRIVACY_TYPE_PRIVATE": "Private",
-  "FORM_PROJECT_PRIVACY_TYPE_PUBLIC": "Public",
-
-
-
-  "APP_BUTTON_GROUP": "Group",
-  "APP_BUTTON_SORT": "Sort",
-  "APP_BUTTON_SEARCH": "Search",
-
-  "APP_FILTER_GROUP_NONE": "Group by none",
-  "APP_FILTER_GROUP_TYPE": "Group by type",
-
-  "APP_FILTER_SORT_NONE": "Sort by none",
-  "APP_FILTER_SORT_NAME_ASC": "Sort by name in ascending order (A-Z)",
-  "APP_FILTER_SORT_NAME_DESC": "Sort by name in descending order (Z-A)",
-  "APP_FILTER_SORT_TYPE_ASC": "Sort by type in ascending order (A-Z)",
-  "APP_FILTER_SORT_TYPE_DESC": "Sort by type in descending order (Z-A)",
-
-  "TABLE_HEADER_ORDER": "No.",
-  "TABLE_HEADER_NAME": "Name",
-  "TABLE_HEADER_EMAIL": "Email",
-  "TABLE_HEADER_ROLE": "Role",
-  "TABLE_HEADER_CREATE_DATE": "Member Register Date",
-  "TABLE_HEADER_TYPE": "Type",
-  "TABLE_HEADER_STATUS": "Status",
-  "TABLE_HEADER_PRIORITY": "Priority"
-
+  }
 }

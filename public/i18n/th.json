@@ -1,8 +1,10 @@
 {
-  "LANGUAGE": "ภาษาไทย",
+  "lang": "ภาษาไทย",
 
   "app": {
     "button": {
+      "signin": "เข้าสู่ระบบ",
+      "signup": "สมัครสมาชิก",
       "create": "สร้าง",
       "submit": "ส่ง",
       "save": "บันทึก",
@@ -17,62 +19,76 @@
       "block": "บล็อคผู้ใช้งานนี้ออกจากเว็บไซต์",
       "unblock": "ยกเลิกการบล็อคผู้ใช้งาน"
     },
+    "filter": {
+      "search": "ค้นหา",
+      "group": "จัดกลุ่ม",
+      "sort": "จัดเรียง"
+    },
+    "group": {
+      "none": "ไม่จัดกลุ่ม",
+      "type": "จัดกลุ่มตามประเภท"
+    },
+    "sort": {
+      "none": "ไม่จัดเรียง",
+      "nameAsc": "จัดเรียงตามชื่อจากน้อยไปมาก (A-Z)",
+      "nameDesc": "จัดเรียงตามชื่อจากมากไปน้อย (Z-A)",
+      "typeAsc": "จัดเรียงตามประเภทจากน้อยไปมาก (A-Z)",
+      "typeDesc": "จัดเรียงตามประเภทจากมากไปน้อย (Z-A)"
+    },
     "validation": {
       "required": "*กรุณากรอกข้อมูล"
     }
   },
 
-  "section": {
-    "getStart": "เริ่มต้นใช้งาน",
-    "features": "ฟีเจอร์",
-    "developers": "ทีมพัฒนา",
-    "contact": "ติดต่อเรา",
-    "workspace": "เวิร์กสเปซ",
-    "feedback": "ข้อเสนอแนะ",
-    "profile": "โปรไฟล์"
-  },
-
-  "getStart": {
-    "title": "พัฒนาโครงการอย่างมีประสิทธิภาพในรูปแบบที่เรียบง่ายด้วย",
-    "description": "Prime Project Manager เป็นซอฟต์แวร์การจัดการโครงการที่ช่วยให้คุณวางแผน ติดตาม และจัดการโครงการของคุณได้อย่างมีประสิทธิภาพ เป็นเครื่องมือที่เรียบง่ายและใช้งานง่ายซึ่งช่วยให้คุณจัดการโครงการได้อย่างมีประสิทธิผล",
-    "buttonLabel": "เริ่มต้นใช้งาน"
-  },
-
-  "feature": {
-    "title": "หนึ่งผลิตภัณฑ์",
-    "subtitle" : "หลากหลายโซลูชั่น",
-    "description": "แพลตฟอร์มของเราออกแบบมาเพื่อช่วยให้คุณสร้างและขยายธุรกิจของคุณได้อย่างง่ายดาย",
-    "scrum": "Scrum",
-    "scrumDescription": "กรอบการทำงานที่ช่วยให้ทีมสามารถจัดระเบียบงาน มอบหมายงานให้สมาชิกในทีม และติดตามความคืบหน้าของงานได้อย่างมีประสิทธิภาพภายในรอบการทำงานที่ชัดเจน",
-    "waterfall": "Waterfall",
-    "waterfallDescription": "โมเดลการพัฒนาโครงการที่เน้นการดำเนินงานตามลำดับขั้นตอนที่กำหนดไว้อย่างชัดเจน ตั้งแต่การรวบรวมข้อกำหนด การออกแบบ การพัฒนา การทดสอบ",
-    "kanban": "Kanban",
-    "kanbanDescription": "เครื่องมือสำหรับแสดงภาพรวมของงานในรูปแบบกระดานต่างๆ เพื่อช่วยจัดการและติดตามความคืบหน้าของงานในแต่ละขั้นตอนของกระบวนการทำงานได้อย่างยืดหยุ่น",
-    "member": "สมาชิกโครงการ",
-    "memberDescription": "ระบบสำหรับจัดการสมาชิกในทีมโครงการ โดยสามารถมอบหมายบทบาทและกำหนดสิทธิ์ต่างๆ ให้กับสมาชิกเพื่อให้การทำงานร่วมกันเป็นไปอย่างราบรื่นและมีประสิทธิภาพ",
-    "resource": "เอกสารโครงการ",
-    "resourceDescription": "พื้นที่ศูนย์กลางสำหรับรวบรวมเอกสารที่เกี่ยวข้องกับโครงการทั้งหมด ช่วยให้การจัดเก็บและการเข้าถึงเอกสารเป็นไปอย่างสะดวกและตรงตามข้อกำหนดของโครงการ",
-    "notify": "การแจ้งเตือน",
-    "notifyDescription": "ระบบที่ช่วยแจ้งเตือนสมาชิกในทีมเกี่ยวกับการอัปเดตที่สำคัญในโครงการ รวมถึงการแจ้งเตือนเมื่อได้รับมอบหมายงานหรือปัญหา โดยผ่านทั้งการแจ้งเตือนในระบบและอีเมล"
-  },
-
-  "team": {
-    "title": "ทีมพัฒนา",
-    "description": "เราภูมิใจในทีมพัฒนาที่มีความหลากหลายและทุ่มเท ทุกคนในทีมมีบทบาทสำคัญในการสร้างสรรค์และพัฒนาโครงการ Prime Project Manager ให้ประสบความสำเร็จ มารู้จักกับสมาชิกในทีมของเราที่พร้อมทำงานอย่างหนักและเต็มใจที่จะนำพาโครงการของคุณสู่ความสำเร็จ",
-    "adviserPornsuree": "ผศ.ดร. พรสุรีย์ แจ่มศรี",
-    "adviserPornsureePosition": "ที่ปรึกษาโครงการ",
-    "adviserTaravichet": "ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์",
-    "adviserTaravichetPosition": "ที่ปรึกษาโครงการ",
-    "developerNatthaphon": "จ.อ. ณัฐพล ดิษฐวิบูลย์",
-    "developerNatthaphonPosition": "นักพัฒนาซอฟต์แวร์",
-    "developerPhuri": "นายภูริ ศิริภูล ",
-    "developerPhuriPosition": "นักพัฒนาซอฟต์แวร์"
-  },
-
-  "footer": {
-    "contact": "ติดต่อเรา",
-    "university": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
-    "locate": "ถนนฉลองกรุง เขตลาดกระบัง กรุงเทพฯ 10520, ประเทศไทย"
+  "home": {
+    "menu": {
+      "getStart": "เริ่มต้นใช้งาน",
+      "features": "ฟีเจอร์",
+      "developers": "ทีมพัฒนา",
+      "contact": "ติดต่อเรา",
+      "workspace": "เวิร์กสเปซ",
+      "feedback": "ข้อเสนอแนะ",
+      "profile": "โปรไฟล์"
+    },
+    "getStart": {
+      "title": "พัฒนาโครงการอย่างมีประสิทธิภาพในรูปแบบที่เรียบง่ายด้วย",
+      "description": "Prime Project Manager เป็นซอฟต์แวร์การจัดการโครงการที่ช่วยให้คุณวางแผน ติดตาม และจัดการโครงการของคุณได้อย่างมีประสิทธิภาพ เป็นเครื่องมือที่เรียบง่ายและใช้งานง่ายซึ่งช่วยให้คุณจัดการโครงการได้อย่างมีประสิทธิผล",
+      "buttonLabel": "เริ่มต้นใช้งาน"
+    },
+    "feature": {
+      "title": "หนึ่งผลิตภัณฑ์",
+      "subtitle" : "หลากหลายโซลูชั่น",
+      "description": "แพลตฟอร์มของเราออกแบบมาเพื่อช่วยให้คุณสร้างและขยายธุรกิจของคุณได้อย่างง่ายดาย",
+      "scrum": "Scrum",
+      "scrumDescription": "กรอบการทำงานที่ช่วยให้ทีมสามารถจัดระเบียบงาน มอบหมายงานให้สมาชิกในทีม และติดตามความคืบหน้าของงานได้อย่างมีประสิทธิภาพภายในรอบการทำงานที่ชัดเจน",
+      "waterfall": "Waterfall",
+      "waterfallDescription": "โมเดลการพัฒนาโครงการที่เน้นการดำเนินงานตามลำดับขั้นตอนที่กำหนดไว้อย่างชัดเจน ตั้งแต่การรวบรวมข้อกำหนด การออกแบบ การพัฒนา การทดสอบ",
+      "kanban": "Kanban",
+      "kanbanDescription": "เครื่องมือสำหรับแสดงภาพรวมของงานในรูปแบบกระดานต่างๆ เพื่อช่วยจัดการและติดตามความคืบหน้าของงานในแต่ละขั้นตอนของกระบวนการทำงานได้อย่างยืดหยุ่น",
+      "member": "สมาชิกโครงการ",
+      "memberDescription": "ระบบสำหรับจัดการสมาชิกในทีมโครงการ โดยสามารถมอบหมายบทบาทและกำหนดสิทธิ์ต่างๆ ให้กับสมาชิกเพื่อให้การทำงานร่วมกันเป็นไปอย่างราบรื่นและมีประสิทธิภาพ",
+      "resource": "เอกสารโครงการ",
+      "resourceDescription": "พื้นที่ศูนย์กลางสำหรับรวบรวมเอกสารที่เกี่ยวข้องกับโครงการทั้งหมด ช่วยให้การจัดเก็บและการเข้าถึงเอกสารเป็นไปอย่างสะดวกและตรงตามข้อกำหนดของโครงการ",
+      "notify": "การแจ้งเตือน",
+      "notifyDescription": "ระบบที่ช่วยแจ้งเตือนสมาชิกในทีมเกี่ยวกับการอัปเดตที่สำคัญในโครงการ รวมถึงการแจ้งเตือนเมื่อได้รับมอบหมายงานหรือปัญหา โดยผ่านทั้งการแจ้งเตือนในระบบและอีเมล"
+    },
+    "team": {
+      "title": "ทีมพัฒนา",
+      "description": "เราภูมิใจในทีมพัฒนาที่มีความหลากหลายและทุ่มเท ทุกคนในทีมมีบทบาทสำคัญในการสร้างสรรค์และพัฒนาโครงการ Prime Project Manager ให้ประสบความสำเร็จ มารู้จักกับสมาชิกในทีมของเราที่พร้อมทำงานอย่างหนักและเต็มใจที่จะนำพาโครงการของคุณสู่ความสำเร็จ",
+      "adviserPornsuree": "ผศ.ดร. พรสุรีย์ แจ่มศรี",
+      "adviserPornsureePosition": "ที่ปรึกษาโครงการ",
+      "adviserTaravichet": "ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์",
+      "adviserTaravichetPosition": "ที่ปรึกษาโครงการ",
+      "developerNatthaphon": "จ.อ. ณัฐพล ดิษฐวิบูลย์",
+      "developerNatthaphonPosition": "นักพัฒนาซอฟต์แวร์",
+      "developerPhuri": "นายภูริ ศิริภูล ",
+      "developerPhuriPosition": "นักพัฒนาซอฟต์แวร์"
+    },
+    "footer": {
+      "contact": "ติดต่อเรา",
+      "university": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+      "locate": "ถนนฉลองกรุง เขตลาดกระบัง กรุงเทพฯ 10520, ประเทศไทย"
+    }
   },
 
   "workspace": {
@@ -151,28 +167,76 @@
     }
   },
 
-  "form": {
-    "customer": {
-      "name": "Name",
-      "email": "Email",
-      "employStart": "Employ Start Date",
-      "employEnd": "Employ End Date",
-      "phone": "Phone Number",
-      "address": "Address (Optional)"
+  "project": {
+    "menu":{
+      "dashboard": "แดชบอร์ด",
+      "sprint": "สปรินต์",
+      "backlog": "แบคล็อก",
+      "gantt": "แผนภูมิแกรนต์",
+      "board": "กระดาน",
+      "task": "งาน",
+      "resource": "เอกสารในโครงการ",
+      "member": "สมาชิก",
+      "setting": "การตั้งค่า"
     },
+    "title": {
+      "dashboard": "แดชบอร์ด",
+      "sprint": "สปรินต์",
+      "backlog": "แบคล็อก",
+      "gantt": "แผนภูมิแกรนต์",
+      "board": "กระดาน",
+      "task": "งาน",
+      "resource": "เอกสารในโครงการ",
+      "member": "สมาชิก",
+      "setting": "การตั้งค่า"
+    },
+    "subtitle": {
+      "dashboard": "แสดงภาพรวม ติดตามความคืบหน้า และสรุปข้อมูลสำคัญของโปรเจค",
+      "sprint": "จัดการสปรินต์ ติดตามความคืบหน้า และสรุปข้อมูลสปรินต์",
+      "backlog": "จัดการงาน และนำงานเข้าสู่สปรินต์ได้อย่างรวดเร็ว",
+      "gantt": "จัดการงาน ในรูปแบบของแผนภูมิแกรนต์",
+      "board": "จัดการงาน ในรูปแบบของกระดาน",
+      "task": "จัดการงาน มอบหมายงานให้สมาชิกในทีม และติดตามความคืบหน้าของงาน",
+      "resource": "จัดการเอกสารในโครงการ และเข้าถึงเอกสารที่เกี่ยวข้องกับโครงการได้อย่างสะดวก",
+      "member": "จัดการสมาชิกในโครงการ",
+      "setting": "ตั้งค่าโปรเจค"
+    },
+    "scrum": {
+      "title": "Scrum",
+      "description": "Scrum เหมาะสำหรับโครงการที่มีความซับซ้อนหรือความต้องการที่มีการเปลี่ยนแปลงบ่อย เน้นความยืดหยุ่นและการทำงานร่วมกัน เพื่อรองรับการปรับเปลี่ยนที่อาจเกิดขึ้นในระหว่างดำเนินโครงการ"
+    },
+    "waterfall": {
+      "title": "Waterfall",
+      "description": "Waterfall เหมาะสำหรับโครงการที่มีกรอบเวลาและขอบเขตงานที่กำหนดไว้อย่างชัดเจน โดยมีลำดับขั้นตอนการทำงานที่แน่นอน และความต้องการเปลี่ยนแปลงน้อย"
+    },
+    "kanban": {
+      "title": "Kanban",
+      "description": "Kanban เหมาะสำหรับโครงการที่ต้องการบริหารจัดการงานแบบต่อเนื่อง หรือโครงการที่มีปริมาณงานเข้ามาอย่างสม่ำเสมอ โดยมุ่งเน้นการจัดลำดับความสำคัญและการไหลของงานอย่างมีประสิทธิภาพ"
+    }
+  },
+
+  "form": {
     "feedback": {
       "content": "เนื้อหาข้อเสนอแนะ",
       "description": "กรอกข้อเสนอแนะของท่าน หรือปัญหาที่ท่านพบ ทางทีมพัฒนาจะรีบดำเนินการแก้ไขให้เร็วที่สุด"
     },
     "project": {
-      "name": "Project Name",
-      "description": "Project Description (Optional)",
-      "type": "Project Type",
-      "code": "Project Code (10 characters)",
-      "helperText": "Ask your project owner for the project code, then enter it here.",
-      "privacyType": "Privacy Type",
-      "privacyTypePrivate": "Private",
-      "privacyTypePublic": "Public"
+      "name": "ชื่อโปรเจค",
+      "description": "คำอธิบายโปรเจค (ไม่บังคับ)",
+      "type": "ประเภทโปรเจค",
+      "code": "รหัสโปรเจค (10 ตัวอักษร)",
+      "helperText": "โปรดขอรหัสโครงการจากผู้จัดการโครงการของท่าน จากนั้นกรอกข้อมูลที่นี่",
+      "privacyType": "ความเป็นส่วนตัว",
+      "privacyTypePrivate": "ส่วนตัว",
+      "privacyTypePublic": "สาธารณะ"
+    },
+    "customer": {
+      "name": "ชื่อลูกค้า",
+      "email": "อีเมลลูกค้า",
+      "employStart": "วันที่เริ่มงาน",
+      "employEnd": "วันที่สิ้นสุดงาน",
+      "phone": "เบอร์โทรศัพท์",
+      "address": "ที่อยู่ลูกค้า (ไม่บังคับ)"
     }
   },
 
@@ -221,16 +285,14 @@
       "issue": "งานในสปรินต์",
       "issue_counting": "งาน"
     },
-    "issue": {
+    "task": {
       "header": "รายละเอียดงาน",
       "name": "ชื่องาน",
       "description": "คำอธิบาย",
       "priority": "ความสำคัญ",
       "status": "สถานะ",
       "assignee": "ผู้รับผิดชอบ",
-      "createDate": "วันที่สร้าง",
-      "comment": "ความคิดเห็น",
-      "comment_counting": "ความคิดเห็น"
+      "createDate": "วันที่สร้าง"
     },
     "resource": {
       "header": "รายละเอียดทรัพยากร",
@@ -261,8 +323,7 @@
         "name": "Name",
         "email": "Email",
         "role": "Role",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "project": {
@@ -272,24 +333,21 @@
         "type": "Type",
         "status": "Status",
         "owner": "Owner",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "user": {
       "header": {
-        "name": "Name",
-        "email": "Email",
-        "role": "Role",
-        "createDate": "Create Date",
-        "action": "Action"
+        "name": "ชื่อ",
+        "email": "อีเมล",
+        "role": "บทบาท",
+        "createDate": "วันที่สมัครสมาชิก"
       }
     },
     "feedback": {
       "header": {
         "content": "Content",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "task": {
@@ -299,16 +357,14 @@
         "priority": "Priority",
         "status": "Status",
         "assignee": "Assignee",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "resource": {
       "header": {
         "name": "Name",
         "description": "Description",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     },
     "member": {
@@ -316,181 +372,8 @@
         "name": "Name",
         "email": "Email",
         "role": "Role",
-        "createDate": "Create Date",
-        "action": "Action"
+        "createDate": "Create Date"
       }
     }
-  },
-
-  "USERS_MANAGE_HEADER": "รายละเอียดผู้ใช้งาน",
-
-  "BUTTON_SIGNIN":"เข้าสู่ระบบ",
-  "BUTTON_SIGNUP":"สมัครสมาชิก",
-
-  "SIGNIN_HEADER": "เข้าสู่ระบบ",
-  "SIGNIN_ACCOUNT_EXIST": "ยังไม่เป็นสมาชิก",
-  "SIGNIN_SIGNUP": "สมัครสมาชิก",
-  "SIGNIN_EMAIL": "อีเมล",
-  "SIGNIN_PASSWORD": "รหัสผ่าน",
-  "SIGNIN_BUTTON": "เข้าสู่ระบ",
-  "SIGNIN_BUTTON_GOOGLE": "เข้าสู่ระบบด้วยบัญชี Google",
-  "SIGNIN_PASSWORD_PROMPT": "กรอกรหัสผ่าน",
-  "SIGNIN_PASSWORD_WEAK": "อ่อน",
-  "SIGNIN_PASSWORD_MEDIUM": "ปานกลาง",
-  "SIGNIN_PASSWORD_STRONG": "แข็ง",
-  "SIGNIN_PASSWORD_REQUIRED_LOWER": "มีอักษรพิมพ์เล็กอย่างน้อย 1 ตัว",
-  "SIGNIN_PASSWORD_REQUIRED_UPPER": "มีอักษรพิมพ์ใหญ่อย่างน้อย 1 ตัว",
-  "SIGNIN_PASSWORD_REQUIRED_NUMBER": "มีตัวเลขอย่างน้อย 1 ตัว",
-  "SIGNIN_PASSWORD_REQUIRED_LENGTH": "มีความยาวอย่างน้อย 8 ตัวอักษร",
-
-  "SIGNUP_HEADER": "สมัครสมาชิก",
-
-  "FORM_PROJECT_NAME": "ชื่อโปรเจค",
-  "FORM_PROJECT_DESCRIPTION": "คำอธิบายโปรเจค (ไม่บังคับ)",
-  "FORM_PROJECT_TYPE": "ประเภทโปรเจค",
-  "FORM_PROJECT_CODE": "รหัสโปรเจค (10 ตัวอักษร)",
-  "FORM_PROJECT_HELPER_TEXT": "โปรดขอรหัสโครงการจากผู้จัดการโครงการของท่าน จากนั้นกรอกข้อมูลที่นี่",
-  "FORM_PROJECT_PRIVACY_TYPE": "ความเป็นส่วนตัว",
-  "FORM_PROJECT_PRIVACY_TYPE_PRIVATE": "ส่วนตัว",
-  "FORM_PROJECT_PRIVACY_TYPE_PUBLIC": "สาธารณะ",
-
-  "PROJECT_SCRUM": "Scrum",
-  "PROJECT_SCRUM_DESCRIPTION": "Scrum เหมาะสำหรับโครงการที่มีความซับซ้อนหรือความต้องการที่มีการเปลี่ยนแปลงบ่อย เน้นความยืดหยุ่นและการทำงานร่วมกัน เพื่อรองรับการปรับเปลี่ยนที่อาจเกิดขึ้นในระหว่างดำเนินโครงการ",
-  "PROJECT_WATERFALL": "Waterfall",
-  "PROJECT_WATERFALL_DESCRIPTION": "Waterfall เหมาะสำหรับโครงการที่มีกรอบเวลาและขอบเขตงานที่กำหนดไว้อย่างชัดเจน โดยมีลำดับขั้นตอนการทำงานที่แน่นอน และความต้องการเปลี่ยนแปลงน้อย",
-  "PROJECT_KANBAN": "Kanban",
-  "PROJECT_KANBAN_DESCRIPTION": "Kanban เหมาะสำหรับโครงการที่ต้องการบริหารจัดการงานแบบต่อเนื่อง หรือโครงการที่มีปริมาณงานเข้ามาอย่างสม่ำเสมอ โดยมุ่งเน้นการจัดลำดับความสำคัญและการไหลของงานอย่างมีประสิทธิภาพ",
-
-  "PROJECT_MENU_DASHBOARD": "แดชบอร์ด",
-  "PROJECT_MENU_DASHBOARD_TITLE": "แดชบอร์ด",
-  "PROJECT_MENU_DASHBOARD_SUBTITLE": "แสดงภาพรวม ติดตามความคืบหน้า และสรุปข้อมูลสำคัญของโปรเจค",
-  "PROJECT_MENU_SPRINT": "สปรินต์",
-  "PROJECT_MENU_SPRINT_TITLE": "สปรินต์",
-  "PROJECT_MENU_SPRINT_SUBTITLE": "จัดการสปรินต์ ติดตามความคืบหน้า และสรุปข้อมูลสปรินต์",
-  "PROJECT_MENU_BACKLOG": "แบคล็อก",
-  "PROJECT_MENU_BACKLOG_TITLE": "แบคล็อก",
-  "PROJECT_MENU_BACKLOG_SUBTITLE": "จัดการงาน และนำงานเข้าสู่สปรินต์ได้อย่างรวดเร็ว",
-  "PROJECT_MENU_GANTT": "แผนภูมิแกรนต์",
-  "PROJECT_MENU_GANTT_TITLE": "แผนภูมิแกรนต์",
-  "PROJECT_MENU_GANTT_SUBTITLE": "จัดการงาน ในรูปแบบของแผนภูมิแกรนต์",
-  "PROJECT_MENU_BOARD": "กระดาน",
-  "PROJECT_MENU_BOARD_TITLE": "กระดาน",
-  "PROJECT_MENU_BOARD_SUBTITLE": "จัดการงาน ในรูปแบบของกระดาน",
-  "PROJECT_MENU_TASK": "งาน",
-  "PROJECT_MENU_TASK_TITLE": "งาน",
-  "PROJECT_MENU_TASK_SUBTITLE": "จัดการงาน มอบหมายงานให้สมาชิกในทีม และติดตามความคืบหน้าของงาน",
-  "PROJECT_MENU_RESOURCE": "เอกสารในโครงการ",
-  "PROJECT_MENU_RESOURCE_TITLE" : "เอกสารในโครงการ",
-  "PROJECT_MENU_RESOURCE_SUBTITLE": "จัดการเอกสารในโครงการ และเข้าถึงเอกสารที่เกี่ยวข้องกับโครงการได้อย่างสะดวก",
-  "PROJECT_MENU_MEMBER": "สมาชิก",
-  "PROJECT_MENU_MEMBER_TITLE" : "สมาชิก",
-  "PROJECT_MENU_MEMBER_SUBTITLE": "จัดการสมาชิกในโครงการ",
-  "PROJECT_MENU_SETTING": "การตั้งค่า",
-  "PROJECT_MENU_SETTING_TITLE" : "การตั้งค่า",
-  "PROJECT_MENU_SETTING_SUBTITLE": "ตั้งค่าโปรเจค",
-
-  "DASHBOARD_PROJECT_INFO": "ข้อมูลโปรเจค",
-  "DASHBOARD_PRIORITY_OVERVIEW": "ภาพรวมความสำคัญของงาน",
-  "DASHBOARD_TASK_OVERVIEW": "ภาพรวมสถานะของงาน",
-  "DASHBOARD_BURN_UP": "แผนภูมิเปรียบเทียบงานที่สำเร็จ",
-  "DASHBOARD_BURN_DOWN": "แผนภูมิงานคงเหลือทั้งหมด",
-  "DASHBOARD_TASK_LIST": "รายการงาน",
-
-  "TASK_BUTTON_CREATE": "เพิ่มงาน",
-
-  "RESOURCE_BUTTON_CREATE": "เพิ่มเอกสาร",
-  "RESOURCE_BUTTON_SHOW": "ดูเนื้อหา",
-  "RESOURCE_BUTTON_HIDE": "ซ่อนเนื้อหา",
-
-  "MEMBER_BUTTON_INVITE": "เชิญสมาชิก",
-  "MEMBER_INVITE_TITLE": "เชิญสมาชิกเข้าร่วมโครงการ",
-  "MEMBER_INVITE_DESCRIPTION": "กรอกอีเมลของผู้ใช้งานที่ต้องการเชิญเข้าร่วมโครงการ",
-  "MEMBER_DETAIL_HEADER": "รายละเอียดสมาชิก",
-
-  "SETTING_CUSTOMER_HEADER": "ตั้งค่าลูกค้า",
-  "FORM_CUSTOMER_NAME": "ชื่อลูกค้า",
-  "FORM_CUSTOMER_EMAIL": "อีเมลลูกค้า",
-  "FORM_CUSTOMER_EMPLOY_START": "วันที่เริ่มงาน",
-  "FORM_CUSTOMER_EMPLOY_END": "วันที่สิ้นสุดงาน",
-  "FORM_CUSTOMER_PHONE": "เบอร์โทรศัพท์",
-  "FORM_CUSTOMER_ADDRESS": "ที่อยู่ลูกค้า (ไม่บังคับ)",
-
-
-
-  "APP_BUTTON_GROUP": "จัดกลุ่ม",
-  "APP_BUTTON_SORT": "จัดเรียง",
-  "APP_BUTTON_SEARCH": "ค้นหา",
-
-  "APP_FILTER_GROUP_NONE": "ไม่จัดกลุ่ม",
-  "APP_FILTER_GROUP_TYPE": "จัดกลุ่มตามประเภท",
-
-  "APP_FILTER_SORT_NONE": "ไม่จัดเรียง",
-  "APP_FILTER_SORT_NAME_ASC": "จัดเรียงตามชื่อจากน้อยไปมาก (A-Z)",
-  "APP_FILTER_SORT_NAME_DESC": "จัดเรียงตามชื่อจากมากไปน้อย (Z-A)",
-  "APP_FILTER_SORT_TYPE_ASC": "จัดเรียงตามประเภทจากน้อยไปมาก (A-Z)",
-  "APP_FILTER_SORT_TYPE_DESC": "จัดเรียงตามประเภทจากมากไปน้อย (Z-A)",
-
-
-
-
-
-
-  "SEARCH_TEXT": "ค้นหา",
-
-  "TITLE_PLANNING": "การวางแผนงาน",
-  "MENU_DASHBOARD": "แดชบอร์ด",
-  "TITLE_DASHBOARD": "แดชบอร์ด",
-  "DASHBOARD_PROJECT_TASK": "งานในโปรเจค",
-
-  "DASHBOARD_PROJECT_ACTIVITY": "กิจกรรมล่าสุด",
-
-  "MENU_GANTT": "แผนภูมิแกรนต์",
-  "TITLE_GANTT": "แผนภูมิแกรนต์",
-  "TITLE_GANTT_CHART": "ชื่อรายการ",
-
-  "MENU_WORK_BREAK_DOWN": "แบ่งงาน",
-  "TITLE_WORK_BREAK_DOWN": "แบ่งงาน",
-
-  "MENU_SPRINT": "สปรินต์",
-  "TITLE_SPRINT": "สปรินต์",
-  "PAGE_SPRINT_EMPTY" :"ไม่มีสปรินต์ในโปรเจคนี้ กรุณาสร้างสปรินต์ใหม่",
-  "TITLE_DETAIL_SPRINT": "รายละเอียดสปรินต์",
-
-  "MENU_BACKLOG": "แบคล็อก",
-  "TITLE_BACKLOG": "แบคล็อก",
-  "TITLE_ISSUE": "งานที่ต้องทำ",
-  "LABEL_NO_SPRINT": "ไม่มีสปรินต์ที่กำลังดำเนินการอยู่",
-  "DESCRIPTION_NO_SPRINT": "กรุณาสร้างสปรินต์เพื่อเริ่มต้นการวางแผนงาน",
-  "LABEL_NO_ISSUE": "ไม่มีงานที่ต้องทำ",
-  "BUTTON_CREATE_SPRINT": "สร้างสปรินต์ใหม่",
-  "DESCRIPTION_NO_ISSUE": "กรุณาสร้างงานที่ต้องทำเพื่อเริ่มต้นการวางแผนงาน",
-  "BUTTON_CREATE_ISSUE": "สร้างงานที่ต้องทำใหม่",
-  "TITLE_DETAIL_ISSUE": "รายละเอียดอิซชู่",
-
-  "MENU_TIMELINE": "ไทมไลน์",
-  "TITLE_TIMELINE": "ไทมไลน์",
-
-  "MENU_LIST": "รายการ",
-  "TITLE_LIST": "รายการ",
-  "BUTTON_CREATE_LIST": "สร้างรายการใหม่",
-  "PAGE_ISSUE_EMPTY": "ไม่มีงานที่ต้องทำในโปรเจคนี้ กรุณาสร้างงานที่ต้องทำใหม่",
-
-  "MENU_BOARD": "กระดาน",
-  "TITLE_BOARD": "กระดาน",
-  "BUTTON_LABEL_BOARD_ADD": "เพิ่มกระดานใหม่",
-
-  "MENU_RESOURCE": "ทรัพยากรในโครงการ",
-  "TITLE_RESOURCE": "ทรัพยากรในโครงการ",
-  "BUTTON_ADD_RESOURCE_LABEL": "เพิ่มทรัพยากรใหม่",
-  "PAGE_RESOURCE_EMPTY": "ไม่มีทรัพยากรในโครงการนี้",
-
-  "TITLE_CONFIG": "การตั้งค่า",
-  "BUTTON_LABEL_ADD_MEMBER": "เพิ่มสมาชิก",
-
-  "TABLE_HEADER_ORDER": "ลำดับ",
-  "TABLE_HEADER_NAME": "ชื่อ",
-  "TABLE_HEADER_EMAIL": "อีเมล",
-  "TABLE_HEADER_ROLE": "บทบาท",
-  "TABLE_HEADER_CREATE_DATE": "วันที่สมัครสมาชิก"
-
+  }
 }

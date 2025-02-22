@@ -1,0 +1,109 @@
+<app-dialog 
+  [icon]="'pi pi-plus'"
+  [width]="'50vw'"
+  [maxWidth]="'50vw'"
+  [showButton]="false"
+  [showFooter]="false"
+  [header]="header">
+  <section class="flex flex-column w-full unselectable">
+    <img 
+      [src]="projectData?.avatar || 'image/Natthaphon.jpg'" 
+      alt="avatar" 
+      width="100%"
+      height="200px">
+
+    <div class="flex mt-2">
+      <div class="grid w-full">
+        <div class="col-12">
+          <div class="text-sm text-500"> {{ labelName | translate }} </div>
+          <div class="text-700"> {{ projectData?.project_name }} </div>
+        </div>
+        <div class="col-12">
+          <div class="text-sm text-500"> {{ labelDescription | translate }} </div>
+          <div class="text-700"> {{ projectData?.project_deacription || 'ไม่มีคำธิบาย' }} </div>
+        </div>
+        <div class="col-6">
+          <div class="text-sm text-500"> {{ labelOwner | translate }} </div>
+          <div class="text-700"> {{ projectData?.owner_name }} </div>
+        </div>
+        <div class="col-6">
+          <div class="text-sm text-500"> {{ labelCreateDate | translate }} </div>
+          <div class="text-700"> {{ projectData?.created_at | thdate:'long' }} </div>
+        </div>
+        <div class="col-6">
+          <div class="text-sm text-500"> {{ labelType | translate }} </div>
+          <div class="text-700 mt-1">
+            <project-type-tag 
+              [styleClass]="'w-10rem'"
+              [type]="projectData?.project_type">
+            </project-type-tag>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="text-sm text-500"> {{ labelPrivacyType | translate }} </div>
+          <div class="text-700 mt-1"> 
+            <project-privacy-tag
+              [styleClass]="'w-10rem'"
+              [type]="projectData?.project_privacy_type">
+            </project-privacy-tag>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p-divider></p-divider>
+    <ul class="list-none p-0 m-0 p-3 border-round shadow-1">
+      <li class="flex align-items-center justify-content-between" >
+          <div class="flex align-items-center">
+            <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 surface-border shadow-1">
+              <i class="pi pi-users text-500"></i>
+            </span>
+            <span class="ml-3">Project Member</span>
+          </div>
+          <div class="flex align-items-center">
+            <span class="font-bold">{{ projectData?.created_projects?.length || 0 }}</span>
+            <span class="text-sm ml-2"> Person </span>
+          </div>
+      </li>
+    </ul>
+
+    <ul class="list-none p-0 m-0 p-3 border-round shadow-1 mt-3">
+      <li class="flex align-items-center justify-content-between" >
+          <div class="flex align-items-center">
+            <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 surface-border shadow-1">
+              <i class="pi pi-list-check text-500"></i>
+            </span>
+            <span class="ml-3">Total Task</span>
+          </div>
+          <div class="flex align-items-center">
+            <span class="font-bold">{{ projectData?.joined_projects?.length || 0 }}</span>
+            <span class="text-sm ml-2"> Tasks </span>
+          </div>
+      </li>
+    </ul>
+
+    <ul class="list-none p-0 m-0 p-3 border-round shadow-1 mt-3">
+      <li class="flex align-items-center justify-content-between" >
+          <div class="flex align-items-center">
+            <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 surface-border shadow-1">
+              <i class="pi pi-folder-open text-500"></i>
+            </span>
+            <span class="ml-3">Total Resource</span>
+          </div>
+          <div class="flex align-items-center">
+            <span class="font-bold">{{ projectData?.joined_projects?.length || 0 }}</span>
+            <span class="text-sm ml-2"> resource </span>
+          </div>
+      </li>
+    </ul>
+    <p-divider></p-divider>
+    <div class="flex justify-content-end mt-1">
+      <p-button 
+        [icon]="'pi pi-times'"
+        [label]="buttonClose | translate" 
+        severity="primary" 
+        styleClass="w-8rem"
+        (click)="closeDialog()" />
+    </div>
+  </section>
+</app-dialog>

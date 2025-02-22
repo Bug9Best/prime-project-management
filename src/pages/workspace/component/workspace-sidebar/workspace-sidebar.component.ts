@@ -34,17 +34,18 @@ export class WorkspaceSidebar {
   initMenu(): void {
     if (!this.isUser) {
       this.listMenu = [
-        { type: 'menu', tabIndex: 0, label: 'WORKSPACE_MENU_PROJECT', icon: 'pi pi-th-large' },
-        { type: 'menu', tabIndex: 1, label: 'WORKSPACE_MENU_JOIN', icon: 'pi pi-sign-in' },
+        { type: 'menu', tabIndex: 0, label: 'workspace.menu.project', icon: 'pi pi-th-large' },
+        { type: 'menu', tabIndex: 1, label: 'workspace.menu.join', icon: 'pi pi-sign-in' },
         { type: 'divider', },
-        { type: 'menu', tabIndex: 2, label: 'WORKSPACE_MENU_USERS', icon: 'pi pi-users' },
+        { type: 'menu', tabIndex: 2, label: 'workspace.menu.manageProject', icon: 'pi pi-file' },
+        { type: 'menu', tabIndex: 2, label: 'workspace.menu.manageUser', icon: 'pi pi-users' },
       ];
     } else {
       this.listMenu = [
-        { type: 'menu', tabIndex: 0, label: 'WORKSPACE_MENU_PROJECT', icon: 'pi pi-th-large' },
-        { type: 'menu', tabIndex: 1, label: 'WORKSPACE_MENU_JOIN', icon: 'pi pi-sign-in' },
+        { type: 'menu', tabIndex: 0, label: 'workspace.menu.project', icon: 'pi pi-th-large' },
+        { type: 'menu', tabIndex: 1, label: 'workspace.menu.join', icon: 'pi pi-sign-in' },
         { type: 'divider', },
-        { type: 'menu', tabIndex: 3, label: 'FEEDBACK_MENU_SUBMIT', icon: 'pi pi-file-edit' },
+        { type: 'menu', tabIndex: 4, label: 'workspace.menu.feedback', icon: 'pi pi-file-edit' },
       ];
     }
   }

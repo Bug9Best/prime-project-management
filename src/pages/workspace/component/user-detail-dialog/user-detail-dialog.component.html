@@ -1,0 +1,97 @@
+<app-dialog 
+  [icon]="'pi pi-plus'"
+  [width]="'50vw'"
+  [maxWidth]="'50vw'"
+  [showButton]="false"
+  [showFooter]="false"
+  [header]="header">
+  <section class="flex flex-column w-full">
+    <div class="flex">
+      <img 
+        [src]="userData?.avatar || 'image/Natthaphon.jpg'" 
+        alt="avatar" 
+        width="100px"
+        height="100px"
+        class="border-circle">
+
+      <div class="grid w-full ml-4">
+        <div class="col-6">
+          <div class="text-sm text-500"> {{ labelName | translate }} </div>
+          <div class="text-700"> {{ userData?.name }} </div>
+        </div>
+        <div class="col-6">
+          <div class="text-sm text-500"> {{ labelEmail | translate }} </div>
+          <div class="text-700"> {{ userData?.email }} </div>
+        </div>
+        <div class="col-6">
+          <div class="text-sm text-500"> {{ labelCreateDate | translate }} </div>
+          <div class="text-700"> {{ userData?.created_at | thdate:'long' }} </div>
+        </div>
+        <div class="col-6">
+          <div class="text-sm text-500"> {{ labelRole | translate }} </div>
+          <div class="text-700">
+            <user-role-tag 
+              [styleClass]="'w-10rem'"
+              [role]="userData?.role">
+            </user-role-tag>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <p-divider></p-divider>
+    <ul class="list-none p-0 m-0 p-3 border-round shadow-1">
+      <li class="flex align-items-center justify-content-between" >
+          <div class="flex align-items-center">
+            <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 surface-border shadow-1">
+              <i class="pi pi-folder-plus text-500"></i>
+            </span>
+            <span class="ml-3"> {{ labelProjectCreated | translate }} </span>
+          </div>
+          <div class="flex align-items-center">
+            <span class="font-bold">{{ userData?.created_projects?.length }}</span>
+            <span class="text-sm ml-2"> {{ labelProjectCreatedCounting | translate }} </span>
+          </div>
+      </li>
+    </ul>
+
+    <ul class="list-none p-0 m-0 p-3 border-round shadow-1 mt-3">
+      <li class="flex align-items-center justify-content-between" >
+          <div class="flex align-items-center">
+            <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 surface-border shadow-1">
+              <i class="pi pi-th-large text-500"></i>
+            </span>
+            <span class="ml-3"> {{ labelProjectJoined | translate }} </span>
+          </div>
+          <div class="flex align-items-center">
+            <span class="font-bold">{{ userData?.joined_projects?.length }}</span>
+            <span class="text-sm ml-2"> {{ labelProjectJoinedCounting| translate }} </span>
+          </div>
+      </li>
+    </ul>
+    <p-divider></p-divider>
+    <div class="flex justify-content-between mt-1">
+      @if (!userData.is_disable) {
+        <p-button 
+          [icon]="'pi pi-lock'"
+          [label]="buttonBlock | translate" 
+          [text]="true"
+          [severity]="'danger'" 
+          (click)="onConfirmBlock()" />
+        }@else {
+        <p-button 
+          [icon]="'pi pi-lock-open'"
+          [label]="buttonUnblock | translate" 
+          [text]="true"
+          [severity]="'warn'" 
+          (click)="onConfirmUnblock()" />
+        }
+      <p-button 
+        [icon]="'pi pi-check'"
+        [label]="buttonClose | translate" 
+        severity="primary" 
+        styleClass="w-8rem"
+        (click)="closeDialog()" />
+    </div>
+  </section>
+</app-dialog>

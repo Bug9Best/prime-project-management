@@ -3,7 +3,7 @@ import { WorkspaceContentProject } from '../../workspace-content-project/workspa
 import { WorkspaceContentJoin } from '../../workspace-content-join/workspace-content-join.component';
 import { WorkspaceManageUser } from '../../workspace-manage-user/workspace-manage-user.component';
 import { WorkspaceManageProject } from '../../workspace-manage-project/workspace-manage-project.component';
-import { FormFeedbackSubmit } from '../form-feedback-submit/form-feedback-submit.component';
+import { FeedbackList } from '../../../feedback/component/feedback-list/feedback-list.component';
 
 @Component({
   selector: 'workspace-content',
@@ -12,7 +12,7 @@ import { FormFeedbackSubmit } from '../form-feedback-submit/form-feedback-submit
     WorkspaceContentJoin,
     WorkspaceManageProject,
     WorkspaceManageUser,
-    FormFeedbackSubmit
+    FeedbackList
   ],
   templateUrl: './workspace-content.component.html',
   styleUrl: './workspace-content.component.scss'

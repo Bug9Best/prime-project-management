@@ -10,8 +10,8 @@
       <app-dialog 
         [icon]="'pi pi-plus'"
         [width]="'70vw'"
-        [label]="'WORKSPACE_BUTTON_PROJECT_CREATE'"
-        [header]="'WORKSPACE_BUTTON_PROJECT_CREATE'"
+        [label]="buttonLabel"
+        [header]="headerLabel"
         (onSubmitEvent)="onValidateForm()">
           <form-project-create>
           </form-project-create>
@@ -30,8 +30,8 @@
 @if (!listProject.length) {
   <app-empty 
     [icon]="'pi pi-folder-open'" 
-    [title]="'WORKSPACE_PROJECT_EMPTY_TITLE'" 
-    [description]="'WORKSPACE_PROJECT_EMPTY_SUBTITLE'">
+    [title]="emptyTitle" 
+    [description]="emptyDescription">
   </app-empty>
 } @else {
   <app-scrolling 
@@ -51,8 +51,8 @@
                       <i class="pi pi-crown text-orange-500 ml-1" style="font-size: 1rem"></i>
                     }
                   </div>
-                  <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_OWNER' | translate }} {{ project.owner_name }} </div>
-                  <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_PROJECT_TYPE' | translate}} {{ project.project_type }}</div>
+                  <div class="text-sm text-500"> {{ labelOwner | translate }} {{ project.owner_name }} </div>
+                  <div class="text-sm text-500"> {{ labelProjectType | translate}} {{ project.project_type }} </div>
                 </div>
                 <button pButton
                   icon="pi pi-ellipsis-v"
@@ -67,7 +67,7 @@
         @for (project of grouplistProject | keyvalue; track $index) {
           <p-accordion [multiple]="true" [value]="[project.key]">
             <p-accordion-panel [value]="project.key">
-              <p-accordion-header>{{ project.key }}</p-accordion-header>
+              <p-accordion-header> {{ project.key }} </p-accordion-header>
               <p-accordion-content>
                 <div class="grid pt-2">
                   <div *ngFor="let item of project.value" class="col-12 sm:col-6 md:col-4 lg:col-3 select-none">
@@ -76,9 +76,9 @@
                         class="mb-1 w-full border-round-top" />
                       <div class="flex justify-content-between px-3 pb-2">
                         <div class="flex flex-column">
-                          <div class="font-medium text-900">{{ item.project_name }}</div>
-                          <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_OWNER' | translate }} {{ item.owner_name }}</div>
-                          <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_PROJECT_TYPE' | translate}} {{ item.project_type }}</div>
+                          <div class="font-medium text-900"> {{ item.project_name }} </div>
+                          <div class="text-sm text-500"> {{ labelOwner | translate }} {{ item.owner_name }} </div>
+                          <div class="text-sm text-500"> {{  labelProjectType | translate}} {{ item.project_type }} </div>
                         </div>
                         <button pButton icon="pi pi-ellipsis-v" class="p-button-text p-button-secondary border-round-xl"></button>
                       </div>

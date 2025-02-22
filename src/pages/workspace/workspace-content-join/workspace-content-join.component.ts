@@ -42,8 +42,15 @@ export class WorkspaceContentJoin {
 
   isShowToolbar = false;
   isOnSearch = false;
-  title = 'WORKSPACE_MENU_JOIN_TITLE';
-  subtitle = 'WORKSPACE_MENU_JOIN_SUBTITLE';
+  title = 'workspace.title.join';
+  subtitle = 'workspace.subtitle.join';
+  headerLabel = 'workspace.header.projectJoin';
+  buttonLabel = 'workspace.button.projectJoin';
+  emptyTitle = 'workspace.joinEmpty.title';
+  emptyDescription = 'workspace.joinEmpty.description';
+  labelOwner = 'workspace.label.owner';
+  labelProjectType = 'workspace.label.projectType';
+  buttonJoin = 'app.button.join';
 
   sortValue = 'NONE';
   groupValue = 'NONE';

@@ -45,8 +45,14 @@ export class WorkspaceContentProject {
   mode: Mode = 'NONE';
   isOnSearch = false;
   isShowToolbar = false;
-  title = 'WORKSPACE_MENU_PROJECT_TITLE';
-  subtitle = 'WORKSPACE_MENU_PROJECT_SUBTITLE';
+  title = 'workspace.title.project';
+  subtitle = 'workspace.subtitle.project';
+  headerLabel = 'workspace.header.projectCreate';
+  buttonLabel = 'workspace.button.projectCreate';
+  emptyTitle = 'workspace.projectEmpty.title';
+  emptyDescription = 'workspace.projectEmpty.description';
+  labelOwner = 'workspace.label.owner';
+  labelProjectType = 'workspace.label.projectType';
 
   sortValue = 'NONE';
   groupValue = 'NONE';

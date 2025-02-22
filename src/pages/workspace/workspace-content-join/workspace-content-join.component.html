@@ -9,9 +9,9 @@
     <app-dialog 
       [icon]="'pi pi-plus'"
       [width]="'40vw'"
-      [label]="'WORKSPACE_BUTTON_PROJECT_JOIN'"
-      [header]="'WORKSPACE_BUTTON_PROJECT_JOIN'"
-      [submitLabel]="'BUTTON_JOIN'"
+      [label]="buttonLabel"
+      [header]="headerLabel"
+      [submitLabel]="buttonJoin"
       (onSubmitEvent)="onValidateForm()">
         <form-project-join>
         </form-project-join>
@@ -30,8 +30,8 @@
 @if (!listProject.length) {
   <app-empty 
     [icon]="'pi pi-folder-open'" 
-    [title]="'WORKSPACE_JOIN_EMPTY_TITLE'" 
-    [description]="'WORKSPACE_JOIN_EMPTY_SUBTITLE'">
+    [title]="emptyTitle" 
+    [description]="emptyDescription">
   </app-empty>
 } @else {
   <app-scrolling 
@@ -44,12 +44,12 @@
             <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" height="150"
               class="mb-1 w-full border-round-top-sm" />
             <div class="flex flex-column px-3 pb-3">
-              <div class="font-medium text-900">{{ project.project_name }}</div>
-              <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_OWNER' | translate }} {{ project.owner_name }}</div>
-              <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_PROJECT_TYPE' | translate}} {{ project.project_type }}</div>
+              <div class="font-medium text-900"> {{ project.project_name }} </div>
+              <div class="text-sm text-500"> {{ labelOwner | translate }} {{ project.owner_name }} </div>
+              <div class="text-sm text-500"> {{ labelProjectType | translate}} {{ project.project_type }} </div>
               <button pButton pRipple 
                 class="p-button mt-2 w-full"
-                [label]="'WORKSPACE_BUTTON_PROJECT_JOIN' | translate" 
+                [label]="buttonLabel | translate" 
                 (click)="joinPublicProject(project)">
               </button>
             </div>
@@ -62,7 +62,7 @@
         @for (project of grouplistProject | keyvalue; track $index) {
           <p-accordion [multiple]="true" [value]="[project.key]">
             <p-accordion-panel [value]="project.key">
-              <p-accordion-header>{{ project.key }}</p-accordion-header>
+              <p-accordion-header> {{ project.key }} </p-accordion-header>
               <p-accordion-content>
                 <div class="grid pt-2">
                   <div *ngFor="let project of project.value" class="col-12 sm:col-6 md:col-4 lg:col-3 select-none">
@@ -70,12 +70,12 @@
                     <img src="https://primefaces.org/cdn/primeng/images/galleria/galleria11.jpg" height="150"
                       class="mb-1 w-full border-round-top-sm" />
                       <div class="flex flex-column px-3 pb-3">
-                        <div class="font-medium text-900">{{ project.project_name }}</div>
-                        <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_OWNER' | translate }} {{ project.owner_name }}</div>
-                        <div class="text-sm text-500"> {{ 'WORKSPACE_LABEL_PROJECT_TYPE' | translate}} {{ project.project_type }}</div>
+                        <div class="font-medium text-900"> {{ project.project_name }} </div>
+                        <div class="text-sm text-500"> {{ labelOwner | translate }} {{ project.owner_name }} </div>
+                        <div class="text-sm text-500"> {{ labelProjectType | translate}} {{ project.project_type }} </div>
                         <button pButton pRipple 
                           class="p-button mt-2 w-full"
-                          [label]="'WORKSPACE_BUTTON_PROJECT_JOIN' | translate" 
+                          [label]="buttonLabel | translate" 
                           (click)="joinPublicProject(project)">
                         </button>
                       </div>

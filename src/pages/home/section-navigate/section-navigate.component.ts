@@ -25,6 +25,9 @@ export interface menuItem {
 })
 export class SectionNavigate {
 
+  labelSignIn: string = 'app.button.signin';
+  labelSignUp: string = 'app.button.signup';
+
   listMenu: menuItem[] = [
     { id: 1, label: 'home.menu.getStart', element: 'getstarted' },
     { id: 2, label: 'home.menu.features', element: 'features' },

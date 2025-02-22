@@ -24,7 +24,7 @@
             class="flex px-6 p-3 lg:px-3 lg:py-2 align-items-center text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150"
             pStyleClass="@next" enterFromClass="hidden" enterActiveClass="scalein" leaveToClass="hidden"
             leaveActiveClass="fadeout" [hideOnOutsideClick]="true" (click)="onOpenOverlayPanel()">
-            <span>{{ "LANGUAGE" | translate }}</span>
+            <span>{{ "lang" | translate }}</span>
             <i class="hidden pi pi-language lg:block lg:mx-2"></i>
             <i class="pi pi-angle-down ml-auto lg:ml-3"></i>
           </a>
@@ -47,11 +47,11 @@
           <li class="flex flex-column lg:flex-row lg:gap-2">
             <a pRipple (click)="onSignin()"
               class="lg:w-8rem flex px-6 p-3 lg:px-3 lg:py-2 align-items-center lg:justify-content-center lg:border-1 lg:surface-border text-600 hover:text-900 hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150">
-              <span>{{ "BUTTON_SIGNIN" | translate}}</span>
+              <span>{{ labelSignIn | translate}}</span>
             </a>
             <a pRipple (click)="onSignup()"
               class="lg:w-8rem flex px-6 p-3 lg:px-3 lg:py-2 align-items-center lg:justify-content-center  font-medium hover-primary lg-hover-primary border-round cursor-pointer transition-colors transition-duration-150">
-              <span>{{ "BUTTON_SIGNUP" | translate}}</span>
+              <span>{{ labelSignUp | translate}}</span>
             </a>
           </li>
         </ul>

@@ -1,0 +1,11 @@
+@switch (type()) {
+  @case (ProjectPrivaryType.PRIVATE) {
+    <p-tag icon="pi pi-lock" severity="warn" value="Private" [class]="styleClass()"/>
+  }
+  @case (ProjectPrivaryType.PUBLIC) {
+    <p-tag icon="pi pi-globe" severity="success" value="Public" [class]="styleClass()"/>
+  }
+  @default {
+    <p-tag icon="pi pi-lock" severity="warn" value="Private" [class]="styleClass()"/>
+  }
+}

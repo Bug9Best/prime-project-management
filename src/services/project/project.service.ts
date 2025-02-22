@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BaseModel, BaseService } from '../base/base.service';
 
+export enum ProjectPrivaryType {
+  PUBLIC = 'PUBLIC',
+  PRIVATE = 'PRIVATE',
+}
+
 export enum ProjectType {
   SCRUM = 'SCRUM',
   WATERFALL = 'WATERFALL',

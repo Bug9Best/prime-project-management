@@ -14,9 +14,9 @@ import { CommonModule } from '@angular/common';
 })
 export class SectionFeature {
 
-  title: string = 'feature.title';
-  subtitle: string = "feature.subtitle";
-  description: string = "feature.description";
+  title: string = 'home.feature.title';
+  subtitle: string = "home.feature.subtitle";
+  description: string = "home.feature.description";
 
   listFeatures: ProjectFeature[] = listProjectFeatures;
 }

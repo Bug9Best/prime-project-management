@@ -16,9 +16,9 @@ import { ButtonModule } from 'primeng/button';
 })
 export class SectionGetstart {
 
-  title = 'getStart.title';
-  description = 'getStart.description';
-  buttonLabel = 'getStart.buttonLabel';
+  title = 'home.getStart.title';
+  description = 'home.getStart.description';
+  buttonLabel = 'home.getStart.buttonLabel';
 
   router = inject(Router);
   getStarted() {

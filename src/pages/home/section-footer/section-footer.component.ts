@@ -11,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class SectionFooter {
 
-  contact : string = 'footer.contact';
-  university : string = 'footer.university';
-  locate : string = 'footer.locate';
+  contact : string = 'home.footer.contact';
+  university : string = 'home.footer.university';
+  locate : string = 'home.footer.locate';
 }

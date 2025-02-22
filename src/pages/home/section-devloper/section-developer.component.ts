@@ -14,8 +14,8 @@ import { CommonModule } from '@angular/common';
 })
 export class SectionDeveloper {
 
-  title: string = 'team.title';
-  description: string = "team.description";
+  title: string = 'home.team.title';
+  description: string = "home.team.description";
 
   listProjectContributes: ProjectContribute[] = listProjectContributes;
 }

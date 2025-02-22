@@ -26,10 +26,10 @@ export interface menuItem {
 export class SectionNavigate {
 
   listMenu: menuItem[] = [
-    { id: 1, label: 'section.getStart', element: 'getstarted' },
-    { id: 2, label: 'section.features', element: 'features' },
-    { id: 3, label: 'section.developers', element: 'team' },
-    { id: 3, label: 'section.contact', element: 'contact' },
+    { id: 1, label: 'home.menu.getStart', element: 'getstarted' },
+    { id: 2, label: 'home.menu.features', element: 'features' },
+    { id: 3, label: 'home.menu.developers', element: 'team' },
+    { id: 3, label: 'home.menu.contact', element: 'contact' },
   ];
 
   onScrollToElementEvent = output<string>();

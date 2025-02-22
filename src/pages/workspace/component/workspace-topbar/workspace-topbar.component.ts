@@ -29,18 +29,18 @@ export class WorkspaceTopbar {
     if (this.isUser) {
       this.listMenu = [
         {
-          label: 'SECTION_GET_START',
+          label: 'section.getStart',
           routerLink: '/home'
         },
       ];
     } else {
       this.listMenu = [
         {
-          label: 'SECTION_GET_START',
+          label: 'section.getStart',
           routerLink: '/home'
         },
         {
-          label: 'SECTION_FEEDBACK',
+          label: 'section.feedback',
           routerLink: '/feedback'
         },
       ];

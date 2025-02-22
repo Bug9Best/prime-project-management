@@ -2,6 +2,15 @@
   "lang": "English",
 
   "app": {
+    "menu": {
+      "getStart": "Get Started",
+      "features": "Features",
+      "developers": "Developers Team",
+      "contact": "Contact Us",
+      "workspace": "Workspace",
+      "feedback": "Feedback",
+      "profile": "Profile"
+    },
     "button": {
       "signin": "Sign In",
       "signup": "Sign Up",
@@ -41,15 +50,6 @@
   },
 
   "home": {
-    "menu": {
-      "getStart": "Get Started",
-      "features": "Features",
-      "developers": "Developers Team",
-      "contact": "Contact Us",
-      "workspace": "Workspace",
-      "feedback": "Feedback",
-      "profile": "Profile"
-    },
     "getStart": {
       "title": "Make project simple and Efficient with",
       "description": "Prime Project Manager is a project management software that helps you plan, track, and manage your projects effectively. It is a simple and easy-to-use tool that helps you manage your projects efficiently.",

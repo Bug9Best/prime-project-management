@@ -14,15 +14,15 @@ export class ProjectTopbar {
 
   listMenu: MenuItem[] = [
     {
-      label: 'section.getStart',
+      label: 'app.menu.getStart',
       routerLink: '/home'
     },
     {
-      label: 'section.workspace',
+      label: 'app.menu.workspace',
       routerLink: '/workspace'
     },
     {
-      label: 'section.profile',
+      label: 'app.menu.profile',
       routerLink: '/profile'
     },
   ];

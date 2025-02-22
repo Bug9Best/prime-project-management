@@ -14,11 +14,11 @@ export class FeedbackTopbar {
 
   listMenu: MenuItem[] = [
     {
-      label: 'section.getStart',
+      label: 'app.menu.getStart',
       routerLink: '/home'
     },
     {
-      label: 'section.workspace',
+      label: 'app.menu.workspace',
       routerLink: '/workspace'
     },
   ];

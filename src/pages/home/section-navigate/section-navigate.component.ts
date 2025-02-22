@@ -29,10 +29,10 @@ export class SectionNavigate {
   labelSignUp: string = 'app.button.signup';
 
   listMenu: menuItem[] = [
-    { id: 1, label: 'home.menu.getStart', element: 'getstarted' },
-    { id: 2, label: 'home.menu.features', element: 'features' },
-    { id: 3, label: 'home.menu.developers', element: 'team' },
-    { id: 3, label: 'home.menu.contact', element: 'contact' },
+    { id: 1, label: 'app.menu.getStart', element: 'getstarted' },
+    { id: 2, label: 'app.menu.features', element: 'features' },
+    { id: 3, label: 'app.menu.developers', element: 'team' },
+    { id: 3, label: 'app.menu.contact', element: 'contact' },
   ];
 
   onScrollToElementEvent = output<string>();

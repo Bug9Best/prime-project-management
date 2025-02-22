@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FeedbackList } from '../../feedback-list/feedback-list.component';
+import { FeedbackList } from '../feedback-list/feedback-list.component';
 
 @Component({
   selector: 'feedback-content',

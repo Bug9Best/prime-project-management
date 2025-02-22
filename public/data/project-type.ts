@@ -11,7 +11,7 @@ export var listProjectType: ProjectType[] = [
     title: 'PROJECT_SCRUM',
     description: 'PROJECT_SCRUM_DESCRIPTION',
     value: 'SCRUM',
-    icon: 'pi-spinner',
+    icon: 'pi-sync',
     color: 'blue'
   },
   {

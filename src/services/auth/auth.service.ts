@@ -55,7 +55,6 @@ export class AuthService extends BaseService<any> {
 
   isAdmin() {
     const user: any = this.getUserData();
-    console.log(user);
     return user?.role === UserRole.Admin;
   }
 

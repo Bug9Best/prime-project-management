@@ -8,10 +8,12 @@ export var FormGroupFeedbackSubmit = new FormGroup({
 export var listFormFeedbackSubmit: InputAppForm[] = [
     {
         type: "textarea",
-        label: "FORM_FEEDBACK_CONTENT",
+        label: "form.feedback.content",
         field: "content",
         required: true,
         disabled: false,
         colWidth: 12,
+        isLimitLength: true,
+        maxLength: 255,
     },
 ]

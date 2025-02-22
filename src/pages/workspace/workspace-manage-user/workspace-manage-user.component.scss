@@ -1,0 +1,8 @@
+.selector-card:not(:hover) {
+    opacity: 0.9;
+    transform: scale(0.99);
+  }
+  
+  .selector-card {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }

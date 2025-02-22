@@ -1,12 +1,28 @@
 <div class="content-height-with-padding w-full surface-section border-1 surface-border border-round shadow-1 p-3">
-  @if (currentTabIndex == 0 ) {
-    <workspace-content-project>
-    </workspace-content-project>
-  }@else if (currentTabIndex == 1 ) {
-    <workspace-content-join>
-    </workspace-content-join>
-  }@else if (currentTabIndex == 2) {
-    <workspace-content-member>
-    </workspace-content-member>
+  @switch (currentTabIndex) {
+    @case (0) {
+      <workspace-content-project>
+      </workspace-content-project>
+    }
+    @case (1) {
+      <workspace-content-join>
+      </workspace-content-join>
+    }
+    @case (2) {
+      <workspace-manage-project>
+      </workspace-manage-project>
+    }
+    @case (3) {
+      <workspace-manage-user>
+      </workspace-manage-user>
+    }
+    @case (4) {
+      <form-feedback-submit>
+      </form-feedback-submit>
+    }
+    @default {
+      <workspace-content-project>
+      </workspace-content-project>
+    }
   }
 </div>

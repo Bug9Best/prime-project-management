@@ -1,13 +1,328 @@
-{ 
+{
   "LANGUAGE": "ภาษาไทย",
 
-  "SECTION_GET_START": "เริ่มต้นใช้งาน",
-  "SECTION_FEATURES": "ฟีเจอร์",
-  "SECTION_DEVELOPERS": "ทีมพัฒนา",
-  "SECTION_CONTACT": "ติดต่อเรา",
-  "SECTION_WORKSPACE": "เวิร์กสเปซ",
-  "SECTION_FEEDBACK": "ข้อเสนอแนะ",
-  "SECTION_PROFILE": "โปรไฟล์",
+  "app": {
+    "button": {
+      "create": "สร้าง",
+      "submit": "ส่ง",
+      "save": "บันทึก",
+      "join": "เข้าร่วม",
+      "add": "เพิ่ม",
+      "invite": "เชิญ",
+      "edit": "แก้ไข",
+      "delete": "ลบ",
+      "cancel": "ยกเลิก",
+      "back": "ย้อนกลับ",
+      "close": "ปิด",
+      "block": "บล็อคผู้ใช้งานนี้ออกจากเว็บไซต์",
+      "unblock": "ยกเลิกการบล็อคผู้ใช้งาน"
+    },
+    "validation": {
+      "required": "*กรุณากรอกข้อมูล"
+    }
+  },
+
+  "section": {
+    "getStart": "เริ่มต้นใช้งาน",
+    "features": "ฟีเจอร์",
+    "developers": "ทีมพัฒนา",
+    "contact": "ติดต่อเรา",
+    "workspace": "เวิร์กสเปซ",
+    "feedback": "ข้อเสนอแนะ",
+    "profile": "โปรไฟล์"
+  },
+
+  "getStart": {
+    "title": "พัฒนาโครงการอย่างมีประสิทธิภาพในรูปแบบที่เรียบง่ายด้วย",
+    "description": "Prime Project Manager เป็นซอฟต์แวร์การจัดการโครงการที่ช่วยให้คุณวางแผน ติดตาม และจัดการโครงการของคุณได้อย่างมีประสิทธิภาพ เป็นเครื่องมือที่เรียบง่ายและใช้งานง่ายซึ่งช่วยให้คุณจัดการโครงการได้อย่างมีประสิทธิผล",
+    "buttonLabel": "เริ่มต้นใช้งาน"
+  },
+
+  "feature": {
+    "title": "หนึ่งผลิตภัณฑ์",
+    "subtitle" : "หลากหลายโซลูชั่น",
+    "description": "แพลตฟอร์มของเราออกแบบมาเพื่อช่วยให้คุณสร้างและขยายธุรกิจของคุณได้อย่างง่ายดาย",
+    "scrum": "Scrum",
+    "scrumDescription": "กรอบการทำงานที่ช่วยให้ทีมสามารถจัดระเบียบงาน มอบหมายงานให้สมาชิกในทีม และติดตามความคืบหน้าของงานได้อย่างมีประสิทธิภาพภายในรอบการทำงานที่ชัดเจน",
+    "waterfall": "Waterfall",
+    "waterfallDescription": "โมเดลการพัฒนาโครงการที่เน้นการดำเนินงานตามลำดับขั้นตอนที่กำหนดไว้อย่างชัดเจน ตั้งแต่การรวบรวมข้อกำหนด การออกแบบ การพัฒนา การทดสอบ",
+    "kanban": "Kanban",
+    "kanbanDescription": "เครื่องมือสำหรับแสดงภาพรวมของงานในรูปแบบกระดานต่างๆ เพื่อช่วยจัดการและติดตามความคืบหน้าของงานในแต่ละขั้นตอนของกระบวนการทำงานได้อย่างยืดหยุ่น",
+    "member": "สมาชิกโครงการ",
+    "memberDescription": "ระบบสำหรับจัดการสมาชิกในทีมโครงการ โดยสามารถมอบหมายบทบาทและกำหนดสิทธิ์ต่างๆ ให้กับสมาชิกเพื่อให้การทำงานร่วมกันเป็นไปอย่างราบรื่นและมีประสิทธิภาพ",
+    "resource": "เอกสารโครงการ",
+    "resourceDescription": "พื้นที่ศูนย์กลางสำหรับรวบรวมเอกสารที่เกี่ยวข้องกับโครงการทั้งหมด ช่วยให้การจัดเก็บและการเข้าถึงเอกสารเป็นไปอย่างสะดวกและตรงตามข้อกำหนดของโครงการ",
+    "notify": "การแจ้งเตือน",
+    "notifyDescription": "ระบบที่ช่วยแจ้งเตือนสมาชิกในทีมเกี่ยวกับการอัปเดตที่สำคัญในโครงการ รวมถึงการแจ้งเตือนเมื่อได้รับมอบหมายงานหรือปัญหา โดยผ่านทั้งการแจ้งเตือนในระบบและอีเมล"
+  },
+
+  "team": {
+    "title": "ทีมพัฒนา",
+    "description": "เราภูมิใจในทีมพัฒนาที่มีความหลากหลายและทุ่มเท ทุกคนในทีมมีบทบาทสำคัญในการสร้างสรรค์และพัฒนาโครงการ Prime Project Manager ให้ประสบความสำเร็จ มารู้จักกับสมาชิกในทีมของเราที่พร้อมทำงานอย่างหนักและเต็มใจที่จะนำพาโครงการของคุณสู่ความสำเร็จ",
+    "adviserPornsuree": "ผศ.ดร. พรสุรีย์ แจ่มศรี",
+    "adviserPornsureePosition": "ที่ปรึกษาโครงการ",
+    "adviserTaravichet": "ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์",
+    "adviserTaravichetPosition": "ที่ปรึกษาโครงการ",
+    "developerNatthaphon": "จ.อ. ณัฐพล ดิษฐวิบูลย์",
+    "developerNatthaphonPosition": "นักพัฒนาซอฟต์แวร์",
+    "developerPhuri": "นายภูริ ศิริภูล ",
+    "developerPhuriPosition": "นักพัฒนาซอฟต์แวร์"
+  },
+
+  "footer": {
+    "contact": "ติดต่อเรา",
+    "university": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
+    "locate": "ถนนฉลองกรุง เขตลาดกระบัง กรุงเทพฯ 10520, ประเทศไทย"
+  },
+
+  "workspace": {
+    "menu": {
+      "project": "โปรเจคของฉัน",
+      "join": "เข้าร่วมโปรเจค",
+      "manageProject": "จัดการโปรเจค",
+      "manageUser": "จัดการผู้ใช้งาน",
+      "feedback": "ข้อเสนอแนะ"
+    },
+    "title": {
+      "project": "โปรเจคของฉัน",
+      "join": "เข้าร่วมโปรเจค",
+      "manageProject": "จัดการโปรเจค",
+      "manageUser": "จัดการผู้ใช้งาน",
+      "feedback": "ข้อเสนอแนะ"
+    },
+    "subtitle": {
+      "project": "ดูโปรเจคทั้งหมดที่คุณเข้าร่วม",
+      "join": "เข้าร่วมโครงการสาธารณะ หรือเข้าร่วมโครงการส่วนตัวโดยใช้รหัส",
+      "manageProject": "จัดการโปรเจคทั้งหมดในเว็บไซต์",
+      "manageUser": "จัดการผู้ใช้งานทั้งหมดในเว็บไซต์"
+    },
+    "header": {
+      "projectCreate": "สร้างโปรเจค",
+      "projectJoin": "เข้าร่วมโปรเจค"
+    },
+    "button": {
+      "projectCreate": "สร้างโปรเจค",
+      "projectJoin": "เข้าร่วมโปรเจค"
+    },
+    "label": {
+      "owner": "เจ้าของโปรเจค : ",
+      "projectType": "ประเภทโปรเจค : "
+    },
+    "projectEmpty": {
+      "title": "ไม่พบโปรเจค",
+      "description": "ยังไม่มีโปรเจคในระบบ กรุณาสร้างโปรเจคใหม่"
+    },
+    "joinEmpty": {
+      "title": "ไม่พบโปรเจค",
+      "description": "ยังไม่มีโปรเจคสาธารณะที่คุณสามารถเข้าร่วมได้"
+    },
+    "userEmpty": {
+      "title": "ไม่พบผู้ใช้งาน",
+      "description": "ยังไม่มีผู้ใช้งานที่สมัครเข้าใช้งาน"
+    }
+  },
+
+  "feedback": {
+    "menu": {
+      "admin": "รายการข้อเสนอแนะ",
+      "user": "ส่งข้อเสนอแนะใหม่"
+    },
+    "title": {
+      "admin": "ข้อเสนอแนะทั้งหมดที่ส่งมา",
+      "user": "ส่งข้อเสนอแนะใหม่"
+    },
+    "subtitle": {
+      "admin": "ดูข้อเสนอแนะทั้งหมดที่ส่งมา ท่านสามารถดูรายละเอียดของข้อเสนอแนะแต่ละรายการได้",
+      "user": "ส่งข้อเสนอแนะใหม่ ท่านสามารถส่งข้อเสนอแนะใหม่ให้ทีมพัฒนาได้ที่นี่"
+    },
+    "header": {
+      "submit": "ส่งข้อเสนอแนะใหม่"
+    },
+    "button": {
+      "submit": "ส่งข้อเสนอแนะ"
+    },
+    "feedbackEmptyAdmin": {
+      "title": "ไม่พบข้อเสนอแนะ",
+      "description": "ยังไม่มีข้อเสนอแนะในระบบ"
+    },
+    "feedbackEmptyUser": {
+      "title": "ยังไม่ส่งข้อเสนอแนะ",
+      "description": "ท่านยังไม่ส่งข้อเสนอแนะใหม่ในระบบ"
+    }
+  },
+
+  "form": {
+    "customer": {
+      "name": "Name",
+      "email": "Email",
+      "employStart": "Employ Start Date",
+      "employEnd": "Employ End Date",
+      "phone": "Phone Number",
+      "address": "Address (Optional)"
+    },
+    "feedback": {
+      "content": "เนื้อหาข้อเสนอแนะ",
+      "description": "กรอกข้อเสนอแนะของท่าน หรือปัญหาที่ท่านพบ ทางทีมพัฒนาจะรีบดำเนินการแก้ไขให้เร็วที่สุด"
+    },
+    "project": {
+      "name": "Project Name",
+      "description": "Project Description (Optional)",
+      "type": "Project Type",
+      "code": "Project Code (10 characters)",
+      "helperText": "Ask your project owner for the project code, then enter it here.",
+      "privacyType": "Privacy Type",
+      "privacyTypePrivate": "Private",
+      "privacyTypePublic": "Public"
+    }
+  },
+
+  "detail": {
+    "user": {
+      "header": "รายละเอียดผู้ใช้งาน",
+      "name": "ชื่อ",
+      "email": "อีเมล",
+      "role": "บทบาท",
+      "createDate": "วันที่สมัครสมาชิก",
+      "bio": "ประวัติส่วนตัว",
+      "project_created": "โปรเจคที่สร้าง",
+      "project_created_counting": "โปรเจค",
+      "project_joined": "โปรเจคที่เข้าร่วม",
+      "project_joined_counting": "โปรเจค"
+    },
+    "project": {
+      "header": "รายละเอียดโปรเจค",
+      "name": "ชื่อโปรเจค",
+      "description": "คำอธิบาย",
+      "type": "ประเภทโปรเจค",
+      "owner": "เจ้าของโปรเจค",
+      "privacyType": "ความเป็นส่วนตัว",
+      "privacyTypePrivate": "ส่วนตัว",
+      "privacyTypePublic": "สาธารณะ",
+      "createDate": "วันที่สร้าง",
+      "member": "สมาชิกในโปรเจค",
+      "member_counting": "สมาชิก",
+      "task": "งานในโปรเจค",
+      "taskCounting": "งาน",
+      "resource": "ทรัพยากรในโปรเจค",
+      "resourceCounting": "ทรัพยากร"
+    },
+    "feedback": {
+      "header": "รายละเอียดข้อเสนอแนะ",
+      "content": "เนื้อหา",
+      "createDate": "วันที่สร้าง"
+    },
+    "sprint": {
+      "header": "รายละเอียดสปรินต์",
+      "name": "ชื่อสปรินต์",
+      "description": "คำอธิบาย",
+      "status": "สถานะ",
+      "startDate": "วันที่เริ่ม",
+      "endDate": "วันที่สิ้นสุด",
+      "issue": "งานในสปรินต์",
+      "issue_counting": "งาน"
+    },
+    "issue": {
+      "header": "รายละเอียดงาน",
+      "name": "ชื่องาน",
+      "description": "คำอธิบาย",
+      "priority": "ความสำคัญ",
+      "status": "สถานะ",
+      "assignee": "ผู้รับผิดชอบ",
+      "createDate": "วันที่สร้าง",
+      "comment": "ความคิดเห็น",
+      "comment_counting": "ความคิดเห็น"
+    },
+    "resource": {
+      "header": "รายละเอียดทรัพยากร",
+      "name": "ชื่อทรัพยากร",
+      "description": "คำอธิบาย",
+      "createDate": "วันที่สร้าง"
+    },
+    "member": {
+      "header": "รายละเอียดสมาชิก",
+      "name": "ชื่อ",
+      "email": "อีเมล",
+      "role": "บทบาท",
+      "createDate": "วันที่สมัครสมาชิก"
+    }
+  },
+
+  "table": {
+    "manageProject": {
+      "header": {
+        "name": "ชื่อโปรเจค",
+        "type": "ประเภทโปรเจค",
+        "owner": "เจ้าของโปรเจค",
+        "createDate": "วันที่สร้าง"
+      }
+    },
+    "manageUser": {
+      "header": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "createDate": "Create Date",
+        "action": "Action"
+      }
+    },
+    "project": {
+      "header": {
+        "name": "Name",
+        "description": "Description",
+        "type": "Type",
+        "status": "Status",
+        "owner": "Owner",
+        "createDate": "Create Date",
+        "action": "Action"
+      }
+    },
+    "user": {
+      "header": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "createDate": "Create Date",
+        "action": "Action"
+      }
+    },
+    "feedback": {
+      "header": {
+        "content": "Content",
+        "createDate": "Create Date",
+        "action": "Action"
+      }
+    },
+    "task": {
+      "header": {
+        "name": "Name",
+        "description": "Description",
+        "priority": "Priority",
+        "status": "Status",
+        "assignee": "Assignee",
+        "createDate": "Create Date",
+        "action": "Action"
+      }
+    },
+    "resource": {
+      "header": {
+        "name": "Name",
+        "description": "Description",
+        "createDate": "Create Date",
+        "action": "Action"
+      }
+    },
+    "member": {
+      "header": {
+        "name": "Name",
+        "email": "Email",
+        "role": "Role",
+        "createDate": "Create Date",
+        "action": "Action"
+      }
+    }
+  },
+
+  "USERS_MANAGE_HEADER": "รายละเอียดผู้ใช้งาน",
 
   "BUTTON_SIGNIN":"เข้าสู่ระบบ",
   "BUTTON_SIGNUP":"สมัครสมาชิก",
@@ -29,74 +344,6 @@
   "SIGNIN_PASSWORD_REQUIRED_LENGTH": "มีความยาวอย่างน้อย 8 ตัวอักษร",
 
   "SIGNUP_HEADER": "สมัครสมาชิก",
-
-  "GETSTART_TITLE": "พัฒนาโครงการอย่างมีประสิทธิภาพในรูปแบบที่เรียบง่ายด้วย",
-  "GETSTART_DESCRIPTION": "Prime Project Manager เป็นซอฟต์แวร์การจัดการโครงการที่ช่วยให้คุณวางแผน ติดตาม และจัดการโครงการของคุณได้อย่างมีประสิทธิภาพ เป็นเครื่องมือที่เรียบง่ายและใช้งานง่ายซึ่งช่วยให้คุณจัดการโครงการได้อย่างมีประสิทธิผล",
-  "GETSTART_BUTTON":"เริ่มต้นใช้งาน",
-
-  "FEATURE_TITLE": "หนึ่งผลิตภัณฑ์ ",
-  "FEATURE_TITLE_EXTRA": "หลากหลายโซลูชั่น",
-  "FEATURE_DESCRIPTION": "แพลตฟอร์มของเราออกแบบมาเพื่อช่วยให้คุณสร้างและขยายธุรกิจของคุณได้อย่างง่ายดาย",
-  "FEATURE_SCRUM": "Scrum",
-  "FEATURE_SCRUM_DESCRIPTION": "กรอบการทำงานที่ช่วยให้ทีมสามารถจัดระเบียบงาน มอบหมายงานให้สมาชิกในทีม และติดตามความคืบหน้าของงานได้อย่างมีประสิทธิภาพภายในรอบการทำงานที่ชัดเจน",
-  "FEATURE_WATER_FALL": "Waterfall",
-  "FEATURE_WATER_FALL_DESCRIPTION": "โมเดลการพัฒนาโครงการที่เน้นการดำเนินงานตามลำดับขั้นตอนที่กำหนดไว้อย่างชัดเจน ตั้งแต่การรวบรวมข้อกำหนด การออกแบบ การพัฒนา การทดสอบ",
-  "FEATURE_KANBAN": "Kanban",
-  "FEATURE_KANBAN_DESCRIPTION": "เครื่องมือสำหรับแสดงภาพรวมของงานในรูปแบบกระดานต่างๆ เพื่อช่วยจัดการและติดตามความคืบหน้าของงานในแต่ละขั้นตอนของกระบวนการทำงานได้อย่างยืดหยุ่น",
-  "FEATURE_MEMBER": "สมาชิกโครงการ",
-  "FEATURE_MEMBER_DESCRIPTION": "ระบบสำหรับจัดการสมาชิกในทีมโครงการ โดยสามารถมอบหมายบทบาทและกำหนดสิทธิ์ต่างๆ ให้กับสมาชิกเพื่อให้การทำงานร่วมกันเป็นไปอย่างราบรื่นและมีประสิทธิภาพ",
-  "FEATURE_RESOURCE": "เอกสารโครงการ",
-  "FEATURE_RESOURCE_DESCRIPTION": "พื้นที่ศูนย์กลางสำหรับรวบรวมเอกสารที่เกี่ยวข้องกับโครงการทั้งหมด ช่วยให้การจัดเก็บและการเข้าถึงเอกสารเป็นไปอย่างสะดวกและตรงตามข้อกำหนดของโครงการ",
-  "FEATURE_NOTIFY": "การแจ้งเตือน",
-  "FEATURE_NOTIFY_DESCRIPTION": "ระบบที่ช่วยแจ้งเตือนสมาชิกในทีมเกี่ยวกับการอัปเดตที่สำคัญในโครงการ รวมถึงการแจ้งเตือนเมื่อได้รับมอบหมายงานหรือปัญหา โดยผ่านทั้งการแจ้งเตือนในระบบและอีเมล",
-
-  "DEVELOPER_TEAM_TITLE": "ทีมพัฒนา",
-  "DEVELOPER_TEAM_DESCRIPTION": "เราภูมิใจในทีมพัฒนาที่มีความหลากหลายและทุ่มเท ทุกคนในทีมมีบทบาทสำคัญในการสร้างสรรค์และพัฒนาโครงการ Prime Project Manager ให้ประสบความสำเร็จ มารู้จักกับสมาชิกในทีมของเราที่พร้อมทำงานอย่างหนักและเต็มใจที่จะนำพาโครงการของคุณสู่ความสำเร็จ",
-  "ADVISER_PORNSUREE": "ผศ.ดร. พรสุรีย์ แจ่มศรี",
-  "ADVISER_PORNSUREE_POSITION": "ที่ปรึกษาโครงการ",
-  "ADVISER_TARAVICHET": "ผศ.ดร. ธราวิเชษฐ์ ธิติจรูญโรจน์",
-  "ADVISER_TARAVICHET_POSITION": "ที่ปรึกษาโครงการ",
-  "DEVELOPER_NATTHAPHON": "จ.อ. ณัฐพล ดิษฐวิบูลย์",
-  "DEVELOPER_NATTHAPHON_POSITION": "นักพัฒนาซอฟต์แวร์",
-  "DEVELOPER_PHURI": "นายภูริ ศิริภูล",
-  "DEVELOPER_PHURI_POSITION": "นักพัฒนาซอฟต์แวร์",
-
-  "FOOTER_UNIVERSITY_NAME": "สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง",
-  "FOOTER_UNIVERSITY_LOCATE": "ถนนฉลองกรุง เขตลาดกระบัง กรุงเทพฯ 10520, ประเทศไทย",
-  "FOOTER_CONTACT": "ติดต่อเรา",
-
-  "WORKSPACE_MENU_PROJECT": "โปรเจคของฉัน",
-  "WORKSPACE_MENU_PROJECT_TITLE": "โปรเจคของฉัน",
-  "WORKSPACE_MENU_PROJECT_SUBTITLE": "โปรเจคทั้งหมดที่คุณเข้าร่วม",
-  "WORKSPACE_BUTTON_PROJECT_CREATE": "สร้างโปรเจค",
-
-  "WORKSPACE_MENU_JOIN": "เข้าร่วมโปรเจค",
-  "WORKSPACE_MENU_JOIN_TITLE": "เข้าร่วมโปรเจค",
-  "WORKSPACE_MENU_JOIN_SUBTITLE": "เข้าร่วมโครงการสาธารณะ หรือเข้าร่วมโครงการส่วนตัวโดยใช้รหัส",
-  "WORKSPACE_BUTTON_PROJECT_JOIN": "เข้าร่วมโปรเจค",
-  "WORKSPACE_LABEL_OWNER": "เจ้าของโปรเจค : ",
-  "WORKSPACE_LABEL_PROJECT_TYPE": "ประเภทโปรเจค : ",
-
-  "WORKSPACE_MENU_USERS": "จัดการผู้ใช้งาน",
-  "WORKSPACE_MENU_USERS_TITLE": "จัดการผู้ใช้งาน",
-  "WORKSPACE_MENU_USERS_SUBTITLE": "จัดการผู้ใช้งานทั้งหมดในเว็บไซต์",
-  "USERS_MANAGE_HEADER": "รายละเอียดผู้ใช้งาน",
-
-  "WORKSPACE_PROJECT_EMPTY_TITLE": "ไม่พบโปรเจค",
-  "WORKSPACE_PROJECT_EMPTY_SUBTITLE": "สร้างโปรเจคใหม่หรือเข้าร่วมโปรเจคเพื่อเริ่มต้นการทำงาน",
-
-  "WORKSPACE_JOIN_EMPTY_TITLE": "ไม่พบโปรเจค",
-  "WORKSPACE_JOIN_EMPTY_SUBTITLE": "ยังไม่มีโปรเจคสาธารณะที่คุณสามารถเข้าร่วมได้",
-
-  "WORKSPACE_USER_EMPTY_TITLE": "ไม่พบผู้ใช้งาน",
-  "WORKSPACE_USER_EMPTY_SUBTITLE": "ยังไม่มีผู้ใช้งานที่สมัครเข้าใช้งาน",
-
-  "FEEDBACK_MENU_SUBMIT": "ข้อเสนอแนะ",
-  "FEEDBACK_HEADER_SUBMIT": "ส่งข้อเสนอแนะใหม่",
-  "FEEDBACK_BUTTON_SUBMIT": "ข้อเสนอแนะใหม่",
-
-  "FORM_FEEDBACK_DESCRIPTION": "กรอกข้อเสนอแนะของท่าน หรือปัญหาที่ท่านพบ ทางทีมพัฒนาจะรีบดำเนินการแก้ไขให้เร็วที่สุด",
-  "FORM_FEEDBACK_CONTENT": "เนื้อหาข้อเสนอแนะ",
 
   "FORM_PROJECT_NAME": "ชื่อโปรเจค",
   "FORM_PROJECT_DESCRIPTION": "คำอธิบายโปรเจค (ไม่บังคับ)",
@@ -168,20 +415,7 @@
   "FORM_CUSTOMER_PHONE": "เบอร์โทรศัพท์",
   "FORM_CUSTOMER_ADDRESS": "ที่อยู่ลูกค้า (ไม่บังคับ)",
 
-  "BUTTON_CREATE": "สร้าง",
-  "BUTTON_SUBMIT": "ส่ง",
-  "BUTTON_SAVE": "บันทึก",
-  "BUTTON_JOIN": "เข้าร่วม",
-  "BUTTON_ADD": "เพิ่ม",
-  "BUTTON_INVITE": "เชิญ",
-  "BUTTON_EDIT": "แก้ไข",
-  "BUTTON_DELETE": "ลบ",
-  "BUTTON_CANCEL": "ยกเลิก",
-  "BUTTON_BACK": "ย้อนกลับ",
-  "BUTTON_CLOSE": "ปิด",
-  "BUTTON_BLOCK": "บล็อคผู้ใช้งานนี้ออกจากเว็บไซต์",
-  "BUTTON_UNBLOCK": "ยกเลิกการบล็อคผู้ใช้งาน",
-  "VALID_LABEL": "*กรุณากรอกข้อมูล",
+
 
   "APP_BUTTON_GROUP": "จัดกลุ่ม",
   "APP_BUTTON_SORT": "จัดเรียง",
@@ -249,7 +483,7 @@
   "TITLE_RESOURCE": "ทรัพยากรในโครงการ",
   "BUTTON_ADD_RESOURCE_LABEL": "เพิ่มทรัพยากรใหม่",
   "PAGE_RESOURCE_EMPTY": "ไม่มีทรัพยากรในโครงการนี้",
-  
+
   "TITLE_CONFIG": "การตั้งค่า",
   "BUTTON_LABEL_ADD_MEMBER": "เพิ่มสมาชิก",
 

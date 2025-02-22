@@ -25,7 +25,7 @@
     <ng-template #footer>
       <p-button 
         severity="secondary" 
-        [label]="'BUTTON_CANCEL' | translate" 
+        [label]="cancelLabel() | translate" 
         [text]="true" 
         styleClass="w-8rem"
         (click)="visible = false" />

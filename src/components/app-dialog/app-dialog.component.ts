@@ -37,7 +37,8 @@ export class AppDialog {
   closeOnEscape = input(true);
   dismissableMask = input(true);
   showHeader = input(true);
-  submitLabel = input('BUTTON_CREATE');
+  submitLabel = input('app.button.create');
+  cancelLabel = input('app.button.cancel');
   submitIcon = input('pi pi-save');
 
   onSubmitEvent = output<void>();

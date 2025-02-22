@@ -23,7 +23,6 @@ export class ProjectSidebar {
   currentTabIndex: number = 0;
   listMenu: any[] = [];
 
-
   checkProjectType(type: ProjectType): void {
     switch (type) {
       case 'SCRUM':
@@ -44,6 +43,5 @@ export class ProjectSidebar {
   onChangeTabIndex(index: any): void {
     this.currentTabIndex = index;
     this.onChangeTabIndexEvent.emit(this.currentTabIndex);
-    console.log('Current Tab Index: ', this.currentTabIndex);
   }
 }

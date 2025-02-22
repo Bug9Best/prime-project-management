@@ -32,10 +32,10 @@ export class UserDetailDialog {
   labelRole: string = 'detail.user.role';
   labelCreateDate: string = 'detail.user.createDate';
   labelBio: string = 'detail.user.bio';
-  labelProjectCreated: string = 'detail.user.project_created';
-  labelProjectCreatedCounting: string = 'detail.user.project_created_counting';
-  labelProjectJoined: string = 'detail.user.project_joined';
-  labelProjectJoinedCounting: string = 'detail.user.project_joined_counting';
+  labelProjectCreated: string = 'detail.user.projectCreated';
+  labelProjectCreatedCounting: string = 'detail.user.projectCreatedCounting';
+  labelProjectJoined: string = 'detail.user.projectJoined';
+  labelProjectJoinedCounting: string = 'detail.user.projectJoinedCounting';
   buttonBlock: string = 'app.button.block';
   buttonUnblock: string = 'app.button.unblock';
   buttonClose: string = 'app.button.close';

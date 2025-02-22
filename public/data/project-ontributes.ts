@@ -6,23 +6,23 @@ export interface ProjectContribute {
 
 export var listProjectContributes: ProjectContribute[] = [
   {
-    full_name: 'ADVISER_PORNSUREE',
-    position: 'ADVISER_PORNSUREE_POSITION',
+    full_name: 'team.adviserPornsuree',
+    position: 'team.adviserPornsureePosition',
     imageURL: '/image/Pornsuree.jpg'
   },
   {
-    full_name: 'ADVISER_TARAVICHET',
-    position: 'ADVISER_TARAVICHET_POSITION',
+    full_name: 'team.adviserTaravichet',
+    position: 'team.adviserTaravichetPosition',
     imageURL: '/image/Taravichet.jpg'
   },
   {
-    full_name: 'DEVELOPER_NATTHAPHON',
-    position: 'DEVELOPER_NATTHAPHON_POSITION',
+    full_name: 'team.developerNatthaphon',
+    position: 'team.developerNatthaphonPosition',
     imageURL: '/image/Natthaphon.jpg'
   },
   {
-    full_name: 'DEVELOPER_PHURI',
-    position: 'DEVELOPER_PHURI_POSITION',
+    full_name: 'team.developerPhuri',
+    position: 'team.developerPhuriPosition',
     imageURL: '/image/Phuri.jpg'
   }
 ]

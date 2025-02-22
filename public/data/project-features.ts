@@ -6,33 +6,33 @@ export interface ProjectFeature {
 
 export var listProjectFeatures: ProjectFeature[] = [
   {
-    title: 'FEATURE_SCRUM',
-    description: 'FEATURE_SCRUM_DESCRIPTION',
+    title: 'feature.scrum',
+    description: 'feature.scrumDescription',
     icon: 'pi-spinner'
   },
   {
-    title: 'FEATURE_WATER_FALL',
-    description: 'FEATURE_WATER_FALL_DESCRIPTION',
+    title: 'feature.waterfall',
+    description: 'feature.waterfallDescription',
     icon: 'pi-check-circle'
   },
   {
-    title: 'FEATURE_KANBAN',
-    description: 'FEATURE_KANBAN_DESCRIPTION',
+    title: 'feature.kanban',
+    description: 'feature.kanbanDescription',
     icon: 'pi-clipboard'
   },
   {
-    title: 'FEATURE_MEMBER',
-    description: 'FEATURE_MEMBER_DESCRIPTION',
+    title: 'feature.member',
+    description: 'feature.memberDescription',
     icon: 'pi-users'
   },
   {
-    title: 'FEATURE_RESOURCE',
-    description: 'FEATURE_RESOURCE_DESCRIPTION',
+    title: 'feature.resource',
+    description: 'feature.resourceDescription',
     icon: 'pi-file'
   },
   {
-    title: 'FEATURE_NOTIFY',
-    description: 'FEATURE_NOTIFY_DESCRIPTION',
+    title: 'feature.notify',
+    description: 'feature.notifyDescription',
     icon: 'pi-send'
   },
 

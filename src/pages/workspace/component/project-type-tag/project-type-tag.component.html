@@ -1,12 +1,12 @@
 @switch (type()) {
     @case (ProjectType.SCRUM) {
-        <p-tag icon="pi pi-crown" severity="info" value="Scrum" [class]="styleClass()"/>
+        <p-tag icon="pi pi-sync" severity="info" value="Scrum" [class]="styleClass()"/>
     }
     @case (ProjectType.WATERFALL) {
-        <p-tag icon="pi pi-graduation-cap" severity="success" value="Waterfall" [class]="styleClass()"/>
+        <p-tag icon="pi pi-check-circle" severity="success" value="Waterfall" [class]="styleClass()"/>
     }
     @case (ProjectType.KANBAN) {
-        <p-tag icon="pi pi-user" severity="warn" value="Kanban" [class]="styleClass()"/>
+        <p-tag icon="pi pi-clipboard" severity="warn" value="Kanban" [class]="styleClass()"/>
     }
     @default {
         <p-tag icon="pi pi-user" value="User" [class]="styleClass()"/>

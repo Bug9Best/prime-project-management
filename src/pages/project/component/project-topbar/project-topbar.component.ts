@@ -12,19 +12,18 @@ import { MenuItem } from 'primeng/api';
 })
 export class ProjectTopbar {
 
-    listMenu: MenuItem[] = [
-      {
-        label: 'SECTION_GET_START',
-        routerLink: '/home'
-      },
-      {
-        label: 'SECTION_WORKSPACE',
-        routerLink: '/workspace'
-      },
-      {
-        label: 'SECTION_PROFILE',
-        routerLink: '/profile'
-      },
-    ];
-
+  listMenu: MenuItem[] = [
+    {
+      label: 'section.getStart',
+      routerLink: '/home'
+    },
+    {
+      label: 'section.workspace',
+      routerLink: '/workspace'
+    },
+    {
+      label: 'section.profile',
+      routerLink: '/profile'
+    },
+  ];
 }

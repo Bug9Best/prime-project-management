@@ -38,12 +38,12 @@
         <span [ngClass]="{'text-red-500' : item.is_disable}">{{ item.name }}</span>
       </ng-template>
       <ng-template appTableField="role" let-item>
-        <member-role-tag [role]="item.role">
-        </member-role-tag>
+        <user-role-tag [role]="item.role">
+        </user-role-tag>
       </ng-template>
     </app-table>
-    <member-detail-dialog
+    <user-detail-dialog
       (onReloadUser)="onReloadUser($event)">
-    </member-detail-dialog>
+    </user-detail-dialog>
   </app-scrolling>
 }

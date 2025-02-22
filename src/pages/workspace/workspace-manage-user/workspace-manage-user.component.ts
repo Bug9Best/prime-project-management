@@ -7,9 +7,9 @@ import { Mode } from '../workspace-content-project/workspace-content-project.com
 import { UserProfile } from '../../../../public/data/user';
 import { AppTable, AppTableColumn, AppTableFieldDirective } from '../../../components/app-table/app-table.component';
 import { ButtonModule } from 'primeng/button';
-import { MemberRoleTag } from '../component/member-role-tag/member-role-tag.component';
+import { UserRoleTag } from '../component/user-role-tag/user-role-tag.component';
 import { UserService } from '../../../services/user/user.service';
-import { MemberDetailDialog } from '../component/member-detail-dialog/member-detail-dialog.component';
+import { UserDetailDialog } from '../component/user-detail-dialog/user-detail-dialog.component';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 
 @Component({
@@ -22,8 +22,8 @@ import { AppEmpty } from '../../../components/app-empty/app-empty.component';
     AppScrolling,
     AppTable,
     ButtonModule,
-    MemberRoleTag,
-    MemberDetailDialog,
+    UserRoleTag,
+    UserDetailDialog,
     AppTableFieldDirective
   ],
   templateUrl: './workspace-manage-user.component.html',
@@ -80,7 +80,7 @@ export class WorkspaceManageUser {
     }
   }
 
-  @ViewChild(MemberDetailDialog) memberDetailDialog!: MemberDetailDialog;
+  @ViewChild(UserDetailDialog) memberDetailDialog!: UserDetailDialog;
   onClickItem(user: any) {
     this.memberDetailDialog.showDialog(user);
   }

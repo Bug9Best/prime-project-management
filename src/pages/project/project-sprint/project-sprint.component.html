@@ -1,4 +1,57 @@
 <app-header 
   [title]="title" 
   [subtitle]="subtitle">
+  <div class="flex">
+    <app-dialog 
+      [icon]="'pi pi-plus'"
+      [width]="'60vw'"
+      [label]="labelButton"
+      [header]="labelHeader"
+      (onSubmitEvent)="onValidateForm()">
+        <form-sprint-create>
+        </form-sprint-create>
+    </app-dialog>
+  </div>
 </app-header>
+
+@if (!listSprint.length) {
+  <app-empty 
+    [icon]="'pi pi-sync'" 
+    [title]="emptyTitle" 
+    [description]="emptyDescription">
+  </app-empty>
+} @else {
+  <app-scrolling>
+    <div class="grid">
+      @for (sprint of listSprint; track $index) {
+        <div class="col-12 select-none">
+          <div class="surface-card border-1 surface-border border-round shadow-1 cursor-pointer p-3" (click)="onNavigateToSprintDetail(sprint.id)">
+            <div class="flex">
+              <div class="flex align-items-center">
+                <span class="inline-flex justify-content-center align-items-center border-circle border-1 surface-border" style="width: 2.5rem; height: 2.5rem;">
+                  <i class="pi pi-flag text-500"></i>
+                </span>
+              </div>
+              <div class="flex justify-content-between ml-3 w-full">
+                <div class="flex flex-column">
+                  <span> {{ sprint.sprint_name }} </span>
+                  <span class="text-500 text-sm"> {{ sprint.sprint_description || 'ไม่มีคำอธิบาย'}} </span>
+                </div>
+                <div class="flex flex-column align-items-end">
+                  <span class="text-700 text-sm">
+                    <span> 50/100 complete</span>
+                  </span>
+                  <div class="text-700 text-sm">
+                    <span> {{ sprint.start_date | date: 'dd/MM/yyyy' }} </span>
+                    <span> - </span>
+                    <span> {{ sprint.end_date | date: 'dd/MM/yyyy' }} </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </app-scrolling>
+}

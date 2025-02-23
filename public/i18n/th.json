@@ -179,6 +179,24 @@
       "member": "สมาชิก",
       "setting": "การตั้งค่า"
     },
+    "button": {
+      "create":  {
+        "sprint": "สร้างสปรินต์",
+        "backlog": "สร้างงาน",
+        "task": "สร้างงาน",
+        "resource": "เพิ่มเอกสาร",
+        "member": "เพิ่มสมาชิก"
+      }
+    },
+    "header": {
+      "sprint": "สร้างสปรินต์",
+      "backlog": "สร้างงาน",
+      "board": "กระดานงาน",
+      "task": "สร้างงาน",
+      "resource": "เพิ่มเอกสาร",
+      "member": "เพิ่มสมาชิก",
+      "setting": "ตั้งค่าโปรเจค"
+    },
     "title": {
       "dashboard": "แดชบอร์ด",
       "sprint": "สปรินต์",
@@ -229,6 +247,12 @@
       "privacyType": "ความเป็นส่วนตัว",
       "privacyTypePrivate": "ส่วนตัว",
       "privacyTypePublic": "สาธารณะ"
+    },
+    "sprint": {
+      "name": "ชื่อสปรินต์",
+      "description": "คำอธิบายสปรินต์ (ไม่บังคับ)",
+      "startDate": "วันที่เริ่ม",
+      "endDate": "วันที่สิ้นสุด"
     },
     "join": {
       "code": "รหัสโปรเจค (10 ตัวอักษร)",

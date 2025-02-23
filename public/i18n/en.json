@@ -179,6 +179,24 @@
       "member": "Member",
       "setting": "Setting"
     },
+    "button": {
+      "create":  {
+        "sprint": "Create Sprint",
+        "backlog": "Create Task",
+        "task": "Create Task",
+        "resource": "Create Resource",
+        "member": "Add Member"
+      }
+    },
+    "header": {
+      "sprint": "Create Sprint",
+      "backlog": "Create Task",
+      "board": "Kanban Board",
+      "task": "Create Task",
+      "resource": "Create Resource",
+      "member": "Add Member",
+      "setting": "Project Setting"
+    },
     "title": {
       "dashboard": "Dashboard",
       "sprint": "Sprint",
@@ -200,6 +218,28 @@
       "resource": "Manage project documents and conveniently access relevant files.",
       "member": "Manage project members.",
       "setting": "Project setting."
+    },
+    "empty": {
+      "sprint": {
+        "title": "No sprint found",
+        "description": "No sprint found in this project."
+      },
+      "backlog": {
+        "title": "No task found",
+        "description": "No task found in this project."
+      },
+      "task": {
+        "title": "No task found",
+        "description": "No task found in this project."
+      },
+      "resource": {
+        "title": "No resource found",
+        "description": "No resource found in this project."
+      },
+      "member": {
+        "title": "No member found",
+        "description": "No member found in this project."
+      }
     },
     "scrum": {
       "title": "Scrum",
@@ -229,6 +269,12 @@
       "privacyType": "Privacy Type",
       "privacyTypePrivate": "Private",
       "privacyTypePublic": "Public"
+    },
+    "sprint": {
+      "name": "Sprint Name",
+      "description": "Sprint Description (Optional)",
+      "startDate": "Start Date",
+      "endDate": "End Date"
     },
     "join": {
       "code": "Project Code (10 characters)",

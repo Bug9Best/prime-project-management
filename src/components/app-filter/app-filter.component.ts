@@ -25,6 +25,9 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
 })
 export class AppFilter {
 
+  labelSearch: string = 'app.filter.search';
+  labelGroup: string = 'app.filter.group';
+  labelSort: string = 'app.filter.sort';
   showGroupList = model<boolean>(true);
   showSortList = model<boolean>(true);
 
@@ -42,34 +45,34 @@ export class AppFilter {
 
   groupItems = [
     {
-      label: 'APP_FILTER_GROUP_NONE',
+      label: 'app.group.none',
       value: 'NONE'
     },
     {
-      label: 'APP_FILTER_GROUP_TYPE',
+      label: 'app.group.type',
       value: 'TYPE'
     },
   ];
 
   sortItems = [
     {
-      label: 'APP_FILTER_SORT_NONE',
+      label: 'app.sort.none',
       value: 'NONE',
     },
     {
-      label: 'APP_FILTER_SORT_NAME_ASC',
+      label: 'app.sort.nameAsc',
       value: 'NAME_ASC',
     },
     {
-      label: 'APP_FILTER_SORT_NAME_DESC',
+      label: 'app.sort.nameDesc',
       value: 'NAME_DESC',
     },
     {
-      label: 'APP_FILTER_SORT_TYPE_ASC',
+      label: 'app.sort.typeAsc',
       value: 'TYPE_ASC',
     },
     {
-      label: 'APP_FILTER_SORT_TYPE_DESC',
+      label: 'app.sort.typeDesc',
       value: 'TYPE_DESC',
     },
   ]

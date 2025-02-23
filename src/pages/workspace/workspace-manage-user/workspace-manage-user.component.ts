@@ -48,10 +48,10 @@ export class WorkspaceManageUser {
   grouplistUser: { [key: string]: UserProfile[] } = {};
 
   listColumn: AppTableColumn[] = [
-    { label: 'TABLE_HEADER_EMAIL', field: 'email', type: 'string', style: { width: '30%' }, selectable: true },
-    { label: 'TABLE_HEADER_NAME', field: 'name', type: 'string', style: { width: '30%' }, selectable: true },
-    { label: 'TABLE_HEADER_CREATE_DATE', field: 'created_at', type: 'date', style: { width: '20%' } },
-    { label: 'TABLE_HEADER_ROLE', field: 'role', type: 'string', style: { width: '20%', textAlign: 'center' } },
+    { label: 'table.manageUser.header.email', field: 'email', type: 'string', style: { width: '30%' }, selectable: true },
+    { label: 'table.manageUser.header.name', field: 'name', type: 'string', style: { width: '30%' }, selectable: true },
+    { label: 'table.manageUser.header.createDate', field: 'created_at', type: 'date', style: { width: '20%' } },
+    { label: 'table.manageUser.header.role', field: 'role', type: 'string', style: { width: '20%', textAlign: 'center' } },
   ];
 
   constructor(

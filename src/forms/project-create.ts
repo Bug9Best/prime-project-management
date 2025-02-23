@@ -8,24 +8,10 @@ export var FormGroupProjectCreate = new FormGroup({
     project_type: new FormControl(null, [Validators.required]),
 });
 
-export var FormGroupProjectCreateErrors = {
-    project_name: '',
-    project_type: '',
-}
-
-export var FormGroupProjectCreateMessages = {
-    project_name: {
-        required: 'Project name is required',
-    },
-    project_type: {
-        required: 'Project type is required',
-    },
-}
-
 export var listFormProjectCreate: InputAppForm[] = [
     {
         type: "text",
-        label: "FORM_PROJECT_NAME",
+        label: "form.project.name",
         field: "project_name",
         required: true,
         disabled: false,
@@ -33,7 +19,7 @@ export var listFormProjectCreate: InputAppForm[] = [
     },
     {
         type: "textarea",
-        label: "FORM_PROJECT_DESCRIPTION",
+        label: "form.project.description",
         field: "project_description",
         required: false,
         disabled: false,
@@ -41,7 +27,7 @@ export var listFormProjectCreate: InputAppForm[] = [
     },
     {
         type: "toggle",
-        label: "FORM_PROJECT_PRIVACY_TYPE",
+        label: "form.project.privacyType",
         field: "project_privacy_type",
         required: true,
         disabled: false,
@@ -49,7 +35,7 @@ export var listFormProjectCreate: InputAppForm[] = [
     },
     {
         type: "project_type",
-        label: "FORM_PROJECT_TYPE",
+        label: "form.project.type",
         field: "project_type",
         required: true,
         disabled: false,

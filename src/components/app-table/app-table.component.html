@@ -12,7 +12,7 @@
         @for (item of listColumns(); track $index; let index = $index) {
           @if (showOrder() && showOrderIndex() === index) {
             <th [style.minWidth]="'70px'" class="text-center">
-              {{ 'TABLE_HEADER_ORDER' | translate }}
+              {{ 'table.order' | translate }}
             </th>
           }
           <th [style]="item.style" [colSpan]="item.colSpan">

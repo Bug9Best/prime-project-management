@@ -8,22 +8,22 @@ export interface ProjectType {
 
 export var listProjectType: ProjectType[] = [
   {
-    title: 'PROJECT_SCRUM',
-    description: 'PROJECT_SCRUM_DESCRIPTION',
+    title: 'project.scrum.title',
+    description: 'project.scrum.description',
     value: 'SCRUM',
     icon: 'pi-sync',
     color: 'blue'
   },
   {
-    title: 'PROJECT_WATERFALL',
-    description: 'PROJECT_WATERFALL_DESCRIPTION',
+    title: 'project.waterfall.title',
+    description: 'project.waterfall.description',
     value: 'WATERFALL',
     icon: 'pi-check-circle',
     color: 'green'
   },
   {
-    title: 'PROJECT_KANBAN',
-    description: 'PROJECT_KANBAN_DESCRIPTION',
+    title: 'project.kanban.title',
+    description: 'project.kanban.description',
     value: 'KANBAN',
     icon: 'pi-clipboard',
     color: 'orange'

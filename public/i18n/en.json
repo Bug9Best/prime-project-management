@@ -230,6 +230,10 @@
       "privacyTypePrivate": "Private",
       "privacyTypePublic": "Public"
     },
+    "join": {
+      "code": "Project Code (10 characters)",
+      "helperText": "Enter the project code provided by the project owner."
+    },
     "customer": {
       "name": "Name",
       "email": "Email",
@@ -310,6 +314,7 @@
   },
 
   "table": {
+  "order": "No.",
     "manageProject": {
       "header": {
         "name": "Project Name",
@@ -323,7 +328,7 @@
         "name": "Name",
         "email": "Email",
         "role": "Role",
-        "createDate": "Create Date"
+        "createDate": "Member Register Date"
       }
     },
     "project": {

@@ -16,8 +16,8 @@ export class FormProjectCreate {
   listForm: InputAppForm[] = listFormProjectCreate;
   formGroup: FormGroup = FormGroupProjectCreate;
   toggleOptions: any[] = [
-    { value: 'PRIVATE', label: 'FORM_PROJECT_PRIVACY_TYPE_PRIVATE' },
-    { value: 'PUBLIC', label: 'FORM_PROJECT_PRIVACY_TYPE_PUBLIC' }
+    { value: 'PRIVATE', label: 'form.project.privacyTypePrivate' },
+    { value: 'PUBLIC', label: 'form.project.privacyTypePublic' }
   ]
 
   @ViewChild(AppForm) AppForm!: AppForm;

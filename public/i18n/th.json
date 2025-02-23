@@ -230,6 +230,10 @@
       "privacyTypePrivate": "ส่วนตัว",
       "privacyTypePublic": "สาธารณะ"
     },
+    "join": {
+      "code": "รหัสโปรเจค (10 ตัวอักษร)",
+      "helperText": "กรอกรหัสโครงการที่ท่านต้องการเข้าร่วม"
+    },
     "customer": {
       "name": "ชื่อลูกค้า",
       "email": "อีเมลลูกค้า",
@@ -310,6 +314,7 @@
   },
 
   "table": {
+    "order": "ลำดับ",
     "manageProject": {
       "header": {
         "name": "ชื่อโปรเจค",
@@ -320,10 +325,10 @@
     },
     "manageUser": {
       "header": {
-        "name": "Name",
-        "email": "Email",
-        "role": "Role",
-        "createDate": "Create Date"
+        "name": "ชื่อผู้ใช้งาน",
+        "email": "อีเมลผู้ใช้งาน",
+        "role": "บทบาท",
+        "createDate": "วันที่สมัครสมาชิก"
       }
     },
     "project": {

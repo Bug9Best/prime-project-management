@@ -8,7 +8,7 @@ export var FormGroupProjectJoin = new FormGroup({
 export var listFormProjectJoin: InputAppForm[] = [
     {
         type: "text",
-        label: "FORM_PROJECT_CODE",
+        label: "form.join.code",
         field: "project_code",
         required: true,
         disabled: false,

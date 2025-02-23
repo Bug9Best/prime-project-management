@@ -29,7 +29,7 @@
                 class="w-full">   
                 <ng-container *ngIf="invalid(form.field)">
                   <div class="invalid-input mb-2 ml-1">
-                    {{ 'VALID_LABEL' | translate }}
+                    {{ labelValidation | translate }}
                   </div>
               </ng-container>
             </div>
@@ -84,7 +84,7 @@
                 [formControlName]="form.field"/>
               <ng-container *ngIf="invalid(form.field)">
                 <div class="invalid-input mb-2 ml-1">
-                  {{ 'VALID_LABEL' | translate }}
+                  {{ labelValidation | translate }}
                 </div>
               </ng-container>
             </div>

@@ -2,7 +2,7 @@
   <div class="app-content-height flex gap-3">
     <project-sidebar 
       [projectType]="projectType"
-      (onChangeTabIndexEvent)="currentTabIndex = $event">
+      (onChangeTabIndexEvent)="setCurrentTabIndex($event)">
     </project-sidebar>
 
     <div class="w-full overflow-hidden">

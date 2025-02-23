@@ -38,6 +38,13 @@ export class ProjectPage {
     });
   }
 
+  @ViewChild(ProjectContent) projectContent!: ProjectContent;
+  setCurrentTabIndex(index: number) {
+    this.currentTabIndex = index;
+    this.projectContent.setSprintState(false);
+    this.projectContent.setTaskState(false);
+  }
+
   @ViewChild(ProjectSidebar) projectSidebar!: ProjectSidebar;
   getProject() {
     this.projectService.getOne(this.projectID)

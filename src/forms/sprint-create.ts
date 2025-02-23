@@ -4,7 +4,7 @@ import { InputAppForm } from "../components/app-form/app-form.component";
 export var FormGroupSprintCreate = new FormGroup({
     sprint_name: new FormControl(null, [Validators.required]),
     sprint_description: new FormControl(null),
-    start_date: new FormControl('PRIVATE', [Validators.required]),
+    start_date: new FormControl(null, [Validators.required]),
     end_date: new FormControl(null, [Validators.required]),
 });
 

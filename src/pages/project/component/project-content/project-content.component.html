@@ -5,8 +5,13 @@
       </project-dashboard>
     }
     @case (1) {
-      <project-sprint>
-      </project-sprint>
+      @if (!sprintDetailState()) {
+        <project-sprint>
+        </project-sprint>
+      } @else {
+        <project-sprint-detail>
+        </project-sprint-detail>
+      }
     }
     @case (2) {
       <project-backlog>
@@ -21,8 +26,13 @@
       </project-board>
     }
     @case (5) {
-      <project-task>
-      </project-task>
+      @if (!sprintDetailState()) {
+        <project-task>
+        </project-task>
+      } @else {
+        <!-- <project-task-detail>
+        </project-task-detail> -->
+      }
     }
     @case (6) {
       <project-resource>

@@ -29,8 +29,8 @@ type BurnType = 'burnup' | 'burndown';
 })
 export class ProjectDashboard {
 
-  title: string = 'PROJECT_MENU_DASHBOARD_TITLE';
-  subtitle: string = 'PROJECT_MENU_DASHBOARD_SUBTITLE';
+  title: string = 'project.title.dashboard';
+  subtitle: string = 'project.subtitle.dashboard';
 
   burnType: BurnType = 'burnup';
   onSelectedType(type: BurnType) {

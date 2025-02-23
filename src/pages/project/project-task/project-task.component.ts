@@ -27,8 +27,8 @@ export class ProjectTask {
   isShowToolbar = false;
   sortValue = 'NONE';
 
-  title: string = 'PROJECT_MENU_TASK_TITLE';
-  subtitle: string = 'PROJECT_MENU_TASK_SUBTITLE';
+  title: string = 'project.title.task';
+  subtitle: string = 'project.subtitle.task';
 
   selectedResource?: any;
   listResource: any[] = [];

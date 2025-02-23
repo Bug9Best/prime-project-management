@@ -26,6 +26,6 @@ import { SettingPrivacy } from './setting-privacy/setting-privacy.component';
 })
 export class ProjectSetting {
 
-  title: string = 'PROJECT_MENU_SETTING_TITLE';
-  subtitle: string = 'PROJECT_MENU_SETTING_SUBTITLE';
+  title: string = 'project.title.setting';
+  subtitle: string = 'project.subtitle.setting';
 }

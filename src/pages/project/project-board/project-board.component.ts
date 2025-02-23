@@ -17,8 +17,8 @@ import { ScrollerModule } from 'primeng/scroller';
 })
 export class ProjectBoard {
 
-  title: string = 'PROJECT_MENU_BOARD_TITLE';
-  subtitle: string = 'PROJECT_MENU_BOARD_SUBTITLE';
+  title: string = 'project.title.board';
+  subtitle: string = 'project.subtitle.board';
 
   items = Array.from({ length: 100000 }).map((_, i) => `Item #${i}`);
 

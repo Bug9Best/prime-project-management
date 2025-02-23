@@ -25,8 +25,8 @@ export class ProjectMember {
 
   isShowToolbar = false;
 
-  title: string = 'PROJECT_MENU_MEMBER_TITLE';
-  subtitle: string = 'PROJECT_MENU_MEMBER_SUBTITLE';
+  title: string = 'project.title.member';
+  subtitle: string = 'project.subtitle.member';
 
   onSearch(event: any): void {
     console.log(event);

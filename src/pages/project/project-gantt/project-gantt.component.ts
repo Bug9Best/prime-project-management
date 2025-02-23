@@ -39,8 +39,8 @@ import { GanttConfigProvider } from '../../../config/gantt.config';
 })
 export class ProjectGantt {
 
-  title: string = 'PROJECT_MENU_GANTT_TITLE';
-  subtitle: string = 'PROJECT_MENU_GANTT_SUBTITLE';
+  title: string = 'project.title.gantt';
+  subtitle: string = 'project.subtitle.gantt';
 
 
   loading = false;

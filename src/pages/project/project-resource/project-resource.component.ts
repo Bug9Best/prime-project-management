@@ -11,7 +11,6 @@ import { ResourceList } from './resource-list/resource-list.component';
 import { MenuModule } from 'primeng/menu';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { TranslateModule } from '@ngx-translate/core';
-import { th } from 'date-fns/locale';
 import { Mode } from '../../workspace/workspace-content-project/workspace-content-project.component';
 
 @Component({
@@ -38,8 +37,8 @@ export class ProjectResource {
   isShowToolbar = false;
   sortValue = 'NONE';
 
-  title: string = 'PROJECT_MENU_RESOURCE_TITLE';
-  subtitle: string = 'PROJECT_MENU_RESOURCE_SUBTITLE';
+  title: string = 'project.title.resource';
+  subtitle: string = 'project.subtitle.resource';
 
   selectedResource?: ProjectResourceModel;
   listResource: ProjectResourceModel[] = [];

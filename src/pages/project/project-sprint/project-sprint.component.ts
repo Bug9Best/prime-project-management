@@ -13,6 +13,6 @@ import { AppHeader } from '../../../components/app-header/app-header.component';
 })
 export class ProjectSprint {
 
-  title: string = 'PROJECT_MENU_SPRINT_TITLE';
-  subtitle: string = 'PROJECT_MENU_SPRINT_SUBTITLE';
+  title: string = 'project.title.sprint';
+  subtitle: string = 'project.subtitle.sprint';
 }

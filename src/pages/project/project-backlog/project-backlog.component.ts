@@ -13,7 +13,7 @@ import { AppHeader } from '../../../components/app-header/app-header.component';
 })
 export class ProjectBacklog {
 
-  title: string = 'PROJECT_MENU_BACKLOG_TITLE';
-  subtitle: string = 'PROJECT_MENU_BACKLOG_SUBTITLE';
+  title: string = 'project.title.backlog';
+  subtitle: string = 'project.subtitle.backlog';
 
 }

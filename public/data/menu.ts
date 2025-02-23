@@ -16,7 +16,7 @@ export var listScrumProjectMenu: ProjectMenu[] = [
         type: 'menu',
         tabIndex: 1,
         label: 'project.menu.sprint',
-        icon: 'pi pi-spinner'
+        icon: 'pi pi-sync'
     },
     {
         type: 'menu',

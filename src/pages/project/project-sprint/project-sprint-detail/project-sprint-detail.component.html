@@ -28,8 +28,8 @@
   <div class="custom-grid">
     <p-tabs value="0" style="margin-top: 2px;">
       <p-tablist>
-        <p-tab value="0">Infomation</p-tab>
-        <p-tab value="1">Task</p-tab>
+        <p-tab value="0"> {{ 'detail.sprint.tab.info' | translate }} </p-tab>
+        <p-tab value="1"> {{ 'detail.sprint.tab.task' | translate }} </p-tab>
       </p-tablist>
       <p-tabpanels>
         <p-tabpanel value="0">
@@ -45,7 +45,8 @@
 
     <p-divider layout="vertical"></p-divider>
     <sprint-control 
-      [sprintData]="sprintData">
+      [sprintData]="sprintData"
+      (onUpdateEvent)="getSPrintData()">
     </sprint-control>
   </div>
 </app-scrolling>

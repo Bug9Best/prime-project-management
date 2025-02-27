@@ -2,13 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { AppHeader } from '../../../components/app-header/app-header.component';
 import { AppDialog } from '../../../components/app-dialog/app-dialog.component';
-import { FormSprintCreate } from './component/form-sprint-create/form-sprint-create.component';
+import { FormSprint } from './component/form-sprint/form-sprint.component';
 import { MessageService } from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SprintService } from '../../../services/sprint/sprint.service';
+import { SprintModel, SprintService } from '../../../services/sprint/sprint.service';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
 import { ProjectContent } from '../component/project-content/project-content.component';
+import { TagModule } from 'primeng/tag';
+import { SprintItem } from './component/sprint-item/sprint-item.component';
 
 @Component({
   selector: 'project-sprint',
@@ -18,7 +20,8 @@ import { ProjectContent } from '../component/project-content/project-content.com
     AppDialog,
     AppEmpty,
     AppScrolling,
-    FormSprintCreate,
+    FormSprint,
+    SprintItem,
   ],
   templateUrl: './project-sprint.component.html',
   styleUrl: './project-sprint.component.scss'
@@ -26,7 +29,7 @@ import { ProjectContent } from '../component/project-content/project-content.com
 export class ProjectSprint {
 
   projectID: string = '';
-  listSprint: any[] = [];
+  listSprint: SprintModel[] = [];
 
   title: string = 'project.title.sprint';
   subtitle: string = 'project.subtitle.sprint';
@@ -40,7 +43,6 @@ export class ProjectSprint {
     private activateRoute: ActivatedRoute,
     private messageService: MessageService,
     private sprintService: SprintService,
-    private ProjectContent: ProjectContent
   ) {
     this.activateRoute.params
       .subscribe(params => {
@@ -76,7 +78,7 @@ export class ProjectSprint {
     this.formSprintCreate.formGroup.reset();
   }
 
-  @ViewChild(FormSprintCreate) formSprintCreate!: FormSprintCreate;
+  @ViewChild(FormSprint) formSprintCreate!: FormSprint;
   onValidateForm() {
     if (this.formSprintCreate.formGroup.invalid) {
       this.formSprintCreate.formGroup.markAllAsTouched();
@@ -90,6 +92,8 @@ export class ProjectSprint {
 
   @ViewChild(AppDialog) appDialog!: AppDialog;
   onCreateSprint(param: any) {
+    param.start_date = new Date(param.start_date).toLocaleDateString();
+    param.end_date = new Date(param.end_date).toLocaleDateString();
     this.sprintService
       .create(param)
       .subscribe({
@@ -104,9 +108,5 @@ export class ProjectSprint {
           this.showMessage('error', 'Error', 'Create project failed');
         }
       });
-  }
-
-  onNavigateToSprintDetail(sprintID: string) {
-      this.ProjectContent.setSprintState(true, sprintID);
   }
 }

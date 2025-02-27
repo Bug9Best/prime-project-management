@@ -1,4 +1,51 @@
-<app-header 
-  [title]="title" 
+<app-breadcrumb
+  [items]="items"
   [subtitle]="subtitle">
-</app-header>
+  <div class="flex">
+    <button 
+      icon="pi pi-file-edit"
+      [label]="labelButton | translate"
+      class="w-10rem"
+      (click)="onEditSprint()"
+      pButton>
+    </button>
+    <app-dialog
+      [icon]="'pi pi-file-edit'"
+      [width]="'60vw'"
+      [label]="labelButton"
+      [header]="labelHeader"
+      [submitLabel]="labelSubmit"
+      [showButton]="false"
+      (onSubmitEvent)="onValidateForm()">
+        <form-sprint  
+          [sprintData]="sprintData">
+        </form-sprint>
+    </app-dialog>
+  </div>
+</app-breadcrumb>
+
+<app-scrolling>
+  <div class="custom-grid">
+    <p-tabs value="0" style="margin-top: 2px;">
+      <p-tablist>
+        <p-tab value="0">Infomation</p-tab>
+        <p-tab value="1">Task</p-tab>
+      </p-tablist>
+      <p-tabpanels>
+        <p-tabpanel value="0">
+          <sprint-info>
+          </sprint-info>
+        </p-tabpanel>
+        <p-tabpanel value="1">
+          <sprint-task-list>
+          </sprint-task-list>
+        </p-tabpanel>
+      </p-tabpanels>
+    </p-tabs>
+
+    <p-divider layout="vertical"></p-divider>
+    <sprint-control 
+      [sprintData]="sprintData">
+    </sprint-control>
+  </div>
+</app-scrolling>

@@ -82,7 +82,57 @@
                   appendTo="body"
                   styleClass="w-full"
                   dateFormat="dd/mm/yy"
+                  [iconDisplay]="'input'"
+                  [showIcon]="true"
+                  [formControlName]="form.field"/>
+                <ng-container *ngIf="invalid(form.field)">
+                  <div class="invalid-input mb-2 ml-1">
+                    {{ labelValidation | translate }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        }
+
+        @case (InputAppFormType.StartDate) {
+          <div class="col-{{form.colWidth}} mt-2">
+            <div class="flex flex-column">
+              <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+                {{ form.label | translate }}
+              </label>
+              <div class="flex flex-column">
+                <p-datepicker
+                  appendTo="body"
+                  styleClass="w-full"
+                  dateFormat="dd/mm/yy"
                   [maxDate]="form.minDate"
+                  [iconDisplay]="'input'"
+                  [showIcon]="true"
+                  [formControlName]="form.field"
+                  (onSelect)="setMinDate($event)"/>
+                <ng-container *ngIf="invalid(form.field)">
+                  <div class="invalid-input mb-2 ml-1">
+                    {{ labelValidation | translate }}
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        }
+
+        @case (InputAppFormType.EndDate) {
+          <div class="col-{{form.colWidth}} mt-2">
+            <div class="flex flex-column">
+              <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+                {{ form.label | translate }}
+              </label>
+              <div class="flex flex-column">
+                <p-datepicker
+                  appendTo="body"
+                  styleClass="w-full"
+                  dateFormat="dd/mm/yy"
+                  [minDate]="minDate"
                   [iconDisplay]="'input'"
                   [showIcon]="true"
                   [formControlName]="form.field"/>

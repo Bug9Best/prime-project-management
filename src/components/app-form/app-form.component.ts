@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { DividerModule } from 'primeng/divider';
@@ -17,6 +17,8 @@ export enum InputAppFormType {
   Editor,
   Number,
   Date,
+  StartDate,
+  EndDate,
   Duration,
   Dropdown,
   Checkbox,
@@ -63,6 +65,7 @@ export class InputAppForm {
 })
 export class AppForm {
 
+  minDate: Date = new Date();
   maxNotesLength: number = 255;
   notesLength: number = 0;
   InputAppFormType = InputAppFormType;
@@ -97,8 +100,7 @@ export class AppForm {
     }
   }
 
-  onSelectDateEvent = output<any>();
-  onSelectDate(event: any) {
-    this.onSelectDateEvent.emit(event);
+  setMinDate(event: any) {
+    this.minDate = event;
   }
 }

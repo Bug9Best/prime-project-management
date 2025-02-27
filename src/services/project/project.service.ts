@@ -14,6 +14,7 @@ export enum ProjectType {
 
 export interface ProjectsModel extends BaseModel {
   id: string;
+  owner_id: string | number;
   project_name: string;
   project_description: number;
   project_type: string;

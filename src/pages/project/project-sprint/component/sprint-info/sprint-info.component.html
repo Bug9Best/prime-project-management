@@ -1,26 +1,26 @@
 <div class="flex flex-column">
   <div class="flex flex-column">
-    <div class="text-sm text-500"> Sprint Name </div>
+    <div class="text-sm text-500"> {{ 'detail.sprint.sprintName' | translate }} </div>
     <div class="font-medium text-lg text-900"> {{ sprintData?.sprint_name }} </div>
   </div>
   <p-divider></p-divider>
   <div class="flex flex-column">
-    <div class="text-sm text-500"> Sprint Description </div>
+    <div class="text-sm text-500"> {{ 'detail.sprint.sprintDescription' | translate }} </div>
     <div class="font-medium text-lg text-900"> {{ sprintData?.sprint_description || "ไม่มีคำอธิบาย" }} </div>
   </div>
   <p-divider></p-divider>
   <div class="flex flex-column">
-    <div class="text-sm text-500"> Start Date </div>
+    <div class="text-sm text-500"> {{ 'detail.sprint.sprintStartDate' | translate }} </div>
     <div class="font-medium text-lg text-900"> {{ sprintData?.start_date | date:'dd/MM/yyyy' }} </div>
   </div>
   <p-divider></p-divider>
   <div class="flex flex-column">
-    <div class="text-sm text-500"> End Date </div>
+    <div class="text-sm text-500"> {{ 'detail.sprint.sprintEndDate' | translate }} </div>
     <div class="font-medium text-lg text-900"> {{ sprintData?.end_date | date:'dd/MM/yyyy'}} </div>
   </div>
   <p-divider></p-divider>
   <div class="flex flex-column">
-    <div class="text-sm text-500"> Duration </div>
+    <div class="text-sm text-500">  {{ 'detail.sprint.sprintDuration' | translate }} </div>
     <div class="font-medium text-lg text-900"> {{ sprintData?.sprint_duration }}  {{ 'app.timeLabel.day' | translate }}</div>
   </div>
 </div>

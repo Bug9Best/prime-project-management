@@ -1,0 +1,18 @@
+<div class="w-full">
+  <div class="flex align-items-center justify-content-between">
+    <div class="flex flex-column">
+      <p-breadcrumb class="max-w-full text-2xl font-medium"  [model]="items" >
+        <ng-template #item let-item>
+          <div (click)="item.command ? item.command() : null" class="cursor-pointer">
+            {{ item.label | translate }} 
+          </div>
+        </ng-template>
+        <ng-template #separator> / </ng-template>
+    </p-breadcrumb>
+      <div *ngIf="subtitle" class="text-sm text-500 select-none">{{ subtitle | translate }}</div>
+    </div>
+    <ng-content>
+    </ng-content>
+  </div>
+  <p-divider styleClass="mb-3"></p-divider>
+</div>

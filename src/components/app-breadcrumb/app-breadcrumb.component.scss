@@ -1,0 +1,16 @@
+:host ::ng-deep .p-breadcrumb {
+    padding: 0;
+}
+
+:host ::ng-deep .p-breadcrumb-item-link {
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+:host ::ng-deep .p-breadcrumb-separator {
+    color: var(--text-primary);
+}
+
+:host ::ng-deep .p-breadcrumb-item-link:hover {
+    color: var(--text-color-secondary);
+}

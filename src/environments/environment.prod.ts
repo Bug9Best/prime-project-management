@@ -1,10 +1,10 @@
 export const environment = {
     production: true,
-    apiUrl: "http://localhost:8000/api/",
-    authenUrl: 'http://localhost:8000/login',
-    authorizeUrl: 'http://localhost:8000/user',
-    signupUrl: 'http://localhost:8000/register',
-    signoutUrl: 'http://localhost:8000/logout',
+    apiUrl: "https://prime.it.kmitl.ac.th/api/",
+    authenUrl: 'https://prime.it.kmitl.ac.th/login',
+    authorizeUrl: 'https://prime.it.kmitl.ac.th/user',
+    signupUrl: 'https://prime.it.kmitl.ac.th/register',
+    signoutUrl: 'https://prime.it.kmitl.ac.th/logout',
 
     firebaseConfig: {
         apiKey: 'AIzaSyBvz-0QN5DEZ5qDjXmSV-7mw5m7qjXYLE8',

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { DividerModule } from 'primeng/divider';
@@ -10,9 +10,27 @@ import { listProjectType, ProjectType } from '../../../public/data/project-type'
 import { SelectButton } from 'primeng/selectbutton';
 import { DatePickerModule } from 'primeng/datepicker';
 
-export type InputAppFormType = "text" | "email" | "textarea" | 'editor' | "number" | "date" | "dropdown" | 'checkbox' | 'radio' | 'toggle' | 'file' | "autocomplete" | 'divider' | 'header' | 'project_type';
+export enum InputAppFormType {
+  Text,
+  Email,
+  Textarea,
+  Editor,
+  Number,
+  Date,
+  Duration,
+  Dropdown,
+  Checkbox,
+  Radio,
+  Toggle,
+  File,
+  Autocomplete,
+  Divider,
+  Header,
+  ProjectType,
+};
+
 export class InputAppForm {
-  type: InputAppFormType = "text";
+  type: InputAppFormType = InputAppFormType.Text;
   label: string = "default";
   field: string | number | null = null;
   required: boolean = true;
@@ -23,6 +41,7 @@ export class InputAppForm {
   helpText?: string = "";
   filter?: boolean = false;
   isLimitLength?: boolean = false;
+  minDate?: Date | null = null;
 }
 
 @Component({
@@ -46,6 +65,7 @@ export class AppForm {
 
   maxNotesLength: number = 255;
   notesLength: number = 0;
+  InputAppFormType = InputAppFormType;
 
   labelValidation: string = 'app.validation.required';
 
@@ -75,5 +95,10 @@ export class AppForm {
     if (this.notesLength > this.maxNotesLength) {
       this.notesLength = this.maxNotesLength;
     }
+  }
+
+  onSelectDateEvent = output<any>();
+  onSelectDate(event: any) {
+    this.onSelectDateEvent.emit(event);
   }
 }

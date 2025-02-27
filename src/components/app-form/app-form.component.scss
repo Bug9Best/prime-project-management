@@ -1,7 +1,7 @@
 .required:after {
     content: " *";
     color: red;
-}
+  }
 
 .invalid-input {
     color: red;
@@ -15,4 +15,8 @@
 
 :host ::ng-deep .p-togglebutton.p-togglebutton-checked::before {
     background-color: var(--blue-400);
+}
+
+:host ::ng-deep .p-datepicker-calendar-container + .p-datepicker-time-picker {
+    display: none;
 }

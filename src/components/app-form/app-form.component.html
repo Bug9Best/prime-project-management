@@ -1,145 +1,150 @@
 <div [formGroup]="formGroup">
   <div class="grid">
-    <ng-container *ngFor="let form of listForm">
-      <ng-container *ngIf="form.type == 'header'">
-        <div class="col-{{form.colWidth}} my-3">
-          <div class="font-bold">
-            {{ form.label }}
+    @for (form of listForm; track $index) {
+      @switch (form.type) {
+        @case (InputAppFormType.Header) {
+          <div class="col-{{form.colWidth}} my-3">
+            <div class="font-bold">
+              {{ form.label }}
+            </div>
           </div>
-        </div>
-      </ng-container>
+        }
 
-      <ng-container *ngIf="form.type == 'divider'">
-        <p-divider></p-divider>
-      </ng-container>
+        @case (InputAppFormType.Divider) {
+          <p-divider></p-divider>
+        }
 
-      <ng-container *ngIf="form.type == 'text'">
-        <div class="col-{{form.colWidth}} mt-2">
-          <div class="flex flex-column">
-            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
-              {{ form.label | translate }}
-            </label>
+        @case (InputAppFormType.Text) {
+          <div class="col-{{form.colWidth}} mt-2">
             <div class="flex flex-column">
-              <input type="text" pInputText
-                [id]="form.label"
-                [placeholder]="form.label | translate" 
-                [readOnly]="form.disabled"
-                [maxlength]="form.maxLength || 255"
-                [formControlName]="form.field"
-                class="w-full">   
+              <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+                {{ form.label | translate }}
+              </label>
+              <div class="flex flex-column">
+                <input type="text" pInputText
+                  [id]="form.label"
+                  [placeholder]="form.label | translate"
+                  [readOnly]="form.disabled"
+                  [maxlength]="form.maxLength || 255"
+                  [formControlName]="form.field"
+                  class="w-full">
+                  <ng-container *ngIf="invalid(form.field)">
+                    <div class="invalid-input mb-2 ml-1">
+                      {{ labelValidation | translate }}
+                    </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        }
+
+        @case (InputAppFormType.Textarea) {
+          <div class="col-{{form.colWidth}} mt-2">
+            <div class="flex flex-column">
+              <div class="flex justify-content-between">
+                <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+                  {{ form.label | translate }}
+                </label>
+                @if (form.isLimitLength) {
+                  <label class="mr-1 mb-1 text-500 text-sm">
+                    {{ notesLength }} / {{ form.maxLength || 255 }}
+                  </label>
+                }
+              </div>
+              <div class="flex flex-column">
+                <textarea pTextarea
+                  rows="5"
+                  [id]="form.label"
+                  [maxlength]="form.maxLength || 255"
+                  [autoResize]="false"
+                  [readOnly]="form.disabled"
+                  (keyup)="onTyping($event)"
+                  [formControlName]="form.field">
+                </textarea>
                 <ng-container *ngIf="invalid(form.field)">
                   <div class="invalid-input mb-2 ml-1">
                     {{ labelValidation | translate }}
                   </div>
-              </ng-container>
+                </ng-container>
+              </div>
             </div>
           </div>
-        </div>
-      </ng-container>
+        }
 
-      <ng-container *ngIf="form.type == 'textarea'">
-        <div class="col-{{form.colWidth}} mt-2">
-          <div class="flex flex-column">
-            <div class="flex justify-content-between">
+        @case (InputAppFormType.Date) {
+          <div class="col-{{form.colWidth}} mt-2">
+            <div class="flex flex-column">
               <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
                 {{ form.label | translate }}
               </label>
-              @if (form.isLimitLength) {
-                <label class="mr-1 mb-1 text-500 text-sm">
-                  {{ notesLength }} / {{ form.maxLength || 255 }}
-                </label>
-              }
-            </div>
-            <div class="flex flex-column">
-              <textarea pTextarea
-                rows="5"     
-                [id]="form.label"
-                [maxlength]="form.maxLength || 255"           
-                [autoResize]="false"
-                [readOnly]="form.disabled"
-                (keyup)="onTyping($event)"
-                [formControlName]="form.field">
-              </textarea>
-              <ng-container *ngIf="invalid(form.field)">
-                <div class="invalid-input mb-2 ml-1">
-                  {{ labelValidation | translate }}
-                </div>
-              </ng-container>
+              <div class="flex flex-column">
+                <p-datepicker
+                  appendTo="body"
+                  styleClass="w-full"
+                  dateFormat="dd/mm/yy"
+                  [maxDate]="form.minDate"
+                  [iconDisplay]="'input'"
+                  [showIcon]="true"
+                  [formControlName]="form.field"/>
+                <ng-container *ngIf="invalid(form.field)">
+                  <div class="invalid-input mb-2 ml-1">
+                    {{ labelValidation | translate }}
+                  </div>
+                </ng-container>
+              </div>
             </div>
           </div>
-        </div>
-      </ng-container>
+        }
 
-      <ng-container *ngIf="form.type == 'date'">
-        <div class="col-{{form.colWidth}} mt-2">
-          <div class="flex flex-column">
-            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
-              {{ form.label | translate }}
-            </label>
+        @case (InputAppFormType.Toggle) {
+          <div class="col-{{form.colWidth}} mt-2">
             <div class="flex flex-column">
-              <p-datepicker 
-                appendTo="body"
-                dateFormat="dd/mm/yy"
-                styleClass="w-full"
-                [formControlName]="form.field"/>
-              <ng-container *ngIf="invalid(form.field)">
-                <div class="invalid-input mb-2 ml-1">
-                  {{ labelValidation | translate }}
-                </div>
-              </ng-container>
+              <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+                {{ form.label | translate }}
+              </label>
+              <div class="flex flex-column">
+                <p-selectbutton
+                  optionLabel="label"
+                  optionValue="value"
+                  [options]="toggleOptions"
+                  [formControlName]="form.field">
+                  <ng-template #item let-item>
+                    <div>{{ item.label | translate }}</div>
+                  </ng-template>
+                </p-selectbutton>
+              </div>
             </div>
           </div>
-        </div>
-      </ng-container>
+        }
 
-      <ng-container *ngIf="form.type == 'toggle'">
-        <div class="col-{{form.colWidth}} mt-2">
-          <div class="flex flex-column">
-            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
-              {{ form.label | translate }}
-            </label>
+        @case (InputAppFormType.ProjectType) {
+          <div class="col-{{form.colWidth}} mt-2">
             <div class="flex flex-column">
-              <p-selectbutton 
-                optionLabel="label"
-                optionValue="value"
-                [options]="toggleOptions"
-                [formControlName]="form.field">
-                <ng-template #item let-item>
-                  <div>{{ item.label | translate }}</div>
-                </ng-template>
-              </p-selectbutton>
-            </div>
-          </div>
-        </div>
-      </ng-container>
-
-      <ng-container *ngIf="form.type == 'project_type'">
-        <div class="col-{{form.colWidth}} mt-2">
-          <div class="flex flex-column">
-            <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
-              {{ form.label | translate }}
-            </label>
-            <div class="grid">
-              @for (item of listProjectType; track $index) {
-                <div class="col-12 lg:col-4">
-                  <div class="shadow-1 border-round border-2 cursor-pointer surface-card h-full"
-                    [ngClass]="{'border-transparent': selectedProjectType !== item.value, 'border-blue-500': selectedProjectType === item.value, 'shadow-3': selectedProjectType === item.value}"
-                    (click)="selectedProjectType = item.value">
-                    <div class="p-3 flex flex-column align-items-center gap-3">
-                      <span class="flex justify-content-center align-items-center" [ngClass]="'bg-' + item.color + '-100'"
-                        style="border-radius: 4px; width: 45px; height: 45px">
-                        <i class="pi text-2xl" [ngClass]="item.icon + ' text-' + item.color + '-500'"></i>
-                      </span>
-                      <div class="text-900 text-xl font-medium"> {{ item.title | translate }} </div>
-                      <p class="m-0" style="text-indent: 2rem;"> {{ item.description | translate }}</p>
+              <label class="ml-1 mb-1" [for]="form.label" [ngClass]="{'required': form.required}">
+                {{ form.label | translate }}
+              </label>
+              <div class="grid">
+                @for (item of listProjectType; track $index) {
+                  <div class="col-12 lg:col-4">
+                    <div class="shadow-1 border-round border-2 cursor-pointer surface-card h-full"
+                      [ngClass]="{'border-transparent': selectedProjectType !== item.value, 'border-blue-500': selectedProjectType === item.value, 'shadow-3': selectedProjectType === item.value}"
+                      (click)="selectedProjectType = item.value">
+                      <div class="p-3 flex flex-column align-items-center gap-3">
+                        <span class="flex justify-content-center align-items-center" [ngClass]="'bg-' + item.color + '-100'"
+                          style="border-radius: 4px; width: 45px; height: 45px">
+                          <i class="pi text-2xl" [ngClass]="item.icon + ' text-' + item.color + '-500'"></i>
+                        </span>
+                        <div class="text-900 text-xl font-medium"> {{ item.title | translate }} </div>
+                        <p class="m-0" style="text-indent: 2rem;"> {{ item.description | translate }}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              }
+                }
+              </div>
             </div>
           </div>
-        </div>
-      </ng-container>
-    </ng-container>
+        }
+      }
+    }
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { InputAppForm } from "../components/app-form/app-form.component";
+import { InputAppForm, InputAppFormType } from "../components/app-form/app-form.component";
 
 export var FormGroupProjectCreate = new FormGroup({
     project_name: new FormControl(null, [Validators.required]),
@@ -10,7 +10,7 @@ export var FormGroupProjectCreate = new FormGroup({
 
 export var listFormProjectCreate: InputAppForm[] = [
     {
-        type: "text",
+        type: InputAppFormType.Text,
         label: "form.project.name",
         field: "project_name",
         required: true,
@@ -18,7 +18,7 @@ export var listFormProjectCreate: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: "textarea",
+        type: InputAppFormType.Textarea,
         label: "form.project.description",
         field: "project_description",
         required: false,
@@ -26,7 +26,7 @@ export var listFormProjectCreate: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: "toggle",
+        type: InputAppFormType.Toggle,
         label: "form.project.privacyType",
         field: "project_privacy_type",
         required: true,
@@ -34,7 +34,7 @@ export var listFormProjectCreate: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: "project_type",
+        type: InputAppFormType.ProjectType,
         label: "form.project.type",
         field: "project_type",
         required: true,

@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { InputAppForm } from "../components/app-form/app-form.component";
+import { InputAppForm, InputAppFormType } from "../components/app-form/app-form.component";
 
 export var FormGroupProjectJoin = new FormGroup({
     project_code: new FormControl(null, [Validators.required]),
@@ -7,7 +7,7 @@ export var FormGroupProjectJoin = new FormGroup({
 
 export var listFormProjectJoin: InputAppForm[] = [
     {
-        type: "text",
+        type: InputAppFormType.Text,
         label: "form.join.code",
         field: "project_code",
         required: true,

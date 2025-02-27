@@ -1,6 +1,5 @@
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { InputAppForm } from "../components/app-form/app-form.component";
-
+import { InputAppForm, InputAppFormType } from "../components/app-form/app-form.component";
 export var FormGroupSprintCreate = new FormGroup({
     sprint_name: new FormControl(null, [Validators.required]),
     sprint_description: new FormControl(null),
@@ -10,7 +9,7 @@ export var FormGroupSprintCreate = new FormGroup({
 
 export var listFormSprintCreate: InputAppForm[] = [
     {
-        type: "text",
+        type: InputAppFormType.Text,
         label: "form.sprint.name",
         field: "sprint_name",
         required: true,
@@ -18,7 +17,7 @@ export var listFormSprintCreate: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: "textarea",
+        type: InputAppFormType.Textarea,
         label: "form.sprint.description",
         field: "sprint_description",
         required: false,
@@ -26,7 +25,7 @@ export var listFormSprintCreate: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: "date",
+        type: InputAppFormType.Date,
         label: "form.sprint.startDate",
         field: "start_date",
         required: true,
@@ -34,7 +33,7 @@ export var listFormSprintCreate: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: "date",
+        type: InputAppFormType.Date,
         label: "form.sprint.endDate",
         field: "end_date",
         required: true,

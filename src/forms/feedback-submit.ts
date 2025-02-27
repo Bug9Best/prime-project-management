@@ -1,5 +1,5 @@
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { InputAppForm } from "../components/app-form/app-form.component";
+import { InputAppForm, InputAppFormType } from "../components/app-form/app-form.component";
 
 export var FormGroupFeedbackSubmit = new FormGroup({
     content: new FormControl(null, [Validators.required]),
@@ -7,7 +7,7 @@ export var FormGroupFeedbackSubmit = new FormGroup({
 
 export var listFormFeedbackSubmit: InputAppForm[] = [
     {
-        type: "textarea",
+        type: InputAppFormType.Textarea,
         label: "form.feedback.content",
         field: "content",
         required: true,

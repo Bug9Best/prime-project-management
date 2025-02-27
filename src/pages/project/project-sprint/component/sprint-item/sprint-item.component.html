@@ -1,0 +1,47 @@
+<div class="surface-card border-1 surface-border border-round shadow-1 cursor-pointer p-3"
+  (click)="onNavigateToSprintDetail(sprintData().id)">
+  <div class="flex">
+    <div class="flex align-items-center">
+      <span class="inline-flex justify-content-center align-items-center border-circle border-1 surface-border"
+        style="width: 2.5rem; height: 2.5rem;">
+        <i class="pi pi-flag text-500"></i>
+      </span>
+    </div>
+    <div class="flex justify-content-between ml-3 w-full">
+      <div class="flex flex-column">
+        <div class="flex">
+          <span> {{ sprintData().sprint_name }} </span>
+          <span class="ml-2">
+           
+          </span>
+        </div>
+        <span class="text-500 text-sm"> {{ sprintData().sprint_description || 'ไม่มีคำอธิบาย'}} </span>
+      </div>
+      <div class="flex flex-column align-items-end">
+        <div class="text-700 text-sm">
+          <span> {{ sprintData().start_date | date: 'dd/MM/yyyy' }} </span>
+          <span> - </span>
+          <span> {{ sprintData().end_date | date: 'dd/MM/yyyy' }} </span>
+          <span class="font-bold"> ({{ sprintData().sprint_duration }} {{ 'app.timeLabel.day' | translate}}) </span>
+          <span class="ml-2">
+            @switch (sprintData().status) {
+              @case(SprintStatus.UPCOMING) {
+                <p-tag severity="secondary" [value]="'detail.sprint.tag.upcoming' | translate" />
+
+              }
+              @case(SprintStatus.ACTIVE) {
+                <p-tag severity="success"  [value]="'detail.sprint.tag.active' | translate" />
+              }
+              @case(SprintStatus.CLOSED) {
+                <p-tag severity="contrast" [value]="'detail.sprint.tag.closed' | translate" />
+              }
+            }
+          </span>
+          <div class="mt-2">
+            <p-progressbar [value]="sprintProgress" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

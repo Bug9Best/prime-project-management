@@ -17,27 +17,31 @@
         </div>
         <span class="text-500 text-sm"> {{ sprintData().sprint_description || 'ไม่มีคำอธิบาย'}} </span>
       </div>
-      <div class="flex flex-column align-items-end">
-        <div class="text-700 text-sm">
-          <span> {{ sprintData().start_date | date: 'dd/MM/yyyy' }} </span>
-          <span> - </span>
-          <span> {{ sprintData().end_date | date: 'dd/MM/yyyy' }} </span>
-          <span class="font-bold"> ({{ sprintData().sprint_duration }} {{ 'app.timeLabel.day' | translate}}) </span>
-          <span class="ml-2">
-            @switch (sprintData().status) {
-              @case(SprintStatus.UPCOMING) {
-                <p-tag severity="secondary" [value]="'detail.sprint.tag.upcoming' | translate" />
+      <div class="flex flex-column align-items-end ml-2">
+        <div class="text-700 text-sm" style="width: 315px;">
+          <div class="flex justify-content-between">
+            <div>
+              <span> {{ sprintData().start_date | date: 'dd/MM/yyyy' }} </span>
+              <span> - </span>
+              <span> {{ sprintData().end_date | date: 'dd/MM/yyyy' }} </span>
+              <span class="font-bold"> ({{ sprintData().sprint_duration }} {{ 'app.timeLabel.day' | translate}}) </span>
+            </div>
+            <span class="ml-2">
+              @switch (sprintData().status) {
+                @case(SprintStatus.UPCOMING) {
+                  <p-tag severity="secondary" [value]="'detail.sprint.tag.upcoming' | translate" />
 
+                }
+                @case(SprintStatus.ACTIVE) {
+                  <p-tag severity="success"  [value]="'detail.sprint.tag.active' | translate" />
+                }
+                @case(SprintStatus.CLOSED) {
+                  <p-tag severity="contrast" [value]="'detail.sprint.tag.closed' | translate" />
+                }
               }
-              @case(SprintStatus.ACTIVE) {
-                <p-tag severity="success"  [value]="'detail.sprint.tag.active' | translate" />
-              }
-              @case(SprintStatus.CLOSED) {
-                <p-tag severity="contrast" [value]="'detail.sprint.tag.closed' | translate" />
-              }
-            }
-          </span>
-          <div class="mt-2">
+            </span>
+          </div>
+          <div class="mt-2 w-full">
             <p-progressbar [value]="sprintProgress" />
           </div>
         </div>

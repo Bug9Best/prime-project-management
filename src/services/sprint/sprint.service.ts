@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import { BaseModel, BaseService } from '../base/base.service';
 
+export enum SprintStatus {
+  UPCOMING = 0,
+  ACTIVE = 1,
+  CLOSED = 2
+}
+
 export interface SprintModel extends BaseModel {
   id: string;
   project_id: string | number;
@@ -8,6 +14,8 @@ export interface SprintModel extends BaseModel {
   sprint_description: string;
   start_date: Date;
   end_date: Date;
+  sprint_duration: string;
+  status: SprintStatus;
 }
 
 @Injectable({

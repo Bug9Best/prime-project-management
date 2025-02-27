@@ -25,7 +25,7 @@ export var listFormSprintCreate: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: InputAppFormType.Date,
+        type: InputAppFormType.StartDate,
         label: "form.sprint.startDate",
         field: "start_date",
         required: true,
@@ -33,7 +33,7 @@ export var listFormSprintCreate: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: InputAppFormType.Date,
+        type: InputAppFormType.EndDate,
         label: "form.sprint.endDate",
         field: "end_date",
         required: true,

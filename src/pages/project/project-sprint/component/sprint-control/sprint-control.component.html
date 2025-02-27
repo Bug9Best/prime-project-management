@@ -1,0 +1,45 @@
+<div class="flex flex-column">
+  @if (sprintData.status === SprintStatus.UPCOMING) {
+    <button
+      icon="pi pi-play"
+      label="Start Sprint"
+      class="w-full p-button-primary"
+      (click)="updateSprintStatus(SprintStatus.ACTIVE)"
+      pButton>
+    </button>
+  }
+  @if (sprintData.status === SprintStatus.ACTIVE) {
+    <button
+      icon="pi pi-times"
+      label="Close Sprint"
+      class="w-full p-button-danger"
+      (click)="updateSprintStatus(SprintStatus.CLOSED)"
+      pButton>
+    </button>
+  }
+  @if (sprintData.status === SprintStatus.CLOSED) {
+    <button
+      icon="pi pi-replay"
+      label="Restart Sprint"
+      class="w-full p-button-secondary"
+      (click)="updateSprintStatus(SprintStatus.ACTIVE)"
+      pButton>
+    </button>
+  }
+  <p-divider></p-divider>
+
+  <p-progressbar [value]="1" />
+  <div class="flex justify-content-between text-700 text-sm mt-2"> 
+    <span> {{ 'detail.sprint.taskTotal' | translate }} </span>   
+    <span> 1/100 {{ 'detail.sprint.taskCounting' | translate }} </span>   
+  </div>
+  <p-divider></p-divider>
+  <div class="flex flex-column">
+    <span class="text-700 text-sm"> {{ 'detail.sprint.sprintEndDate' | translate }} </span>
+    <div class="flex text-sm">
+      <div>{{ sprintData.end_date | date:'dd/MM/yyyy'}}</div>
+      <div class="ml-2 font-semibold"> ({{ remainingDays | translate }}) </div>
+    </div>
+  </div>
+  <p-divider></p-divider>
+</div>

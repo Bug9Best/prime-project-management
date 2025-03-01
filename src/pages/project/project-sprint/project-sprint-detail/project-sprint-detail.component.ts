@@ -3,7 +3,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { AppBreadcrumb } from '../../../../components/app-breadcrumb/app-breadcrumb.component';
 import { ProjectContent } from '../../component/project-content/project-content.component';
-import { AppScrolling } from '../../../../components/app-scrolling/app-scrolling.component';
 import { DividerModule } from 'primeng/divider';
 import { TabsModule } from 'primeng/tabs';
 import { SprintInfo } from '../component/sprint-info/sprint-info.component';

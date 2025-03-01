@@ -1,4 +1,19 @@
 <div class="flex flex-column">
+  <p-progressbar [value]="1" />
+  <div class="flex justify-content-between text-700 text-sm mt-2"> 
+    <span> {{ 'detail.sprint.taskTotal' | translate }} </span>   
+    <span> 1/100 {{ 'detail.sprint.taskCounting' | translate }} </span>   
+  </div>
+  <p-divider></p-divider>
+  <div class="flex flex-column">
+    <span class="text-700 text-sm"> {{ 'detail.sprint.sprintEndDate' | translate }} </span>
+    <div class="flex text-sm">
+      <div>{{ sprintData.end_date | date:'dd/MM/yyyy'}}</div>
+      <div class="ml-2 font-semibold"> ({{ remainingDays | translate }}) </div>
+    </div>
+  </div>
+  <p-divider></p-divider>
+
   @if (sprintData.status === SprintStatus.UPCOMING) {
     <button
       icon="pi pi-play"
@@ -26,20 +41,5 @@
       pButton>
     </button>
   }
-  <p-divider></p-divider>
-
-  <p-progressbar [value]="1" />
-  <div class="flex justify-content-between text-700 text-sm mt-2"> 
-    <span> {{ 'detail.sprint.taskTotal' | translate }} </span>   
-    <span> 1/100 {{ 'detail.sprint.taskCounting' | translate }} </span>   
-  </div>
-  <p-divider></p-divider>
-  <div class="flex flex-column">
-    <span class="text-700 text-sm"> {{ 'detail.sprint.sprintEndDate' | translate }} </span>
-    <div class="flex text-sm">
-      <div>{{ sprintData.end_date | date:'dd/MM/yyyy'}}</div>
-      <div class="ml-2 font-semibold"> ({{ remainingDays | translate }}) </div>
-    </div>
-  </div>
   <p-divider></p-divider>
 </div>

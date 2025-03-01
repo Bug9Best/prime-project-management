@@ -37,7 +37,8 @@
       </p-tabpanel>
       <p-tabpanel value="1">
         <p-scrollpanel [style]="{ width: '100%', height: 'var(--content-height-with-subheader)' }">
-          <sprint-task-list>
+          <sprint-task-list
+            [listTask]="sprintData.tasks">
           </sprint-task-list>
         </p-scrollpanel>
       </p-tabpanel>

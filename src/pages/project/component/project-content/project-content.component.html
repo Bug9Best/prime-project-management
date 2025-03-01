@@ -9,7 +9,8 @@
         <project-sprint>
         </project-sprint>
       } @else {
-        <project-sprint-detail>
+        <project-sprint-detail
+          [sprintID]="sprintID">
         </project-sprint-detail>
       }
     }
@@ -26,12 +27,13 @@
       </project-board>
     }
     @case (5) {
-      @if (!sprintDetailState()) {
+      @if (!taskDetailState()) {
         <project-task>
         </project-task>
       } @else {
-        <!-- <project-task-detail>
-        </project-task-detail> -->
+        <project-task-detail
+          [taskID]="taskID">
+        </project-task-detail>
       }
     }
     @case (6) {

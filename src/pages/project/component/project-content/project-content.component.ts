@@ -9,6 +9,7 @@ import { ProjectMember } from '../../project-member/project-member.component';
 import { ProjectGantt } from '../../project-gantt/project-gantt.component';
 import { ProjectBoard } from '../../project-board/project-board.component';
 import { ProjectSprintDetail } from '../../project-sprint/project-sprint-detail/project-sprint-detail.component';
+import { ProjectTaskDetail } from '../../project-task/project-task-detail/project-task-detail.component';
 
 @Component({
   selector: 'project-content',
@@ -22,19 +23,21 @@ import { ProjectSprintDetail } from '../../project-sprint/project-sprint-detail/
     ProjectResource,
     ProjectMember,
     ProjectSetting,
-    ProjectSprintDetail
+    ProjectSprintDetail,
+    ProjectTaskDetail
   ],
   templateUrl: './project-content.component.html',
   styleUrl: './project-content.component.scss'
 })
 export class ProjectContent {
 
+  currentTabIndex = input<number>(0);
+
   sprintID: string = '';
   sprintDetailState = signal<boolean>(false);
 
   taskID: string = '';
   taskDetailState = signal<boolean>(false);
-  currentTabIndex = input<number>(0);
 
   setSprintState(state: boolean, sprintID?: string) {
     this.sprintDetailState.set(state);

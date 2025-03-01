@@ -163,6 +163,7 @@ export class WorkspaceManageProject {
       this.listProject.sort(sortFunction);
     }
   }
+
   @ViewChild(ProjectDetailDialog) projectDetailDialog!: ProjectDetailDialog;
   onClickItem(user: any) {
     this.projectDetailDialog.showDialog(user);

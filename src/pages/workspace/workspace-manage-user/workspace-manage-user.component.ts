@@ -69,7 +69,6 @@ export class WorkspaceManageUser {
       .subscribe((res) => {
         this.listUser = res;
         this.templistUser = this.listUser;
-        console.log(this.listUser);
       });
   }
 

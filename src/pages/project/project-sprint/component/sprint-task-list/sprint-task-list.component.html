@@ -1,1 +1,42 @@
-<p>sprint-task-list works!</p>
+
+@if (listTask?.length === 0) {
+  <app-empty
+  [icon]="'pi pi-list-check'"
+  [title]="emptyTitle"
+  [description]="emptyDescription">
+  </app-empty>
+} @else {
+  @for (item of listTask; track $index) {
+    <div class="surface-card border-1 surface-border border-round cursor-pointer p-2 mb-2">
+      <div class="flex justify-content-between ml-3 w-full">
+        <div class="flex flex-column">
+          <span class="text-lg font-semibold"> {{ item.task_name || '-'}} </span>
+          <div class="flex mt-2 gap-2">
+            @if (item.status) {
+              <tag-status
+                [status]="item.status"
+                [styleClass]="''">
+              </tag-status>
+            }
+            @if (item.task_priority) {
+              <tag-priority 
+                [priority]="item.task_priority"
+                [styleClass]="''">
+              </tag-priority>
+            }
+          </div>
+        </div>
+        <div>
+          <div class="flex gap-2">
+            <!-- @if (item.assignee) { -->
+            <p-avatar-group class="mr-4">
+              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="normal" shape="circle" />
+              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/xuxuefeng.png" size="normal" shape="circle" />
+            </p-avatar-group>
+            <!-- } -->
+          </div>
+        </div>
+      </div>
+  </div>
+  }
+}

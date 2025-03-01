@@ -1,11 +1,14 @@
 @switch (type()) {
     @case (TaskType.TASK) {
-      <p-tag [class]="styleClass()" icon="pi pi-lightbulb" severity="info" [value]="'detail.task.type.task' | translate" />
+      <p-tag [class]="styleClass()" icon="pi pi-check-circle" severity="info" [value]="'detail.task.type.task' | translate" />
     }
     @case (TaskType.SUBTASK) {
-      <p-tag [class]="styleClass()" icon="pi pi-lightbulb"  severity="secondary" [value]="'detail.task.type.subTask' | translate" />
+      <p-tag [class]="styleClass()" icon="pi pi-list-check"  severity="info" [value]="'detail.task.type.subTask' | translate" />
     }
     @case (TaskType.BUG) {
       <p-tag [class]="styleClass()" icon="pi pi-times-circle" severity="danger" [value]="'detail.task.type.bug' | translate" />
+    }
+    @default {
+      <p-tag [class]="styleClass()" severity="secondary" [value]="'detail.task.noData' | translate" />
     }
   }

@@ -11,4 +11,7 @@
   @case (TaskPriority.CRITICAL) {    
     <p-tag [class]="styleClass()" severity="danger" [value]="'detail.task.priority.critical' | translate" />
   }
+  @default {
+    <p-tag [class]="styleClass()" severity="secondary" [value]="'detail.task.noData' | translate" />
+  }
 }

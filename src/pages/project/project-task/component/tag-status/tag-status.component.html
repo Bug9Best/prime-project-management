@@ -3,9 +3,12 @@
     <p-tag [class]="styleClass()" severity="info" [value]="'detail.task.status.todo' | translate" />
   }
   @case (TaskStatus.DOING) {
-    <p-tag [class]="styleClass()" severity="success" [value]="'detail.task.status.doing' | translate" />
+    <p-tag [class]="styleClass()" severity="warn" [value]="'detail.task.status.doing' | translate" />
   }
   @case (TaskStatus.DONE) {
-    <p-tag [class]="styleClass()" severity="secondary" [value]="'detail.task.status.done' | translate" />
+    <p-tag [class]="styleClass()" severity="success" [value]="'detail.task.status.done' | translate" />
+  }
+  @default {
+    <p-tag [class]="styleClass()" severity="info" [value]="'detail.task.status.todo' | translate" />
   }
 }

@@ -13,12 +13,4 @@ export var listFormTaskCreate: InputAppForm[] = [
         disabled: false,
         colWidth: 12,
     },
-    {
-        type: InputAppFormType.Textarea,
-        label: "form.task.description",
-        field: "task_description",
-        required: false,
-        disabled: false,
-        colWidth: 12,
-    },
 ]

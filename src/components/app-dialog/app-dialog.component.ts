@@ -45,4 +45,9 @@ export class AppDialog {
   onSubmit() {
     this.onSubmitEvent.emit();
   }
+
+  onCancelEvent = output<void>();
+  onCancel() {
+    this.onCancelEvent.emit();
+  }
 }

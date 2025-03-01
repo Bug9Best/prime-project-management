@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, model, output } from '@angular/core';
+import { Component, effect, model, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
@@ -31,6 +31,10 @@ export class AppFilter {
   showGroupList = model<boolean>(true);
   showSortList = model<boolean>(true);
 
+  groupByType = model<boolean>(false);
+  groupByPrioirity = model<boolean>(false);
+  groupByStatus = model<boolean>(false);
+
   searchValue: string = '';
 
   groupValue: { label: string, value: string } = {
@@ -47,10 +51,6 @@ export class AppFilter {
     {
       label: 'app.group.none',
       value: 'NONE'
-    },
-    {
-      label: 'app.group.type',
-      value: 'TYPE'
     },
   ];
 
@@ -76,6 +76,31 @@ export class AppFilter {
       value: 'TYPE_DESC',
     },
   ]
+
+  constructor() {
+    effect(() => {
+      if (this.groupByType()) {
+        this.groupItems.push({
+          label: 'app.group.type',
+          value: 'TYPE'
+        });
+      }
+
+      if (this.groupByPrioirity()) {
+        this.groupItems.push({
+          label: 'app.group.priority',
+          value: 'PRIORITY'
+        });
+      }
+
+      if (this.groupByStatus()) {
+        this.groupItems.push({
+          label: 'app.group.status',
+          value: 'STATUS'
+        });
+      }
+    })
+  }
 
   setGroupValueEvent = output<any>();
   setGroupValue(value: { label: string, value: string }): void {

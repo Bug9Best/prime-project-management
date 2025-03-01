@@ -5,7 +5,7 @@
     <button 
       icon="pi pi-file-edit"
       [label]="labelButton | translate"
-      class="w-10rem"
+      class="w-10rem p-button-secondary"
       (click)="onEditSprint()"
       pButton>
     </button>
@@ -24,29 +24,29 @@
   </div>
 </app-breadcrumb>
 
-<app-scrolling>
-  <div class="custom-grid">
-    <p-tabs value="0" style="margin-top: 2px;">
-      <p-tablist>
-        <p-tab value="0"> {{ 'detail.sprint.tab.info' | translate }} </p-tab>
-        <p-tab value="1"> {{ 'detail.sprint.tab.task' | translate }} </p-tab>
-      </p-tablist>
-      <p-tabpanels>
-        <p-tabpanel value="0">
-          <sprint-info>
-          </sprint-info>
-        </p-tabpanel>
-        <p-tabpanel value="1">
+<div class="custom-grid">
+  <p-tabs value="0" style="margin-top: 2px;">
+    <p-tablist>
+      <p-tab value="0"> {{ 'detail.sprint.tab.info' | translate }} </p-tab>
+      <p-tab value="1"> {{ 'detail.sprint.tab.task' | translate }} </p-tab>
+    </p-tablist>
+    <p-tabpanels>
+      <p-tabpanel value="0">
+        <sprint-info>
+        </sprint-info>
+      </p-tabpanel>
+      <p-tabpanel value="1">
+        <p-scrollpanel [style]="{ width: '100%', height: 'var(--content-height-with-subheader)' }">
           <sprint-task-list>
           </sprint-task-list>
-        </p-tabpanel>
-      </p-tabpanels>
-    </p-tabs>
+        </p-scrollpanel>
+      </p-tabpanel>
+    </p-tabpanels>
+  </p-tabs>
 
-    <p-divider layout="vertical"></p-divider>
-    <sprint-control 
-      [sprintData]="sprintData"
-      (onUpdateEvent)="getSPrintData()">
-    </sprint-control>
-  </div>
-</app-scrolling>
+  <p-divider layout="vertical" class="max-h-full"></p-divider>
+  <sprint-control 
+    [sprintData]="sprintData"
+    (onUpdateEvent)="getSPrintData()">
+  </sprint-control>
+</div>

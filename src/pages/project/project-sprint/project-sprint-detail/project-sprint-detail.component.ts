@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 import { FormSprint } from '../component/form-sprint/form-sprint.component';
 import { MessageService } from 'primeng/api';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @Component({
   selector: 'project-sprint-detail',
@@ -22,14 +23,14 @@ import { MessageService } from 'primeng/api';
     TranslateModule,
     AppBreadcrumb,
     AppDialog,
-    AppScrolling,
     DividerModule,
     TabsModule,
     SprintInfo,
     SprintTaskList,
     SprintControl,
     ButtonModule,
-    FormSprint
+    FormSprint,
+    ScrollPanelModule
   ],
   templateUrl: './project-sprint-detail.component.html',
   styleUrl: './project-sprint-detail.component.scss'
@@ -46,7 +47,7 @@ export class ProjectSprintDetail {
 
   items = [
     { label: 'detail.sprint.header', command: () => this.onNavigateToSprintDetail('1') },
-    { label: 'detail.sprint.subheader' },
+    { label: '' },
   ];
 
   constructor(
@@ -66,6 +67,7 @@ export class ProjectSprintDetail {
       .subscribe((data) => {
         this.sprintData = data;
         this.sprintInfo.setSprintData(data);
+        this.items[1].label = data.sprint_name;
       });
   }
 

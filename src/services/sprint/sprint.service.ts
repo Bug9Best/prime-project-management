@@ -32,5 +32,12 @@ export class SprintService extends BaseService<SprintModel> {
       }
     });
   }
+
+  updateStatus(sprint: { id: string | number, status: SprintStatus }) {
+    return this.client.put<SprintModel[]>(`${this.getBaseUrl}/updateStatus`, {
+      id: sprint.id,
+      status: sprint.status
+    });
+  }
 }
 

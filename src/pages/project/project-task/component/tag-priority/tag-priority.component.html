@@ -1,0 +1,14 @@
+@switch (priority()) {
+  @case (TaskPriority.LOW) {
+    <p-tag [class]="styleClass()" severity="secondary" [value]="'detail.task.priority.low' | translate" />
+  }
+  @case (TaskPriority.MEDIUM) {
+    <p-tag [class]="styleClass()" severity="info" [value]="'detail.task.priority.medium' | translate" />
+  }
+  @case (TaskPriority.HIGH) {
+    <p-tag [class]="styleClass()" severity="warn" [value]="'detail.task.priority.high' | translate" />
+  }
+  @case (TaskPriority.CRITICAL) {    
+    <p-tag [class]="styleClass()" severity="danger" [value]="'detail.task.priority.critical' | translate" />
+  }
+}

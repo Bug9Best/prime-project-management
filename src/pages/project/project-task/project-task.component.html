@@ -11,48 +11,57 @@
     <app-dialog 
       [icon]="'pi pi-file-plus'"
       [width]="'60vw'"
-      [label]="'TASK_BUTTON_CREATE'"
-      [header]="'TASK_BUTTON_CREATE'"
-      [showFooter]="false"
+      [label]="labelCreate"
+      [header]="labelHeader"
+      [showFooter]="true"
+      (onCancelEvent)="onCancelForm()"
       (onSubmitEvent)="onValidateForm()">
+        <form-task>
+        </form-task>
     </app-dialog>
   </div>
 </app-header>
 <div *ngIf="isShowToolbar">
   <app-filter
-    [showGroupList]="false"
+    [groupByType]="true"
+    [groupByPrioirity]="true"
+    [groupByStatus]="true"
+    [showGroupList]="true"
     (onSearchEvent)="onSearch($event)"
     (setSortValueEvent)="setSortValue($event)">
   </app-filter>
 </div>
 
-<div class="w-full overflow-hidden">
-  <p-table 
-    [value]="customers" 
-    [tableStyle]="{ 'min-width': '50rem' }"
-    class="p-datatable-striped p-datatable-hoverable-rows"
-    [scrollable]="true" [scrollHeight]="isShowToolbar ? 'var(--content-height-with-filter)' : 'var(--content-height-with-header)'">
-    <ng-template #header>
-      <tr>
-        <th style="width: 50px;">No.</th>
-        <th style="min-width: 300px;">Task name</th>
-        <th style="min-width: 200px;">Type</th>
-        <th style="min-width: 200px;">Priority</th>
-        <th style="min-width: 200px;">Assignee</th>
-        <th style="min-width: 150px;">Estimate Time</th>
-        <th style="min-width: 150px;">Actualw Time</th>
-      </tr>
-  </ng-template>
-    <ng-template #body let-customer let-rowIndex="rowIndex">
-      <tr>
-        <td>{{rowIndex+1}}</td>
-        <td>Task {{rowIndex+1}}</td>
-        <td>{{customer.type || '-'}}</td>
-        <td>{{customer.priority || '-'}}</td>
-        <td>{{customer.assignee}}</td>
-        <td>{{customer.estimate_time}}</td>
-        <td>{{customer.actual_timme}}</td>
-      </tr>
+@if (!listTask.length) {
+  <app-empty 
+    [icon]="'pi pi-list-check'" 
+    [title]="emptyTitle" 
+    [description]="emptyDescription">
+  </app-empty>
+} @else {
+  <app-table 
+    [selectionMode]="''"
+    [listItem]="listTask"
+    [listColumns]="listColumns"
+    [isShowToolbar]="isShowToolbar"
+    (onClickItemEvent)="onClickItem($event)">
+
+    <ng-template appTableField="task_type" let-item>
+      <tag-type 
+        [type]="item.task_type">
+      </tag-type>
     </ng-template>
-  </p-table>
-</div>
+
+    <ng-template appTableField="task_priority" let-item>
+      <tag-priority 
+        [priority]="item.task_priority">
+      </tag-priority>
+    </ng-template>
+
+    <ng-template appTableField="status" let-item>
+      <tag-status 
+        [status]="item.status">
+      </tag-status>
+    </ng-template>
+  </app-table>
+}

@@ -1,8 +1,8 @@
 <div class="flex flex-column">
-  <p-progressbar [value]="1" />
+  <p-progressbar [value]="sprintProgress" />
   <div class="flex justify-content-between text-700 text-sm mt-2"> 
     <span> {{ 'detail.sprint.taskTotal' | translate }} </span>   
-    <span> 1/100 {{ 'detail.sprint.taskCounting' | translate }} </span>   
+    <span> {{sprintData.completed_tasks}}/{{sprintData.total_tasks}} {{ 'detail.sprint.taskCounting' | translate }} </span>   
   </div>
   <p-divider></p-divider>
   <div class="flex flex-column">

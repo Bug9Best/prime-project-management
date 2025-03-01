@@ -36,6 +36,14 @@ export class SprintControl {
     return "Remain " + result + " days";
   }
 
+  get sprintProgress(): number {
+    if (!this.sprintData) return 0;
+    let total = this.sprintData.total_tasks;
+    let completed = this.sprintData.completed_tasks;
+    let progress = Math.ceil((completed / total) * 100);
+    return progress;
+  }
+
   messageService = inject(MessageService);
   showMessage(severity: string, summary: string, detail: string) {
     this.messageService.add({

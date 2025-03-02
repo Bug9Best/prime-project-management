@@ -1,0 +1,47 @@
+<div class="text-xl font-bold"> Activity </div>
+
+<div class="flex justify-content-start mt-3">
+  <p-timeline [value]="listActivity" class="w-full">
+    <ng-template #content let-item>
+      <div class="-mt-1">
+        @switch (item.action_type) {
+          @case ('created') {
+            <div>
+              <span class="text-primary"> {{ item.action_user_name }} </span>
+              <span class="text-700"> {{ 'log.' + item.action_type | translate }} </span>
+              <span class="text-primary"> {{ item.task_name }} </span>
+            </div>
+            <div class="text-xs text-700">
+              <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
+            </div>
+          }
+          @case ('changed') {
+            <div>
+              <span class="text-primary"> {{ item.action_user_name }} </span>
+              <span class="text-700"> {{ 'log.' + item.action_type + 'Pre' | translate }} </span>
+              <span class="text-primary"> {{ 'log.' + item.action_key  | translate}} </span>
+              <span class="text-700"> {{ 'log.' + item.action_type + 'Post' | translate }} </span>
+              <span class="text-primary"> {{ 'log.' + item.action_value | translate}} </span>
+            </div>
+            <div class="text-xs text-700">
+              <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
+            </div>
+          }
+          @case ('assigned') {
+            <span class="text-primary"> {{ item.action_user_name }} </span>
+            <span class="text-700"> {{ item.action_message }} </span>
+            <span class="text-primary"> {{ item.target_user_name }} </span>
+            <span class="text-700"> {{ item.created_at | date }} </span>
+          }
+          @case ('completed') {
+            <span class="text-primary"> {{ item.action_user_name }} </span>
+            <span class="text-700"> {{ item.action_message }} </span>
+            <span class="text-700"> {{ item.created_at | date }} </span>
+          }
+        }
+      </div>
+    </ng-template>
+  </p-timeline>
+</div>
+
+<p-divider></p-divider>

@@ -4,7 +4,6 @@ import { AppHeader } from '../../../components/app-header/app-header.component';
 import { DividerModule } from 'primeng/divider';
 import { TranslateModule } from '@ngx-translate/core';
 import { PanelModule } from 'primeng/panel';
-import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @Component({
@@ -13,7 +12,6 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
     TranslateModule,
     CommonModule,
     AppHeader,
-    AppScrolling,
     PanelModule,
     DividerModule,
     ScrollPanelModule

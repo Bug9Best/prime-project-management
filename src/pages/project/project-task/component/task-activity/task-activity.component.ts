@@ -17,7 +17,6 @@ import { TimelineModule } from 'primeng/timeline';
 })
 export class TaskActivity {
 
-
   @Input()
   listActivity: any = [];
 }

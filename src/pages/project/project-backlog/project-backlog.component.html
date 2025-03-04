@@ -1,4 +1,50 @@
-<app-header 
-  [title]="title" 
-  [subtitle]="subtitle">
+<app-header [title]="title" [subtitle]="subtitle">
 </app-header>
+<div class="grid px-2">
+  <div class="col border-1 surface-border border-round px-3 content-height-with-header overflow-hidden">
+    <div class="flex align-items-center justify-content-between">
+      <div class="flex flex-column">
+        <div class="text-xl font-medium text-900 select-none">{{ labelSprint | translate }}</div>
+        <div *ngIf="subtitle" class="text-xs text-500 select-none">{{ labelSprintDescription | translate }}</div>
+      </div>
+    </div>
+    <p-divider styleClass="mb-3"></p-divider>
+
+    <p-scrollpanel 
+      [style]="{ width: '100%', height: 'var(--content-height-with-subheader)'}">
+      @for (item of listSprint; track $index) {
+        <div class="mb-2">
+          <p-panel 
+            [collapsed]="true"
+            [collapseIcon]="'pi pi-chevron-down'"
+            [expandIcon]="'pi pi-chevron-up'"
+            [toggleable]="true">
+            <ng-template #header>
+              asdasd
+            </ng-template>
+            <p class="m-0">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna
+              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis
+              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+              occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+          </p-panel>
+        </div>
+      }
+    </p-scrollpanel>
+  </div>
+
+  <p-divider layout="vertical" class="mt-2"></p-divider>
+
+  <div class="col border-1 surface-border border-round px-3">
+    <div class="flex align-items-center justify-content-between">
+      <div class="flex flex-column">
+        <div class="text-xl font-medium text-900 select-none">{{ labelTask | translate }}</div>
+        <div *ngIf="subtitle" class="text-xs text-500 select-none">{{ labelTaskDescription | translate }}</div>
+      </div>
+    </div>
+    <p-divider styleClass="mb-3"></p-divider>
+  </div>
+</div>

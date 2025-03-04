@@ -1,0 +1,38 @@
+<app-breadcrumb
+  [items]="items"
+  [subtitle]="subtitle">
+  <div class="flex">
+    <button 
+      icon="pi pi-file-edit"
+      [label]="labelButton | translate"
+      class="w-10rem p-button-secondary"
+      (click)="onEditTask()"
+      pButton>
+    </button>
+    <app-dialog
+      [icon]="'pi pi-file-edit'"
+      [width]="'60vw'"
+      [label]="labelButton"
+      [header]="labelHeader"
+      [submitLabel]="labelSubmit"
+      [showButton]="false"
+      (onSubmitEvent)="onValidateForm()">
+        <form-task>
+        </form-task>
+    </app-dialog>
+  </div>
+</app-breadcrumb>
+
+<div class="custom-grid">
+  <app-scrolling>
+    <task-info
+      [taskData]="taskData"
+      (onCommentEvent)="getTaskData()">
+    </task-info>
+  </app-scrolling>
+  <p-divider layout="vertical"></p-divider>
+  <task-control 
+    [taskData]="taskData"
+    (onUpdateTaskEvent)="getTaskData()">
+  </task-control>
+</div>

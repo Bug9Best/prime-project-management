@@ -28,6 +28,17 @@
       "block": "Block this user for this site",
       "unblock": "Unblock this user"
     },
+    "timeLabel": {
+      "day": "Days",
+      "week": "Week",
+      "month": "Month",
+      "year": "Year",
+      "date": "Date",
+      "time": "Time",
+      "hour": "Hour",
+      "minute": "Minute",
+      "second": "Second"
+    },
     "filter": {
       "search": "Search",
       "group": "Group",
@@ -35,7 +46,9 @@
     },
     "group": {
       "none": "Group by none",
-      "type": "Group by type"
+      "type": "Group by type",
+      "priority": "Group by priority",
+      "status": "Group by status"
     },
     "sort": {
       "none": "Sort by none",
@@ -48,6 +61,32 @@
       "required": "*This field is required."
     }
   },
+
+
+
+  "log": {
+    "created" : "create task",
+    "changedPre": "changed",
+    "changedPost": "to",
+    "commented": "commented",
+    "task_type": "task type",
+    "task_priority": "task priority",
+    "status": "task status",
+    "start_date": "start date",
+    "end_date": "end date",
+    "TASK": "task",
+    "SUB_TASK": "sub task",
+    "BUG": "bug",
+    "LOW": "low",
+    "MEDIUM": "medium",
+    "HIGH": "high",
+    "CRITICAL": "critical",
+    "1": "to do",
+    "2": "doing",
+    "3": "done"
+  },
+
+
 
   "home": {
     "getStart": {
@@ -167,6 +206,8 @@
     }
   },
 
+
+
   "project": {
     "menu":{
       "dashboard": "Dashboard",
@@ -186,6 +227,24 @@
         "task": "Create Task",
         "resource": "Create Resource",
         "member": "Add Member"
+      },
+      "edit": {
+        "project": "Edit Project",
+        "sprint": "Edit Sprint",
+        "task": "Edit Task",
+        "resource": "Edit Resource",
+        "member": "Edit Member"
+      },
+      "delete": {
+        "project": "Delete Project",
+        "sprint": "Delete Sprint",
+        "task": "Delete Task",
+        "resource": "Delete Resource",
+        "member": "Delete Member"
+      },
+      "sprint": {
+        "start": "Start Sprint",
+        "close": "Close Sprint"
       }
     },
     "header": {
@@ -219,14 +278,14 @@
       "member": "Manage project members.",
       "setting": "Project setting."
     },
+    "description": {
+      "sprint": "List of sprints that have not been closed",
+      "task": "List of tasks that are not yet completed and not assigned to any sprint"
+    },
     "empty": {
       "sprint": {
         "title": "No sprint found",
         "description": "No sprint found in this project."
-      },
-      "backlog": {
-        "title": "No task found",
-        "description": "No task found in this project."
       },
       "task": {
         "title": "No task found",
@@ -255,6 +314,8 @@
     }
   },
 
+
+
   "form": {
     "feedback": {
       "content": "Feedback Content",
@@ -276,6 +337,21 @@
       "startDate": "Start Date",
       "endDate": "End Date"
     },
+    "task": {
+      "name": "Task Name",
+      "description": "Task Description (Optional)",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "priority": "Priority",
+      "priorityLow": "Low",
+      "priorityMedium": "Medium",
+      "priorityHigh": "High",
+      "status": "Status",
+      "statusTodo": "To Do",
+      "statusDoing": "Doing",
+      "statusDone": "Done",
+      "assignee": "Assignee"
+    },
     "join": {
       "code": "Project Code (10 characters)",
       "helperText": "Enter the project code provided by the project owner."
@@ -289,6 +365,8 @@
       "address": "Address (Optional)"
     }
   },
+
+
 
   "detail": {
     "user": {
@@ -315,7 +393,7 @@
       "createDate": "Create Date",
       "member": "Member",
       "memberCounting": "members",
-      "task": "Task", 
+      "task": "Task",
       "taskCounting": "tasks",
       "resource": "Resource",
       "resourceCounting": "resources"
@@ -326,23 +404,74 @@
       "createDate": "Create Date"
     },
     "sprint": {
-      "header": "Sprint Detail",
-      "name": "ชื่อ",
-      "description": "รายละเอียด",
-      "status": "สถานะ",
-      "startDate": "วันที่เริ่ม",
-      "endDate": "วันที่สิ้นสุด",
-      "issue": "Issue",
-      "issue_counting": "issues"
+      "header": "Sprint",
+      "subheader": "Sprint Detail",
+      "description": "Infomation about sprint",
+      "sprintName": "Sprint Name",
+      "sprintDescription": "Sprint Description",
+      "sprintStartDate": "Start Date",
+      "sprintEndDate": "End Date",
+      "sprintDuration": "Duration",
+      "status": "Status",
+      "taskTotal": "Total Task",
+      "taskCounting": "taks",
+      "overdue": "Overdue",
+      "noData": "No specified",
+      "tab": {
+        "info": "Infomation",
+        "task": "Task"
+      },
+      "tag": {
+        "upcoming": "Upcoming",
+        "active": "Active",
+        "closed": "Closed"
+      }
     },
     "task": {
-      "header": "Task Detail",
+      "header": "Task",
+      "subheader": "Task Detail",
       "name": "Name",
       "description": "Description",
-      "priority": "Priority",
-      "status": "Status",
+      "sprint": "Sprint",
       "assignee": "Assignee",
-      "createDate": "Create Date"
+      "noAssignee": "No Assignee:",
+      "assignYourself": "Assign yourself",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "estimateTime": "Estimate Time",
+      "actualTime": "Actual Time",
+      "createDate": "Create Date",
+      "noData": "No specified",
+      "select": {
+        "assignee": "Select Assignee",
+        "sprint": "Select Sprint",
+        "priority": "Select Priority",
+        "type": "Select Type",
+        "startDate": "Select Start Date",
+        "endDate": "Select End Date",
+        "estimateTime": "Select Estimate Time",
+        "actualTime": "Select Actual Time",
+        "status": "Select Status"
+      },
+      "type": {
+        "name": "Type",
+        "task": "Task",
+        "subTask": "Sub Task",
+        "bug": "Bug"
+      },
+      "priority": {
+        "name": "Priority",
+        "low": "Low",
+        "medium": "Medium",
+        "high": "High",
+        "critical": "Critical"
+      },
+      "status": {
+        "name": "Status",
+        "todo": "To Do",
+        "doing": "Doing",
+        "done": "Done"
+      }
     },
     "resource": {
       "header": "Resource Detail",
@@ -358,6 +487,8 @@
       "createDate": "Member Register Date"
     }
   },
+
+
 
   "table": {
   "order": "No.",

@@ -1,0 +1,11 @@
+<task-description>
+</task-description>
+
+<task-activity 
+  [listActivity]="taskData.logs">
+</task-activity>
+
+<task-commend 
+[taskData]="taskData"
+(onCommentEvent)="onComment()">
+</task-commend>

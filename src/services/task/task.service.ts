@@ -15,9 +15,9 @@ export enum TaskPriorityModel {
 }
 
 export enum TaskStatusModel {
-  TODO = 0,
-  DOING = 1,
-  DONE = 2
+  TODO = 1,
+  DOING = 2,
+  DONE = 3
 }
 
 export interface TaskModel extends BaseModel {
@@ -39,6 +39,7 @@ export interface TaskModel extends BaseModel {
 
   sprint_name: string;
   project_name: string;
+  logs: any;
 }
 
 @Injectable({

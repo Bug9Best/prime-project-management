@@ -1,0 +1,331 @@
+<div class="flex flex-column" [formGroup]="formGroup">
+	<div class="flex justify-content-between">
+		<span class="font-bold ">{{ 'detail.task.assignee' | translate }} </span>
+    <button
+      icon="pi pi-cog"
+      class="p-button-text p-button-sm p-button-secondary"
+      (click)="editField('assignee')"
+      pButton>
+    </button>
+	</div>
+	<div class="flex text-700">
+    @if (!isEditing['assignee']) {
+      <div>
+        {{ taskData.assignee || ('detail.task.noAssignee') | translate}}
+      </div>
+      <div class="ml-3 cursor-pointer hover:text-900" *ngIf="!isEditing['assignee']">
+        {{ 'detail.task.assignYourself' | translate}}
+      </div>
+    } @else {
+      <div class="w-full mt-2">
+        <p-select 
+          placeholder="{{ 'detail.task.select.assignee' | translate }}" 
+          size="small" 
+          optionLabel="label" 
+          optionValue="id" 
+          [options]="listMember"  
+          formControlName="user_id"
+          class="w-full" />
+      </div>
+    }
+  </div>
+	<p-divider></p-divider>
+
+	<div class="flex justify-content-between">
+		<span class="font-bold ">{{ 'detail.task.sprint' | translate }} </span>
+		<span>
+			<button
+				icon="pi pi-cog"
+				class="p-button-text p-button-sm p-button-secondary"
+        (click)="editField('sprint')"
+				pButton>
+			</button>
+		</span>
+	</div>
+	<div class="flex text-700">
+    @if (!isEditing['sprint']) {
+      <div>{{ taskData.sprint_name || ('detail.task.noData') | translate}}</div>
+    } @else {
+      <div class="w-full mt-2">
+        <p-select 
+          placeholder="{{ 'detail.task.select.sprint' | translate }}" 
+          size="small" 
+          optionLabel="sprint_name" 
+          optionValue="id" 
+          [options]="listSprint"  
+          (onChange)="onSelect()"
+          formControlName="sprint_id"
+          class="w-full" />
+      </div>
+    }
+	</div>
+	<p-divider></p-divider>
+
+	<div class="flex justify-content-between">
+		<span class="font-bold ">{{ 'detail.task.type.name' | translate }} </span>
+		<span>
+			<button
+				icon="pi pi-cog"
+				class="p-button-text p-button-sm p-button-secondary"
+				(click)="editField('task_type')"
+				pButton>
+			</button>
+		</span>
+	</div>
+	<div class="flex text-700">
+    @if (!isEditing['task_type']) {
+      <tag-type 
+        [type]="taskData.task_type">
+      </tag-type>
+    } @else {
+      <div class="w-full mt-2">
+        <p-select
+          placeholder="{{ 'detail.task.select.type' | translate }}" 
+          size="small" 
+          optionValue="value" 
+          [options]="listTaskType"  
+          formControlName="task_type"
+          (onChange)="onSelect()"
+          class="w-full" >
+          <ng-template #selectedItem let-selectedOption>
+            <div class="flex items-center gap-2" *ngIf="selectedOption">
+              <div>{{ selectedOption.label | translate }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-item #item>
+            <div class="flex items-center gap-2">
+              <div>{{ item.label | translate }}</div>
+            </div>
+          </ng-template>
+        </p-select>
+      </div>
+    }
+	</div>
+	<p-divider></p-divider>
+
+	<div class="flex justify-content-between">
+		<span class="font-bold ">{{ 'detail.task.priority.name' | translate }} </span>
+		<span>
+			<button
+				icon="pi pi-cog"
+				class="p-button-text p-button-sm p-button-secondary"
+        (click)="editField('task_priority')"
+				pButton>
+			</button>
+		</span>
+	</div>
+	<div class="flex text-700">
+    @if (!isEditing['task_priority']) {
+      <tag-priority 
+        [priority]="taskData.task_priority">
+      </tag-priority>
+    } @else {
+      <div class="w-full mt-2">
+        <p-select 
+          placeholder="{{ 'detail.task.select.priority' | translate }}" 
+          size="small" 
+          optionValue="value" 
+          [options]="listTaskPriority"  
+          (onChange)="onSelect()"
+          formControlName="task_priority"
+          class="w-full" >
+          <ng-template #selectedItem let-selectedOption>
+            <div class="flex items-center gap-2" *ngIf="selectedOption">
+              <div>{{ selectedOption.label | translate }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-item #item>
+            <div class="flex items-center gap-2">
+              <div>{{ item.label | translate }}</div>
+            </div>
+          </ng-template>
+        </p-select>
+      </div>
+    }
+	</div>
+	<p-divider></p-divider>
+
+	<div class="flex flex-column">
+		<div class="flex justify-content-between">
+			<span class="font-bold "> {{ 'detail.task.startDate' | translate }} </span>
+			<span>
+				<button
+					icon="pi pi-cog"
+					class="p-button-text p-button-sm p-button-secondary"
+          (click)="editField('start_date')"
+					pButton>
+				</button>
+			</span>
+		</div>
+		<div class="text-700">
+      @if (!isEditing['start_date']) {
+        @if (taskData.start_date) {
+          <div> {{ taskData.start_date | date:'dd/MM/yyyy' }} </div>
+        } @else {
+          <div> {{ 'detail.task.noData' | translate }} </div>
+        }
+      } @else {
+        <div class="w-full mt-2">
+          <p-datepicker 
+            placeholder="{{ 'detail.task.select.startDate' | translate }}" 
+            size="small"
+            styleClass="w-full"
+            dateFormat="dd/mm/yy"
+            formControlName="start_date"
+            (onSelect)="onSelectDate()"
+            appendTo="body" />
+        </div>
+      }
+    </div>
+  </div>
+  <p-divider></p-divider>
+
+	<div class="flex flex-column">
+		<div class="flex justify-content-between">
+			<span class="font-bold "> {{ 'detail.task.endDate' | translate }} </span>
+			<span>
+				<button
+					icon="pi pi-cog"
+					class="p-button-text p-button-sm p-button-secondary"
+          (click)="editField('end_date')"
+					pButton>
+				</button>
+			</span>
+		</div>
+		<div class="text-700">
+      @if (!isEditing['end_date']) {
+        @if (taskData.end_date) {
+          <div> {{ taskData.end_date | date:'dd/MM/yyyy' }} </div>
+        } @else {
+          <div> {{ 'detail.task.noData' | translate }} </div>
+        }
+      } @else {
+        <div class="w-full mt-2">
+          <p-datepicker 
+            placeholder="{{ 'detail.task.select.startDate' | translate }}" 
+            size="small"
+            styleClass="w-full"
+            dateFormat="dd/mm/yy"
+            formControlName="end_date"
+            (onSelect)="onSelectDate()"
+            appendTo="body" />
+        </div>
+      }
+    </div>
+  </div>
+  <p-divider></p-divider>
+
+	<div class="flex flex-column">
+		<div class="flex justify-content-between">
+			<span class="font-bold "> {{ 'detail.task.estimateTime' | translate }} </span>
+			<span>
+				<button
+					icon="pi pi-cog"
+					class="p-button-text p-button-sm p-button-secondary"
+          (click)="editField('estimate_time')"
+          (onSelect)="onSelect()"
+					pButton>
+				</button>
+			</span>
+		</div>
+		<div class=" text-700">
+      @if (!isEditing['estimate_time']) {
+        @if (taskData.estimate_time) {
+          <div> {{ taskData.estimate_time | date:'dd/MM/yyyy' }} </div>
+        } @else {
+          <div> {{ 'detail.task.noData' | translate }} </div>
+        }
+      } @else {
+        <div class="w-full mt-2">
+          <p-datepicker 
+            placeholder="{{ 'detail.task.select.startDate' | translate }}" 
+            size="small"
+            styleClass="w-full"
+            dateFormat="dd/mm/yy"
+            formControlName="estimate_time"
+            (onSelect)="onSelect()"
+            appendTo="body" />
+        </div>
+      }
+    </div>
+  </div>
+  <p-divider></p-divider>
+
+	<div class="flex flex-column">
+		<div class="flex justify-content-between">
+			<span class="font-bold "> {{ 'detail.task.actualTime' | translate }} </span>
+			<span>
+				<button
+					icon="pi pi-cog"
+					class="p-button-text p-button-sm p-button-secondary"
+          (click)="editField('actual_time')"
+          (onSelect)="onSelect()"
+					pButton>
+				</button>
+			</span>
+		</div>
+		<div class="text-700">
+      @if (!isEditing['actual_time']) {
+        @if (taskData.actual_time) {
+          <div> {{ taskData.actual_time | date:'dd/MM/yyyy' }} </div>
+        } @else {
+          <div> {{ 'detail.task.noData' | translate }} </div>
+        }
+      } @else {
+        <div class="w-full mt-2">
+          <p-datepicker 
+            placeholder="{{ 'detail.task.select.startDate' | translate }}" 
+            size="small"
+            styleClass="w-full"
+            dateFormat="dd/mm/yy"
+            formControlName="actual_time"
+            (onSelect)="onSelect()"
+            appendTo="body" />
+        </div>
+      }
+    </div>
+  </div>
+  <p-divider></p-divider>
+
+  <div class="flex justify-content-between">
+		<span class="font-bold ">{{ 'detail.task.status.name' | translate }} </span>
+		<span>
+			<button
+				icon="pi pi-cog"
+				class="p-button-text p-button-sm p-button-secondary"
+        (click)="editField('status')"
+				pButton>
+			</button>
+		</span>
+	</div>
+	<div class="flex text-700">
+    @if (!isEditing['status']) {
+      <tag-status 
+        [status]="taskData.status">
+      </tag-status>
+    } @else {
+      <div class="w-full mt-2">
+        <p-select 
+          placeholder="{{ 'detail.task.select.status' | translate }}" 
+          size="small" 
+          optionValue="value" 
+          [options]="listTaskStatus"  
+          (onChange)="onSelect()"
+          formControlName="status"
+          class="w-full" >
+          <ng-template #selectedItem let-selectedOption>
+            <div class="flex items-center gap-2" *ngIf="selectedOption">
+              <div>{{ selectedOption.label | translate }}</div>
+            </div>
+          </ng-template>
+          <ng-template let-item #item>
+            <div class="flex items-center gap-2">
+              <div>{{ item.label | translate }}</div>
+            </div>
+          </ng-template>
+        </p-select>
+      </div>
+    }
+	</div>
+	<p-divider></p-divider>
+</div>

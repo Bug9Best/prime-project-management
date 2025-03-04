@@ -45,7 +45,7 @@ export const appConfig: ApplicationConfig = {
         BrowserModule,
         BrowserAnimationsModule,
         TranslateModule.forRoot({
-          defaultLanguage: 'en',
+          defaultLanguage: 'th',
           loader: {
             provide: TranslateLoader,
             useFactory: HttpLoaderFactory,

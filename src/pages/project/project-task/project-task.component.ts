@@ -17,6 +17,8 @@ import { ProjectContent } from '../component/project-content/project-content.com
 import { TagType } from './component/tag-type/tag-type.component';
 import { TagPriority } from './component/tag-priority/tag-priority.component';
 import { TagStatus } from './component/tag-status/tag-status.component';
+import { UserService } from '../../../services/user/user.service';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'project-task',
@@ -39,6 +41,8 @@ import { TagStatus } from './component/tag-status/tag-status.component';
   styleUrl: './project-task.component.scss'
 })
 export class ProjectTask {
+
+  currentUser: any = {};
 
   projectID: string = '';
   listTask: TaskModel[] = [];
@@ -69,6 +73,7 @@ export class ProjectTask {
   ]
 
   constructor(
+    private auth: AuthService,
     private activateRoute: ActivatedRoute,
     private messageService: MessageService,
     private taskService: TaskService
@@ -78,6 +83,7 @@ export class ProjectTask {
         if (!params['id']) return;
         this.projectID = params['id'];
       });
+    this.currentUser = this.auth.getUserData();
   }
 
   ngOnInit() {
@@ -241,6 +247,7 @@ export class ProjectTask {
 
     let values = this.formTask.formGroup.value;
     values.project_id = this.projectID;
+    values.user_id = this.currentUser.id;
     this.onCreateTask(values);
   }
 

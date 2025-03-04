@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseModel, BaseService } from '../base/base.service';
+import { TaskModel } from '../task/task.service';
 
 export enum SprintStatus {
   UPCOMING = 0,
@@ -16,6 +17,10 @@ export interface SprintModel extends BaseModel {
   end_date: Date;
   sprint_duration: string;
   status: SprintStatus;
+
+  tasks: TaskModel[];
+  completed_tasks: number;
+  total_tasks: number;
 }
 
 @Injectable({

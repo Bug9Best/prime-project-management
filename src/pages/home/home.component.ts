@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SectionNavigate } from './section-navigate/section-navigate.component';
 import { SectionGetstart } from './section-getstart/section-getstart.component';
 import { SectionFeature } from './section-feature/section-feature.component';
 import { SectionDeveloper } from './section-devloper/section-developer.component';
 import { environment } from '../../environments/environment';
 import { SectionFooter } from './section-footer/section-footer.component';
+import { ProjectService } from '../../services/project/project.service';
 
 @Component({
   selector: 'home-page',
@@ -24,8 +25,15 @@ export class HomePage {
     window.location.href = environment.authenUrl;
   }
 
-  onSignUp(): void {
-    window.location.href = environment.signupUrl;
+  ngOnInit(): void {
+   this.getProjects();
+  }
+
+  projectService = inject(ProjectService);
+  getProjects(): void {
+    this.projectService.getAll().subscribe((projects) => {
+      console.log(projects);
+    });
   }
 
   onScrollToElementEvent(element: string): void {

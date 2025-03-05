@@ -3,7 +3,7 @@
   [subtitle]="subtitle">
 </app-header>
 
-<div class="p-4">
+<div class="p-4 responsive-gantt">
   <ngx-gantt #gantt 
     [items]="items" 
     [baselineItems]="baselineItems"
@@ -40,6 +40,14 @@
         <ng-template #cell let-item="item"> {{ getDate(item.end) | date:'yyyy-MM-dd' }} </ng-template>
       </ngx-gantt-column>
     </ngx-gantt-table>
+
+    <ng-template #tableEmpty let-item="item">
+      <app-empty
+        [icon]="'pi pi-list-check'"
+        [title]="emptyTaskTitle" 
+        [description]="emptyTaskDescription">
+      </app-empty>
+    </ng-template>
 
     <ng-template #bar let-item="item">
       <span class="pl-3" style="color: #fff">{{ item.title }} </span>

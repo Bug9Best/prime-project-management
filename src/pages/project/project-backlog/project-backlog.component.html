@@ -1,4 +1,6 @@
-<app-header [title]="title" [subtitle]="subtitle">
+<app-header
+  [title]="title"
+  [subtitle]="subtitle">
 </app-header>
 <div class="grid px-2">
   <div class="col border-1 surface-border border-round px-3 content-height-with-header overflow-hidden">
@@ -10,30 +12,33 @@
     </div>
     <p-divider styleClass="mb-3"></p-divider>
 
-    <p-scrollpanel 
-      [style]="{ width: '100%', height: 'var(--content-height-with-subheader)'}">
-      @for (item of listSprint; track $index) {
-        <div class="mb-2">
+    @if (!listSprint.length) {
+      <app-empty 
+        [isShowToolbar]="true"
+        [icon]="'pi pi-sync'" 
+        [title]="emptySprintTitle" 
+        [description]="emptySprintDescription">
+      </app-empty>
+    } @else {
+      <p-scrollpanel [style]="{ width: '100%', height: 'var(--content-height-with-subheader)'}">
+        <div *ngFor="let sprint of listSprint; let index = index" 
+          class="mb-2">
           <p-panel 
-            [collapsed]="true"
-            [collapseIcon]="'pi pi-chevron-down'"
+            [collapsed]="true" 
+            [toggleable]="true" 
+            [collapseIcon]="'pi pi-chevron-down'" 
             [expandIcon]="'pi pi-chevron-up'"
-            [toggleable]="true">
-            <ng-template #header>
-              asdasd
+            dndDropzone 
+            (dndDrop)="onDropToSprint($event, sprint, index)" 
+            dndEffectAllowed="move">
+
+            <ng-template #header> 
+              {{ sprint.sprint_name }} 
             </ng-template>
-            <p class="m-0">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna
-              aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis
-              aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-              occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
           </p-panel>
         </div>
-      }
-    </p-scrollpanel>
+      </p-scrollpanel>
+    }
   </div>
 
   <p-divider layout="vertical" class="mt-2"></p-divider>
@@ -46,5 +51,35 @@
       </div>
     </div>
     <p-divider styleClass="mb-3"></p-divider>
+
+    @if (!listTask.length) {
+      <app-empty 
+        [isShowToolbar]="true"
+        [icon]="'pi pi-list-check'" 
+        [title]="emptyTaskTitle" 
+        [description]="emptyTaskDescription">
+      </app-empty>
+    } @else {
+      <p-scrollpanel 
+        [style]="{ width: '100%', height: 'var(--content-height-with-subheader)'}">
+        <div dndDropzone
+          (dndDrop)="onDropTask($event)"
+          dndEffectAllowed="move">
+        
+        <div dndPlaceholderRef
+          class="border-1 surface-border border-round p-3 bg-gray-50 mb-2 text-gray-50">
+          Drag
+        </div>
+        
+        <div *ngFor="let task of listTask;" 
+          class="border-1 surface-border border-round p-3 mb-2"
+          [dndDraggable]="task"
+          [dndEffectAllowed]="'move'"
+          (dndMoved)="onDraggedTask(task)">
+            {{ task.task_name }}
+          </div>
+        </div>
+      </p-scrollpanel>
+    }
   </div>
 </div>

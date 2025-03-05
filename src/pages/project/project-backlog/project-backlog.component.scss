@@ -2,3 +2,47 @@
     display: grid;
     grid-template-columns: 2fr 2rem 1fr;
 }
+
+:host {
+    display: block;
+  }
+  
+  pre {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  .dndList {
+    transition: all 300ms ease;
+    padding: 5px;
+  
+    &:not(.horizontal).dndDragover {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+  
+    &.horizontal {
+      &.dndDragover {
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-bottom: 12px;
+      }
+  
+      .mat-mdc-list-item {
+        max-width: 120px;
+        margin: 2px;
+      }
+    }
+  }
+  
+  .dndDragging {
+    border: 1px solid green;
+  }
+  
+  .dndDraggingSource {
+    display: none;
+  }
+  
+  .dndPlaceholder {
+    min-height: 72px;
+  }

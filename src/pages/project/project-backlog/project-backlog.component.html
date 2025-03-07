@@ -9,6 +9,17 @@
         <div class="text-xl font-medium text-900 select-none">{{ labelSprint | translate }}</div>
         <div *ngIf="subtitle" class="text-xs text-500 select-none">{{ labelSprintDescription | translate }}</div>
       </div>
+      <app-dialog #dialogSprint
+        [icon]="'pi pi-plus'"
+        [width]="'60vw'"
+        [buttonStyleClass]="'p-button-secondary p-button-outlined'"
+        [label]="labelSprintButton"
+        [header]="labelSprintHeader"
+        (onCancelEvent)="onCancelFormSprint()"
+        (onSubmitEvent)="onValidateFormSprint()">
+          <form-sprint>
+          </form-sprint>
+      </app-dialog>
     </div>
     <p-divider styleClass="mb-3"></p-divider>
 
@@ -16,24 +27,77 @@
       <app-empty 
         [isShowToolbar]="true"
         [icon]="'pi pi-sync'" 
-        [title]="emptySprintTitle" 
+        [title]="emptySprintTitle"
+        [height]="'var(--content-height-with-backlog)'"
         [description]="emptySprintDescription">
       </app-empty>
     } @else {
       <p-scrollpanel [style]="{ width: '100%', height: 'var(--content-height-with-subheader)'}">
         <div *ngFor="let sprint of listSprint; let index = index" 
-          class="mb-2">
+          class="mb-3">
           <p-panel 
             [collapsed]="true" 
             [toggleable]="true" 
             [collapseIcon]="'pi pi-chevron-down'" 
             [expandIcon]="'pi pi-chevron-up'"
             dndDropzone 
-            (dndDrop)="onDropToSprint($event, sprint, index)" 
+            (dndDrop)="onDropToSprint($event, sprint)" 
             dndEffectAllowed="move">
 
             <ng-template #header> 
-              {{ sprint.sprint_name }} 
+              <div class="flex align-items-center">
+                <span class="font-semibold">
+                  {{ sprint.sprint_name }} 
+                </span>
+                <span class="ml-2">
+                  @switch (sprint.status) {
+                    @case(SprintStatus.UPCOMING) {
+                      <p-tag severity="secondary" [value]="'detail.sprint.tag.upcoming' | translate" />
+    
+                    }
+                    @case(SprintStatus.ACTIVE) {
+                      <p-tag severity="success"  [value]="'detail.sprint.tag.active' | translate" />
+                    }
+                    @case(SprintStatus.CLOSED) {
+                      <p-tag severity="contrast" [value]="'detail.sprint.tag.closed' | translate" />
+                    }
+                  }
+                </span>
+            </div>
+            </ng-template>
+
+            <ng-template #content>
+              <p-divider></p-divider>
+              <div class="w-full flex flex-column">
+                <div class="text-700 text-base">
+                  <div class="flex justify-content-between">
+                    <div>
+                      <span class="font-semibold"> ระยะเวลา </span>
+                      <span> {{ sprint.start_date | date: 'dd/MM/yyyy' }} </span>
+                      <span> - </span>
+                      <span> {{ sprint.end_date | date: 'dd/MM/yyyy' }} </span>
+                    </div>
+                    <span class="text-base font-semibold text-700"> 
+                      ({{ sprint.sprint_duration }} {{ 'app.timeLabel.day' | translate}}) 
+                    </span>
+                  </div>
+                </div>
+
+                <p-divider></p-divider>
+                <div class="flex justify-content-between">
+                  <span class="text-base font-semibold text-700"> งานที่มีอยู่ในสปรินท์ </span>
+                  <span class="text-base font-semibold text-700"> {{ sprint.total_tasks }} งาน </span>
+                </div>
+
+                <p-divider></p-divider>
+                <div class="w-full">
+                  <div class="mb-1 text-base">
+                    <span class="font-semibold text-700"> ความคืบหน้าของสปรินท์ </span>
+                    <span class="font-semibold text-700"> {{ getSprintProgress(sprint) }}% </span>
+                  </div>
+                  <p-progressbar [value]="getSprintProgress(sprint)" />
+                </div>
+              </div>
             </ng-template>
           </p-panel>
         </div>
@@ -49,6 +113,18 @@
         <div class="text-xl font-medium text-900 select-none">{{ labelTask | translate }}</div>
         <div *ngIf="subtitle" class="text-xs text-500 select-none">{{ labelTaskDescription | translate }}</div>
       </div>
+      <app-dialog #dialogTask
+        [icon]="'pi pi-file-plus'"
+        [width]="'60vw'"
+        [buttonStyleClass]="'p-button-secondary p-button-outlined'"
+        [label]="labelTaskButton"
+        [header]="labelTaskHeader"
+        [showFooter]="true"
+        (onCancelEvent)="onCancelFormTask()"
+        (onSubmitEvent)="onValidateFormTask()">
+          <form-task>
+          </form-task>
+      </app-dialog>
     </div>
     <p-divider styleClass="mb-3"></p-divider>
 
@@ -57,6 +133,7 @@
         [isShowToolbar]="true"
         [icon]="'pi pi-list-check'" 
         [title]="emptyTaskTitle" 
+        [height]="'var(--content-height-with-backlog)'"
         [description]="emptyTaskDescription">
       </app-empty>
     } @else {

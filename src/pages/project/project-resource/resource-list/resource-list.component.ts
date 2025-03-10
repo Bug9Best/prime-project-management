@@ -30,8 +30,8 @@ import { AttachmentsItem } from '../component/attachment-item/attachment-item.co
 })
 export class ResourceList {
 
-  buttonShowLabel: string = 'RESOURCE_BUTTON_SHOW'
-  buttonHideLabel: string = 'RESOURCE_BUTTON_HIDE'
+  buttonShowLabel: string = 'project.button.resource.show'
+  buttonHideLabel: string = 'project.button.resource.hide'
 
   ProjectResourceType = ProjectResourceType
   listResource = input<ProjectResourceModel[]>()

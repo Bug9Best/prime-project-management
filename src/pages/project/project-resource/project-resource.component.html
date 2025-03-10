@@ -11,8 +11,8 @@
     <app-dialog 
       [icon]="'pi pi-file-plus'"
       [width]="'60vw'"
-      [label]="'RESOURCE_BUTTON_CREATE'"
-      [header]="'RESOURCE_BUTTON_CREATE'"
+      [label]="'project.button.create.resource'"
+      [header]="'project.button.create.resource'"
       [showFooter]="false"
       (onSubmitEvent)="onValidateForm()">
       <resource-create-dialog 
@@ -38,10 +38,18 @@
   </ng-template>
 </p-menu>
 
-<app-scrolling 
-  [isShowToolbar]="isShowToolbar">
-  <resource-list
-    [listResource]="listResource"
-    (onToggleMenuEvent)="menu.toggle($event.event); setPermission($event.data)">
-  </resource-list>
-</app-scrolling>
+@if (!listResource.length) {
+  <app-empty 
+    [icon]="'pi pi-folder-open'" 
+    [title]="emptyTitle" 
+    [description]="emptyDescription">
+  </app-empty>
+} @else {
+  <app-scrolling 
+    [isShowToolbar]="isShowToolbar">
+    <resource-list
+      [listResource]="listResource"
+      (onToggleMenuEvent)="menu.toggle($event.event); setPermission($event.data)">
+    </resource-list>
+  </app-scrolling>
+}

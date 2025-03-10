@@ -37,7 +37,7 @@
         <ng-template #display>
           <span class="inline-flex align-items-center gap-2">
             <span class="pi pi-eye text-700" style="vertical-align: middle"></span>
-            <span class="ml-2 text-700"> {{ 'RESOURCE_BUTTON_SHOW' | translate}} </span>
+            <span class="ml-2 text-700"> {{ buttonShowLabel | translate}} </span>
           </span>
         </ng-template>
         <ng-template #content>
@@ -68,7 +68,7 @@
           <p-divider></p-divider>
           <div class="w-full">
             <button pButton icon="pi pi-eye-slash" 
-              [label]="'RESOURCE_BUTTON_HIDE' | translate" 
+              [label]=" buttonHideLabel | translate" 
               class="p-button-secondary p-button-text w-full"
               (click)="inplace.deactivate()">
             </button>

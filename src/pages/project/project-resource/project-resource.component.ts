@@ -12,6 +12,7 @@ import { MenuModule } from 'primeng/menu';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { TranslateModule } from '@ngx-translate/core';
 import { Mode } from '../../workspace/workspace-content-project/workspace-content-project.component';
+import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 
 @Component({
   selector: 'project-resource',
@@ -21,6 +22,7 @@ import { Mode } from '../../workspace/workspace-content-project/workspace-conten
     AppFilter,
     AppScrolling,
     AppDialog,
+    AppEmpty,
     TranslateModule,
     ResourceCreateDialog,
     ResourceList,
@@ -39,6 +41,8 @@ export class ProjectResource {
 
   title: string = 'project.title.resource';
   subtitle: string = 'project.subtitle.resource';
+  emptyTitle: string = 'project.empty.resource.title';
+  emptyDescription: string = 'project.empty.resource.description';
 
   selectedResource?: ProjectResourceModel;
   listResource: ProjectResourceModel[] = [];
@@ -46,7 +50,7 @@ export class ProjectResource {
   listMenu: MenuItem[] = [
     {
       id: 'EDIT',
-      label: 'BUTTON_EDIT',
+      label: 'app.button.edit',
       icon: 'pi pi-pencil',
       styleClass: 'text-sm',
       disabled: false,
@@ -57,7 +61,7 @@ export class ProjectResource {
     { separator: true },
     {
       id: 'DELETE',
-      label: 'BUTTON_DELETE',
+      label: 'app.button.delete',
       icon: 'pi pi-trash',
       styleClass: 'text-sm',
       disabled: false,

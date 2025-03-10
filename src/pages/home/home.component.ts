@@ -24,7 +24,7 @@ export class HomePage {
 
   auth = inject(AuthService);
   onSignin(): void {
-    window.location.href = "https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?client_id=1023079733198-12k3qr9hjj73q8ng8cb7ltgmkrtsrvc1.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fauth%2Fgoogle-callback&scope=openid%20profile%20email&response_type=code&state=W6WbRyHy7TMqtECdXSlzQ2jBSeJe6PZRFTkKuRWO&service=lso&o2v=1&ddm=1&flowName=GeneralOAuthFlow";
+    window.location.href = "https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?client_id=1023079733198-12k3qr9hjj73q8ng8cb7ltgmkrtsrvc1.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fprime.it.kmitl.ac.th%2Fauth%2Fgoogle-callback&scope=openid%20profile%20email&response_type=code&state=W6WbRyHy7TMqtECdXSlzQ2jBSeJe6PZRFTkKuRWO&service=lso&o2v=1&ddm=1&flowName=GeneralOAuthFlow";
     // window.location.href = environment.authenUrl;
     // this.auth.signinWithGoogle().subscribe((res) => {
     //   window.location.href = res.redirect_uri;

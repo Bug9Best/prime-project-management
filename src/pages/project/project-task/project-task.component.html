@@ -23,10 +23,10 @@
 </app-header>
 <div *ngIf="isShowToolbar">
   <app-filter
+    [showGroupList]="false"
     [groupByType]="true"
     [groupByPrioirity]="true"
     [groupByStatus]="true"
-    [showGroupList]="true"
     (onSearchEvent)="onSearch($event)"
     (setSortValueEvent)="setSortValue($event)">
   </app-filter>

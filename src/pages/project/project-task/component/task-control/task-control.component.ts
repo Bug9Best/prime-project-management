@@ -1,4 +1,4 @@
-import { Component, inject, Input, output, SimpleChanges } from '@angular/core';
+import { Component, inject, input, Input, output, signal, SimpleChanges } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TaskScrumModel, TaskScrumService } from '../../../../../services/task_scrum/task_scrum.service';
 import { CommonModule } from '@angular/common';
@@ -48,6 +48,8 @@ export class TaskControl {
 
   @Input()
   taskData: TaskScrumModel = <any>{};
+  projectType = input(<string>'projectType');
+
   listMember: any[] = [];
   listSprint: any[] = [];
   listTaskType: TaskType[] = listTaskType;

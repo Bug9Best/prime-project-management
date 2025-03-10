@@ -33,35 +33,37 @@
   </div>
 	<p-divider></p-divider>
 
-	<div class="flex justify-content-between">
-		<span class="font-bold ">{{ 'detail.task.sprint' | translate }} </span>
-		<span>
-			<button
-				icon="pi pi-cog"
-				class="p-button-text p-button-sm p-button-secondary"
-        (click)="editField('sprint')"
-				pButton>
-			</button>
-		</span>
-	</div>
-	<div class="flex text-700">
-    @if (!isEditing['sprint']) {
-      <div>{{ taskData.sprint_name || ('detail.task.noData') | translate}}</div>
-    } @else {
-      <div class="w-full mt-2">
-        <p-select 
-          placeholder="{{ 'detail.task.select.sprint' | translate }}" 
-          size="small" 
-          optionLabel="sprint_name" 
-          optionValue="id" 
-          [options]="listSprint"  
-          (onChange)="onSelect()"
-          formControlName="sprint_id"
-          class="w-full" />
-      </div>
-    }
-	</div>
-	<p-divider></p-divider>
+  @if (projectType() == 'SCRUM') {
+    <div class="flex justify-content-between">
+      <span class="font-bold ">{{ 'detail.task.sprint' | translate }} </span>
+      <span>
+        <button
+          icon="pi pi-cog"
+          class="p-button-text p-button-sm p-button-secondary"
+          (click)="editField('sprint')"
+          pButton>
+        </button>
+      </span>
+    </div>
+    <div class="flex text-700">
+      @if (!isEditing['sprint']) {
+        <div>{{ taskData.sprint_name || ('detail.task.noData') | translate}}</div>
+      } @else {
+        <div class="w-full mt-2">
+          <p-select 
+            placeholder="{{ 'detail.task.select.sprint' | translate }}" 
+            size="small" 
+            optionLabel="sprint_name" 
+            optionValue="id" 
+            [options]="listSprint"  
+            (onChange)="onSelect()"
+            formControlName="sprint_id"
+            class="w-full" />
+        </div>
+      }
+    </div>
+    <p-divider></p-divider>
+  }
 
 	<div class="flex justify-content-between">
 		<span class="font-bold ">{{ 'detail.task.type.name' | translate }} </span>
@@ -147,75 +149,149 @@
 	</div>
 	<p-divider></p-divider>
 
-	<div class="flex flex-column">
-		<div class="flex justify-content-between">
-			<span class="font-bold "> {{ 'detail.task.startDate' | translate }} </span>
-			<span>
-				<button
-					icon="pi pi-cog"
-					class="p-button-text p-button-sm p-button-secondary"
-          (click)="editField('start_date')"
-					pButton>
-				</button>
-			</span>
-		</div>
-		<div class="text-700">
-      @if (!isEditing['start_date']) {
-        @if (taskData.start_date) {
-          <div> {{ taskData.start_date | date:'dd/MM/yyyy' }} </div>
-        } @else {
-          <div> {{ 'detail.task.noData' | translate }} </div>
-        }
-      } @else {
-        <div class="w-full mt-2">
-          <p-datepicker 
-            placeholder="{{ 'detail.task.select.startDate' | translate }}" 
-            size="small"
-            styleClass="w-full"
-            dateFormat="dd/mm/yy"
-            formControlName="start_date"
-            (onSelect)="onSelectDate()"
-            appendTo="body" />
+  @if (projectType() == 'SCRUM') {
+    @if (taskData.sprint_id) {
+      <div class="flex flex-column">
+        <div class="flex justify-content-between">
+          <span class="font-bold "> {{ 'detail.task.startDate' | translate }} </span>
+          <span>
+            <button
+              icon="pi pi-cog"
+              class="p-button-text p-button-sm p-button-secondary"
+              (click)="editField('start_date')"
+              pButton>
+            </button>
+          </span>
         </div>
-      }
-    </div>
-  </div>
-  <p-divider></p-divider>
+        <div class="text-700">
+          @if (!isEditing['start_date']) {
+            @if (taskData.start_date) {
+              <div> {{ taskData.start_date | date:'dd/MM/yyyy' }} </div>
+            } @else {
+              <div> {{ 'detail.task.noData' | translate }} </div>
+            }
+          } @else {
+            <div class="w-full mt-2">
+              <p-datepicker 
+                placeholder="{{ 'detail.task.select.startDate' | translate }}" 
+                size="small"
+                styleClass="w-full"
+                dateFormat="dd/mm/yy"
+                formControlName="start_date"
+                (onSelect)="onSelectDate()"
+                appendTo="body" />
+            </div>
+          }
+        </div>
+      </div>
+      <p-divider></p-divider>
 
-	<div class="flex flex-column">
-		<div class="flex justify-content-between">
-			<span class="font-bold "> {{ 'detail.task.endDate' | translate }} </span>
-			<span>
-				<button
-					icon="pi pi-cog"
-					class="p-button-text p-button-sm p-button-secondary"
-          (click)="editField('end_date')"
-					pButton>
-				</button>
-			</span>
-		</div>
-		<div class="text-700">
-      @if (!isEditing['end_date']) {
-        @if (taskData.end_date) {
-          <div> {{ taskData.end_date | date:'dd/MM/yyyy' }} </div>
-        } @else {
-          <div> {{ 'detail.task.noData' | translate }} </div>
-        }
-      } @else {
-        <div class="w-full mt-2">
-          <p-datepicker 
-            placeholder="{{ 'detail.task.select.startDate' | translate }}" 
-            size="small"
-            styleClass="w-full"
-            dateFormat="dd/mm/yy"
-            formControlName="end_date"
-            (onSelect)="onSelectDate()"
-            appendTo="body" />
+      <div class="flex flex-column">
+        <div class="flex justify-content-between">
+          <span class="font-bold "> {{ 'detail.task.endDate' | translate }} </span>
+          <span>
+            <button
+              icon="pi pi-cog"
+              class="p-button-text p-button-sm p-button-secondary"
+              (click)="editField('end_date')"
+              pButton>
+            </button>
+          </span>
         </div>
-      }
+        <div class="text-700">
+          @if (!isEditing['end_date']) {
+            @if (taskData.end_date) {
+              <div> {{ taskData.end_date | date:'dd/MM/yyyy' }} </div>
+            } @else {
+              <div> {{ 'detail.task.noData' | translate }} </div>
+            }
+          } @else {
+            <div class="w-full mt-2">
+              <p-datepicker 
+                placeholder="{{ 'detail.task.select.startDate' | translate }}" 
+                size="small"
+                styleClass="w-full"
+                dateFormat="dd/mm/yy"
+                formControlName="end_date"
+                (onSelect)="onSelectDate()"
+                appendTo="body" />
+            </div>
+          }
+        </div>
+      </div>
+      <p-divider></p-divider>
+    }
+  } @else {
+    <div class="flex flex-column">
+      <div class="flex justify-content-between">
+        <span class="font-bold "> {{ 'detail.task.startDate' | translate }} </span>
+        <span>
+          <button
+            icon="pi pi-cog"
+            class="p-button-text p-button-sm p-button-secondary"
+            (click)="editField('start_date')"
+            pButton>
+          </button>
+        </span>
+      </div>
+      <div class="text-700">
+        @if (!isEditing['start_date']) {
+          @if (taskData.start_date) {
+            <div> {{ taskData.start_date | date:'dd/MM/yyyy' }} </div>
+          } @else {
+            <div> {{ 'detail.task.noData' | translate }} </div>
+          }
+        } @else {
+          <div class="w-full mt-2">
+            <p-datepicker 
+              placeholder="{{ 'detail.task.select.startDate' | translate }}" 
+              size="small"
+              styleClass="w-full"
+              dateFormat="dd/mm/yy"
+              formControlName="start_date"
+              (onSelect)="onSelectDate()"
+              appendTo="body" />
+          </div>
+        }
+      </div>
     </div>
-  </div>
-  <p-divider></p-divider>
+    <p-divider></p-divider>
+
+    <div class="flex flex-column">
+      <div class="flex justify-content-between">
+        <span class="font-bold "> {{ 'detail.task.endDate' | translate }} </span>
+        <span>
+          <button
+            icon="pi pi-cog"
+            class="p-button-text p-button-sm p-button-secondary"
+            (click)="editField('end_date')"
+            pButton>
+          </button>
+        </span>
+      </div>
+      <div class="text-700">
+        @if (!isEditing['end_date']) {
+          @if (taskData.end_date) {
+            <div> {{ taskData.end_date | date:'dd/MM/yyyy' }} </div>
+          } @else {
+            <div> {{ 'detail.task.noData' | translate }} </div>
+          }
+        } @else {
+          <div class="w-full mt-2">
+            <p-datepicker 
+              placeholder="{{ 'detail.task.select.startDate' | translate }}" 
+              size="small"
+              styleClass="w-full"
+              dateFormat="dd/mm/yy"
+              formControlName="end_date"
+              (onSelect)="onSelectDate()"
+              appendTo="body" />
+          </div>
+        }
+      </div>
+    </div>
+    <p-divider></p-divider>
+  }
 
 	<div class="flex flex-column">
 		<div class="flex justify-content-between">

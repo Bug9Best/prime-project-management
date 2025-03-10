@@ -47,6 +47,7 @@
   <p-divider layout="vertical"></p-divider>
   <task-control 
     [taskData]="taskData"
+    [projectType]="projectType()"
     (onUpdateTaskEvent)="getTaskData()">
   </task-control>
 </div>

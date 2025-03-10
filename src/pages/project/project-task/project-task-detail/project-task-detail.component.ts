@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, signal, ViewChild } from '@angular/core';
 import { AppBreadcrumb } from '../../../../components/app-breadcrumb/app-breadcrumb.component';
 import { TaskScrumModel, TaskScrumService } from '../../../../services/task_scrum/task_scrum.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -37,6 +37,9 @@ export class ProjectTaskDetail {
   @Input()
   taskID: string = '';
   taskData: TaskScrumModel = <any>{};
+  projectType = signal('projectType');
+
+
   subtitle: string = 'detail.sprint.description';
   labelButton: string = 'project.button.edit.task';
   labelHeader: string = 'detail.task.header';
@@ -72,6 +75,8 @@ export class ProjectTaskDetail {
       .subscribe((data) => {
         this.taskData = data;
         this.items[1].label = this.taskData.task_name;
+        this.projectType.set(this.taskData.project_type);
+        console.log(this.taskData);
       });
   }
 

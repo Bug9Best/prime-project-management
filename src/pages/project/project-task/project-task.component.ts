@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, ViewChild } from '@angular/core';
+import { Component, inject, signal, ViewChild } from '@angular/core';
 import { AppHeader } from '../../../components/app-header/app-header.component';
 import { TableModule } from 'primeng/table';
 import { AppFilter } from '../../../components/app-filter/app-filter.component';
@@ -12,12 +12,10 @@ import { TaskScrumModel, TaskScrumService } from '../../../services/task_scrum/t
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AppTable, AppTableColumn, AppTableFieldDirective } from '../../../components/app-table/app-table.component';
-import { ProjectTaskDetail } from './project-task-detail/project-task-detail.component';
 import { ProjectContent } from '../component/project-content/project-content.component';
 import { TagType } from './component/tag-type/tag-type.component';
 import { TagPriority } from './component/tag-priority/tag-priority.component';
 import { TagStatus } from './component/tag-status/tag-status.component';
-import { UserService } from '../../../services/user/user.service';
 import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
@@ -45,6 +43,7 @@ export class ProjectTask {
   currentUser: any = {};
 
   projectID: string = '';
+
   listTask: TaskScrumModel[] = [];
   tempListTask: TaskScrumModel[] = [];
   grouplistTask: { [key: string]: TaskScrumModel[] } = {};

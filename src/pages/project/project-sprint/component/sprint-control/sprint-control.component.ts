@@ -33,7 +33,7 @@ export class SprintControl {
     let result = Math.ceil(diff / (1000 * 3600 * 24));
 
     if (result < 0) return "detail.sprint.overdue";
-    return "Remain " + result + " days";
+    return result + " days";
   }
 
   get sprintProgress(): number {

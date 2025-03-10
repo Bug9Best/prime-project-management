@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { AppBreadcrumb } from '../../../../components/app-breadcrumb/app-breadcrumb.component';
-import { TaskModel, TaskService } from '../../../../services/task/task.service';
+import { TaskScrumModel, TaskScrumService } from '../../../../services/task_scrum/task_scrum.service';
 import { MessageService } from 'primeng/api';
 import { ProjectContent } from '../../component/project-content/project-content.component';
 import { AppScrolling } from '../../../../components/app-scrolling/app-scrolling.component';
@@ -34,7 +34,7 @@ export class ProjectTaskDetail {
 
   @Input()
   taskID: string = '';
-  taskData: TaskModel = <any>{};
+  taskData: TaskScrumModel = <any>{};
   subtitle: string = 'detail.sprint.description';
   labelButton: string = 'project.button.edit.task';
   labelHeader: string = 'detail.task.header';
@@ -48,7 +48,7 @@ export class ProjectTaskDetail {
   constructor(
     private messageService: MessageService,
     private ProjectContent: ProjectContent,
-    private taskService: TaskService
+    private taskScrumService: TaskScrumService
   ) { }
 
   ngOnInit() {
@@ -56,7 +56,7 @@ export class ProjectTaskDetail {
   }
 
   getTaskData() {
-    this.taskService
+    this.taskScrumService
       .getOne(this.taskID)
       .subscribe((data) => {
         this.taskData = data;
@@ -94,7 +94,7 @@ export class ProjectTaskDetail {
 
   onSaveTask() {
     let values = this.formTask.formGroup.value;
-    this.taskService
+    this.taskScrumService
       .update(this.taskID, values)
       .subscribe({
         next: () => {

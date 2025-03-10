@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BaseModel, BaseService } from '../base/base.service';
-import { TaskModel } from '../task/task.service';
+import { TaskScrumModel } from '../task_scrum/task_scrum.service';
 
 export enum SprintStatus {
   UPCOMING = 0,
@@ -18,7 +18,7 @@ export interface SprintModel extends BaseModel {
   sprint_duration: string;
   status: SprintStatus;
 
-  tasks: TaskModel[];
+  tasks: TaskScrumModel[];
   completed_tasks: number;
   total_tasks: number;
 }
@@ -32,6 +32,14 @@ export class SprintService extends BaseService<SprintModel> {
 
   getProjectSprint(project_id: string | number) {
     return this.client.get<SprintModel[]>(`${this.getBaseUrl}/getProjectSprint`, {
+      params: {
+        project_id: project_id
+      }
+    });
+  }
+
+  getProjectOpenSprint(project_id: string | number) {
+    return this.client.get<SprintModel[]>(`${this.getBaseUrl}/getProjectOpenSprint`, {
       params: {
         project_id: project_id
       }

@@ -23,8 +23,9 @@ import {
 } from '@worktile/gantt';
 import { of, delay, finalize } from 'rxjs';
 import { GanttConfigProvider } from '../../../config/gantt.config';
-import { TaskService } from '../../../services/task/task.service';
+import { TaskScrumService } from '../../../services/task_scrum/task_scrum.service';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'project-gantt',
@@ -41,6 +42,8 @@ import { AppEmpty } from '../../../components/app-empty/app-empty.component';
   styleUrl: './project-gantt.component.scss'
 })
 export class ProjectGantt {
+
+  projectID: string = '';
 
   title: string = 'project.title.gantt';
   subtitle: string = 'project.subtitle.gantt';
@@ -76,16 +79,46 @@ export class ProjectGantt {
     viewType: GanttViewType.day
   };
 
-  getDate(date: any): any {
-    return new GanttDate(date).value;
-  }
+
 
   items: GanttItem[] = [];
 
   constructor(
+    private activateRoute: ActivatedRoute,
     private printService: GanttPrintService,
-    private taskService: TaskService,
+    private taskService: TaskScrumService,
   ) {
+    this.activateRoute.params
+      .subscribe(params => {
+        if (!params['id']) return;
+        this.projectID = params['id'];
+      });
+  }
+
+  ngOnInit(): void {
+    this.getProjectTask();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => this.ganttComponent.scrollToDate(1627729997), 200);
+  }
+
+
+  getProjectTask() {
+    this.taskService
+      .getProjectTask(this.projectID)
+      .subscribe((res: any) => {
+        this.items = res.map((item: any) => {
+          item.title = item.task_name;
+          item.start = this.getDate(new Date(item.start_date));
+          item.end = this.getDate(new Date(item.end_date));
+          return item;
+        });
+      });
+  }
+
+  getDate(date: any): any {
+    return new GanttDate(date).value;
   }
 
   @HostBinding('class.gantt-example-component') class = true;
@@ -94,23 +127,6 @@ export class ProjectGantt {
   dropEnterPredicate = (event: GanttTableDragEnterPredicateContext) => {
     return true;
   };
-
-
-  ngOnInit(): void {
-    this.items.forEach((item, index) => {
-      if (index % 5 === 0) {
-        item.children = this.randomItems(this.random(1, 5), item);
-      }
-    });
-  }
-
-  ngAfterViewInit() {
-    setTimeout(() => this.ganttComponent.scrollToDate(1627729997), 200);
-  }
-
-  dragEnded(event: GanttDragEvent) {
-    this.items = [...this.items];
-  }
 
   selectedChange(event: GanttSelectedEvent) {
     if (!event) return;
@@ -123,6 +139,11 @@ export class ProjectGantt {
 
   barClick(event: any) {
     // this.issueDetail.showDialog(event.item);
+  }
+
+  dragEnded(event: GanttDragEvent) {
+    console.log('dragEnded', event);
+    this.items = [...this.items];
   }
 
   print(name: string) {
@@ -159,16 +180,7 @@ export class ProjectGantt {
 
   refresh() {
     this.loading = true;
-    of(this.randomItems(30))
-      .pipe(
-        delay(2000),
-        finalize(() => {
-          this.loading = false;
-        })
-      )
-      .subscribe((res) => {
-        this.items = res;
-      });
+    this.getProjectTask();
   }
 
   onDragDropped(event: GanttTableDragDroppedEvent) {
@@ -193,27 +205,5 @@ export class ProjectGantt {
 
   onDragEnded(event: GanttTableDragEndedEvent) {
     console.log('拖拽结束了', event);
-  }
-
-  random(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min)) + min;
-  }
-
-
-  randomItems(length: number, parent?: GanttItem, group?: string) {
-    const items = [];
-    for (let i = 0; i < length; i++) {
-      const start = addDays(new Date(), this.random(-200, 200));
-      const end = addDays(start, this.random(0, 100));
-      items.push({
-        id: `${parent?.id || group || ''}${Math.floor(Math.random() * 100000000)}`,
-        title: `${parent?.title || 'Task'}-${i}`,
-        start: getUnixTime(start),
-        end: getUnixTime(end),
-        group_id: group,
-        expandable: true
-      });
-    }
-    return items;
   }
 }

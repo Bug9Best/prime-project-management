@@ -20,7 +20,7 @@ export enum TaskStatusModel {
   DONE = 3
 }
 
-export interface TaskModel extends BaseModel {
+export interface TaskScrumModel extends BaseModel {
   id: string;
   project_id: string | number;
   sprint_id: string | number;
@@ -40,25 +40,37 @@ export interface TaskModel extends BaseModel {
   sprint_name: string;
   project_name: string;
   logs: any;
+  project_type: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class TaskService extends BaseService<TaskModel> {
-  public override path: string = "task";
-
+export class TaskScrumService extends BaseService<TaskScrumModel> {
+  public override path: string = "task_scrum";
 
   getProjectTask(project_id: string | number) {
-    return this.client.get<TaskModel[]>(`${this.getBaseUrl}/getProjectTask`, {
+    return this.client.get<TaskScrumModel[]>(`${this.getBaseUrl}/getProjectTask`, {
       params: {
         project_id: project_id
       }
     });
   }
 
+  getProjectOpenTask(project_id: string | number) {
+    return this.client.get<TaskScrumModel[]>(`${this.getBaseUrl}/getProjectOpenTask`, {
+      params: {
+        project_id: project_id
+      }
+    });
+  }
+
+  moveToSprint(params: any) {
+    return this.client.post<TaskScrumModel[]>(`${this.getBaseUrl}/moveToSprint`, params);
+  }
+
   updateStatus(task: { id: string | number, status: TaskStatusModel }) {
-    return this.client.put<TaskModel[]>(`${this.getBaseUrl}/updateStatus`, {
+    return this.client.put<TaskScrumModel[]>(`${this.getBaseUrl}/updateStatus`, {
       id: task.id,
       status: task.status
     });

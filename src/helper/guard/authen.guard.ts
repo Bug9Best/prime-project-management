@@ -8,6 +8,7 @@ export const authenGuard: CanActivateFn = () => {
   let state = authService.getToken() ? true : false;
   if (!state) {
     window.location.href = environment.authenUrl;
+    // authService.signinWithGoogle();
   }
   return state
 };

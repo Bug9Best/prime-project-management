@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { TaskStatusModel } from '../../../../../services/task/task.service';
+import { TaskStatusModel } from '../../../../../services/task_scrum/task_scrum.service';
 import { TagModule } from 'primeng/tag';
 import { TranslateModule } from '@ngx-translate/core';
 

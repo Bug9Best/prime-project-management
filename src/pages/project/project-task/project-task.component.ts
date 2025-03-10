@@ -8,7 +8,7 @@ import { Mode } from '../../workspace/workspace-content-project/workspace-conten
 import { ButtonModule } from 'primeng/button';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { FormTask } from './component/form-task/form-task.component';
-import { TaskModel, TaskService } from '../../../services/task/task.service';
+import { TaskScrumModel, TaskScrumService } from '../../../services/task_scrum/task_scrum.service';
 import { ActivatedRoute } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { AppTable, AppTableColumn, AppTableFieldDirective } from '../../../components/app-table/app-table.component';
@@ -45,9 +45,9 @@ export class ProjectTask {
   currentUser: any = {};
 
   projectID: string = '';
-  listTask: TaskModel[] = [];
-  tempListTask: TaskModel[] = [];
-  grouplistTask: { [key: string]: TaskModel[] } = {};
+  listTask: TaskScrumModel[] = [];
+  tempListTask: TaskScrumModel[] = [];
+  grouplistTask: { [key: string]: TaskScrumModel[] } = {};
 
   mode: Mode = 'NONE';
   isOnSearch = false;
@@ -76,7 +76,7 @@ export class ProjectTask {
     private auth: AuthService,
     private activateRoute: ActivatedRoute,
     private messageService: MessageService,
-    private taskService: TaskService
+    private taskScrumService: TaskScrumService
   ) {
     this.activateRoute.params
       .subscribe(params => {
@@ -91,7 +91,7 @@ export class ProjectTask {
   }
 
   getTask() {
-    this.taskService
+    this.taskScrumService
       .getProjectTask(this.projectID)
       .subscribe({
         next: (response: any) => {
@@ -253,7 +253,7 @@ export class ProjectTask {
 
   @ViewChild(AppDialog) appDialog!: AppDialog;
   onCreateTask(param: any) {
-    this.taskService
+    this.taskScrumService
       .create(param)
       .subscribe({
         next: (response) => {

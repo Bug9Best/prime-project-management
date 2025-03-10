@@ -1,7 +1,7 @@
 import { Component, Input, output } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { DividerModule } from 'primeng/divider';
-import { TaskModel } from '../../../../../services/task/task.service';
+import { TaskScrumModel } from '../../../../../services/task_scrum/task_scrum.service';
 import { ButtonModule } from 'primeng/button';
 import { TaskActivity } from '../task-activity/task-activity.component';
 import { TaskDescription } from '../task-description/task-description.component';
@@ -23,7 +23,7 @@ import { TaskCommend } from '../task-commend/task-commend.component';
 export class TaskInfo {
 
   @Input()
-  taskData: TaskModel = <any>{};
+  taskData: TaskScrumModel = <any>{};
 
 
   onCommentEvent = output<void>();

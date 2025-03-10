@@ -11,6 +11,7 @@
     --content-height-with-padding: calc(100vh - var(--topbar-height) - 2rem);
     --content-height-with-header: calc(100vh - var(--topbar-height) - 2rem - 92px - .5rem);
     --content-height-with-subheader: calc(100vh - var(--topbar-height) - 2rem - 92px - .5rem - 44.5px - 32px);
+    --content-height-with-backlog: calc(100vh - var(--topbar-height) - 2rem - 92px - .5rem - 44.5px - 40px);
     --content-height-with-filter: calc(100vh - var(--topbar-height) - 2rem - 92px - 51px - 1.5rem);
 }
 

@@ -6,7 +6,7 @@ import { EditorModule } from 'primeng/editor';
 import { ButtonModule } from 'primeng/button';
 import { MessageService } from 'primeng/api';
 import { TaskLoggingService } from '../../../../../services/task-logging/task-logging.service';
-import { TaskModel } from '../../../../../services/task/task.service';
+import { TaskScrumModel } from '../../../../../services/task_scrum/task_scrum.service';
 import { AuthService } from '../../../../../services/auth/auth.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class TaskCommend {
   currentUser: any;
 
   @Input()
-  taskData: TaskModel = <any>{};
+  taskData: TaskScrumModel = <any>{};
 
   formContent: FormGroup = new FormGroup({
     content: new FormControl(null, [Validators.required])
@@ -59,6 +59,8 @@ export class TaskCommend {
     let values = this.formContent.value;
     values.user_id = this.currentUser.id;
     values.task_id = this.taskData.id;
+    values.task_type = this.taskData.project_type;
+
     this.taskLoggingService
       .comment(values)
       .subscribe({

@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AppForm, InputAppForm } from '../../../../../components/app-form/app-form.component';
 import { FormGroup } from '@angular/forms';
-import { TaskModel } from '../../../../../services/task/task.service';
+import { TaskScrumModel } from '../../../../../services/task_scrum/task_scrum.service';
 import { FormGroupTaskCreate, listFormTaskCreate } from '../../../../../forms/task-create';
 
 @Component({
@@ -15,7 +15,7 @@ import { FormGroupTaskCreate, listFormTaskCreate } from '../../../../../forms/ta
 export class FormTask {
 
   @Input()
-  TaskData: TaskModel = <any>{};
+  TaskData: TaskScrumModel = <any>{};
 
   listForm: InputAppForm[] = listFormTaskCreate;
   formGroup: FormGroup = FormGroupTaskCreate;

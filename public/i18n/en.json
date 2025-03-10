@@ -12,7 +12,7 @@
       "profile": "Profile"
     },
     "button": {
-      "signin": "Sign In",
+      "signin": "Sign In with Google",
       "signup": "Sign Up",
       "create": "Create",
       "submit": "Submit",

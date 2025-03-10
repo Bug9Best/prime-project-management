@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TagModule } from 'primeng/tag';
-import { TaskTypeModel } from '../../../../../services/task/task.service';
+import { TaskTypeModel } from '../../../../../services/task_scrum/task_scrum.service';
 
 @Component({
   selector: 'tag-type',

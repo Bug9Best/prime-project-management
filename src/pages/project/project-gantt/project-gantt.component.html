@@ -29,15 +29,15 @@
       (dragEnded)="onDragEnded($event)">
 
       <ngx-gantt-column name="Task/Issue" width="240px">
-        <ng-template #cell let-item="item"> {{ item.title }} </ng-template>
+        <ng-template #cell let-item="item"> {{ item.task_name }} </ng-template>
       </ngx-gantt-column>
 
       <ngx-gantt-column name="Start Date" width="120px">
-        <ng-template #cell let-item="item"> {{ getDate(item.start) | date:'yyyy-MM-dd' }} </ng-template>
+        <ng-template #cell let-item="item"> {{ (item.start) ? (getDate(item.start) | date:'dd MMM yyyy') : ''}} </ng-template>
       </ngx-gantt-column>
 
       <ngx-gantt-column name="End Date" width="120px">
-        <ng-template #cell let-item="item"> {{ getDate(item.end) | date:'yyyy-MM-dd' }} </ng-template>
+        <ng-template #cell let-item="item"> {{ (item.end) ? (getDate(item.end) | date:'dd MMM yyyy') : ''}} </ng-template>
       </ngx-gantt-column>
     </ngx-gantt-table>
 
@@ -50,7 +50,7 @@
     </ng-template>
 
     <ng-template #bar let-item="item">
-      <span class="pl-3" style="color: #fff">{{ item.title }} </span>
+      <span class="pl-3" style="color: #fff">{{ item.task_name }} </span>
     </ng-template>
   </ngx-gantt>
 </div>

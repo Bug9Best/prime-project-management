@@ -1,5 +1,5 @@
 import { Component, Input, input } from '@angular/core';
-import { TaskModel, TaskTypeModel } from '../../../../../services/task/task.service';
+import { TaskScrumModel, TaskTypeModel } from '../../../../../services/task_scrum/task_scrum.service';
 import { TagType } from '../../../project-task/component/tag-type/tag-type.component';
 import { TagPriority } from '../../../project-task/component/tag-priority/tag-priority.component';
 import { TagStatus } from '../../../project-task/component/tag-status/tag-status.component';
@@ -24,7 +24,7 @@ export class SprintTaskList {
   TaskType = TaskTypeModel;
 
   @Input()
-  listTask?: TaskModel[] = [];
+  listTask?: TaskScrumModel[] = [];
 
   emptyTitle = 'project.empty.task.title';
   emptyDescription = 'project.empty.task.description';

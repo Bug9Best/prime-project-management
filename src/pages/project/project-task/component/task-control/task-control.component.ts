@@ -1,6 +1,6 @@
 import { Component, inject, Input, output, SimpleChanges } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { TaskModel, TaskService } from '../../../../../services/task/task.service';
+import { TaskScrumModel, TaskScrumService } from '../../../../../services/task_scrum/task_scrum.service';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
@@ -43,7 +43,7 @@ export class TaskControl {
   currentUser: any = {};
 
   @Input()
-  taskData: TaskModel = <any>{};
+  taskData: TaskScrumModel = <any>{};
   listMember: any[] = [];
   listSprint: any[] = [];
   listTaskType: TaskType[] = listTaskType;
@@ -171,7 +171,7 @@ export class TaskControl {
     this.onUpdateTask(filteredData);
   }
 
-  taskService = inject(TaskService);
+  taskService = inject(TaskScrumService);
   onUpdateTaskEvent = output<void>();
   onUpdateTask(data: any) {
     this.taskService.update(data.id, data)

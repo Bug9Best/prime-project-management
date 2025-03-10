@@ -6,6 +6,7 @@ import { SectionDeveloper } from './section-devloper/section-developer.component
 import { environment } from '../../environments/environment';
 import { SectionFooter } from './section-footer/section-footer.component';
 import { ProjectService } from '../../services/project/project.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'home-page',
@@ -21,12 +22,13 @@ import { ProjectService } from '../../services/project/project.service';
 })
 export class HomePage {
 
+  auth = inject(AuthService);
   onSignin(): void {
     window.location.href = environment.authenUrl;
   }
 
   ngOnInit(): void {
-   this.getProjects();
+    this.getProjects();
   }
 
   projectService = inject(ProjectService);

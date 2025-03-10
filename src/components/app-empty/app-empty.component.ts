@@ -16,5 +16,6 @@ export class AppEmpty {
   icon = input<string>('pi pi-info-circle');
   title = input<string>('No data found');
   description = input<string>('No data found');
+  height = input<string>('var(--content-height-with-header)');
   isShowToolbar = input<boolean>(false);
 }

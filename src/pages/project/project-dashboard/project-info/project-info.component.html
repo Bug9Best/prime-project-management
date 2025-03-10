@@ -1,6 +1,6 @@
 <div class="h-full border-round shadow-1 p-3">
   <div class="mt-2">
-    {{ 'DASHBOARD_PROJECT_INFO' | translate }}
+    {{ 'project.dashboard.projectInfo' | translate }}
   </div>
   <p-divider></p-divider>
   <div class="px-3 flex flex-column justify-content-center align-content-center">
@@ -11,17 +11,8 @@
         </div>
         <div class="flex justify-content-between ml-2 w-full">
           <div class="flex flex-column">
-            <span>Natthaphon D. Best</span>
+            <span>{{ projectData.owner_name }}</span>
             <span class="text-500 text-sm">Project Owner</span>
-          </div>
-          <div>
-            <p-avatarGroup class="flex align-items-center"
-              [pTooltip]="'Natthaphon D. Best' + '\n'  + 'Phuriq' + '\n' + 'and 1 others'">
-              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
-              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png"
-                shape="circle" />
-              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" shape="circle" />
-            </p-avatarGroup>
           </div>
         </div>
       </div>

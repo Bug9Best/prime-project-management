@@ -31,10 +31,10 @@ export class AppLayoutTopbar {
   listMenu: MenuItem[] = [];
 
   items: MenuItem[] = [
-    {
-      label: 'User Profile',
-      icon: 'pi pi-user',
-    },
+    // {
+    //   label: 'User Profile',
+    //   icon: 'pi pi-user',
+    // },
     {
       label: 'Sign out',
       icon: 'pi pi-sign-out',

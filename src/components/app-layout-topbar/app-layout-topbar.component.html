@@ -46,11 +46,14 @@
           </ul>
         </li>
         <li class="border-top-1 surface-border lg:border-top-none">
-          <a pRipple class="flex p-2 align-items-center hover:surface-200 font-medium lg:border-circle cursor-pointer
-              transition-duration-150 transition-colors" (click)="menu.toggle($event)">
-              <img src="https://primefaces.org/cdn/primeng/images/demo/avatar/onyamalimba.png" class="mr-3 lg:mr-0" style="width: 28px; height: 28px"/>
-          </a>
-      </li>
+          <p-avatar  
+            styleClass="mr-2" 
+            size="normal"
+            [label]="'A'"
+            class="cursor-pointer flex align-items-center"
+            (click)="menu.toggle($event)"
+            [style]="{ 'background-color': '#dee9fc', color: 'black' }" shape="circle" />
+    </li>
         <p-menu #menu [model]="items" [popup]="true" class="flex justify-center" styleClass="w-18rem ml-3">
           <ng-template #item let-item>
               <a pRipple class="flex items-center p-menu-item-link">

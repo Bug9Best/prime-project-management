@@ -26,6 +26,7 @@ import { GanttConfigProvider } from '../../../config/gantt.config';
 import { TaskScrumService } from '../../../services/task_scrum/task_scrum.service';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { ActivatedRoute } from '@angular/router';
+import { ProjectContent } from '../component/project-content/project-content.component';
 
 @Component({
   selector: 'project-gantt',
@@ -84,6 +85,7 @@ export class ProjectGantt {
   items: GanttItem[] = [];
 
   constructor(
+    private projectContent: ProjectContent,
     private activateRoute: ActivatedRoute,
     private printService: GanttPrintService,
     private taskService: TaskScrumService,
@@ -110,8 +112,8 @@ export class ProjectGantt {
       .subscribe((res: any) => {
         this.items = res.map((item: any) => {
           item.title = item.task_name;
-          item.start = this.getDate(new Date(item.start_date));
-          item.end = this.getDate(new Date(item.end_date));
+          item.start = item.start_date ? this.getDate(new Date(item.start_date)) : null;
+          item.end = item.end_date ? this.getDate(new Date(item.end_date)) : null;
           return item;
         });
       });
@@ -130,7 +132,7 @@ export class ProjectGantt {
 
   selectedChange(event: GanttSelectedEvent) {
     if (!event) return;
-    event.current && this.ganttComponent.scrollToDate(event.current.start as number);
+    // event.current && this.ganttComponent.scrollToDate(event.current.start as number);
   }
 
   linkDragEnded(event: GanttLinkDragEvent) {
@@ -205,5 +207,9 @@ export class ProjectGantt {
 
   onDragEnded(event: GanttTableDragEndedEvent) {
     console.log('拖拽结束了', event);
+  }
+
+  itemClick(event: any) {
+    this.projectContent.setTaskState(true, event.current.id);
   }
 }

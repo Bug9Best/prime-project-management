@@ -23,6 +23,7 @@
     (linkDragEnded)="linkDragEnded($event)">
     <ngx-gantt-table
       [draggable]="true"
+      (itemClick)="itemClick($event)"
       [dropEnterPredicate]="dropEnterPredicate"
       (dragDropped)="onDragDropped($event)"
       (dragStarted)="onDragStarted($event)"
@@ -33,11 +34,11 @@
       </ngx-gantt-column>
 
       <ngx-gantt-column name="Start Date" width="120px">
-        <ng-template #cell let-item="item"> {{ (item.start) ? (getDate(item.start) | date:'dd MMM yyyy') : ''}} </ng-template>
+        <ng-template #cell let-item="item"> {{ (item.start) ? (getDate(item.start) | date:'dd MMM yyyy') : '-'}} </ng-template>
       </ngx-gantt-column>
 
       <ngx-gantt-column name="End Date" width="120px">
-        <ng-template #cell let-item="item"> {{ (item.end) ? (getDate(item.end) | date:'dd MMM yyyy') : ''}} </ng-template>
+        <ng-template #cell let-item="item"> {{ (item.end) ? (getDate(item.end) | date:'dd MMM yyyy') : '-'}} </ng-template>
       </ngx-gantt-column>
     </ngx-gantt-table>
 

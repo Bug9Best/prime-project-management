@@ -22,6 +22,7 @@
       "invite": "Invite",
       "edit": "Edit",
       "delete": "Delete",
+      "copy": "Copy",
       "cancel": "Cancel",
       "back": "Back",
       "close": "Close",
@@ -66,14 +67,19 @@
 
   "log": {
     "created" : "create task",
+    "assignedPre": "assigned",
+    "assignedPost": "to",
     "changedPre": "changed",
     "changedPost": "to",
     "commented": "commented",
+    "sprint_id": "sprint",
     "task_type": "task type",
     "task_priority": "task priority",
     "status": "task status",
     "start_date": "start date",
     "end_date": "end date",
+    "estimate_time": "estimate time",
+    "actual_time": "actual time",
     "TASK": "task",
     "SUB_TASK": "sub task",
     "BUG": "bug",
@@ -225,7 +231,7 @@
         "sprint": "Create Sprint",
         "backlog": "Create Task",
         "task": "Create Task",
-        "resource": "Create Resource",
+        "resource": "Add Resource",
         "member": "Add Member"
       },
       "edit": {
@@ -245,6 +251,18 @@
       "sprint": {
         "start": "Start Sprint",
         "close": "Close Sprint"
+      },
+      "resource": {
+        "hide": "Hide Content",
+        "show": "Show Content"
+      }
+    },
+    "tab": {
+      "setting": {
+        "general": "General",
+        "customer": "Customer",
+        "position": "Project Position",
+        "privacy": "Privacy"
       }
     },
     "header": {
@@ -311,6 +329,28 @@
     "kanban": {
       "title": "Kanban",
       "description": "Kanban is suitable for projects requiring continuous workflow management or those with a steady influx of tasks, focusing on prioritization and efficient task flow."
+    },
+    "dashboard" : {
+      "project_info": "Project Information",
+      "prirityOverview": "Priority Overview",
+      "taskOverview": "Task Status Overview",
+      "burnUp": "Burn Up Chart",
+      "burnDown": "Burn Down Chart",
+      "taskList": "Task List"
+    },
+    "setting": {
+      "customer": {
+        "title": "Customer Detail",
+        "description": "Customer information related to the project"
+      },
+      "privacy": {
+        "title": "Privacy Setting",
+        "description": "You can manage privary settings for this project.",
+        "archive": "Archive Project",
+        "archiveDescription": "Archiving a project will hide it from the project list. You can unarchive it at any time.",
+        "delete": "Delete Project",
+        "deleteDescription": "Deleting a project will permanently remove it from the system. This action cannot be undone."
+      }
     }
   },
 
@@ -329,7 +369,10 @@
       "helperText": "Ask your project owner for the project code, then enter it here.",
       "privacyType": "Privacy Type",
       "privacyTypePrivate": "Private",
-      "privacyTypePublic": "Public"
+      "privacyTypePublic": "Public",
+      "ownerName": "Owner Name",
+      "createDate": "Create Date",
+      "projectCode": "Project Code"
     },
     "sprint": {
       "name": "Sprint Name",
@@ -452,6 +495,10 @@
         "estimateTime": "Select Estimate Time",
         "actualTime": "Select Actual Time",
         "status": "Select Status"
+      },
+      "help": {
+        "estimateTime": "For example: 1h 30m",
+        "actualTime": "For example: 1h 30m"
       },
       "type": {
         "name": "Type",

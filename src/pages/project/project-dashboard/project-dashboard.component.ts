@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProjectInfo } from './project-info/project-info.component';
 import { AppHeader } from '../../../components/app-header/app-header.component';
 import { CommonModule } from '@angular/common';
@@ -8,6 +8,8 @@ import { ProjectTaskList } from "./project-task-list/project-task-list.component
 import { ProjectPriorityOverview } from './project-priority-overview/project-priority-overview.component';
 import { ProjectTaskOverview } from './project-task-overview/project-task-overview.component';
 import { ProjectBurnup } from "./project-burnup/project-burnup.component";
+import { ProjectService, ProjectsModel } from '../../../services/project/project.service';
+import { ActivatedRoute } from '@angular/router';
 
 type BurnType = 'burnup' | 'burndown';
 
@@ -29,11 +31,37 @@ type BurnType = 'burnup' | 'burndown';
 })
 export class ProjectDashboard {
 
+  projectID: string = '';
+  projectData: ProjectsModel = <any>{};
+
   title: string = 'project.title.dashboard';
   subtitle: string = 'project.subtitle.dashboard';
+
+  constructor(
+    private activateRoute: ActivatedRoute,
+  ) {
+    this.activateRoute.params
+      .subscribe(params => {
+        if (!params['id']) return;
+        this.projectID = params['id'];
+      });
+  }
 
   burnType: BurnType = 'burnup';
   onSelectedType(type: BurnType) {
     this.burnType = type;
+  }
+
+  projectService = inject(ProjectService);
+  ngOnInit() {
+    this.getProjectDashboard();
+  }
+
+  getProjectDashboard() {
+    this.projectService
+      .getOne(this.projectID)
+      .subscribe((data: any) => {
+        this.projectData = data;
+      });
   }
 }

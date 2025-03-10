@@ -21,9 +21,9 @@ export class ProjectTopbar {
       label: 'app.menu.workspace',
       routerLink: '/workspace'
     },
-    {
-      label: 'app.menu.profile',
-      routerLink: '/profile'
-    },
+    // {
+    //   label: 'app.menu.profile',
+    //   routerLink: '/profile'
+    // },
   ];
 }

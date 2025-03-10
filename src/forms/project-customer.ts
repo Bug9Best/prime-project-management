@@ -13,7 +13,7 @@ export var FormGroupProjectCustomer = new FormGroup({
 export var listFormProjectCustomer: InputAppForm[] = [
     {
         type: InputAppFormType.Text,
-        label: "FORM_CUSTOMER_NAME",
+        label: "form.customer.name",
         field: "customer_name",
         required: true,
         disabled: false,
@@ -21,7 +21,7 @@ export var listFormProjectCustomer: InputAppForm[] = [
     },
     {
         type: InputAppFormType.Text,
-        label: "FORM_CUSTOMER_EMAIL",
+        label: "form.customer.email",
         field: "customer_email",
         required: true,
         disabled: false,
@@ -29,7 +29,7 @@ export var listFormProjectCustomer: InputAppForm[] = [
     },
     {
         type: InputAppFormType.Text,
-        label: "FORM_CUSTOMER_PHONE",
+        label: "form.customer.phone",
         field: "customer_phone",
         required: true,
         disabled: false,
@@ -37,7 +37,7 @@ export var listFormProjectCustomer: InputAppForm[] = [
     },
     {
         type: InputAppFormType.Date,
-        label: "FORM_CUSTOMER_EMPLOY_START",
+        label: "form.customer.employStart",
         field: "employ_start_date",
         required: true,
         disabled: false,
@@ -45,7 +45,7 @@ export var listFormProjectCustomer: InputAppForm[] = [
     },
     {
         type: InputAppFormType.Date,
-        label: "FORM_CUSTOMER_EMPLOY_END",
+        label: "form.customer.employEnd",
         field: "employ_end_date",
         required: true,
         disabled: false,
@@ -53,7 +53,7 @@ export var listFormProjectCustomer: InputAppForm[] = [
     },
     {
         type: InputAppFormType.Textarea,
-        label: "FORM_CUSTOMER_ADDRESS",
+        label: "form.customer.address",
         field: "customer_address",
         required: false,
         disabled: false,

@@ -10,10 +10,11 @@
 	</div>
 	<div class="flex text-700">
     @if (!isEditing['assignee']) {
-      <div>
-        {{ taskData.assignee || ('detail.task.noAssignee') | translate}}
-      </div>
-      <div class="ml-3 cursor-pointer hover:text-900" *ngIf="!isEditing['assignee']">
+      <div>{{ taskData.assignee_name || ('detail.task.noAssignee') | translate}}</div>
+      <div  
+        *ngIf="!isEditing['assignee'] && !taskData.assignee_name"
+        class="ml-3 cursor-pointer hover:text-900"
+        (click)="assignYourself()">
         {{ 'detail.task.assignYourself' | translate}}
       </div>
     } @else {
@@ -21,10 +22,11 @@
         <p-select 
           placeholder="{{ 'detail.task.select.assignee' | translate }}" 
           size="small" 
-          optionLabel="label" 
+          optionLabel="name" 
           optionValue="id" 
           [options]="listMember"  
           formControlName="user_id"
+          (onChange)="onAssign()"
           class="w-full" />
       </div>
     }
@@ -231,20 +233,29 @@
 		<div class=" text-700">
       @if (!isEditing['estimate_time']) {
         @if (taskData.estimate_time) {
-          <div> {{ taskData.estimate_time | date:'dd/MM/yyyy' }} </div>
+          <div> {{ taskData.estimate_time }} </div>
         } @else {
           <div> {{ 'detail.task.noData' | translate }} </div>
         }
       } @else {
         <div class="w-full mt-2">
-          <p-datepicker 
-            placeholder="{{ 'detail.task.select.startDate' | translate }}" 
-            size="small"
-            styleClass="w-full"
-            dateFormat="dd/mm/yy"
+          <input type="text" pInputText 
+            aria-describedby="estimateTime-help"
+            placeholder="{{ 'detail.task.select.estimateTime' | translate }}" 
+            size="small" 
+            class="w-full"
+            [pKeyFilter]="allowCharacters"
             formControlName="estimate_time"
-            (onSelect)="onSelect()"
-            appendTo="body" />
+            (keyup.enter)="onSelect()"/>
+          <div>
+            <small id="estimateTime-help"> {{ 'detail.task.help.estimateTime' | translate }}</small>
+          </div>
+          <button pButton 
+            icon="pi pi-save"
+            [label]="'app.button.save' | translate"
+            (click)="onSelect()"
+            class="p-button-sm p-button-success w-full mt-2">
+        </button>
         </div>
       }
     </div>
@@ -267,20 +278,29 @@
 		<div class="text-700">
       @if (!isEditing['actual_time']) {
         @if (taskData.actual_time) {
-          <div> {{ taskData.actual_time | date:'dd/MM/yyyy' }} </div>
+          <div> {{ taskData.actual_time }} </div>
         } @else {
           <div> {{ 'detail.task.noData' | translate }} </div>
         }
       } @else {
         <div class="w-full mt-2">
-          <p-datepicker 
-            placeholder="{{ 'detail.task.select.startDate' | translate }}" 
-            size="small"
-            styleClass="w-full"
-            dateFormat="dd/mm/yy"
-            formControlName="actual_time"
-            (onSelect)="onSelect()"
-            appendTo="body" />
+            <input type="text" pInputText 
+              aria-describedby="actualTime-help"
+              placeholder="{{ 'detail.task.select.actualTime' | translate }}" 
+              size="small" 
+              class="w-full"
+              [pKeyFilter]="allowCharacters"
+              formControlName="actual_time"
+              (keyup.enter)="onSelect()"/>
+            <div>
+              <small id="actualTime-help"> {{ 'detail.task.help.actualTime' | translate }}</small>
+            </div>
+            <button pButton 
+              icon="pi pi-save"
+              [label]="'app.button.save' | translate"
+              (click)="onSelect()"
+              class="p-button-sm p-button-success w-full mt-2">
+            </button>
         </div>
       }
     </div>

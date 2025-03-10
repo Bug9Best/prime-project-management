@@ -7,7 +7,7 @@ import { DividerModule } from 'primeng/divider';
 import { InputTextModule } from 'primeng/inputtext';
 import { DatePickerModule } from 'primeng/datepicker';
 import { SelectModule } from 'primeng/select';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { listTaskPriority, TaskPriority } from '../../../../../../public/data/task-priority';
 import { listTaskType, TaskType } from '../../../../../../public/data/task-type';
@@ -17,6 +17,8 @@ import { TagStatus } from '../tag-status/tag-status.component';
 import { TagPriority } from '../tag-priority/tag-priority.component';
 import { TagType } from '../tag-type/tag-type.component';
 import { AuthService } from '../../../../../services/auth/auth.service';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { ProjectService } from '../../../../../services/project/project.service';
 
 @Component({
   selector: 'task-control',
@@ -33,7 +35,8 @@ import { AuthService } from '../../../../../services/auth/auth.service';
     ButtonModule,
     TagPriority,
     TagType,
-    TagStatus
+    TagStatus,
+    KeyFilterModule
   ],
   templateUrl: './task-control.component.html',
   styleUrl: './task-control.component.scss'
@@ -41,6 +44,7 @@ import { AuthService } from '../../../../../services/auth/auth.service';
 export class TaskControl {
 
   currentUser: any = {};
+  allowCharacters = /[0-9hHmM]/;
 
   @Input()
   taskData: TaskScrumModel = <any>{};
@@ -76,6 +80,7 @@ export class TaskControl {
 
   constructor(
     private auth: AuthService,
+    private projectService: ProjectService,
     private sprintService: SprintService,
   ) {
     this.currentUser = this.auth.getUserData();
@@ -84,7 +89,18 @@ export class TaskControl {
   ngOnChanges(changes: SimpleChanges) {
     let task = changes['taskData'].currentValue;
     if (!task) return;
+    this.getMemberList();
     this.getSprintList();
+  }
+
+  getMemberList() {
+    if (!this.taskData.project_id) return;
+    this.projectService.getProjectMembers(this.taskData.project_id)
+      .subscribe({
+        next: (data) => {
+          this.listMember = data;
+        }
+      });
   }
 
   getSprintList() {
@@ -187,5 +203,45 @@ export class TaskControl {
         }
       }
       );
+  }
+
+  onAssign() {
+    let values = <any>{};
+    values.task_id = this.taskData.id;
+    values.user_id = this.formGroup.get('user_id')?.value;
+
+    this.taskService
+      .assignTask(values)
+      .subscribe({
+        next: () => {
+          this.onUpdateTaskEvent.emit();
+          this.resetField();
+          this.resetFormGroup();
+          this.showMessage('success', 'Update Task', 'Update task successfully');
+        },
+        error: () => {
+          this.showMessage('error', 'Update Task', 'Update task failed');
+        }
+      });
+  }
+
+  assignYourself() {
+    let values = <any>{};
+    values.task_id = this.taskData.id;
+    values.user_id = this.currentUser.id;
+
+    this.taskService
+      .assignTask(values)
+      .subscribe({
+        next: () => {
+          this.onUpdateTaskEvent.emit();
+          this.resetField();
+          this.resetFormGroup();
+          this.showMessage('success', 'Assign Task', 'Assign task successfully');
+        },
+        error: () => {
+          this.showMessage('error', 'Assign Task', 'Assign task failed');
+        }
+      });
   }
 }

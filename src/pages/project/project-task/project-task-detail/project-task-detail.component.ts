@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { AppBreadcrumb } from '../../../../components/app-breadcrumb/app-breadcrumb.component';
 import { TaskScrumModel, TaskScrumService } from '../../../../services/task_scrum/task_scrum.service';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ProjectContent } from '../../component/project-content/project-content.component';
 import { AppScrolling } from '../../../../components/app-scrolling/app-scrolling.component';
 import { TaskInfo } from '../component/task-info/task-info.component';
@@ -12,6 +12,7 @@ import { FormTask } from '../component/form-task/form-task.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
+import { MenuModule } from 'primeng/menu';
 
 @Component({
   selector: 'project-task-detail',
@@ -25,7 +26,8 @@ import { ButtonModule } from 'primeng/button';
     DividerModule,
     TaskInfo,
     TaskControl,
-    ButtonModule
+    ButtonModule,
+    MenuModule
   ],
   templateUrl: './project-task-detail.component.html',
   styleUrl: './project-task-detail.component.scss'
@@ -45,7 +47,16 @@ export class ProjectTaskDetail {
     { label: '' },
   ];
 
+  taskMenu = [
+    {
+      label: 'app.button.delete',
+      icon: 'pi pi-trash',
+      command: () => this.onConfirm()
+    }
+  ]
+
   constructor(
+    private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private ProjectContent: ProjectContent,
     private taskScrumService: TaskScrumService
@@ -101,6 +112,27 @@ export class ProjectTaskDetail {
           this.getTaskData();
           this.appDialog.visible = false;
           this.showMessage('success', 'Success', 'Sprint has been updated successfully.');
+        }
+      });
+  }
+
+  onConfirm() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete this task?',
+      accept: () => {
+        this.onDeleteTask();
+      }
+    });
+  }
+
+  onDeleteTask() {
+    if (!this.taskID) return;
+    this.taskScrumService
+      .delete(this.taskID)
+      .subscribe({
+        next: () => {
+          this.ProjectContent.setTaskState(false);
+          this.showMessage('success', 'Success', 'Task has been deleted successfully.');
         }
       });
   }

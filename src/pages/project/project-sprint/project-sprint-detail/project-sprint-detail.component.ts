@@ -12,8 +12,9 @@ import { SprintModel, SprintService } from '../../../../services/sprint/sprint.s
 import { ButtonModule } from 'primeng/button';
 import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 import { FormSprint } from '../component/form-sprint/form-sprint.component';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { MenuModule } from 'primeng/menu';
 
 @Component({
   selector: 'project-sprint-detail',
@@ -29,7 +30,8 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
     SprintControl,
     ButtonModule,
     FormSprint,
-    ScrollPanelModule
+    ScrollPanelModule,
+    MenuModule
   ],
   templateUrl: './project-sprint-detail.component.html',
   styleUrl: './project-sprint-detail.component.scss'
@@ -49,7 +51,15 @@ export class ProjectSprintDetail {
     { label: '' },
   ];
 
+  sprintMenu = [
+    {
+      label: 'app.button.delete',
+      icon: 'pi pi-trash',
+      command: () => this.onConfirm()
+    }
+  ]
   constructor(
+    private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private ProjectContent: ProjectContent,
     private sprintService: SprintService
@@ -111,6 +121,27 @@ export class ProjectSprintDetail {
           this.getSPrintData();
           this.appDialog.visible = false;
           this.showMessage('success', 'Success', 'Sprint has been updated successfully.');
+        }
+      });
+  }
+
+  onConfirm() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete this task?',
+      accept: () => {
+        this.onDeleteSprint();
+      }
+    });
+  }
+
+  onDeleteSprint() {
+    if (!this.sprintID) return;
+    this.sprintService
+      .delete(this.sprintID)
+      .subscribe({
+        next: () => {
+          this.ProjectContent.setSprintState(false);
+          this.showMessage('success', 'Success', 'Task has been deleted successfully.');
         }
       });
   }

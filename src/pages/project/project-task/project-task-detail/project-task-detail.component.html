@@ -20,6 +20,20 @@
         <form-task>
         </form-task>
     </app-dialog>
+    <button pButton 
+      icon="pi pi-ellipsis-v"
+      class="p-button-sm p-button-secondary p-button-text ml-2"
+      (click)="menu.toggle($event)">
+    </button>
+
+    <p-menu #menu [model]="taskMenu" [popup]="true" >
+      <ng-template #item let-item>
+        <div class="p-menu-item-link text-700" (click)="item.command()">
+          <span [class]="item.icon"></span>
+          <span class="ml-2 text-sm">{{ item.label | translate }}</span>
+        </div>
+      </ng-template>
+    </p-menu>
   </div>
 </app-breadcrumb>
 

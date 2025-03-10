@@ -36,6 +36,7 @@ export interface TaskScrumModel extends BaseModel {
   actual_time: string;
   status: TaskStatusModel;
   assignee: any;
+  assignee_name: string;
 
   sprint_name: string;
   project_name: string;
@@ -62,6 +63,14 @@ export class TaskScrumService extends BaseService<TaskScrumModel> {
       params: {
         project_id: project_id
       }
+    });
+  }
+
+  assignTask(params: { task_id: string | number, user_id: string | number }) {
+    return this.client.post<TaskScrumModel[]>(`${this.getBaseUrl}/assignTask`, {
+      user_id: params.user_id,
+      task_id: params.task_id,
+      type: "SCRUM"
     });
   }
 

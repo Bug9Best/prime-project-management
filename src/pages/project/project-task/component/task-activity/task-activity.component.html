@@ -15,13 +15,25 @@
               <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
             </div>
           }
+          @case ('assigned') {
+            <div>
+              <span class="text-primary"> {{ item.action_user_name }} </span>
+              <span class="text-700"> {{ 'log.' + item.action_type + 'Pre' | translate }} </span>
+              <span class="text-primary"> {{ item.task_name }} </span>
+              <span class="text-700"> {{ 'log.' + item.action_type + 'Post' | translate }} </span>
+              <span class="text-primary"> {{ getLogging(item) | translate}} </span>
+            </div>
+            <div class="text-xs text-700">
+              <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
+            </div>
+          }
           @case ('changed') {
             <div>
               <span class="text-primary"> {{ item.action_user_name }} </span>
               <span class="text-700"> {{ 'log.' + item.action_type + 'Pre' | translate }} </span>
               <span class="text-primary"> {{ 'log.' + item.action_key  | translate}} </span>
               <span class="text-700"> {{ 'log.' + item.action_type + 'Post' | translate }} </span>
-              <span class="text-primary"> {{ 'log.' + item.action_value | translate}} </span>
+              <span class="text-primary"> {{ getLogging(item) | translate}} </span>
             </div>
             <div class="text-xs text-700">
               <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>

@@ -21,6 +21,8 @@ export interface ProjectsModel extends BaseModel {
   project_privacy_type: string;
   project_code: string;
   is_disabled: boolean;
+
+  owner_name?: string;
 }
 
 @Injectable({
@@ -62,6 +64,12 @@ export class ProjectService extends BaseService<ProjectsModel> {
       params: {
         project_id: project_id,
       },
+    });
+  }
+
+  archiveProject(project_id: string | number) {
+    return this.client.put<any>(`${this.getBaseUrl}/archiveProject`, {
+      project_id: project_id,
     });
   }
 }

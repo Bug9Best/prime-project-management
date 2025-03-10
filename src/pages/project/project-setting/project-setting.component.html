@@ -4,19 +4,19 @@
 </app-header>
 
 <p-tabView>
-  <p-tabPanel header="General" >
+  <p-tabPanel [header]="'project.tab.setting.general' | translate" >
     <setting-general>
     </setting-general>
   </p-tabPanel>
-  <p-tabPanel header="Customer">
+  <p-tabPanel [header]="'project.tab.setting.customer' | translate">
     <setting-customer>
     </setting-customer>
   </p-tabPanel>
-  <p-tabPanel header="Notification">
-    <setting-notification>
-    </setting-notification>
-  </p-tabPanel>
-  <p-tabPanel header="Privacy">
+  <!-- <p-tabPanel [header]="'project.tab.setting.position' | translate">
+    <setting-position>
+    </setting-position>
+  </p-tabPanel> -->
+  <p-tabPanel [header]="'project.tab.setting.privacy' | translate">
     <setting-privacy>
     </setting-privacy>
   </p-tabPanel>

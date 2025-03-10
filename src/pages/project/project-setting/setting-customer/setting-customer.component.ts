@@ -6,14 +6,18 @@ import { CustomerModel, CustomerService } from '../../../../services/customer/cu
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MessageService } from 'primeng/api';
+import { TranslateModule } from '@ngx-translate/core';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'setting-customer',
   imports: [
+    TranslateModule,
     CommonModule,
     AppDialog,
     ScrollPanelModule,
-    CustomerForm
+    CustomerForm,
+    ButtonModule
   ],
   templateUrl: './setting-customer.component.html',
   styleUrl: './setting-customer.component.scss'
@@ -61,8 +65,24 @@ export class SettingCustomer {
     });
   }
 
+  onEditCustomer() {
+    this.appDialog.visible = true;
+
+    if (!this.customerData) return;
+    this.customerForm.formGroup.patchValue(this.customerData);
+    this.customerForm.formGroup.patchValue({
+      employ_start_date: new Date(this.customerData.employ_start_date),
+      employ_end_date: new Date(this.customerData.employ_end_date),
+    });
+  }
+
   resetForm() {
     this.customerForm.formGroup.reset();
+  }
+
+  onCancelForm() {
+    this.appDialog.visible = false;
+    this.resetForm();
   }
 
   @ViewChild(CustomerForm) customerForm!: CustomerForm;

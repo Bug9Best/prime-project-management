@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ImageModule } from 'primeng/image';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
@@ -8,12 +8,16 @@ import { ProjectService, ProjectsModel } from '../../../../services/project/proj
 import { ActivatedRoute } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { MessageService } from 'primeng/api';
+import { GeneralForm } from '../component/general-form/general-form.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'setting-general',
   imports: [
+    TranslateModule,
     CommonModule,
     AppDialog,
+    GeneralForm,
     ImageModule,
     FileUploadModule,
     ScrollPanelModule,
@@ -79,5 +83,45 @@ export class SettingGeneral {
   onBasicUploadAuto(event: any) {
     console.log(event)
     console.log(event.files)
+  }
+
+  onEditGeneral() {
+    this.appDialog.visible = true;
+
+    if (!this.projectData) return;
+    this.generalForm.formGroup.patchValue(this.projectData);
+  }
+
+  resetForm() {
+    this.generalForm.formGroup.reset();
+  }
+
+  onCancelForm() {
+    this.appDialog.visible = false;
+    this.resetForm();
+  }
+
+  @ViewChild(GeneralForm) generalForm!: GeneralForm;
+  onValidateForm() {
+    if (this.generalForm.formGroup.invalid) {
+      this.generalForm.formGroup.markAllAsTouched();
+      this.showMessage('warn', 'Error', 'Please fill in all required fields');
+      return;
+    }
+
+    let values = this.generalForm.formGroup.value;
+    this.onEditProject(values);
+  }
+
+  @ViewChild(AppDialog) appDialog!: AppDialog;
+  onEditProject(values: ProjectsModel) {
+    this.projectService
+      .update(this.projectID, values)
+      .subscribe(() => {
+        this.showMessage('success', 'Success', 'Customer created successfully');
+        this.appDialog.visible = false;
+        this.resetForm();
+        this.getProject();
+      });
   }
 }

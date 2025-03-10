@@ -1,23 +1,33 @@
 <div class="border-bottom-1 surface-border">
   <div class="flex justify-content-between align-items-center">
     <div class="flex flex-column">
-      <div class="font-medium text-lg text-900"> Customer Information </div>
+      <div class="font-medium text-lg text-900"> 
+        {{ 'project.title.customer' | translate}}   
+      </div>
       <div class="text-sm text-500 mb-3"> 
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        {{ 'project.subtitle.customer' | translate}}   
       </div>
     </div>
     <app-dialog 
+      [showButton]="false"
       [icon]="'pi pi-file-edit'"
       [width]="'60vw'"
-      [label]="'BUTTON_EDIT'"
-      [header]="'SETTING_CUSTOMER_HEADER'"
-      [submitLabel]="'BUTTON_SAVE'"
+      [label]="'app.button.edit'"
+      [header]="'project.header.customer'"
+      [submitLabel]="'app.button.save'"
       [buttonStyleClass]="'p-button-secondary'"
+      (onCancelEvent)="onCancelForm()"
       (onSubmitEvent)="onValidateForm()">
         <customer-form>
         </customer-form>
     </app-dialog>
+    <button 
+      icon="pi pi-file-edit"
+      [label]="'app.button.edit' | translate"
+      class="w-10rem p-button-secondary"
+      (click)="onEditCustomer()"
+      pButton>
+    </button>
   </div>
 </div>
 <p-scrollpanel 

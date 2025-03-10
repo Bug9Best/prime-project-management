@@ -1,9 +1,11 @@
 <div class="border-bottom-1 surface-border">
   <div class="flex justify-content-between align-items-center">
     <div class="flex flex-column">
-      <div class="font-medium text-lg text-900"> Privary </div>
+      <div class="font-medium text-lg text-900">
+        {{ 'project.setting.privacy.title' | translate }}   
+      </div>
       <div class="text-sm text-500 mb-3">
-        You can manage privary settings for this project.
+        {{ 'project.setting.privacy.description' | translate }}   
       </div>
     </div>
   </div>
@@ -12,16 +14,18 @@
 <div class="mt-3">
   <div class="flex justify-content-between align-items-center">
     <div class="flex flex-column">
-      <div class="font-medium text-lg text-900"> Archive this project </div>
+      <div class="font-medium text-lg text-900">
+        {{ 'project.setting.privacy.archive' | translate }}   
+      </div>
       <div class="text-sm text-500 ">
-        Mark this project as archived and read-only.
+        {{ 'project.setting.privacy.archiveDescription' | translate }}   
       </div>
     </div>
     <div class="flex align-items-center">
       <button 
         icon="pi pi-bookmark"
-        label="Archive Project"
-        class="p-button-warn p-button-outlined"
+        [label]="'project.setting.privacy.archive' | translate"
+        class="p-button-warn p-button-sm p-button-outlined w-12rem"
         (click)="onConfirmArchive()"
         pButton>
       </button>
@@ -32,16 +36,18 @@
 
   <div class="flex justify-content-between align-items-center">
     <div class="flex flex-column">
-      <div class="font-medium text-lg text-900"> Delete this project </div>
+      <div class="font-medium text-lg text-900">
+        {{ 'project.setting.privacy.delete' | translate }}   
+      </div>
       <div class="text-sm text-500">
-        Once you delete a project, there is no going back. Please be certain.
+        {{ 'project.setting.privacy.deleteDescription' | translate }}   
       </div>
     </div>
     <div class="flex align-items-center">
       <button 
         icon="pi pi-trash"
-        label="Delete Project"
-        class="p-button-danger p-button-outlined"
+        [label]="'project.setting.privacy.delete' | translate"
+        class="p-button-danger p-button-sm p-button-outlined w-12rem"
         (click)="onConfirmDelete()"
         pButton>
       </button>

@@ -5,10 +5,12 @@ import { DividerModule } from 'primeng/divider';
 import { ProjectService, ProjectsModel } from '../../../../services/project/project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'setting-privacy',
   imports: [
+    TranslateModule,
     ButtonModule,
     DividerModule,
     ConfirmDialogModule
@@ -59,6 +61,11 @@ export class SettingPrivacy {
   }
 
   archiveProject() {
+    this.projectService
+      .archiveProject(this.projectID)
+      .subscribe(() => {
+        this.router.navigate(['/workspace']);
+      });
   }
 
   onConfirmDelete() {

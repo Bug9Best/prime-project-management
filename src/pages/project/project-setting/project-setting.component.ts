@@ -2,23 +2,24 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AppHeader } from '../../../components/app-header/app-header.component';
 import { TabViewModule } from 'primeng/tabview';
-import { SelectButtonModule } from 'primeng/selectbutton';
 import { FormsModule } from '@angular/forms';
 import { SettingGeneral } from './setting-general/setting-general.component';
 import { SettingCustomer } from './setting-customer/setting-customer.component';
-import { SettingNotification } from './setting-notification/setting-notification.component';
 import { SettingPrivacy } from './setting-privacy/setting-privacy.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { SettingPosition } from './setting-position/setting-position.component';
 
 @Component({
   selector: 'project-setting',
   imports: [
+    TranslateModule,
     CommonModule,
     FormsModule,
     TabViewModule,
     AppHeader,
     SettingGeneral,
     SettingCustomer,
-    SettingNotification,
+    SettingPosition,
     SettingPrivacy
   ],
   templateUrl: './project-setting.component.html',

@@ -4,72 +4,101 @@
       <div class="font-medium text-lg text-900"> General Project Information </div>
       <div class="text-sm text-500 mb-3">  Display general information of project. </div>
     </div>
-    <app-dialog 
+    <app-dialog
+      [showButton]="false"
       [icon]="'pi pi-file-edit'"
       [width]="'60vw'"
-      [label]="'BUTTON_EDIT'"
-      [header]="'BUTTON_EDIT'"
+      [label]="'app.button.edit'"
+      [header]="'app.button.edit'"
       [buttonStyleClass]="'p-button-secondary'"
-      [showFooter]="false">
+      (onCancelEvent)="onCancelForm()"
+      (onSubmitEvent)="onValidateForm()">
+        <general-form>
+        </general-form>
     </app-dialog>
+    <button
+      icon="pi pi-file-edit"
+      [label]="'app.button.edit' | translate"
+      class="w-10rem p-button-secondary"
+      (click)="onEditGeneral()"
+      pButton>
+    </button>
   </div>
 </div>
-<p-scrollpanel 
+<p-scrollpanel
   [style]="{ width: '100%', height: 'var(--content-height-with-subheader)' }">
 
   <div class="mt-3 flex flex-column">
     <div class="flex w-full">
       <div class="flex flex-column">
-        <p-image 
-          width="250" 
+        <p-image
+          width="250"
           class="border-round"
-          src="https://primefaces.org/cdn/primeng/images/galleria/galleria10.jpg" 
+          src="image/project-logo.png"
           [preview]="true" >
           <ng-template #indicator>
             <i class="pi pi-eye"></i>
-          </ng-template>      
+          </ng-template>
         </p-image>
-        <p-fileupload 
-          mode="basic" 
-          name="demo[]" 
-          [auto]="true" 
+        <p-fileupload
+          mode="basic"
+          name="demo[]"
+          [auto]="true"
           chooseLabel="Change Image"
-          chooseIcon="pi pi-image" 
-          accept="image/*" maxFileSize="1000000" 
-          url="https://www.primefaces.org/cdn/api/upload.php" 
+          chooseIcon="pi pi-image"
+          accept="image/*" maxFileSize="1000000"
+          url="https://www.primefaces.org/cdn/api/upload.php"
           (onUpload)="onBasicUploadAuto($event)" />
       </div>
     </div>
 
     <div class="grid grid-nogutter border-top-1 surface-border mt-3">
       <div class="col-12 md:col-6 py-3">
-        <div class="text-500 mb-1">Project Name</div>
-        <div class="text-900">Prime Project</div>
+        <div class="text-500 mb-1">
+          {{ 'form.project.name' | translate }}
+        </div>
+        <div class="text-900">
+          {{ projectData?.project_name }}
+        </div>
       </div>
       <div class="col-12 md:col-6 py-3">
-        <div class="text-500 mb-1">Project Type</div>
-        <div class="text-900">Scrum Project</div>
+        <div class="text-500 mb-1">
+          {{ 'form.project.type' | translate }}
+        </div>
+        <div class="text-900">
+          {{ projectData?.project_type }}
+        </div>
       </div>
       <div class="col-12 md:col-6 py-3">
-        <div class="text-500 mb-1">Project Owner</div>
-        <div class="text-900">Nathaphon Ditthaviboon</div>
+        <div class="text-500 mb-1">
+          {{ 'form.project.ownerName' | translate }}
+        </div>
+        <div class="text-900">
+          {{ projectData?.owner_name }}
+        </div>
       </div>
       <div class="col-12 md:col-6 py-3">
-        <div class="text-500 mb-1">Create Date</div>
-        <div class="text-900">21 January 2025</div>
+        <div class="text-500 mb-1">
+          {{ 'form.project.createDate' | translate }}
+        </div>
+        <div class="text-900">
+          {{ projectData?.created_at | date: 'dd/MM/yyyy' }}
+        </div>
       </div>
       <div class="col-12 md:col-6 py-3">
         <div class="flex align-items-center">
           <div class="flex flex-column">
-            <div class="text-500 mb-1">Project Code</div>
+            <div class="text-500 mb-1">
+              {{ 'form.project.projectCode' | translate }}
+            </div>
             <div class="text-900">{{ projectData?.project_code }}</div>
             </div>
-            <button 
+            <button
               icon="pi pi-clipboard"
-              label="Copy code"
+              [label]="'app.button.copy' | translate"
               class="p-button-secondary p-button-outlined p-button-sm w-8rem ml-3"
               (click)="copyMessage(projectData ? projectData.project_code : '')"
-              pButton> 
+              pButton>
           </button>
         </div>
       </div>

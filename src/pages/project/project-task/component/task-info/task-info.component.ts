@@ -25,7 +25,6 @@ export class TaskInfo {
   @Input()
   taskData: TaskScrumModel = <any>{};
 
-
   onCommentEvent = output<void>();
   onComment() {
     this.onCommentEvent.emit();

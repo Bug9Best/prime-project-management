@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, signal, ViewChild } from '@angular/core';
 import { ProjectTopbar } from '../component/project-topbar/project-topbar.component';
 import { ProjectSidebar } from '../component/project-sidebar/project-sidebar.component';
 import { ProjectContent } from '../component/project-content/project-content.component';
@@ -19,7 +19,7 @@ type ProjectType = 'SCRUM' | 'WATERFALL' | 'KANBAN';
 })
 export class ProjectPage {
 
-  currentTabIndex: number = 0;
+  currentTabIndex = signal<number>(0);
   projectType: ProjectType = 'SCRUM';
 
   projectID: string = '';
@@ -39,8 +39,9 @@ export class ProjectPage {
   }
 
   @ViewChild(ProjectContent) projectContent!: ProjectContent;
-  setCurrentTabIndex(index: number) {
-    this.currentTabIndex = index;
+  setCurrentTabIndex(index: any) {
+    this.currentTabIndex.set(index);
+    this.projectContent.setBacklogState(false);
     this.projectContent.setSprintState(false);
     this.projectContent.setTaskState(false);
   }

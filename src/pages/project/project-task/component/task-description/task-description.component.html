@@ -1,7 +1,16 @@
 <div class="text-xl font-bold"> Description </div>
 
-<div class="flex justify-content-start mt-3">
-    
-</div>
+<div class="mt-3" 
+  [innerHTML]="taskData.task_description">
 
-<p-divider></p-divider>
+</div>
+@if (!taskData.task_description) { 
+  <app-empty
+    [height]="'200px'"
+    [icon]="'pi pi-list'" 
+    [title]="emptyTitle" 
+    [description]="emptyDescription">
+  </app-empty>
+} @else {
+  <p-divider></p-divider>
+}

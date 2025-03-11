@@ -132,7 +132,7 @@ export class ProjectGantt {
 
   selectedChange(event: GanttSelectedEvent) {
     if (!event) return;
-    // event.current && this.ganttComponent.scrollToDate(event.current.start as number);
+    event.current && this.ganttComponent.scrollToDate(event.current.start as number);
   }
 
   linkDragEnded(event: GanttLinkDragEvent) {

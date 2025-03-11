@@ -20,6 +20,10 @@ import { AuthService } from '../../../services/auth/auth.service';
 import { AppDialog } from '../../../components/app-dialog/app-dialog.component';
 import { FormSprint } from '../project-sprint/component/form-sprint/form-sprint.component';
 import { FormTask } from '../project-task/component/form-task/form-task.component';
+import { ProjectContent } from '../component/project-content/project-content.component';
+import { TagStatus } from '../project-task/component/tag-status/tag-status.component';
+import { TagPriority } from '../project-task/component/tag-priority/tag-priority.component';
+import { TagType } from '../project-task/component/tag-type/tag-type.component';
 
 @Component({
   selector: 'project-backlog',
@@ -37,6 +41,9 @@ import { FormTask } from '../project-task/component/form-task/form-task.componen
     ScrollPanelModule,
     DndModule,
     TagModule,
+    TagType,
+    TagStatus,
+    TagPriority,
     ProgressBarModule
   ],
   templateUrl: './project-backlog.component.html',
@@ -74,6 +81,7 @@ export class ProjectBacklog {
   constructor(
     private auth: AuthService,
     private activatedRoute: ActivatedRoute,
+    private projectContent: ProjectContent,
     private messageService: MessageService,
     private projectService: ProjectService,
     private sprintService: SprintService,
@@ -286,5 +294,9 @@ export class ProjectBacklog {
           this.showMessage('error', 'Error', 'Create task failed');
         }
       });
+  }
+
+  onSelectTask(task: TaskScrumModel) {
+    this.projectContent.setBacklogState(true, task.id);
   }
 }

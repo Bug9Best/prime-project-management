@@ -247,6 +247,7 @@ export class ProjectTask {
     let values = this.formTask.formGroup.value;
     values.project_id = this.projectID;
     values.user_id = this.currentUser.id;
+    values.task_description = this.formTask.taskDescription;
     this.onCreateTask(values);
   }
 

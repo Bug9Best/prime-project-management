@@ -2,12 +2,14 @@
   <div class="app-content-height flex gap-3">
     <project-sidebar 
       [projectType]="projectType"
+      [currentTabIndex]="currentTabIndex()"
       (onChangeTabIndexEvent)="setCurrentTabIndex($event)">
     </project-sidebar>
 
     <div class="w-full overflow-hidden">
       <project-content 
-        [currentTabIndex]="currentTabIndex">
+        (onSetTabIndexEvent)="setCurrentTabIndex($event)"
+        [currentTabIndex]="currentTabIndex()">
       </project-content>
     </div>
   </div>

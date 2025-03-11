@@ -1,13 +1,21 @@
 import { Component, Input } from '@angular/core';
 import { AppForm, InputAppForm } from '../../../../../components/app-form/app-form.component';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TaskScrumModel } from '../../../../../services/task_scrum/task_scrum.service';
 import { FormGroupTaskCreate, listFormTaskCreate } from '../../../../../forms/task-create';
+import { EditorModule } from 'primeng/editor';
+import { TranslateModule } from '@ngx-translate/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'form-task',
   imports: [
-    AppForm
+    CommonModule,
+    TranslateModule,
+    AppForm,
+    FormsModule,
+    ReactiveFormsModule,
+    EditorModule
   ],
   templateUrl: './form-task.component.html',
   styleUrl: './form-task.component.scss'
@@ -18,12 +26,9 @@ export class FormTask {
   TaskData: TaskScrumModel = <any>{};
 
   listForm: InputAppForm[] = listFormTaskCreate;
-  formGroup: FormGroup = FormGroupTaskCreate;
+  formGroup: FormGroup = new FormGroup({
+    task_name: new FormControl(null, [Validators.required]),
+  });;
 
-  ngOnInit() {
-    if (this.TaskData) {
-      this.formGroup.patchValue(this.TaskData);
-    }
-  }
-
+  taskDescription: string = '';
 }

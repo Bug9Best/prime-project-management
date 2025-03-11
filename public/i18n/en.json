@@ -81,7 +81,7 @@
     "estimate_time": "estimate time",
     "actual_time": "actual time",
     "TASK": "task",
-    "SUB_TASK": "sub task",
+    "SUBTASK": "sub task",
     "BUG": "bug",
     "LOW": "low",
     "MEDIUM": "medium",
@@ -316,6 +316,10 @@
       "member": {
         "title": "No member found",
         "description": "No member found in this project."
+      },
+      "taskDescription": {
+        "title": "No description.",
+        "description": "No description has been added to this task."
       }
     },
     "scrum": {
@@ -470,6 +474,14 @@
         "closed": "Closed"
       }
     },
+    "backlog": {
+      "header": "Backlog",
+      "subheader": "Backlog Detail",
+      "description": "Infomation about backlog",
+      "taskTotal": "Total Task",
+      "taskCounting": "tasks",
+      "noData": "No specified"
+    },
     "task": {
       "header": "Task",
       "subheader": "Task Detail",
@@ -478,6 +490,7 @@
       "sprint": "Sprint",
       "assignee": "Assignee",
       "noAssignee": "No Assignee:",
+      "notAssignee": "No Assignee",
       "assignYourself": "Assign yourself",
       "startDate": "Start Date",
       "endDate": "End Date",

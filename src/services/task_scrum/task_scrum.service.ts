@@ -78,6 +78,12 @@ export class TaskScrumService extends BaseService<TaskScrumModel> {
     return this.client.post<TaskScrumModel[]>(`${this.getBaseUrl}/moveToSprint`, params);
   }
 
+  updateByField(dataId: any, params: any) {
+    return this.client.put<TaskScrumModel[]>(`${this.getBaseUrl}/updateByField/${dataId}`,
+      params
+    );
+  }
+
   updateStatus(task: { id: string | number, status: TaskStatusModel }) {
     return this.client.put<TaskScrumModel[]>(`${this.getBaseUrl}/updateStatus`, {
       id: task.id,

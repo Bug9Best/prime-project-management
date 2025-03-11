@@ -41,6 +41,7 @@ export class ProjectPage {
   @ViewChild(ProjectContent) projectContent!: ProjectContent;
   setCurrentTabIndex(index: any) {
     this.currentTabIndex.set(index);
+    this.projectContent.setGanttState(false);
     this.projectContent.setBacklogState(false);
     this.projectContent.setSprintState(false);
     this.projectContent.setTaskState(false);

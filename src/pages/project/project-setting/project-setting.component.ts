@@ -19,7 +19,7 @@ import { SettingPosition } from './setting-position/setting-position.component';
     AppHeader,
     SettingGeneral,
     SettingCustomer,
-    SettingPosition,
+    // SettingPosition,
     SettingPrivacy
   ],
   templateUrl: './project-setting.component.html',

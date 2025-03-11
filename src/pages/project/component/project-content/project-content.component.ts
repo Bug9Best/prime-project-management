@@ -11,6 +11,7 @@ import { ProjectBoard } from '../../project-board/project-board.component';
 import { ProjectSprintDetail } from '../../project-sprint/project-sprint-detail/project-sprint-detail.component';
 import { ProjectTaskDetail } from '../../project-task/project-task-detail/project-task-detail.component';
 import { ProjectBacklogTask } from '../../project-backlog/project-backlog-task/project-backlog-task.component';
+import { ProjectGanttTask } from '../../project-gantt/project-gantt-task/project-gantt-task.component';
 
 @Component({
   selector: 'project-content',
@@ -20,6 +21,7 @@ import { ProjectBacklogTask } from '../../project-backlog/project-backlog-task/p
     ProjectBacklog,
     ProjectBacklogTask,
     ProjectGantt,
+    ProjectGanttTask,
     ProjectBoard,
     ProjectTask,
     ProjectResource,
@@ -38,9 +40,10 @@ export class ProjectContent {
 
   sprintID: string = '';
   sprintDetailState = signal<boolean>(false);
-  
+
 
   taskID: string = '';
+  ganttDetailState = signal<boolean>(false);
   backlogDetailState = signal<boolean>(false);
   taskDetailState = signal<boolean>(false);
 
@@ -58,6 +61,13 @@ export class ProjectContent {
     this.sprintDetailState.set(state);
     if (sprintID) {
       this.sprintID = sprintID;
+    }
+  }
+
+  setGanttState(state: boolean, taskID?: string) {
+    this.ganttDetailState.set(state);
+    if (taskID) {
+      this.taskID = taskID;
     }
   }
 

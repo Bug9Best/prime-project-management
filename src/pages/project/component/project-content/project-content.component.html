@@ -25,8 +25,14 @@
       }
     }
     @case (3) {
-      <project-gantt>
-      </project-gantt>
+      @if (!ganttDetailState()) {
+        <project-gantt>
+        </project-gantt>
+      } @else {
+        <project-gantt-task
+          [taskID]="taskID">
+        </project-gantt-task>
+      }
     }
     @case (4) {
       <project-board>

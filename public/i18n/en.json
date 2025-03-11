@@ -343,6 +343,10 @@
       "taskList": "Task List"
     },
     "setting": {
+      "general": {
+        "title": "General Project Information",
+        "description": "Display general information of project."
+      },
       "customer": {
         "title": "Customer Detail",
         "description": "Customer information related to the project"
@@ -408,6 +412,7 @@
       "email": "Email",
       "employStart": "Employ Start Date",
       "employEnd": "Employ End Date",
+      "duration": "Employment Duration",   
       "phone": "Phone Number",
       "address": "Address (Optional)"
     }
@@ -481,6 +486,10 @@
       "taskTotal": "Total Task",
       "taskCounting": "tasks",
       "noData": "No specified"
+    },
+    "gantt": {
+      "header": "Gantt Chart",
+      "subheader": "Manage tasks in Gantt chart format."
     },
     "task": {
       "header": "Task",

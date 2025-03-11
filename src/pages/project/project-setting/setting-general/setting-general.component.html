@@ -1,8 +1,12 @@
 <div class="border-bottom-1 surface-border">
   <div class="flex justify-content-between align-items-center">
     <div class="flex flex-column">
-      <div class="font-medium text-lg text-900"> General Project Information </div>
-      <div class="text-sm text-500 mb-3">  Display general information of project. </div>
+      <div class="font-medium text-lg text-900">
+        {{ 'project.setting.general.title' | translate }}
+      </div>
+      <div class="text-sm text-500 mb-3">
+        {{ 'project.setting.general.description' | translate }}
+      </div>
     </div>
     <app-dialog
       [showButton]="false"

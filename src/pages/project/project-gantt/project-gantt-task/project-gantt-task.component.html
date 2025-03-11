@@ -1,0 +1,53 @@
+<app-breadcrumb
+  [items]="items"
+  [subtitle]="subtitle">
+  <div class="flex">
+    <button 
+      icon="pi pi-file-edit"
+      [label]="labelButton | translate"
+      class="w-10rem p-button-secondary"
+      (click)="onEditTask()"
+      pButton>
+    </button>
+    <app-dialog
+      [icon]="'pi pi-file-edit'"
+      [width]="'60vw'"
+      [label]="labelButton"
+      [header]="labelHeader"
+      [submitLabel]="labelSubmit"
+      [showButton]="false"
+      (onSubmitEvent)="onValidateForm()">
+        <form-task>
+        </form-task>
+    </app-dialog>
+    <button pButton 
+      icon="pi pi-ellipsis-v"
+      class="p-button-sm p-button-secondary p-button-text ml-2"
+      (click)="menu.toggle($event)">
+    </button>
+
+    <p-menu #menu [model]="taskMenu" [popup]="true" >
+      <ng-template #item let-item>
+        <div class="p-menu-item-link text-700" (click)="item.command()">
+          <span [class]="item.icon"></span>
+          <span class="ml-2 text-sm">{{ item.label | translate }}</span>
+        </div>
+      </ng-template>
+    </p-menu>
+  </div>
+</app-breadcrumb>
+
+<div class="custom-grid">
+  <app-scrolling>
+    <task-info
+      [taskData]="taskData"
+      (onCommentEvent)="getTaskData()">
+    </task-info>
+  </app-scrolling>
+  <p-divider layout="vertical"></p-divider>
+  <task-control 
+    [taskData]="taskData"
+    [projectType]="projectType()"
+    (onUpdateTaskEvent)="getTaskData()">
+  </task-control>
+</div>

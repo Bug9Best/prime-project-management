@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostBinding, ViewChild } from '@angular/core';
+import { Component, HostBinding, inject, ViewChild } from '@angular/core';
 import { AppHeader } from '../../../components/app-header/app-header.component';
 import { NgxGanttModule } from '@worktile/gantt';
 import {
@@ -27,6 +27,7 @@ import { TaskScrumService } from '../../../services/task_scrum/task_scrum.servic
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectContent } from '../component/project-content/project-content.component';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'project-gantt',
@@ -80,11 +81,10 @@ export class ProjectGantt {
     viewType: GanttViewType.day
   };
 
-
-
   items: GanttItem[] = [];
 
   constructor(
+    private messageService: MessageService,
     private projectContent: ProjectContent,
     private activateRoute: ActivatedRoute,
     private printService: GanttPrintService,
@@ -102,9 +102,11 @@ export class ProjectGantt {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => this.ganttComponent.scrollToDate(1627729997), 200);
+    setTimeout(() => this.ganttComponent
+      .scrollToDate(
+        new GanttDate(new Date()).getUnixTime()
+      ), 200);
   }
-
 
   getProjectTask() {
     this.taskService
@@ -123,29 +125,56 @@ export class ProjectGantt {
     return new GanttDate(date).value;
   }
 
+  showMessage(severity: string, summary: string, detail: string): void {
+    this.messageService.add({
+      key: 'app',
+      severity: severity,
+      summary: summary,
+      detail: detail
+    });
+  }
+
+  barClick(event: any) {
+    let item = event.item;
+    this.projectContent.setGanttState(true, item.id);
+  }
+
+  itemClick(event: any) {
+    let item = event.current;
+    this.projectContent.setGanttState(true, item.id);
+  }
+
+  dragEnded(event: GanttDragEvent) {
+    let item = event.item as any;
+    item.start_date = new Date(this.getDate(item.start)).toLocaleDateString();
+    item.end_date = this.getDate(item.end).toLocaleDateString();
+    this.taskService
+      .update(item.id, item)
+      .subscribe({
+        next: (res: any) => {
+          this.getProjectTask();
+          this.showMessage('success', 'Success', 'Update task successfully');
+        },
+        error: (error: any) => {
+          console.log('dragEnded', error);
+        }
+      });
+  }
+
   @HostBinding('class.gantt-example-component') class = true;
   @ViewChild('gantt') ganttComponent!: NgxGanttComponent;
-
   dropEnterPredicate = (event: GanttTableDragEnterPredicateContext) => {
     return true;
   };
 
   selectedChange(event: GanttSelectedEvent) {
     if (!event) return;
-    event.current && this.ganttComponent.scrollToDate(event.current.start as number);
+    // event.current && this.ganttComponent.scrollToDate(event.current.start as number);
   }
 
   linkDragEnded(event: GanttLinkDragEvent) {
     this.items = [...this.items];
-  }
-
-  barClick(event: any) {
-    // this.issueDetail.showDialog(event.item);
-  }
-
-  dragEnded(event: GanttDragEvent) {
-    console.log('dragEnded', event);
-    this.items = [...this.items];
+    console.log('linkDragEnded', event);
   }
 
   print(name: string) {
@@ -207,9 +236,5 @@ export class ProjectGantt {
 
   onDragEnded(event: GanttTableDragEndedEvent) {
     console.log('拖拽结束了', event);
-  }
-
-  itemClick(event: any) {
-    this.projectContent.setTaskState(true, event.current.id);
   }
 }

@@ -20,6 +20,8 @@ export class ProjectSidebar {
 
   @Input()
   projectType: ProjectType = 'SCRUM';
+
+  @Input()
   currentTabIndex: number = 0;
   listMenu: any[] = [];
 

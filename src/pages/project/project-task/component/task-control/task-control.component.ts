@@ -192,7 +192,8 @@ export class TaskControl {
   taskService = inject(TaskScrumService);
   onUpdateTaskEvent = output<void>();
   onUpdateTask(data: any) {
-    this.taskService.update(data.id, data)
+    this.taskService
+      .updateByField(data.id, data)
       .subscribe({
         next: () => {
           this.onUpdateTaskEvent.emit();

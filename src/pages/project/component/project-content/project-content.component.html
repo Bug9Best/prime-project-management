@@ -1,5 +1,5 @@
 <div class="content-height-with-padding w-full surface-section border-1 surface-border border-round shadow-1 p-3">
-  @switch (currentTabIndex()) {
+  @switch (currentTabIndex) {
     @case (0) {
       <project-dashboard>
       </project-dashboard>
@@ -15,8 +15,14 @@
       }
     }
     @case (2) {
-      <project-backlog>
-      </project-backlog>
+      @if (!backlogDetailState()) {
+        <project-backlog>
+        </project-backlog>
+      } @else {
+        <project-backlog-task
+          [taskID]="taskID">
+        </project-backlog-task>
+      }
     }
     @case (3) {
       <project-gantt>

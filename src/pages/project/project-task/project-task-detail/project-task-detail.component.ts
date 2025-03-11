@@ -76,7 +76,6 @@ export class ProjectTaskDetail {
         this.taskData = data;
         this.items[1].label = this.taskData.task_name;
         this.projectType.set(this.taskData.project_type);
-        console.log(this.taskData);
       });
   }
 
@@ -89,6 +88,7 @@ export class ProjectTaskDetail {
   onEditTask() {
     this.appDialog.visible = true;
     this.formTask.formGroup.patchValue(this.taskData);
+    this.formTask.taskDescription = this.taskData.task_description;
   }
 
   showMessage(severity: string, summary: string, detail: string) {
@@ -110,6 +110,7 @@ export class ProjectTaskDetail {
 
   onSaveTask() {
     let values = this.formTask.formGroup.value;
+    values.task_description = this.formTask.taskDescription;
     this.taskScrumService
       .update(this.taskID, values)
       .subscribe({

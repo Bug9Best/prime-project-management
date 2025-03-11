@@ -42,14 +42,14 @@ export class ProjectBurnup {
       datasets: [
         {
           label: 'First Dataset',
-          data: [65, 59, 80, 81, 56, 55, 40],
+          data: [0, 0, 0, 0, 0, 0, 0],
           fill: false,
           borderColor: documentStyle.getPropertyValue('--p-blue-500'),
           tension: 0.2
         },
         {
           label: 'Second Dataset',
-          data: [28, 48, 40, 19, 86, 27, 90],
+          data: [0, 0, 0, 0, 0, 0, 0],
           fill: false,
           borderColor: documentStyle.getPropertyValue('--p-orange-500'),
           tension: 0.2
@@ -62,7 +62,7 @@ export class ProjectBurnup {
       aspectRatio: 0.6,
       plugins: {
         legend: {
-        display: false,
+          display: false,
         }
       },
       scales: {

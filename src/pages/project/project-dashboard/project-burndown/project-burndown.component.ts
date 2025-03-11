@@ -42,7 +42,7 @@ export class ProjectBurndown {
       datasets: [
         {
           label: 'First Dataset',
-          data: [89, 74, 68, 55, 42, 37, 25, 22, 18, 11, 8, 0],
+          data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
           fill: false,
           borderColor: documentStyle.getPropertyValue('--p-blue-500'),
           tension: 0.2
@@ -55,7 +55,7 @@ export class ProjectBurndown {
       aspectRatio: 0.6,
       plugins: {
         legend: {
-        display: false,
+          display: false,
         }
       },
       scales: {

@@ -16,9 +16,9 @@ import { MeterGroupModule } from 'primeng/metergroup';
 export class ProjectTaskOverview {
 
   value = [
-    { label: 'To Do', color: '#60a5fa', value: 25 },
-    { label: 'Bug', color: '#ff6259', value: 10 },
-    { label: 'In Progress', color: '#fbbf24', value: 20 },
-    { label: 'Done', color: '#34d399', value: 50 },
+    { label: 'To Do', color: '#60a5fa', value: 0 },
+    { label: 'Bug', color: '#ff6259', value: 0 },
+    { label: 'In Progress', color: '#fbbf24', value: 0 },
+    { label: 'Done', color: '#34d399', value: 0 },
   ];
 }

@@ -1,6 +1,8 @@
 <div [style]="{ width: '100%', height: height() }">
   <div class="flex flex-column align-items-center justify-content-center h-full">
-    <i style="font-size: 4.25rem; padding: 2.25rem;" class="text-500 bg-gray-100 border-circle" [ngClass]="icon()"></i>
+    <i style="font-size: 4.25rem; padding: 2.25rem;" 
+      class="text-500 bg-gray-100 border-circle" 
+      [ngClass]="icon()"></i>
     <div class="text-500 text-lg mt-2">{{ title() | translate }}</div>
     <div class="text-500 text-sm mt-1">{{ description() | translate }}</div>
   </div>

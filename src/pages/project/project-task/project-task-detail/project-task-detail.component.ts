@@ -100,6 +100,10 @@ export class ProjectTaskDetail {
     });
   }
 
+  onCancelForm() {
+    this.appDialog.visible = false;
+  }
+
   onValidateForm() {
     if (this.formTask.formGroup.invalid) {
       this.formTask.formGroup.markAllAsTouched();

@@ -15,6 +15,7 @@ import { FormSprint } from '../component/form-sprint/form-sprint.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { MenuModule } from 'primeng/menu';
+import { set } from 'date-fns';
 
 @Component({
   selector: 'project-sprint-detail',
@@ -88,6 +89,7 @@ export class ProjectSprintDetail {
   @ViewChild(FormSprint) formSprint!: FormSprint;
   onEditSprint() {
     this.appDialog.visible = true;
+    this.formSprint.listForm[3].minDate = new Date(this.sprintData.start_date);
     this.formSprint.formGroup.patchValue(this.sprintData);
     this.formSprint.formGroup.get('start_date')?.patchValue(new Date(this.sprintData.start_date));
     this.formSprint.formGroup.get('end_date')?.patchValue(new Date(this.sprintData.end_date));
@@ -100,6 +102,10 @@ export class ProjectSprintDetail {
       summary: summary,
       detail: detail
     });
+  }
+
+  onCancelForm() {
+    this.appDialog.visible = false;
   }
 
   onValidateForm() {

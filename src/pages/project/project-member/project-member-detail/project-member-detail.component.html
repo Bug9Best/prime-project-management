@@ -7,11 +7,11 @@
   styleClass="w-30rem">
   <ng-template pTemplate="header">
     <span class="font-bold">
-      {{ 'MEMBER_DETAIL_HEADER' | translate }}
+      {{ 'project.member.header' | translate }}
     </span>
   </ng-template>
   
-  <div class="flex flex-column p-3 h-full ">
+  <div class="flex flex-column h-full ">
     <div class="text-center mb-4" style="position: sticky; top: 0; z-index: 1; background: white;">
       <p-avatar 
         [shape]="'circle'"
@@ -32,28 +32,52 @@
       <ul class="list-none p-0 m-0 overflow-y-auto">
         <li class="surface-100 text-sm text-700 font-medium p-2 border-round mt-4 mb-1">Join Date</li>
         <li class="text-900 p-2"> {{ member?.join_date | date:'dd MMMM yyyy' }} </li>
-        <li class="surface-100 text-sm text-700 font-medium p-2 border-round mt-4 mb-1">Task Overview</li>
-          <ul class="list-none p-3 mx-0">
-              <li class="flex align-items-center pb-3">
-                  <span style="width:1rem;height:1rem" class="border-round bg-blue-500 mr-3 flex-shrink-0"></span>
-                  <span class="text-sm font-medium text-90">To-Do</span>
-                  <span class="text-600 text-sm font-medium ml-auto">8</span>
-              </li>
-              <li class="flex align-items-center py-3">
-                  <span style="width:1rem;height:1rem" class="border-round bg-red-500 mr-3 flex-shrink-0"></span>
-                  <span class="text-sm font-medium text-90">Bug</span>
-                  <span class="text-600 text-sm font-medium ml-auto">10</span>
-              </li>
-              <li class="flex align-items-center py-3">
-                  <span style="width:1rem;height:1rem" class="border-round bg-orange-500 mr-3 flex-shrink-0"></span>
-                  <span class="text-s  font-medium text-90">Doing</span>
-                  <span class="text-600 text-sm font-medium ml-auto">5</span>
-              </li>
-              <li class="flex align-items-center py-3">
-                  <span style="width:1rem;height:1rem" class="border-round bg-green-500 mr-3 flex-shrink-0"></span>
-                  <span class="text-sm font-medium text-90">Done</span>
-                  <span class="text-600 text-sm font-medium ml-auto">20</span>
-              </li>
+        <li class="surface-100 text-base font-medium py-3 px-2 border-round mt-4 mb-1">
+          Task Overview
+        </li>
+          <ul class="list-none m-1 p-3 border-round shadow-1 mt-3">
+            <li class="flex align-items-center justify-content-between" >
+                <div class="flex align-items-center">
+                  <span class="bg-blue-500 inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 surface-border">
+                    <i class="pi pi-list text-white"></i>
+                  </span>
+                  <span class="ml-3">To Do</span>
+                </div>
+                <div class="flex align-items-center">
+                  <span class="font-bold">{{ 0 }}</span>
+                  <span class="text-sm ml-2"> Tasks </span>
+                </div>
+            </li>
+          </ul>
+
+          <ul class="list-none m-1 p-3 border-round shadow-1 mt-3">
+            <li class="flex align-items-center justify-content-between" >
+                <div class="flex align-items-center">
+                  <span class="bg-orange-500 inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 surface-border">
+                    <i class="pi pi-play text-white"></i>
+                  </span>
+                  <span class="ml-3">Doing</span>
+                </div>
+                <div class="flex align-items-center">
+                  <span class="font-bold">{{ 0 }}</span>
+                  <span class="text-sm ml-2"> Tasks </span>
+                </div>
+            </li>
+          </ul>
+
+          <ul class="list-none m-1 p-3 border-round shadow-1 mt-3">
+            <li class="flex align-items-center justify-content-between" >
+                <div class="flex align-items-center">
+                  <span class="bg-green-500 inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 surface-border">
+                    <i class="pi pi-check text-white"></i>
+                  </span>
+                  <span class="ml-3">Done</span>
+                </div>
+                <div class="flex align-items-center">
+                  <span class="font-bold">{{ 0 }}</span>
+                  <span class="text-sm ml-2"> Tasks </span>
+                </div>
+            </li>
           </ul>
       </ul>
     </div>

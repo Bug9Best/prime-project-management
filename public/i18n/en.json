@@ -342,6 +342,11 @@
       "burnDown": "Burn Down Chart",
       "taskList": "Task List"
     },
+    "member" : {
+      "header": "Member Detail",
+      "invite": "Invite Member",
+      "inviteTitle": "Invite Member to Join Project"
+    },
     "setting": {
       "general": {
         "title": "General Project Information",

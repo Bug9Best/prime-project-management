@@ -19,10 +19,4 @@ export class FormSprint {
 
   listForm: InputAppForm[] = listFormSprintCreate;
   formGroup: FormGroup = FormGroupSprintCreate;
-
-  ngOnInit() {
-    if (this.sprintData) {
-      this.formGroup.patchValue(this.sprintData);
-    }
-  }
 }

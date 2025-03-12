@@ -46,9 +46,11 @@
     </task-info>
   </app-scrolling>
   <p-divider layout="vertical"></p-divider>
-  <task-control 
-    [taskData]="taskData"
-    [projectType]="projectType()"
-    (onUpdateTaskEvent)="getTaskData()">
-  </task-control>
+  <app-scrolling>
+    <task-control 
+      [taskData]="taskData"
+      [projectType]="projectType()"
+      (onUpdateTaskEvent)="getTaskData()">
+    </task-control>
+  </app-scrolling>
 </div>

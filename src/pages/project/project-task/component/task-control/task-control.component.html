@@ -177,6 +177,8 @@
                 size="small"
                 styleClass="w-full"
                 dateFormat="dd/mm/yy"
+                [minDate]="minDate"
+                [maxDate]="maxDate"
                 formControlName="start_date"
                 (onSelect)="onSelectDate()"
                 appendTo="body" />
@@ -212,6 +214,8 @@
                 size="small"
                 styleClass="w-full"
                 dateFormat="dd/mm/yy"
+                [minDate]="minDate"
+                [maxDate]="maxDate"
                 formControlName="end_date"
                 (onSelect)="onSelectDate()"
                 appendTo="body" />

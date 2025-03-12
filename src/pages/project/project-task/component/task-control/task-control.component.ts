@@ -45,6 +45,8 @@ export class TaskControl {
 
   currentUser: any = {};
   allowCharacters = /[0-9hHmM]/;
+  minDate = new Date();
+  maxDate = new Date();
 
   @Input()
   taskData: TaskScrumModel = <any>{};
@@ -93,6 +95,8 @@ export class TaskControl {
     if (!task) return;
     this.getMemberList();
     this.getSprintList();
+    this.minDate = new Date(task.sprint_start_date);
+    this.maxDate = new Date(task.sprint_end_date);
   }
 
   getMemberList() {

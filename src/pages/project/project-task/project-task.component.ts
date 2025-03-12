@@ -65,10 +65,10 @@ export class ProjectTask {
     { field: 'task_name', label: 'Task name', type: 'string', style: { minWidth: '500px' } },
     { field: 'task_type', label: 'Type', type: 'string', style: { minWidth: '10rem' } },
     { field: 'task_priority', label: 'Priority', type: 'string', style: { minWidth: '10rem' } },
-    { field: 'assignee', label: 'Assignee', type: 'string', style: { minWidth: '300px' } },
+    { field: 'status', label: 'Status', type: 'string', style: { minWidth: '10rem' } },
+    { field: 'assignee_name', label: 'Assignee', type: 'string', style: { minWidth: '300px' } },
     { field: 'estimate_time', label: 'Estimate Time', type: 'string', style: { minWidth: '200px' } },
     { field: 'actual_time', label: 'Actual Time', type: 'string', style: { minWidth: '200px' } },
-    { field: 'status', label: 'Status', type: 'string', style: { minWidth: '10rem' } },
   ]
 
   constructor(

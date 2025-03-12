@@ -78,6 +78,11 @@ export class ProjectSprint {
     this.formSprintCreate.formGroup.reset();
   }
 
+  onCancelForm() {
+    this.resetForm();
+    this.appDialog.visible = false;
+  }
+
   @ViewChild(FormSprint) formSprintCreate!: FormSprint;
   onValidateForm() {
     if (this.formSprintCreate.formGroup.invalid) {

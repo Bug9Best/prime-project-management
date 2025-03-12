@@ -199,7 +199,6 @@ export class WorkspaceContentProject {
 
     if (this.formProjectCreate.formGroup.invalid) {
       this.formProjectCreate.formGroup.markAllAsTouched();
-      console.log('Form invalid');
       return;
     }
 

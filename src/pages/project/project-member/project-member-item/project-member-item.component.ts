@@ -41,7 +41,6 @@ export class ProjectMemberItem {
       .getProjectMembers(this.projectID)
       .subscribe((data) => {
         this.listMember = data;
-        console.log(this.listMember);
       });
   }
 

@@ -73,7 +73,6 @@ export class ProjectBacklogTask {
       .getOne(this.taskID)
       .subscribe((data) => {
         this.taskData = data;
-        console.log("asd", this.taskData);
         this.items[2].label = this.taskData.task_name;
         this.projectType.set(this.taskData.project_type);
       });

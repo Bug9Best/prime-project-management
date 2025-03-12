@@ -24,7 +24,6 @@ export class VerifyAuthenPage {
           this.router.navigate(['/home']);
         }
         this.authService.setToken(this.token);
-        console.log(this.token);
         this.getUser();
       });
   }

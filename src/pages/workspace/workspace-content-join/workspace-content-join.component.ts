@@ -193,7 +193,6 @@ export class WorkspaceContentJoin {
     }
     if (this.formProjectJoin.formGroup.invalid) {
       this.formProjectJoin.formGroup.markAllAsTouched();
-      console.log('Form invalid');
       return;
     }
 

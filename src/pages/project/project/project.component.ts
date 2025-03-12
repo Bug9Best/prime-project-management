@@ -44,6 +44,7 @@ export class ProjectPage {
     this.projectContent.setGanttState(false);
     this.projectContent.setBacklogState(false);
     this.projectContent.setSprintState(false);
+    this.projectContent.setSprintTaskState(false);
     this.projectContent.setTaskState(false);
   }
 

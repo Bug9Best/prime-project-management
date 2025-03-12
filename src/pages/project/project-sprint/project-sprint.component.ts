@@ -8,8 +8,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SprintModel, SprintService } from '../../../services/sprint/sprint.service';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
-import { ProjectContent } from '../component/project-content/project-content.component';
-import { TagModule } from 'primeng/tag';
 import { SprintItem } from './component/sprint-item/sprint-item.component';
 
 @Component({

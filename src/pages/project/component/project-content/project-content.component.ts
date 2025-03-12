@@ -12,6 +12,7 @@ import { ProjectSprintDetail } from '../../project-sprint/project-sprint-detail/
 import { ProjectTaskDetail } from '../../project-task/project-task-detail/project-task-detail.component';
 import { ProjectBacklogTask } from '../../project-backlog/project-backlog-task/project-backlog-task.component';
 import { ProjectGanttTask } from '../../project-gantt/project-gantt-task/project-gantt-task.component';
+import { ProjectSprintTaskDetail } from '../../project-sprint/project-sprint-task-detail/project-sprint-task-detail.component';
 
 @Component({
   selector: 'project-content',
@@ -28,6 +29,7 @@ import { ProjectGanttTask } from '../../project-gantt/project-gantt-task/project
     ProjectMember,
     ProjectSetting,
     ProjectSprintDetail,
+    ProjectSprintTaskDetail,
     ProjectTaskDetail
   ],
   templateUrl: './project-content.component.html',
@@ -40,7 +42,7 @@ export class ProjectContent {
 
   sprintID: string = '';
   sprintDetailState = signal<boolean>(false);
-
+  sprintTaskDetailState = signal<boolean>(false);
 
   taskID: string = '';
   ganttDetailState = signal<boolean>(false);
@@ -61,6 +63,15 @@ export class ProjectContent {
     this.sprintDetailState.set(state);
     if (sprintID) {
       this.sprintID = sprintID;
+    }
+  }
+
+  setSprintTaskState(state: boolean, sprintID?: string, taskID?: string) {
+    this.sprintTaskDetailState.set(state);
+    this.sprintDetailState.set(false);
+    if (sprintID && taskID) {
+      this.sprintID = sprintID;
+      this.taskID = taskID;
     }
   }
 

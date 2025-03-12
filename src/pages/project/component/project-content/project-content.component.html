@@ -5,7 +5,14 @@
       </project-dashboard>
     }
     @case (1) {
-      @if (!sprintDetailState()) {
+      @if (sprintTaskDetailState()) {
+        <project-sprint-task-detail
+          [sprintId]="sprintID"
+          [taskID]="taskID">
+        </project-sprint-task-detail>
+      }
+
+      @if (!sprintDetailState() && !sprintTaskDetailState()) {
         <project-sprint>
         </project-sprint>
       } @else {

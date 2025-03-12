@@ -1,20 +1,21 @@
-import { Component, Input, signal, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
+import { TaskScrumModel, TaskScrumService } from '../../../../services/task_scrum/task_scrum.service';
+import { SprintModel, SprintService } from '../../../../services/sprint/sprint.service';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ProjectContent } from '../../component/project-content/project-content.component';
+import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
+import { FormTask } from '../../project-task/component/form-task/form-task.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { MenuModule } from 'primeng/menu';
 import { AppBreadcrumb } from '../../../../components/app-breadcrumb/app-breadcrumb.component';
-import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 import { AppScrolling } from '../../../../components/app-scrolling/app-scrolling.component';
-import { FormTask } from '../../project-task/component/form-task/form-task.component';
 import { TaskControl } from '../../project-task/component/task-control/task-control.component';
 import { TaskInfo } from '../../project-task/component/task-info/task-info.component';
-import { TaskScrumModel, TaskScrumService } from '../../../../services/task_scrum/task_scrum.service';
-import { ConfirmationService, MessageService } from 'primeng/api';
-import { ProjectContent } from '../../component/project-content/project-content.component';
 
 @Component({
-  selector: 'project-gantt-task',
+  selector: 'project-sprint-task-detail',
   imports: [
     TranslateModule,
     AppBreadcrumb,
@@ -27,15 +28,18 @@ import { ProjectContent } from '../../component/project-content/project-content.
     FormTask,
     DividerModule
   ],
-  templateUrl: './project-gantt-task.component.html',
-  styleUrl: './project-gantt-task.component.scss'
+  templateUrl: './project-sprint-task-detail.component.html',
+  styleUrl: './project-sprint-task-detail.component.scss'
 })
-export class ProjectGanttTask {
+export class ProjectSprintTaskDetail {
+
+  @Input()
+  sprintId: string = '';
+  sprintData: SprintModel = <any>{};
 
   @Input()
   taskID: string = '';
   taskData: TaskScrumModel = <any>{};
-  projectType = signal('projectType');
 
   subtitle: string = 'detail.sprint.description';
   labelButton: string = 'project.button.edit.task';
@@ -43,8 +47,8 @@ export class ProjectGanttTask {
   labelSubmit: string = 'app.button.save';
 
   items = [
-    { label: 'detail.gantt.header', command: () => this.onNavigateToGanttDetail() },
-    { label: 'detail.task.header', command: () => this.onNavigateToTaskDetail() },
+    { label: 'detail.sprint.header', command: () => this.onNavigateToSprint() },
+    { label: '', command: () => this.onNavigateToSprintDetail() },
     { label: '' },
   ];
 
@@ -60,11 +64,22 @@ export class ProjectGanttTask {
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private projectContent: ProjectContent,
+    private sprintService: SprintService,
     private taskScrumService: TaskScrumService
   ) { }
 
   ngOnInit() {
+    this.getSprintData();
     this.getTaskData();
+  }
+
+  getSprintData() {
+    this.sprintService
+      .getOne(this.sprintId)
+      .subscribe((data) => {
+        this.sprintData = data;
+        this.items[1].label = this.sprintData.sprint_name;
+      });
   }
 
   getTaskData() {
@@ -72,9 +87,7 @@ export class ProjectGanttTask {
       .getOne(this.taskID)
       .subscribe((data) => {
         this.taskData = data;
-        console.log("asd", this.taskData);
         this.items[2].label = this.taskData.task_name;
-        this.projectType.set(this.taskData.project_type);
       });
   }
 
@@ -87,13 +100,14 @@ export class ProjectGanttTask {
     });
   }
 
-  onNavigateToGanttDetail() {
-    this.projectContent.setGanttState(false);
+  onNavigateToSprint() {
+    this.projectContent.setSprintState(false);
+    this.projectContent.setSprintTaskState(false);
   }
 
-  onNavigateToTaskDetail() {
-    this.projectContent.onSetTabIndex(5);
-    this.projectContent.setTaskState(false);
+  onNavigateToSprintDetail() {
+    this.projectContent.setSprintTaskState(false);
+    this.projectContent.setSprintState(true, this.sprintId);
   }
 
   onConfirm() {

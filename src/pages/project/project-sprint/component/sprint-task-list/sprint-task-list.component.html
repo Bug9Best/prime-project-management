@@ -1,4 +1,3 @@
-
 @if (listTask?.length === 0) {
   <app-empty
   [icon]="'pi pi-list-check'"
@@ -6,37 +5,41 @@
   [description]="emptyDescription">
   </app-empty>
 } @else {
-  @for (item of listTask; track $index) {
-    <div class="surface-card border-1 surface-border border-round cursor-pointer p-2 mb-2">
-      <div class="flex justify-content-between ml-3 w-full">
+  @for (task of listTask; track $index) {
+    <div (click)="onSelectTask(task)"
+      class="border-1 surface-border border-round p-3 mb-2 cursor-pointer">
+      <div class="flex align-items-center justify-content-between">
         <div class="flex flex-column">
-          <span class="text-lg font-semibold"> {{ item.task_name || '-'}} </span>
-          <div class="flex mt-2 gap-2">
-            @if (item.status) {
-              <tag-status
-                [status]="item.status"
-                [styleClass]="''">
-              </tag-status>
-            }
-            @if (item.task_priority) {
-              <tag-priority 
-                [priority]="item.task_priority"
-                [styleClass]="''">
-              </tag-priority>
-            }
+          <span class="text-lg font-semibold"> 
+            {{ task.task_name || '-'}} 
+          </span>
+          <div class="text-sm text-700">
+            {{ task.assignee_name 
+              ? ('detail.task.assignee' | translate) + ": " + task.assignee_name
+              : ('detail.task.notAssignee') | translate }}
           </div>
         </div>
-        <div>
-          <div class="flex gap-2">
-            <!-- @if (item.assignee) { -->
-            <p-avatar-group class="mr-4">
-              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" size="normal" shape="circle" />
-              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/xuxuefeng.png" size="normal" shape="circle" />
-            </p-avatar-group>
-            <!-- } -->
-          </div>
+        <div class="flex gap-2">
+          @if (task.task_type) {
+            <tag-type
+              [type]="task.task_type"
+              [styleClass]="'w-8rem'">
+            </tag-type>
+          }
+          @if (task.task_priority) {
+            <tag-priority 
+              [priority]="task.task_priority"
+              [styleClass]="'w-8rem'">
+            </tag-priority>
+          }
+          @if (task.status) {
+            <tag-status
+              [status]="task.status"
+              [styleClass]="'w-8rem'">
+            </tag-status>
+          }
         </div>
       </div>
-  </div>
+    </div>
   }
 }

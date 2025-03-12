@@ -20,8 +20,15 @@ import { TranslateModule } from '@ngx-translate/core';
 export class SprintItem {
 
   SprintStatus = SprintStatus;
-  sprintProgress = 0;
   sprintData = input<SprintModel>(<any>{});
+
+  get sprintProgress(): number {
+    if (!this.sprintData) return 0;
+    let total = this.sprintData().total_tasks;
+    let completed = this.sprintData().completed_tasks;
+    let progress = Math.ceil((completed / total) * 100);
+    return progress;
+  }
 
   projectContent = inject(ProjectContent);
   onNavigateToSprintDetail(sprintID: string) {

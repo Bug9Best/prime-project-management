@@ -3,7 +3,7 @@
   @for (item of listMember; track $index) {
       <div class="col-12 xl:col-6">
       <div class="border-1 surface-border border-round cursor-pointer" 
-        (click)="onSelectMember()">
+        (click)="onSelectMember(item)">
         <div class="flex p-3">
           <div class="flex align-items-center w-full" style="width: 80%;">
             <p-avatar  
@@ -28,7 +28,10 @@
           </div>
         </div>
       </div>
-      <project-member-detail hideOnOutsideClick>
+      <project-member-detail 
+        hideOnOutsideClick
+        (onRemoveFormProjectEvent)="getProjecctMember()"
+        [projectData]="projectData">
       </project-member-detail>
     </div>
     }

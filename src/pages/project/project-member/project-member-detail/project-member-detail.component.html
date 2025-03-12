@@ -1,4 +1,3 @@
-
 <p-drawer 
   [(visible)]="visible" 
   position="right" 
@@ -15,23 +14,15 @@
     <div class="text-center mb-4" style="position: sticky; top: 0; z-index: 1; background: white;">
       <p-avatar 
         [shape]="'circle'"
-        [image]="member?.image" 
-        [style]="{ height: '10rem', width: '10rem', 'background-color': '#dee9fc', color: 'gray' }"/>
-      <div class="text-900 mt-3 mb-2 text-xl font-medium"> {{ member?.full_name }} </div>
-      <span class="text-700"> {{ member?.position }} </span>
-      <div class="mt-4">
-        <button pButton 
-          label="View Profile"
-          class="p-button-sm p-button-text"
-          routerLink="/profile/{{member?.id}}">
-        </button>
-      </div>
+        [label]="memberData?.name[0]"
+        class="text-3xl"
+        [style]="{ height: '8rem', width: '8rem', 'background-color': '#dee9fc', color: 'gray', }"/>
+      <div class="text-900 mt-3 mb-2 text-xl font-medium"> {{ memberData?.name }} </div>
+      <span class="text-700"> {{ memberData?.email }} </span>
     </div>
 
-    <div class="phantom-scrollbar flex-auto relative overflow-y-auto border-bottom-1 surface-border" style="max-height: calc(100vh - 12rem);">
+    <div class="phantom-scrollbar flex-auto relative overflow-y-auto" style="max-height: calc(100vh - 12rem);">
       <ul class="list-none p-0 m-0 overflow-y-auto">
-        <li class="surface-100 text-sm text-700 font-medium p-2 border-round mt-4 mb-1">Join Date</li>
-        <li class="text-900 p-2"> {{ member?.join_date | date:'dd MMMM yyyy' }} </li>
         <li class="surface-100 text-base font-medium py-3 px-2 border-round mt-4 mb-1">
           Task Overview
         </li>
@@ -83,15 +74,17 @@
     </div>
 
     <div class="flex gap-2 mt-3">
-      <div class="w-full"> 
-        <button pButton pRipple 
-          type="button" 
-          icon="pi pi-trash"
-          label="Remove Member" 
-          class="p-button-text p-button-danger w-full" 
-          (click)="removeMember(member)">
-        </button>
-      </div>
+      @if (memberData?.id != projectData.owner_id) {
+        <div class="w-full"> 
+          <button pButton pRipple 
+            type="button" 
+            icon="pi pi-trash"
+            label="Remove Member" 
+            class="p-button-text p-button-danger w-full" 
+            (click)="onConfirm(memberData)">
+          </button>
+        </div>
+      }
     </div>
   </div>
 </p-drawer>

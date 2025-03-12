@@ -1,7 +1,7 @@
 
 <div class="grid">
-  <div class="col-12 xl:col-6">
-    @for (item of listMember; track $index) {
+  @for (item of listMember; track $index) {
+      <div class="col-12 xl:col-6">
       <div class="border-1 surface-border border-round cursor-pointer" 
         (click)="onSelectMember()">
         <div class="flex p-3">
@@ -30,6 +30,6 @@
       </div>
       <project-member-detail hideOnOutsideClick>
       </project-member-detail>
+    </div>
     }
-  </div>
 </div>

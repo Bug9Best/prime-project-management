@@ -3,18 +3,23 @@ import { ProjectMemberDetail } from '../project-member-detail/project-member-det
 import { AvatarModule } from 'primeng/avatar';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService, ProjectsModel } from '../../../../services/project/project.service';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { TooltipModule } from 'primeng/tooltip';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'project-member-item',
   imports: [
     AvatarModule,
-    ProjectMemberDetail
+    ProjectMemberDetail,
+    ProgressBarModule,
+    TooltipModule,
+    TranslateModule
   ],
   templateUrl: './project-member-item.component.html',
   styleUrl: './project-member-item.component.scss'
 })
 export class ProjectMemberItem {
-
 
   projectID: string = '';
   projectData: ProjectsModel = <any>{};
@@ -56,6 +61,13 @@ export class ProjectMemberItem {
       });
   }
 
+  getTaskProgress(member: any): number {
+    if (!member) return 0;
+    let total = member.todo_tasks + member.doing_tasks + member.done_tasks;
+    let completed = member.done_tasks;
+    let progress = Math.ceil((completed / total) * 100);
+    return progress;
+  }
 
   @ViewChild(ProjectMemberDetail)
   memberDetail!: ProjectMemberDetail;

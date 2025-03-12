@@ -1,4 +1,3 @@
-
 <div class="grid">
   @for (item of listMember; track $index) {
       <div class="col-12 xl:col-6">
@@ -19,11 +18,14 @@
           </div>
       
           <div class="flex justify-content-end align-items-center">
-            <div class="flex align-items-center" pTooltip="50/50 Issue">
-              <div class="surface-300 border-round overflow-hidden" style="height:16px; width: 150px">
-                <div class="bg-green-500 h-full" style="width: 0"></div>
+            <div class="flex align-items-center" 
+              [pTooltip]="item.done_tasks + '/' + (item.todo_tasks + item.doing_tasks + item.done_tasks)">
+              <div class="border-round overflow-hidden" style="width: 185px">
+                <div class="text-sm text-500 mb-2">
+                  {{ 'project.member.progress' | translate }}
+                </div>
+                <p-progressbar [value]="getTaskProgress(item)" />
               </div>
-              <div class="text-green-500 ml-3 font-medium">0%</div>
             </div>
           </div>
         </div>

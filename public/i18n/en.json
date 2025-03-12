@@ -345,7 +345,8 @@
     "member" : {
       "header": "Member Detail",
       "invite": "Invite Member",
-      "inviteTitle": "Invite Member to Join Project"
+      "inviteTitle": "Invite Member to Join Project",
+      "progress": "Task progress (Done / Total)"
     },
     "setting": {
       "general": {

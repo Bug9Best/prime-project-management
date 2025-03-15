@@ -6,9 +6,10 @@ import { AvatarModule } from 'primeng/avatar';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { environment } from '../../environments/environment';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'layout-topbar',
@@ -20,6 +21,7 @@ import { environment } from '../../environments/environment';
     AvatarModule,
     MenuModule,
     ButtonModule,
+    DividerModule,
     RouterLink
   ],
   templateUrl: './app-layout-topbar.component.html',
@@ -30,11 +32,12 @@ export class AppLayoutTopbar {
   @Input()
   listMenu: MenuItem[] = [];
 
+  userData = <any>{};
+
   items: MenuItem[] = [
-    // {
-    //   label: 'User Profile',
-    //   icon: 'pi pi-user',
-    // },
+    {
+      separator: true
+    },
     {
       label: 'Sign out',
       icon: 'pi pi-sign-out',
@@ -43,6 +46,10 @@ export class AppLayoutTopbar {
       }
     }
   ];
+
+  ngOnInit() {
+    this.userData = this.authService.getUserData();
+  }
 
 
   @ViewChild('overlay') overlay!: ElementRef;
@@ -61,12 +68,13 @@ export class AppLayoutTopbar {
   }
 
   authService = inject(AuthService);
+  router = inject(Router);
   onSignOut() {
     this.authService.signOut().subscribe({
       next: (response) => {
         this.authService.removeToken();
         this.authService.removeUserData();
-        window.location.href = environment.authenUrl;
+        this.router.navigate(['/home']);
       },
       error: (error) => {
         console.log(error);

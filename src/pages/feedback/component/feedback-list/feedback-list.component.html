@@ -30,7 +30,14 @@
     @for (item of listFeedbacks; track $index) {
       <div class="border-1 surface-border border-round shadow-1 p-3 mb-3 overflow-hidden">
         <div class="flex flex-column">
-          <div class="text-lg"> {{ item.content }} </div>
+          <div class="flex justify-content-between mt-1">
+            <div class="text-lg"> {{ item.content }} </div>
+            <button pButton 
+              icon="pi pi-trash" 
+              (click)="onDeleteFeedback(item.id)"
+              class="p-button-text p-button-danger">
+            </button>
+          </div>
           <div class="flex justify-content-between mt-1">
             <div class="text-500 text-sm">{{ item.submitter_email }}</div>
             <div class="text-500 text-sm">{{ item.created_at | date:'d MMMM yyyy hh:mm:aa' }}</div>

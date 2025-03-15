@@ -8,7 +8,8 @@ import { AuthService } from '../../../../services/auth/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 import { FormFeedbackSubmit } from '../form-feedback-submit/form-feedback-submit.component';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'feedback-list',
@@ -19,7 +20,8 @@ import { MessageService } from 'primeng/api';
     AppDialog,
     AppScrolling,
     AppEmpty,
-    FormFeedbackSubmit
+    FormFeedbackSubmit,
+    ButtonModule
   ],
   templateUrl: './feedback-list.component.html',
   styleUrl: './feedback-list.component.scss'
@@ -42,6 +44,7 @@ export class FeedbackList {
 
   constructor(
     private authService: AuthService,
+    private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private feedbackService: FeedbackService
   ) {
@@ -123,5 +126,24 @@ export class FeedbackList {
           this.showMessage('error', 'Error', 'Failed to submit feedback');
         }
       });
+  }
+
+  onDeleteFeedback(id: string) {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete this feedback?',
+      accept: () => {
+        this.feedbackService
+          .delete(id)
+          .subscribe({
+            next: (response: any) => {
+              this.showMessage('success', 'Success', 'Feedback deleted successfully');
+              this.getFeedbacks();
+            },
+            error: (error: any) => {
+              this.showMessage('error', 'Error', 'Failed to delete feedback');
+            }
+          });
+      }
+    });
   }
 }

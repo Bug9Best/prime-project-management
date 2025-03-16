@@ -17,6 +17,7 @@ import { TagType } from './component/tag-type/tag-type.component';
 import { TagPriority } from './component/tag-priority/tag-priority.component';
 import { TagStatus } from './component/tag-status/tag-status.component';
 import { AuthService } from '../../../services/auth/auth.service';
+import { AvatarModule } from 'primeng/avatar';
 
 @Component({
   selector: 'project-task',
@@ -33,7 +34,8 @@ import { AuthService } from '../../../services/auth/auth.service';
     AppTableFieldDirective,
     TagType,
     TagPriority,
-    TagStatus
+    TagStatus,
+    AvatarModule
   ],
   templateUrl: './project-task.component.html',
   styleUrl: './project-task.component.scss'

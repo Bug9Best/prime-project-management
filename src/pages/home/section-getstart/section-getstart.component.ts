@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 
@@ -19,9 +18,4 @@ export class SectionGetstart {
   title = 'home.getStart.title';
   description = 'home.getStart.description';
   buttonLabel = 'home.getStart.buttonLabel';
-
-  router = inject(Router);
-  getStarted() {
-    this.router.navigate(['/workspace']);
-  }
 }

@@ -19,7 +19,7 @@
 
 @if (!listProject.length) {
   <app-empty 
-    [icon]="'pi pi-users'" 
+    [icon]="'pi pi-folder-open'" 
     [title]="emptyTitle" 
     [description]="emptyDescription">
   </app-empty>
@@ -37,7 +37,8 @@
         </project-type-tag>
       </ng-template>
     </app-table>
-    <project-detail-dialog>
+    <project-detail-dialog 
+      (onDeleteProject)="getProjectList()">
     </project-detail-dialog>
   </app-scrolling>
 }

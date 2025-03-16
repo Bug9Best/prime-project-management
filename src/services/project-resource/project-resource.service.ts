@@ -26,6 +26,7 @@ export interface ProjectResourceModel extends BaseModel {
   attachment?: FileAttachment[] | null;
 
   owner_name: string;
+  owner_image: string;
 }
 
 @Injectable({

@@ -6,6 +6,7 @@ export const environment = {
     signupUrl: 'https://prime.it.kmitl.ac.th/register',
     signoutUrl: 'https://prime.it.kmitl.ac.th/logout',
 
+    googleClientId: '346056074798-079u0u6mjr0pc30po19pf6ju5ejdvdnu.apps.googleusercontent.com',
     firebaseConfig: {
         apiKey: 'AIzaSyBvz-0QN5DEZ5qDjXmSV-7mw5m7qjXYLE8',
         authDomain: 'prime-project-1539.firebaseapp.com',

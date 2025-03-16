@@ -72,4 +72,18 @@ export class ProjectService extends BaseService<ProjectsModel> {
       project_id: project_id,
     });
   }
+
+  unArchiveProject(project_id: string | number) {
+    return this.client.put<any>(`${this.getBaseUrl}/unArchiveProject`, {
+      project_id: project_id,
+    });
+  }
+
+  getDashboard(project_id: string | number) {
+    return this.client.get<any>(`${this.getBaseUrl}/getDashboard`, {
+      params: {
+        project_id: project_id,
+      },
+    });
+  }
 }

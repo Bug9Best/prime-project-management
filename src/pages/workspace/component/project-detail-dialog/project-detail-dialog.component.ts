@@ -1,11 +1,14 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, output, ViewChild } from '@angular/core';
 import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 import { DividerModule } from 'primeng/divider';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { ThaiDatePipe } from '../../../../helper/pipe/thdate.pipe';
 import { ProjectTypeTag } from '../project-type-tag/project-type-tag.component';
 import { ProjectPrivacyTag } from '../project-privacy-tag/project-privacy-tag.component';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ProjectService } from '../../../../services/project/project.service';
 
 @Component({
   selector: 'project-detail-dialog',
@@ -16,6 +19,7 @@ import { ProjectPrivacyTag } from '../project-privacy-tag/project-privacy-tag.co
     ProjectTypeTag,
     ProjectPrivacyTag,
     DividerModule,
+    SplitButtonModule,
     ButtonModule
   ],
   templateUrl: './project-detail-dialog.component.html',
@@ -39,7 +43,36 @@ export class ProjectDetailDialog {
   labelTaskCounting: string = 'detail.project.taskCounting';
   labelResource: string = 'detail.project.resource';
   labelResourceCounting: string = 'detail.project.resourceCounting';
+  buttonArchive: string = 'project.setting.privacy.archive';
+  buttonUnArchive: string = 'project.setting.privacy.unarchive';
+  buttonDeleteProject: string = '';
   buttonClose: string = 'app.button.close'
+
+  items = [
+    {
+      icon: 'pi pi-trash',
+      label: this.buttonDeleteProject,
+      command: () => {
+        this.deleteProject();
+      }
+    },
+  ];
+
+  constructor(
+    private messageService: MessageService,
+    private confirmationService: ConfirmationService,
+    private translate: TranslateService,
+    private projectService: ProjectService
+  ) { }
+
+
+  ngOnInit() {
+    this.translate
+      .get('project.setting.privacy.delete')
+      .subscribe((translatedLabel) => {
+        this.items[0].label = translatedLabel;
+      });
+  }
 
   @ViewChild(AppDialog) dialog!: AppDialog;
   showDialog(user_data: any) {
@@ -49,5 +82,73 @@ export class ProjectDetailDialog {
 
   closeDialog() {
     this.dialog.visible = false;
+  }
+
+  showMessage(severity: string, summary: string, detail: string) {
+    this.messageService.add({
+      key: 'app',
+      severity: severity,
+      summary: summary,
+      detail: detail,
+    });
+  }
+
+  archiveProject() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to archive this project?',
+      accept: () => {
+        this.projectService
+          .archiveProject(this.projectData.id)
+          .subscribe((res) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Successful',
+              detail: 'Project has been unarchived',
+            });
+            this.dialog.visible = false;
+            this.onDeleteProject.emit();
+          });
+      },
+    });
+  }
+
+  unArchiveProject() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to unarchive this project?',
+      accept: () => {
+        this.projectService
+          .unArchiveProject(this.projectData.id)
+          .subscribe((res) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Successful',
+              detail: 'Project has been unarchived',
+            });
+            this.dialog.visible = false;
+            this.onDeleteProject.emit();
+          });
+      },
+    });
+  }
+
+  onDeleteProject = output();
+  deleteProject() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to delete this project?',
+      accept: () => {
+        this.projectService.
+          delete(this.projectData.id).
+          subscribe((res) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Successful',
+              detail: 'Project has been deleted',
+            });
+            this.dialog.visible = false;
+            this.onDeleteProject.emit();
+          });
+
+      },
+    });
   }
 }

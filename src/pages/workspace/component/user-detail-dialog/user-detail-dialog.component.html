@@ -71,21 +71,21 @@
     </ul>
     <p-divider></p-divider>
     <div class="flex justify-content-between mt-1">
-      @if (!userData.is_disable) {
+      @if (userData?.role === 'USER') {
         <p-button 
-          [icon]="'pi pi-lock'"
-          [label]="buttonBlock | translate" 
+          [icon]="'pi pi-user-plus'"
+          [label]="buttonPromote | translate" 
           [text]="true"
-          [severity]="'danger'" 
-          (click)="onConfirmBlock()" />
-        }@else {
+          [severity]="'info'" 
+          (click)="onConfirmPromote()" />
+        } @else {
         <p-button 
-          [icon]="'pi pi-lock-open'"
-          [label]="buttonUnblock | translate" 
+          [icon]="'pi pi-user-minus'"
+          [label]="buttonDemote | translate" 
           [text]="true"
           [severity]="'warn'" 
-          (click)="onConfirmUnblock()" />
-        }
+          (click)="onConfirmDemote()" />
+      }
       <p-button 
         [icon]="'pi pi-times'"
         [label]="buttonClose | translate" 

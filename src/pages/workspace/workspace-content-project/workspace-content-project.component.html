@@ -6,17 +6,16 @@
       [ngClass]="{'text-blue-400 bg-blue-50': isShowToolbar}"
       (click)="isShowToolbar = !isShowToolbar">
     </button>
-    @if (!isUser) {
       <app-dialog 
         [icon]="'pi pi-plus'"
         [width]="'70vw'"
         [label]="buttonLabel"
         [header]="headerLabel"
+        (onCancelEvent)="onCancelForm()"
         (onSubmitEvent)="onValidateForm()">
           <form-project-create>
           </form-project-create>
       </app-dialog>
-    }
   </div>
 </app-header>
 <div *ngIf="isShowToolbar">

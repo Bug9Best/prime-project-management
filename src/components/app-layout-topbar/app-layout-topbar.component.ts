@@ -51,7 +51,6 @@ export class AppLayoutTopbar {
     this.userData = this.authService.getUserData();
   }
 
-
   @ViewChild('overlay') overlay!: ElementRef;
   onOpenOverlayPanel(): void {
     this.overlay.nativeElement.style.display = 'block';
@@ -70,16 +69,9 @@ export class AppLayoutTopbar {
   authService = inject(AuthService);
   router = inject(Router);
   onSignOut() {
-    this.authService.signOut().subscribe({
-      next: (response) => {
-        this.authService.removeToken();
-        this.authService.removeUserData();
-        this.router.navigate(['/home']);
-      },
-      error: (error) => {
-        console.log(error);
-      }
-    });
+    this.authService.removeToken();
+    this.authService.removeUserData();
+    this.router.navigate(['/home']);
   }
 }
 

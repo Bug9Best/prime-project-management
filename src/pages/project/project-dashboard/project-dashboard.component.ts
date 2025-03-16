@@ -59,7 +59,7 @@ export class ProjectDashboard {
 
   getProjectDashboard() {
     this.projectService
-      .getOne(this.projectID)
+      .getDashboard(this.projectID)
       .subscribe((data: any) => {
         this.projectData = data;
       });

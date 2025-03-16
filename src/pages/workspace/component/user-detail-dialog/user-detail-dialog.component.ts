@@ -36,8 +36,8 @@ export class UserDetailDialog {
   labelProjectCreatedCounting: string = 'detail.user.projectCreatedCounting';
   labelProjectJoined: string = 'detail.user.projectJoined';
   labelProjectJoinedCounting: string = 'detail.user.projectJoinedCounting';
-  buttonBlock: string = 'app.button.block';
-  buttonUnblock: string = 'app.button.unblock';
+  buttonPromote: string = 'app.button.promote';
+  buttonDemote: string = 'app.button.demote';
   buttonClose: string = 'app.button.close';
 
   constructor(
@@ -58,64 +58,51 @@ export class UserDetailDialog {
 
   showMessage(severity: string, summary: string, detail: string) {
     this.messageService.add({
+      key : 'app',
       severity: severity,
       summary: summary,
       detail: detail
     });
   }
 
-  onConfirmBlock() {
+  onConfirmPromote() {
     this.confirmationService.confirm({
       icon: 'pi pi-exclamation-triangle',
       header: 'Are you sure that you want to block this user?',
       message: 'if you block this user, this user will not be able to access the system anymore.',
       accept: () => {
-        this.onBlockUser();
+        this.onUpdateRole('ADMIN');
       }
     });
   }
 
-  onConfirmUnblock() {
+  onConfirmDemote() {
     this.confirmationService.confirm({
       icon: 'pi pi-exclamation-triangle',
-      header: 'Are you sure that you want to unblock this user?',
-      message: 'if you unblock this user, this user will be able to access the system again.',
+      header: 'Are you sure that you want to change role this user?',
+      message: 'if you change role this user, this user will not be able to access the system anymore.',
       accept: () => {
-        this.onUnblockUser();
+        this.onUpdateRole('USER');
       }
     });
   }
 
   onReloadUser = output<boolean>();
-  onUnblockUser() {
+  onUpdateRole(role: string = 'USER') {
     if (!this.userData) return;
-    this.userService.unblockUser(this.userData.id).subscribe({
-      next: (res) => {
-        this.showMessage('success', 'Success', 'User has been unblocked successfully.');
-        this.dialog.visible = false;
-        this.onReloadUser.emit(true);
-      },
-      error: (err) => {
-        this.showMessage('error', 'Error', 'An error occurred while unblocking user.');
-        this.onReloadUser.emit(false);
-        console.log(err);
-      }
-    });
-  }
-
-  onBlockUser() {
-    if (!this.userData) return;
-    this.userService.blockUser(this.userData.id).subscribe({
-      next: (res) => {
-        this.showMessage('success', 'Success', 'User has been blocked successfully.');
-        this.onReloadUser.emit(true);
-        this.dialog.visible = false;
-      },
-      error: (err) => {
-        this.showMessage('error', 'Error', 'An error occurred while blocking user.');
-        this.onReloadUser.emit(false);
-        console.log(err);
-      }
-    });
+    this.userService
+      .updateRole(this.userData.id, role)
+      .subscribe({
+        next: (res) => {
+          this.showMessage('success', 'Success', 'User has been unblocked successfully.');
+          this.dialog.visible = false;
+          this.onReloadUser.emit(true);
+        },
+        error: (err) => {
+          this.showMessage('error', 'Error', 'An error occurred while unblocking user.');
+          this.onReloadUser.emit(false);
+          console.log(err);
+        }
+      });
   }
 }

@@ -189,6 +189,11 @@ export class WorkspaceContentProject {
     this.formProjectCreate.formGroup.reset();
   }
 
+  onCancelForm() {
+    this.appDialog.visible = false;
+    this.resetForm();
+  }
+
   @ViewChild(FormProjectCreate) formProjectCreate!: FormProjectCreate;
   onValidateForm() {
     let project_type = this.formProjectCreate.getProjectType();

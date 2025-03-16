@@ -15,12 +15,8 @@ export class UserService extends BaseService<UserModel> {
     return this.client.get<any>(`${this.getBaseUrl}/getAllUser`);
   }
 
-  blockUser(id: string) {
-    return this.client.put<any>(`${this.getBaseUrl}/blockUser/${id}`, {});
-  }
-
-  unblockUser(id: string) {
-    return this.client.put<any>(`${this.getBaseUrl}/unblockUser/${id}`, {});
+  updateRole(id: string, role: string) {
+    return this.client.put<any>(`${this.getBaseUrl}/updateRole/${id}`, { role });
   }
 
   checkPermission(id: string) {

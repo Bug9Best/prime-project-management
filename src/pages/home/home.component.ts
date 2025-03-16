@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import { SectionFooter } from './section-footer/section-footer.component';
 import { ProjectService } from '../../services/project/project.service';
 import { AuthService } from '../../services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home-page',
@@ -22,13 +23,21 @@ import { AuthService } from '../../services/auth/auth.service';
 })
 export class HomePage {
 
-  auth = inject(AuthService);
-  onSignin(): void {
-    window.location.href = environment.authenUrl;
-    // window.location.href = "https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?client_id=1023079733198-12k3qr9hjj73q8ng8cb7ltgmkrtsrvc1.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fprime.it.kmitl.ac.th%2Fauth%2Fgoogle-callback&scope=openid%20profile%20email&response_type=code&state=W6WbRyHy7TMqtECdXSlzQ2jBSeJe6PZRFTkKuRWO&service=lso&o2v=1&ddm=1&flowName=GeneralOAuthFlow";
-    // this.auth.signinWithGoogle().subscribe((res) => {
-    //   window.location.href = res.redirect_uri;
-    // });
+  authService = inject(AuthService);
+  router = inject(Router);
+  onSignin(payload: any): void {
+    this.authService
+      .signinWithGoogle(payload)
+      .subscribe((res) => {
+        let token = res.token
+        if (!token) {
+          this.router.navigate(['/home']);
+        } else {
+          this.authService.setToken(token);
+          this.authService.setUserData(res.jwt);
+          this.router.navigate(['/workspace']);
+        }
+      });
   }
 
   ngOnInit(): void {

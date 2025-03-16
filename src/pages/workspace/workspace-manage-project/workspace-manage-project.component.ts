@@ -37,8 +37,8 @@ export class WorkspaceManageProject {
 
   title = 'workspace.title.manageProject';
   subtitle = 'workspace.subtitle.manageProject';
-  emptyTitle = 'workspace.userEmpty.title';
-  emptyDescription = 'workspace.userEmpty.description';
+  emptyTitle = 'workspace.projectEmpty.title';
+  emptyDescription = 'workspace.projectEmpty.description';
 
   sortValue = 'NONE';
   groupValue = 'NONE';

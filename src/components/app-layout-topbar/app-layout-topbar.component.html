@@ -53,7 +53,7 @@
             class="cursor-pointer flex align-items-center"
             (click)="menu.toggle($event)"
             shape="circle" />
-    </li>
+        </li>
         <p-menu #menu [model]="items" [popup]="true" class="flex justify-center" styleClass="w-18rem ml-3">
           <ng-template #start>
             <div class="flex align-items-center p-3">
@@ -70,7 +70,7 @@
                   <span class="ml-2">{{ item.label }}</span>
               </a>
           </ng-template>
-      </p-menu>
+        </p-menu>
       </ul>
     </div>
   </div>

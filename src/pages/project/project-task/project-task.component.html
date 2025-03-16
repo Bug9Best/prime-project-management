@@ -58,6 +58,22 @@
       </tag-priority>
     </ng-template>
 
+    <ng-template appTableField="assignee_name" let-item>
+      @if (item.assignee_name) {
+        <div class="flex align-items-center">
+          <p-avatar  
+            styleClass="mr-2" 
+            [image]="item.assignee_image"
+            shape="circle" />
+        <span>
+          {{ item.assignee_name }}
+        </span> 
+      </div>
+      } @else {
+        -
+      }
+    </ng-template>
+
     <ng-template appTableField="status" let-item>
       <tag-status 
         [status]="item.status">

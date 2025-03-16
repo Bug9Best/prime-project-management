@@ -24,9 +24,9 @@
       "delete": "Delete",
       "copy": "Copy",
       "cancel": "Cancel",
-      "back": "Back",
+      "promote": "Promote to Admin Role",
+      "demote": "Demote to User Role",
       "close": "Close",
-      "block": "Block this user for this site",
       "unblock": "Unblock this user"
     },
     "timeLabel": {

@@ -61,7 +61,7 @@
             <span class="ml-3">Project Member</span>
           </div>
           <div class="flex align-items-center">
-            <span class="font-bold">{{ projectData?.created_projects?.length || 0 }}</span>
+            <span class="font-bold">{{ projectData?.total_members || 0 }}</span>
             <span class="text-sm ml-2"> Person </span>
           </div>
       </li>
@@ -76,7 +76,7 @@
             <span class="ml-3">Total Task</span>
           </div>
           <div class="flex align-items-center">
-            <span class="font-bold">{{ projectData?.joined_projects?.length || 0 }}</span>
+            <span class="font-bold">{{ projectData?.total_tasks || 0 }}</span>
             <span class="text-sm ml-2"> Tasks </span>
           </div>
       </li>
@@ -91,13 +91,30 @@
             <span class="ml-3">Total Resource</span>
           </div>
           <div class="flex align-items-center">
-            <span class="font-bold">{{ projectData?.joined_projects?.length || 0 }}</span>
+            <span class="font-bold">{{ projectData?.total_resources || 0 }}</span>
             <span class="text-sm ml-2"> resource </span>
           </div>
       </li>
     </ul>
     <p-divider></p-divider>
-    <div class="flex justify-content-end mt-1">
+    <div class="flex justify-content-between mt-1">
+      @if (!projectData?.is_disable) {
+          <p-splitbutton 
+            appendTo="body"
+            [label]="buttonArchive | translate" 
+            icon="pi pi-folder"
+            [severity]="'secondary'"
+            [model]="items" 
+            (onClick)="archiveProject()" >
+          </p-splitbutton>
+        } @else {
+          <p-splitbutton 
+            appendTo="body"
+            [label]="buttonUnArchive | translate" 
+            icon="pi pi-folder-plus"
+            [model]="items" 
+            (onClick)="unArchiveProject()"/>
+      }
       <p-button 
         [icon]="'pi pi-times'"
         [label]="buttonClose | translate" 

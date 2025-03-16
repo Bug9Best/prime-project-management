@@ -14,8 +14,8 @@ export enum UserRole {
 })
 export class AuthService extends BaseService<any> {
 
-  signinWithGoogle() {
-    return this.client.get<any>(environment.apiUrl + 'auth/google');
+  signinWithGoogle(payload: any) {
+    return this.client.post<any>(environment.apiUrl + 'auth/google', payload);
   }
 
   cookieService = inject(CookieService);
@@ -65,13 +65,5 @@ export class AuthService extends BaseService<any> {
   isUser() {
     const user: any = this.getUserData();
     return user?.role === UserRole.User;
-  }
-
-  authorization() {
-    return this.client.get<any>(environment.authorizeUrl,);
-  }
-
-  signOut() {
-    return this.client.get<any>(environment.signoutUrl);
   }
 }

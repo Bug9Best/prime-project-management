@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomePage } from '../pages/home/home.component';
-import { VerifyAuthenPage } from '../pages/verify-authen/verify-authen.component';
 import { authenGuard } from '../helper/guard/authen.guard';
 
 export const routes: Routes = [
@@ -13,10 +12,7 @@ export const routes: Routes = [
     path: 'home',
     component: HomePage
   },
-  {
-    path: 'vertify_authen',
-    component: VerifyAuthenPage
-  },
+
   {
     path: 'workspace',
     loadChildren: () => import('../pages/workspace/workspace.module').then(m => m.WorkspaceModule),

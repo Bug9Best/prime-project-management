@@ -58,8 +58,8 @@
           <p-divider></p-divider>
           <div class="flex align-items-center gap-2">
             <p-avatar  
-              [label]="resource.owner_name[0]"
-              [style]="{ 'background-color': '#dee9fc', color: 'black' }" shape="circle" />
+              [image]="resource.owner_image"
+              shape="circle" />
             <div class="flex flex-column">
               <span class="text-700"> {{ resource.owner_name }} </span>
               <span class="text-xs text-700"> {{ resource.created_at | date: 'dd MMMM yyyy hh:mm:aa' }} </span>

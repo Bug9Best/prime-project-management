@@ -184,6 +184,11 @@ export class WorkspaceContentJoin {
     this.formProjectJoin.formGroup.reset();
   }
 
+  onCancelForm() {
+    this.appDialog.visible = false;
+    this.resetForm();
+  }
+
   @ViewChild(FormProjectJoin) formProjectJoin!: FormProjectJoin;
   async onValidateForm() {
     const isDisabled = await this.checkPermission();

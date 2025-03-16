@@ -1,10 +1,7 @@
 export const environment = {
     production: true,
     apiUrl: "https://prime.it.kmitl.ac.th/api/",
-    authenUrl: 'https://prime.it.kmitl.ac.th/login',
-    authorizeUrl: 'https://prime.it.kmitl.ac.th/user',
-    signupUrl: 'https://prime.it.kmitl.ac.th/register',
-    signoutUrl: 'https://prime.it.kmitl.ac.th/logout',
+    authenUrl: 'https://prime.it.kmitl.ac.th/api/auth/google',
 
     googleClientId: '346056074798-079u0u6mjr0pc30po19pf6ju5ejdvdnu.apps.googleusercontent.com',
     firebaseConfig: {

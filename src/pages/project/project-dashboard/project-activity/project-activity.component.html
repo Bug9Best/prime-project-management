@@ -1,0 +1,35 @@
+<div class="border-round shadow-1 p-3 h-full">
+    <div class="mt-2">
+      {{ 'project.dashboard.projectActivity' | translate }}
+    </div>
+    <p-divider></p-divider>
+  
+    @if (!activityData.length) {
+      <app-empty
+        [icon]="'pi pi-list-check'" 
+        [title]="emptyTitle"
+        [height]="'25rem'"
+        [description]="emptyDescription">
+      </app-empty>
+    } @else {
+      <p-scrollpanel 
+      [style]="{ width: '100%', height: '450px'}">
+        @for (item of activityData; track $index) {
+          <div class="flex flex-column w-full border-1 surface-border border-round px-3 py-2 mb-3">
+            @switch (item.action_type) {
+              @case ('created') {
+                <div>
+                  <span class="text-primary"> {{ item.action_user_name }} </span>
+                  <span class="text-700"> {{ 'log.' + item.action_type | translate }} </span>
+                  <span class="text-primary cursor-pointer" (click)="onSelectTask(item)"> {{ item.task_name }} </span>
+                </div>
+                <div class="text-xs text-700">
+                  <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
+                </div>
+              }
+            }
+          </div>
+        }
+      </p-scrollpanel>
+    }
+  </div>

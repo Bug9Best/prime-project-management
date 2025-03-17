@@ -12,6 +12,45 @@
       [description]="emptyDescription">
     </app-empty>
   } @else {
-    
+    <p-scrollpanel 
+      [style]="{ width: '100%', height: '500px'}">
+      @for (task of taskData; track $index) {
+        <div (click)="onSelectTask(task)"
+          class="border-1 surface-border border-round p-3 mb-2 cursor-pointer">
+          <div class="flex align-items-center justify-content-between">
+            <div class="flex flex-column">
+              <span class="text-lg font-semibold"> 
+                {{ task.task_name || '-'}} 
+              </span>
+              <div class="text-sm text-700">
+                {{ task.assignee_name 
+                  ? ('detail.task.assignee' | translate) + ": " + task.assignee_name
+                  : ('detail.task.notAssignee') | translate }}
+              </div>
+            </div>
+            <div class="flex gap-2">
+              @if (task.task_type) {
+                <tag-type
+                  [type]="task.task_type"
+                  [styleClass]="''">
+                </tag-type>
+              }
+              @if (task.task_priority) {
+                <tag-priority 
+                  [priority]="task.task_priority"
+                  [styleClass]="''">
+                </tag-priority>
+              }
+              @if (task.status) {
+                <tag-status
+                  [status]="task.status"
+                  [styleClass]="''">
+                </tag-status>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </p-scrollpanel>
   }
 </div>

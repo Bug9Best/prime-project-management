@@ -1,0 +1,16 @@
+:host ::ng-deep .p-timeline-vertical .p-timeline-event-opposite,
+.p-timeline-vertical .p-timeline-event-content {
+    display: none;
+}
+
+:host :ng-deep .p-timeline-event-separator {
+    flex: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+}
+
+:host ::ng-deep p-timeline-event-content	{
+    padding: 0 !important;
+}

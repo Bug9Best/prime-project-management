@@ -23,6 +23,7 @@ export interface ProjectsModel extends BaseModel {
   is_disabled: boolean;
 
   owner_name?: string;
+  total_tasks?: number;
 }
 
 @Injectable({

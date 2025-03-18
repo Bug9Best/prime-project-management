@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, output, ViewChild } from '@angular/core';
 import { Confirmation, ConfirmationService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
@@ -21,6 +21,8 @@ import { TranslateModule } from '@ngx-translate/core';
 export class SettingPrivacy {
 
   projectID: string = '';
+
+  @Input()
   projectData?: ProjectsModel;
 
   constructor(
@@ -38,15 +40,7 @@ export class SettingPrivacy {
   }
 
   ngOnInit() {
-    this.getProject();
-  }
-
-  getProject() {
-    this.projectService
-      .getOne(this.projectID)
-      .subscribe((project) => {
-        this.projectData = project;
-      });
+    console.log(this.projectData);
   }
 
   onConfirmArchive() {
@@ -60,11 +54,31 @@ export class SettingPrivacy {
     });
   }
 
+  onConfirmUnArchive() {
+    this.confirmationService.confirm({
+      message: 'Are you sure that you want to unarchive this project?',
+      header: 'Unarchive Confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.unArchiveProject();
+      },
+    });
+  }
+
   archiveProject() {
     this.projectService
       .archiveProject(this.projectID)
       .subscribe(() => {
         this.router.navigate(['/workspace']);
+      });
+  }
+
+  unArchiveProjectEvent = output()
+  unArchiveProject() {
+    this.projectService
+      .unArchiveProject(this.projectID)
+      .subscribe(() => {
+        this.unArchiveProjectEvent.emit();
       });
   }
 

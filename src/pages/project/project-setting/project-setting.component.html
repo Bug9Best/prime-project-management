@@ -5,19 +5,22 @@
 
 <p-tabView>
   <p-tabPanel [header]="'project.tab.setting.general' | translate" >
-    <setting-general>
+    <setting-general
+    [projectData]="projectData"
+    (onEditProjectEvent)="getProjectData()">
     </setting-general>
   </p-tabPanel>
   <p-tabPanel [header]="'project.tab.setting.customer' | translate">
-    <setting-customer>
+    <setting-customer
+      [customerData]="projectData.customer">
     </setting-customer>
   </p-tabPanel>
-  <!-- <p-tabPanel [header]="'project.tab.setting.position' | translate">
-    <setting-position>
-    </setting-position>
-  </p-tabPanel> -->
-  <p-tabPanel [header]="'project.tab.setting.privacy' | translate">
-    <setting-privacy>
-    </setting-privacy>
-  </p-tabPanel>
+  @if (owner_id === currentUser.id) {
+    <p-tabPanel [header]="'project.tab.setting.privacy' | translate">
+      <setting-privacy 
+        [projectData]="projectData"
+        (unArchiveProjectEvent)="getProjectData()">
+      </setting-privacy>
+    </p-tabPanel>
+  }
 </p-tabView>

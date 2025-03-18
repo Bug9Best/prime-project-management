@@ -2,6 +2,8 @@ export const environment = {
     production: false,
     apiUrl: "http://localhost:8000/api/",
     authenUrl: 'http://localhost:8000/api/auth/google',
+    // apiUrl: "https://prime.it.kmitl.ac.th/api/",
+    // authenUrl: 'https://prime.it.kmitl.ac.th/api/auth/google',
 
     googleClientId: '346056074798-079u0u6mjr0pc30po19pf6ju5ejdvdnu.apps.googleusercontent.com',
     firebaseConfig: {

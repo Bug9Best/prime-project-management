@@ -7,7 +7,9 @@ import { SettingGeneral } from './setting-general/setting-general.component';
 import { SettingCustomer } from './setting-customer/setting-customer.component';
 import { SettingPrivacy } from './setting-privacy/setting-privacy.component';
 import { TranslateModule } from '@ngx-translate/core';
-import { SettingPosition } from './setting-position/setting-position.component';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectService, ProjectsModel } from '../../../services/project/project.service';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
   selector: 'project-setting',
@@ -19,7 +21,6 @@ import { SettingPosition } from './setting-position/setting-position.component';
     AppHeader,
     SettingGeneral,
     SettingCustomer,
-    // SettingPosition,
     SettingPrivacy
   ],
   templateUrl: './project-setting.component.html',
@@ -27,6 +28,39 @@ import { SettingPosition } from './setting-position/setting-position.component';
 })
 export class ProjectSetting {
 
+  currentUser: any = {};
+  projectID: string = '';
+  projectData: ProjectsModel = <any>{};
+  owner_id: string = '';
+
   title: string = 'project.title.setting';
   subtitle: string = 'project.subtitle.setting';
+
+  constructor(
+    private auth: AuthService,
+    private activateRoute: ActivatedRoute,
+    private projectService: ProjectService
+  ) {
+    this.activateRoute.params
+      .subscribe(params => {
+        if (!params['id']) return;
+        this.projectID = params['id'];
+      });
+
+    this.currentUser = this.auth.getUserData();
+  }
+
+  ngOnInit() {
+    if (!this.projectID) return;
+    this.getProjectData();
+  }
+
+  getProjectData() {
+    this.projectService
+      .getOne(this.projectID)
+      .subscribe((data: any) => {
+        this.projectData = data;
+        this.owner_id = data.owner_id;
+      });
+  }
 }

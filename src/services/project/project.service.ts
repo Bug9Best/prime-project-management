@@ -20,10 +20,11 @@ export interface ProjectsModel extends BaseModel {
   project_type: string;
   project_privacy_type: string;
   project_code: string;
-  is_disabled: boolean;
+  is_disable: boolean;
 
   owner_name?: string;
   total_tasks?: number;
+  customer?: any;
 }
 
 @Injectable({

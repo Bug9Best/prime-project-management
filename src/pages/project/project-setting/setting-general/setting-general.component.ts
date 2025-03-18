@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, output, ViewChild } from '@angular/core';
 import { ImageModule } from 'primeng/image';
 import { FileUploadModule } from 'primeng/fileupload';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
@@ -29,6 +29,8 @@ import { TranslateModule } from '@ngx-translate/core';
 export class SettingGeneral {
 
   projectID: string = '';
+
+  @Input()
   projectData?: ProjectsModel;
 
   constructor(
@@ -44,17 +46,7 @@ export class SettingGeneral {
       });
   }
 
-  ngOnInit() {
-    this.getProject();
-  }
 
-  getProject() {
-    this.projectService
-      .getOne(this.projectID)
-      .subscribe((project) => {
-        this.projectData = project;
-      });
-  }
 
   showMessage(severity: string, summary: string, detail: string) {
     this.messageService.add({
@@ -114,6 +106,7 @@ export class SettingGeneral {
   }
 
   @ViewChild(AppDialog) appDialog!: AppDialog;
+  onEditProjectEvent = output()
   onEditProject(values: ProjectsModel) {
     this.projectService
       .update(this.projectID, values)
@@ -121,7 +114,7 @@ export class SettingGeneral {
         this.showMessage('success', 'Success', 'Customer created successfully');
         this.appDialog.visible = false;
         this.resetForm();
-        this.getProject();
+        this.onEditProjectEvent.emit();
       });
   }
 }

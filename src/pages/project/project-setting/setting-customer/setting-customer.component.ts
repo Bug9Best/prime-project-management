@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, output, ViewChild } from '@angular/core';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
 import { CustomerForm } from '../component/customer-form/customer-form.component';
@@ -24,7 +24,8 @@ import { ButtonModule } from 'primeng/button';
 })
 export class SettingCustomer {
 
-  customerData?: CustomerModel;
+  @Input()
+  customerData?: CustomerModel = <any>{};
   projectID: string = '';
 
   labelProjectName: string = 'PROJECT_MENU_SETTING_TITLE';
@@ -41,18 +42,6 @@ export class SettingCustomer {
       .subscribe(params => {
         if (!params['id']) return;
         this.projectID = params['id'];
-      });
-  }
-
-  ngOnInit() {
-    this.getProjectCustomer();
-  }
-
-  getProjectCustomer() {
-    this.customerService
-      .getProjectCustomer(this.projectID)
-      .subscribe((res) => {
-        this.customerData = res;
       });
   }
 
@@ -99,6 +88,7 @@ export class SettingCustomer {
   }
 
   @ViewChild(AppDialog) appDialog!: AppDialog;
+  onEditProjectEvent = output()
   onCreateProject(values: CustomerModel) {
     this.customerService
       .create(values)
@@ -106,7 +96,7 @@ export class SettingCustomer {
         this.showMessage('success', 'Success', 'Customer created successfully');
         this.appDialog.visible = false;
         this.resetForm();
-        this.getProjectCustomer();
+        this.onEditProjectEvent.emit();
       });
   }
 }

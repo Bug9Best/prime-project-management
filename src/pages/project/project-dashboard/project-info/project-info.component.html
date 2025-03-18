@@ -26,7 +26,7 @@
         <div class="flex justify-content-between ml-2 w-full">
           <div class="flex flex-column">
             <span class="text-500 text-sm">Customer Name</span>
-            <span>Ecart Stuido Ltd.</span>
+            <span>{{ customerData?.customer_name  || 'ยังไม่มีข้อมูล'}}</span>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
             shape="circle" />
           <div class="flex flex-column">
             <span class="text-500 text-sm">To Do</span>
-            <span>10 Tasks</span>
+            <span>{{ taskData?.todo_tasks }} Tasks</span>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@
             [style]="{ 'background-color': '#eab308', color: '#fff' }" shape="circle" />
           <div class="flex flex-column">
             <span class="text-500 text-sm">In progress</span>
-            <span>10 Tasks</span>
+            <span>{{ taskData?.doing_tasks }} Tasks</span>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
             shape="circle" />
           <div class="flex flex-column">
             <span class="text-500 text-sm">Done</span>
-            <span> Tasks</span>
+            <span>{{ taskData?.done_tasks }} Tasks</span>
           </div>
         </div>
       </div>

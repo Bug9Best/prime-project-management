@@ -26,19 +26,19 @@ export class ProjectPriorityOverview {
     this.value = [{
       label: 'Low',
       color: '#60a5fa',
-      value: (values.low_priority / values.total_tasks * 100) || 0
+      value: (values.low_tasks / values.total_tasks * 100) || 0
     }, {
       label: 'Medium',
       color: '#34d399',
-      value: (values.medium_priority / values.total_tasks * 100) || 0
+      value: (values.medium_tasks / values.total_tasks * 100) || 0
     }, {
       label: 'High',
       color: '#fbbf24',
-      value: (values.high_priority / values.total_tasks * 100) || 0
+      value: (values.high_tasks / values.total_tasks * 100) || 0
     }, {
       label: 'Critical',
       color: '#f87171',
-      value: (values.critical_priority / values.total_tasks * 100) || 0
+      value: (values.critical_tasks / values.total_tasks * 100) || 0
     }];
   }
 }

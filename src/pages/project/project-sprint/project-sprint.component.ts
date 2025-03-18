@@ -95,8 +95,8 @@ export class ProjectSprint {
 
   @ViewChild(AppDialog) appDialog!: AppDialog;
   onCreateSprint(param: any) {
-    param.start_date = new Date(param.start_date).toLocaleDateString();
-    param.end_date = new Date(param.end_date).toLocaleDateString();
+    param.start_date = new Date(param.start_date).toLocaleString();
+    param.end_date = new Date(param.end_date).toLocaleString();
     this.sprintService
       .create(param)
       .subscribe({

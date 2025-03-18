@@ -6,6 +6,7 @@ import { TooltipModule } from 'primeng/tooltip';
 import { TranslateModule } from '@ngx-translate/core';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { ProjectsModel } from '../../../../services/project/project.service';
+import { CustomerModel } from '../../../../services/customer/customer.service';
 
 @Component({
   selector: 'project-info',
@@ -24,4 +25,10 @@ export class ProjectInfo {
 
   @Input()
   projectData: ProjectsModel = <any>{};
+
+  @Input()
+  customerData?: CustomerModel;
+
+  @Input()
+  taskData?: any;
 }

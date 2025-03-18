@@ -9,6 +9,7 @@ import { ProjectTaskOverview } from './project-task-overview/project-task-overvi
 import { ProjectService, ProjectsModel } from '../../../services/project/project.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectActivity } from './project-activity/project-activity.component';
+import { CustomerModel } from '../../../services/customer/customer.service';
 
 type BurnType = 'burnup' | 'burndown';
 
@@ -31,6 +32,7 @@ export class ProjectDashboard {
 
   projectID: string = '';
   projectData: ProjectsModel = <any>{};
+  customerData: CustomerModel = <any>{};
   priorityOverview: any = []
   statusOverview: any = []
 
@@ -62,6 +64,7 @@ export class ProjectDashboard {
       .getDashboard(this.projectID)
       .subscribe((data: any) => {
         this.projectData = data.projects_info;
+        this.customerData = data.customer;
         this.priorityOverview = data.priority_overview;
         this.statusOverview = data.status_overview;
         this.setValue();

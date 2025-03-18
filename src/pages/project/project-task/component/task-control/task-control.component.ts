@@ -93,7 +93,6 @@ export class TaskControl {
 
   ngOnChanges(changes: SimpleChanges) {
     let task = changes['taskData'].currentValue;
-    console.log(task);
     if (!task) return;
     this.getMemberList();
     this.getSprintList();

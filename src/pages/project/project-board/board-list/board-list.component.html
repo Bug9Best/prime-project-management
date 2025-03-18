@@ -9,7 +9,7 @@
           <div [ngClass]="item.isHidden ? 'opacity-30' : ''"
             class="w-full flex align-items-center justify-content-between select-none">
             <div class="font-bold">
-              {{item.name}}
+              {{item.board_name}}
             </div>
             <div class="flex">
               <ng-container *ngIf="item.isHidden">
@@ -24,31 +24,49 @@
               </button>
             </div>
           </div>
-          <p-menu #menu [model]="items" [popup]="true" />
+          <p-menu #menu [model]="items" [popup]="true" appendTo="body" />
         </ng-template>
 
-        <div *ngFor="let item of item.items" pDraggable (onDragEnd)="onDragEnd()"
-          (onDragStart)="onDragStart(item, item)" (click)="viewDetail(item, item)"
-          [ngClass]="item.isHidden ? 'opacity-30' : ''"
+        <div *ngFor="let task of item.children" pDraggable 
+          (onDragEnd)="onDragEnd(task, item)"
+          (onDragStart)="onDragStart(task)" (click)="viewDetail(task)"
+          [ngClass]="task.isHidden ? 'opacity-30' : ''"
           class="flex p-3 surface-overlay border-1 surface-border border-round mb-2 cursor-pointer align-content-center justify-content-between select-none">
           <div>
-            <div class="p-card-header font-bold">{{ item.title }}</div>
-            <div class="p-card-body text-500 text-sm">{{ item.description }}</div>
-            <div class="p-card-body text-500 text-xs">{{ item.due_date }}</div>
+            <div class="p-card-header font-bold">{{ task.task_name }}</div>
+            <div class="p-card-body text-500 text-sm">{{ task.task_description }}</div>
+            <div class="p-card-body text-500 text-xs">{{ task.due_date }}</div>
           </div>
-          <div>
+          <!-- <div>
             <p-avatarGroup class="flex align-items-center"
               [pTooltip]="'Natthaphon D. Best' + '\n' + 'Phuriq' + '\n' + 'and 1 others'">
-              <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
+              <p-avatar 
+                image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" 
+                shape="circle" />
             </p-avatarGroup>
-          </div>
+          </div> -->
         </div>
 
-        <ng-template pTemplate="footer" style="padding: 0">
+        <ng-template pTemplate="footer" style="padding: 0" >
           <div [ngClass]="item.isHidden ? 'opacity-30' : ''">
-            <button pButton pRipple icon="pi pi-plus" label="Create Task" (click)="onOpenCreate(item)"
+            <button pButton pRipple 
+              icon="pi pi-plus" 
+              label="Create Task" 
+              (click)="onOpenCreate(item)"
               class="p-button-secondary p-button-outlined p-button-sm w-full">
             </button>
+            <app-dialog 
+              [icon]="'pi pi-file-plus'"
+              [width]="'60vw'"
+              [label]="labelCreate"
+              [header]="labelHeader"
+              [showFooter]="true"
+              [showButton]="false"
+              (onCancelEvent)="onCancelForm()"
+              (onSubmitEvent)="onValidateForm()">
+                <form-task>
+                </form-task>
+            </app-dialog>
           </div>
         </ng-template>
       </p-panel>

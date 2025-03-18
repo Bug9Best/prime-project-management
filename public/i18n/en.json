@@ -340,7 +340,8 @@
       "taskOverview": "Task Status Overview",
       "burnUp": "Burn Up Chart",
       "burnDown": "Burn Down Chart",
-      "taskList": "Task List"
+      "taskList": "Task List",
+      "projectActivity": "Project Activity"
     },
     "member" : {
       "header": "Member Detail",
@@ -492,6 +493,9 @@
       "taskTotal": "Total Task",
       "taskCounting": "tasks",
       "noData": "No specified"
+    },
+    "board": {
+      "header": "Board"
     },
     "gantt": {
       "header": "Gantt Chart",

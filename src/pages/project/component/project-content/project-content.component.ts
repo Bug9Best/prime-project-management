@@ -13,6 +13,7 @@ import { ProjectTaskDetail } from '../../project-task/project-task-detail/projec
 import { ProjectBacklogTask } from '../../project-backlog/project-backlog-task/project-backlog-task.component';
 import { ProjectGanttTask } from '../../project-gantt/project-gantt-task/project-gantt-task.component';
 import { ProjectSprintTaskDetail } from '../../project-sprint/project-sprint-task-detail/project-sprint-task-detail.component';
+import { BoardDetail } from '../../project-board/board-detail/board-detail.component';
 
 @Component({
   selector: 'project-content',
@@ -30,7 +31,8 @@ import { ProjectSprintTaskDetail } from '../../project-sprint/project-sprint-tas
     ProjectSetting,
     ProjectSprintDetail,
     ProjectSprintTaskDetail,
-    ProjectTaskDetail
+    ProjectTaskDetail,
+    BoardDetail
   ],
   templateUrl: './project-content.component.html',
   styleUrl: './project-content.component.scss'
@@ -46,6 +48,7 @@ export class ProjectContent {
 
   taskID: string = '';
   ganttDetailState = signal<boolean>(false);
+  boardDetailState = signal<boolean>(false);
   backlogDetailState = signal<boolean>(false);
   taskDetailState = signal<boolean>(false);
 
@@ -77,6 +80,13 @@ export class ProjectContent {
 
   setGanttState(state: boolean, taskID?: string) {
     this.ganttDetailState.set(state);
+    if (taskID) {
+      this.taskID = taskID;
+    }
+  }
+
+  setBoardState(state: boolean, taskID?: string) {
+    this.boardDetailState.set(state);
     if (taskID) {
       this.taskID = taskID;
     }

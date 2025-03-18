@@ -19,6 +19,7 @@ import { TagType } from '../tag-type/tag-type.component';
 import { AuthService } from '../../../../../services/auth/auth.service';
 import { KeyFilterModule } from 'primeng/keyfilter';
 import { ProjectService } from '../../../../../services/project/project.service';
+import { BoardTaskService } from '../../../../../services/board-task/board-task.service';
 
 @Component({
   selector: 'task-control',
@@ -92,6 +93,7 @@ export class TaskControl {
 
   ngOnChanges(changes: SimpleChanges) {
     let task = changes['taskData'].currentValue;
+    console.log(task);
     if (!task) return;
     this.getMemberList();
     this.getSprintList();
@@ -193,9 +195,22 @@ export class TaskControl {
     this.onUpdateTask(filteredData);
   }
 
-  taskService = inject(TaskScrumService);
   onUpdateTaskEvent = output<void>();
   onUpdateTask(data: any) {
+    switch (this.projectType()) {
+      case 'SCRUM':
+        this.updateScrumData(data);
+        break;
+      case 'KANBAN':
+        this.updateKanbanData(data);
+        break;
+      default:
+        break;
+    }
+  }
+
+  taskService = inject(TaskScrumService);
+  updateScrumData(data: any) {
     this.taskService
       .updateByField(data.id, data)
       .subscribe({
@@ -208,8 +223,24 @@ export class TaskControl {
         error: () => {
           this.showMessage('error', 'Update Task', 'Update task failed');
         }
-      }
-      );
+      });
+  }
+
+  boardTaskService = inject(BoardTaskService);
+  updateKanbanData(data: any) {
+    this.boardTaskService
+      .updateByField(data.id, data)
+      .subscribe({
+        next: () => {
+          this.onUpdateTaskEvent.emit();
+          this.resetField();
+          this.resetFormGroup();
+          this.showMessage('success', 'Update Task', 'Update task successfully');
+        },
+        error: () => {
+          this.showMessage('error', 'Update Task', 'Update task failed');
+        }
+      });
   }
 
   onAssign() {
@@ -217,7 +248,36 @@ export class TaskControl {
     values.task_id = this.taskData.id;
     values.user_id = this.formGroup.get('user_id')?.value;
 
+    switch (this.projectType()) {
+      case 'SCRUM':
+        this.assignScrum(values);
+        break;
+      case 'KANBAN':
+        this.assignKanban(values);
+        break;
+      default:
+        break;
+    }
+  }
+
+  assignScrum(values: any) {
     this.taskService
+      .assignTask(values)
+      .subscribe({
+        next: () => {
+          this.onUpdateTaskEvent.emit();
+          this.resetField();
+          this.resetFormGroup();
+          this.showMessage('success', 'Update Task', 'Update task successfully');
+        },
+        error: () => {
+          this.showMessage('error', 'Update Task', 'Update task failed');
+        }
+      });
+  }
+
+  assignKanban(values: any) {
+    this.boardTaskService
       .assignTask(values)
       .subscribe({
         next: () => {
@@ -237,7 +297,36 @@ export class TaskControl {
     values.task_id = this.taskData.id;
     values.user_id = this.currentUser.id;
 
+    switch (this.projectType()) {
+      case 'SCRUM':
+        this.assignScrumSelf(values);
+        break;
+      case 'KANBAN':
+        this.assignKanbanSelf(values);
+        break;
+      default:
+        break;
+    }
+  }
+
+  assignScrumSelf(values: any) {
     this.taskService
+      .assignTask(values)
+      .subscribe({
+        next: () => {
+          this.onUpdateTaskEvent.emit();
+          this.resetField();
+          this.resetFormGroup();
+          this.showMessage('success', 'Assign Task', 'Assign task successfully');
+        },
+        error: () => {
+          this.showMessage('error', 'Assign Task', 'Assign task failed');
+        }
+      });
+  }
+
+  assignKanbanSelf(values: any) {
+    this.boardTaskService
       .assignTask(values)
       .subscribe({
         next: () => {

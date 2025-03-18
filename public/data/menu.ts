@@ -112,12 +112,6 @@ export var listKanbanProjectMenu: ProjectMenu[] = [
     },
     {
         type: 'menu',
-        tabIndex: 5,
-        label: 'project.menu.task',
-        icon: 'pi pi-list-check'
-    },
-    {
-        type: 'menu',
         tabIndex: 6,
         label: 'project.menu.resource',
         icon: 'pi pi-file'

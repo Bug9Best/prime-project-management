@@ -9,7 +9,8 @@ import { StyleClass } from 'primeng/styleclass';
 import { AuthService } from '../../../services/auth/auth.service';
 import { MenuModule } from 'primeng/menu';
 import { AvatarModule } from 'primeng/avatar';
-import { MenuItem } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
 
 export interface menuItem {
   id: number;
@@ -67,8 +68,8 @@ export class SectionNavigate {
     this.userData = this.authService.getUserData();
 
     google.accounts.id.initialize({
-      client_id: '346056074798-079u0u6mjr0pc30po19pf6ju5ejdvdnu.apps.googleusercontent.com',
-      callback: this.handleCredentialResponse.bind(this)
+      client_id: '1023079733198-12k3qr9hjj73q8ng8cb7ltgmkrtsrvc1.apps.googleusercontent.com',
+      callback: this.handleCredentialResponse.bind(this),
     });
 
     this.renderGoogleButton();
@@ -86,15 +87,33 @@ export class SectionNavigate {
   }
 
   private decodeToken(token: string) {
-    return JSON.parse(atob(token.split(".")[1]));
+    const base64Url = token.split(".")[1];
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const decodedData = atob(base64);
+    return JSON.parse(decodedData);
   }
 
   onSignInEvent = output<any>();
   handleCredentialResponse(response: any) {
     if (response) {
-      const payload = this.decodeToken(response.credential);
-      this.onSignInEvent.emit(payload);
+      const payload = jwtDecode<JwtPayload>(response.credential);
+      const email = this.decodeToken(response.credential).email;
+      if (email.endsWith('@kmitl.ac.th')) {
+        this.onSignInEvent.emit(payload);
+        return;
+      }
+      this.shgowMessage('warn', 'Error', 'Invalid email domain(only @kmitl.ac.th is allowed)');
     }
+  }
+
+  messageService = inject(MessageService);
+  shgowMessage(severity: string, summary: string, detail: string) {
+    this.messageService.add({
+      key: 'app',
+      severity: severity,
+      summary: summary,
+      detail: detail
+    });
   }
 
   onSignUpEvent = output<boolean>();

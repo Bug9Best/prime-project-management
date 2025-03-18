@@ -10,6 +10,13 @@ import { PanelModule } from 'primeng/panel';
 import { ScrollerModule } from 'primeng/scroller';
 import { TooltipModule } from 'primeng/tooltip';
 import { DragDropModule } from 'primeng/dragdrop';
+import { BoardService } from '../../../../services/board/board.service';
+import { ActivatedRoute } from '@angular/router';
+import { AppDialog } from '../../../../components/app-dialog/app-dialog.component';
+import { FormTask } from '../../project-task/component/form-task/form-task.component';
+import { BoardTaskService } from '../../../../services/board-task/board-task.service';
+import { AuthService } from '../../../../services/auth/auth.service';
+import { ProjectContent } from '../../component/project-content/project-content.component';
 
 @Component({
   selector: 'board-list',
@@ -17,17 +24,30 @@ import { DragDropModule } from 'primeng/dragdrop';
     CommonModule,
     PanelModule,
     MenuModule,
+    AppDialog,
     AvatarGroupModule,
     AvatarModule,
     TooltipModule,
     ButtonModule,
     ScrollerModule,
-    DragDropModule
+    DragDropModule,
+    FormTask
   ],
   templateUrl: './board-list.component.html',
   styleUrl: './board-list.component.scss'
 })
 export class BoardList {
+
+  projectID: string = '';
+  currentUser: any = {};
+
+  labelCreate: string = 'project.button.create.task';
+  labelHeader: string = 'project.header.task';
+
+  selectedBoard: any | undefined;
+  listBoard: any[] = []
+  draggedItem: any | undefined;
+  sourceBoard: any | undefined;
 
   items: MenuItem[] = [
     {
@@ -50,75 +70,40 @@ export class BoardList {
         this.onDeleteBoard();
       }
     },
-    {
-      label: 'Delete',
-      icon: 'pi pi-trash',
-      command: (event) => {
-        this.onDeleteBoard();
-      }
-    },
-    {
-      label: 'Delete',
-      icon: 'pi pi-trash',
-      command: (event) => {
-        this.onDeleteBoard();
-      }
-    },
   ];
 
-  selectedBoard: any | undefined;
-  listBoard: any[] = [
-    {
-      id: 1,
-      name: 'To Do',
-      items: [
-        { id: 1, title: 'Task 1', description: "Description 1", due_date: '18 กันยายน 2024' },
-        { id: 2, title: 'Task 2', description: "Description 2", due_date: '20 กันยายน 2024' }
-      ]
-    },
-    {
-      id: 2,
-      name: 'In Progress',
-      items: [
-        { id: 3, title: 'Task 3', description: "Description 3", due_date: '21 กันยายน 2024' }
-      ]
-    },
-    {
-      id: 3,
-      name: 'Done',
-      items: [
-        { id: 4, title: 'Task 4', description: "Description 4", due_date: '16 กันยายน 2024' }
-      ]
-    }
-  ]
-  sourceBoard: any | undefined;
-  draggedItem: any | undefined;
-
-  formGroup: FormGroup = new FormGroup({
-    name: new FormControl('', Validators.required),
-  });
-
   constructor(
+    private auth: AuthService,
+    private activateRoute: ActivatedRoute,
+    private projectContent: ProjectContent,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
-  ) { }
+    private boardService: BoardService,
+    private boardTaskService: BoardTaskService,
+  ) {
+    this.activateRoute.params
+      .subscribe(params => {
+        if (!params['id']) return;
+        this.projectID = params['id'];
+      });
+    this.currentUser = this.auth.getUserData();
+  }
+
+  ngOnInit() {
+    this.getBoardList();
+  }
+
+  getBoardList() {
+    this.boardService
+      .getProjectBoard(this.projectID)
+      .subscribe((res) => {
+        this.listBoard = res;
+      });
+  }
 
   resetValues() {
     this.draggedItem = undefined;
     this.sourceBoard = undefined;
-  }
-
-  onDragStart(column: any, item: any) {
-    this.sourceBoard = column;
-    this.draggedItem = item;
-  }
-
-  onDragEnd() {
-    this.resetValues();
-  }
-
-  onDropItem(targetColumn: any) {
-      
   }
 
   createBoard(data: any) {
@@ -127,27 +112,6 @@ export class BoardList {
       name: data.name,
       items: [],
     } as any);
-  }
-
-  onViewDetail = output<any>();
-  viewDetail(board: any, item: any) {
-    this.onViewDetail.emit({ board, item });
-  }
-
-
-  onOpenCreate(board: any) {
-    this.selectedBoard = board;
-  }
-
-  onCreateTask(value: any) {
-    if (!this.selectedBoard) return
-    let values: any = {
-      id: this.selectedBoard?.items.length + 1,
-      title: value.name,
-      description: "",
-      due_date: "",
-    }
-    this.selectedBoard.items.push(values);
   }
 
   onHiddenBoard() {
@@ -178,22 +142,89 @@ export class BoardList {
 
   deleteBoard() {
     this.listBoard = this.listBoard.filter((x) => x.id !== this.selectedBoard?.id);
-    this.successMessage();
+    this.showMessage('success', 'Success', 'Delete board success');
   }
 
-  successMessage() {
+  showMessage(severity: string, summary: string, detail: string) {
     this.messageService.add({
-      severity: 'success',
-      summary: 'Success',
-      detail: 'Board has been deleted successfully',
+      key: 'app',
+      severity: severity,
+      summary: summary,
+      detail: detail,
     });
   }
 
-  errorMessage() {
-    this.messageService.add({
-      severity: 'error',
-      summary: 'Error',
-      detail: 'Board has not been deleted',
-    });
+  onOpenCreate(board: any) {
+    this.appDialog.visible = true;
+    this.selectedBoard = board;
+  }
+
+  resetForm() {
+    this.formTask.formGroup.reset();
+  }
+
+  onCancelForm() {
+    this.appDialog.visible = false;
+    this.resetForm();
+  }
+
+  @ViewChild(FormTask) formTask!: FormTask;
+  onValidateForm() {
+    if (this.formTask.formGroup.invalid) {
+      this.formTask.formGroup.markAllAsTouched();
+      return;
+    }
+
+    let values = this.formTask.formGroup.value;
+    values.board_id = this.selectedBoard.id;
+    values.project_id = this.projectID;
+    values.user_id = this.currentUser.id;
+    values.task_description = this.formTask.taskDescription;
+    this.onCreateTask(values);
+  }
+
+  @ViewChild(AppDialog) appDialog!: AppDialog;
+  onCreateTask(param: any) {
+    this.boardTaskService
+      .create(param)
+      .subscribe({
+        next: (response) => {
+          this.showMessage('success', 'Success', 'Create task success');
+          this.appDialog.visible = false;
+          this.resetForm();
+          this.getBoardList();
+        },
+        error: (error) => {
+          console.log(error);
+          this.showMessage('error', 'Error', 'Create task failed');
+        }
+      });
+  }
+
+  viewDetail(task: any) {
+    this.projectContent.setBoardState(true, task.id);
+  }
+
+  onDragStart(item: any) {
+    this.draggedItem = item;
+  }
+
+  onDropItem(targetColumn: any) {
+    this.sourceBoard = targetColumn;
+  }
+
+  onDragEnd(task: any, board: any) {
+    this.boardTaskService.
+      updateBoard(this.draggedItem.id, this.sourceBoard.id)
+      .subscribe({
+        next: (response) => {
+          this.showMessage('success', 'Success', 'Update board success');
+          this.getBoardList();
+        },
+        error: (error) => {
+          console.log(error);
+          this.showMessage('error', 'Error', 'Update board failed');
+        }
+      });
   }
 }

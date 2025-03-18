@@ -42,8 +42,14 @@
       }
     }
     @case (4) {
-      <project-board>
-      </project-board>
+      @if (!boardDetailState()) {
+        <project-board>
+        </project-board>
+      } @else {
+        <board-detail 
+          [taskID]="taskID">
+        </board-detail>
+      }
     }
     @case (5) {
       @if (!taskDetailState()) {

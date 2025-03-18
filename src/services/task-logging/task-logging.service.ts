@@ -10,8 +10,8 @@ export interface TaskLoggingModel extends BaseModel {
 export class TaskLoggingService extends BaseService<TaskLoggingModel> {
   public override path: string = "task_logging";
 
-  getCreateData(project_id: string | number) {
-    return this.client.get<TaskLoggingModel[]>(`${this.getBaseUrl}/getCreateData`, {
+  getLoggingData(project_id: string | number) {
+    return this.client.get<TaskLoggingModel[]>(`${this.getBaseUrl}/getLoggingData`, {
       params: {
         project_id: project_id
       }

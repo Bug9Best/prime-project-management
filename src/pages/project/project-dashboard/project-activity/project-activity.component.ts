@@ -51,7 +51,7 @@ export class ProjectActivity {
   }
 
   getLoggingData() {
-    this.taskLoggingService.getCreateData(this.projectID)
+    this.taskLoggingService.getLoggingData(this.projectID)
       .subscribe((res: any) => {
         this.activityData = res;
       });
@@ -60,5 +60,24 @@ export class ProjectActivity {
   onSelectTask(item: any) {
     this.projectContent.onSetTabIndex(5);
     this.projectContent.setTaskState(true, item.task_id);
+  }
+
+  getLogging(item: any) {
+    if (item.action_key == "assigned") {
+      return item.target_user_name;
+    }
+    else if (item.action_key == "sprint_id") {
+      return item.target_sprint_name;
+    } else if (item.action_key == "start_date") {
+      return item.action_value;
+    } else if (item.action_key == "end_date") {
+      return item.action_value;
+    } else if (item.action_key == "estimate_time") {
+      return item.action_value;
+    } else if (item.action_key == "actual_time") {
+      return item.action_value;
+    }
+
+    return 'log.' + item.action_value;
   }
 }

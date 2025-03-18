@@ -27,6 +27,47 @@
                   <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
                 </div>
               }
+              @case ('assigned') {
+                <div>
+                  <span class="text-primary"> {{ item.action_user_name }} </span>
+                  <span class="text-700"> {{ 'log.' + item.action_type + 'Pre' | translate }} </span>
+                  <span class="text-primary"> {{ item.task_name }} </span>
+                  <span class="text-700"> {{ 'log.' + item.action_type + 'Post' | translate }} </span>
+                  <span class="text-primary"> {{ getLogging(item) | translate}} </span>
+                </div>
+                <div class="text-xs text-700">
+                  <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
+                </div>
+              }
+              @case ('changed') {
+                <div>
+                  <span class="text-primary"> {{ item.action_user_name }} </span>
+                  <span class="text-700"> {{ 'log.' + item.action_type + 'Pre' | translate }} </span>
+                  <span class="text-primary"> {{ 'log.' + item.action_key  | translate}} </span>
+                  <span class="text-700"> {{ 'log.' + item.action_type + 'Post' | translate }} </span>
+                  <span class="text-primary"> {{ getLogging(item) | translate}} </span>
+                </div>
+                <div class="text-xs text-700">
+                  <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
+                </div>
+              }
+              @case ('commented') {
+                <div class="border-1 surface-border border-round mb-3 py-1 px-2">
+                  <div class="flex gap-2">
+                    <span class="text-primary"> {{ item.action_user_name }} </span>
+                    <span class="text-700"> {{ 'log.' + item.action_type | translate }} </span>
+                  </div>
+                  <div [innerHTML]="item.action_message" class="custom"></div>
+                  <div class="text-xs text-700">
+                    <span> {{ item.created_at | date:'d MMM yyyy hh:mm:aa' }} </span>
+                  </div>
+                </div>
+              }
+              @case ('completed') {
+                <span class="text-primary"> {{ item.action_user_name }} </span>
+                <span class="text-700"> {{ item.action_message }} </span>
+                <span class="text-700"> {{ item.created_at | date }} </span>
+              }
             }
           </div>
         }

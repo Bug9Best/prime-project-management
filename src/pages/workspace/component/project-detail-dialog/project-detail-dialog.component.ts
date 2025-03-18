@@ -6,9 +6,9 @@ import { ButtonModule } from 'primeng/button';
 import { ThaiDatePipe } from '../../../../helper/pipe/thdate.pipe';
 import { ProjectTypeTag } from '../project-type-tag/project-type-tag.component';
 import { ProjectPrivacyTag } from '../project-privacy-tag/project-privacy-tag.component';
-import { SplitButtonModule } from 'primeng/splitbutton';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ProjectService } from '../../../../services/project/project.service';
+import { MenuModule } from 'primeng/menu';
 
 @Component({
   selector: 'project-detail-dialog',
@@ -19,7 +19,7 @@ import { ProjectService } from '../../../../services/project/project.service';
     ProjectTypeTag,
     ProjectPrivacyTag,
     DividerModule,
-    SplitButtonModule,
+    MenuModule,
     ButtonModule
   ],
   templateUrl: './project-detail-dialog.component.html',
@@ -43,12 +43,21 @@ export class ProjectDetailDialog {
   labelTaskCounting: string = 'detail.project.taskCounting';
   labelResource: string = 'detail.project.resource';
   labelResourceCounting: string = 'detail.project.resourceCounting';
+  buttonOption: string = 'app.button.option';
   buttonArchive: string = 'project.setting.privacy.archive';
   buttonUnArchive: string = 'project.setting.privacy.unarchive';
-  buttonDeleteProject: string = '';
+  buttonDeleteProject: string = 'project.setting.privacy.delete';
   buttonClose: string = 'app.button.close'
 
   items = [
+    {
+      icon: 'pi pi-folder-open',
+      label: this.buttonArchive,
+      command: () => {
+        this.archiveProject();
+      }
+    },
+  
     {
       icon: 'pi pi-trash',
       label: this.buttonDeleteProject,
@@ -58,21 +67,29 @@ export class ProjectDetailDialog {
     },
   ];
 
+  unItems = [
+    {
+      icon: 'pi pi-folder',
+      label: this.buttonUnArchive,
+      command: () => {
+        this.unArchiveProject();
+      }
+    },
+    {
+      icon: 'pi pi-trash',
+      label: this.buttonDeleteProject,
+      command: () => {
+        this.deleteProject();
+      }
+    },
+  ]
+
   constructor(
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
-    private translate: TranslateService,
     private projectService: ProjectService
   ) { }
 
-
-  ngOnInit() {
-    this.translate
-      .get('project.setting.privacy.delete')
-      .subscribe((translatedLabel) => {
-        this.items[0].label = translatedLabel;
-      });
-  }
 
   @ViewChild(AppDialog) dialog!: AppDialog;
   showDialog(user_data: any) {

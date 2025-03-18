@@ -9,6 +9,7 @@ import { SprintModel, SprintService } from '../../../services/sprint/sprint.serv
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { AppScrolling } from '../../../components/app-scrolling/app-scrolling.component';
 import { SprintItem } from './component/sprint-item/sprint-item.component';
+import { ProjectService, ProjectsModel } from '../../../services/project/project.service';
 
 @Component({
   selector: 'project-sprint',
@@ -27,6 +28,7 @@ import { SprintItem } from './component/sprint-item/sprint-item.component';
 export class ProjectSprint {
 
   projectID: string = '';
+  projectData: ProjectsModel = <any>{};
   listSprint: SprintModel[] = [];
 
   title: string = 'project.title.sprint';
@@ -41,6 +43,7 @@ export class ProjectSprint {
     private activateRoute: ActivatedRoute,
     private messageService: MessageService,
     private sprintService: SprintService,
+    private projectService: ProjectService,
   ) {
     this.activateRoute.params
       .subscribe(params => {
@@ -50,7 +53,16 @@ export class ProjectSprint {
   }
 
   ngOnInit() {
+    this.getProjectData();
     this.getSprint();
+  }
+
+  getProjectData() {
+    this.projectService
+      .getOne(this.projectID)
+      .subscribe((data: any) => {
+        this.projectData = data;
+      });
   }
 
   getSprint() {

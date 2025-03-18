@@ -2,16 +2,18 @@
   [title]="title" 
   [subtitle]="subtitle">
   <div class="flex">
-    <app-dialog 
-      [icon]="'pi pi-plus'"
-      [width]="'60vw'"
-      [label]="labelButton"
-      [header]="labelHeader"
-      (onCancelEvent)="onCancelForm()"
-      (onSubmitEvent)="onValidateForm()">
-        <form-sprint>
-        </form-sprint>
-    </app-dialog>
+    @if (!projectData.is_disable) {
+      <app-dialog 
+        [icon]="'pi pi-plus'"
+        [width]="'60vw'"
+        [label]="labelButton"
+        [header]="labelHeader"
+        (onCancelEvent)="onCancelForm()"
+        (onSubmitEvent)="onValidateForm()">
+          <form-sprint>
+          </form-sprint>
+      </app-dialog>
+    }
   </div>
 </app-header>
 

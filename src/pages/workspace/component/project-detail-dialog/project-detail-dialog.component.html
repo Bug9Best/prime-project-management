@@ -98,23 +98,24 @@
     </ul>
     <p-divider></p-divider>
     <div class="flex justify-content-between mt-1">
-      @if (!projectData?.is_disable) {
-          <p-splitbutton 
-            appendTo="body"
-            [label]="buttonArchive | translate" 
-            icon="pi pi-folder"
-            [severity]="'secondary'"
-            [model]="items" 
-            (onClick)="archiveProject()" >
-          </p-splitbutton>
-        } @else {
-          <p-splitbutton 
-            appendTo="body"
-            [label]="buttonUnArchive | translate" 
-            icon="pi pi-folder-plus"
-            [model]="items" 
-            (onClick)="unArchiveProject()"/>
-      }
+      <p-button 
+        [icon]="'pi pi-cog'"
+        [label]="buttonOption | translate" 
+        severity="secondary" 
+        styleClass="w-12rem"
+        (click)="menu.toggle($event)" />    
+        <p-menu #menu 
+        styleClass="w-20rem"
+          [model]="!projectData.is_disable ? items : unItems" 
+          [popup]="true"  
+          appendTo="body">
+          <ng-template #item let-item>
+            <a pRipple class="flex items-center p-menu-item-link">
+              <span [class]="item.icon"></span>
+              <span class="ml-2">{{ item.label  | translate }}</span>
+            </a>
+        </ng-template>
+        </p-menu>
       <p-button 
         [icon]="'pi pi-times'"
         [label]="buttonClose | translate" 

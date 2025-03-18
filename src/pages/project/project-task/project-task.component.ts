@@ -18,6 +18,7 @@ import { TagPriority } from './component/tag-priority/tag-priority.component';
 import { TagStatus } from './component/tag-status/tag-status.component';
 import { AuthService } from '../../../services/auth/auth.service';
 import { AvatarModule } from 'primeng/avatar';
+import { ProjectService, ProjectsModel } from '../../../services/project/project.service';
 
 @Component({
   selector: 'project-task',
@@ -45,6 +46,7 @@ export class ProjectTask {
   currentUser: any = {};
 
   projectID: string = '';
+  projectData: ProjectsModel = <any>{};
 
   listTask: TaskScrumModel[] = [];
   tempListTask: TaskScrumModel[] = [];
@@ -77,6 +79,7 @@ export class ProjectTask {
     private auth: AuthService,
     private activateRoute: ActivatedRoute,
     private messageService: MessageService,
+    private projectService: ProjectService,
     private taskScrumService: TaskScrumService
   ) {
     this.activateRoute.params
@@ -88,7 +91,16 @@ export class ProjectTask {
   }
 
   ngOnInit() {
+    this.getProjectData();
     this.getTask();
+  }
+
+  getProjectData() {
+    this.projectService
+      .getOne(this.projectID)
+      .subscribe((data: any) => {
+        this.projectData = data;
+      });
   }
 
   getTask() {

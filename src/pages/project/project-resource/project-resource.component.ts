@@ -13,6 +13,8 @@ import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 import { TranslateModule } from '@ngx-translate/core';
 import { Mode } from '../../workspace/workspace-content-project/workspace-content-project.component';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
+import { ActivatedRoute } from '@angular/router';
+import { ProjectService, ProjectsModel } from '../../../services/project/project.service';
 
 @Component({
   selector: 'project-resource',
@@ -33,6 +35,9 @@ import { AppEmpty } from '../../../components/app-empty/app-empty.component';
   styleUrl: './project-resource.component.scss'
 })
 export class ProjectResource {
+
+  projectID: string = '';
+  projectData: ProjectsModel = <any>{};
 
   mode: Mode = 'NONE';
   isOnSearch = false;
@@ -72,13 +77,31 @@ export class ProjectResource {
   ];
 
   constructor(
+    private activateRoute: ActivatedRoute,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
+    private projectService: ProjectService,
     private projectResourceService: ProjectResourceService
-  ) { }
+  ) {
+    this.activateRoute.params
+      .subscribe(params => {
+        if (!params['id']) return;
+        this.projectID = params['id'];
+      });
+  }
 
   ngAfterViewInit() {
+    if (!this.projectID) return;
+    this.getProjectData();
     this.getResourceList();
+  }
+
+  getProjectData() {
+    this.projectService
+      .getOne(this.projectID)
+      .subscribe((data: any) => {
+        this.projectData = data;
+      });
   }
 
   @ViewChild(ResourceList) resourceList!: ResourceList;

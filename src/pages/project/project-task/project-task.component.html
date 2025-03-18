@@ -8,17 +8,19 @@
       [ngClass]="{'text-blue-400 bg-blue-50': isShowToolbar}"
       (click)="isShowToolbar = !isShowToolbar">
     </button>
-    <app-dialog 
-      [icon]="'pi pi-file-plus'"
-      [width]="'60vw'"
-      [label]="labelCreate"
-      [header]="labelHeader"
-      [showFooter]="true"
-      (onCancelEvent)="onCancelForm()"
-      (onSubmitEvent)="onValidateForm()">
-        <form-task>
-        </form-task>
-    </app-dialog>
+    @if (!projectData.is_disable) {
+      <app-dialog 
+        [icon]="'pi pi-file-plus'"
+        [width]="'60vw'"
+        [label]="labelCreate"
+        [header]="labelHeader"
+        [showFooter]="true"
+        (onCancelEvent)="onCancelForm()"
+        (onSubmitEvent)="onValidateForm()">
+          <form-task>
+          </form-task>
+      </app-dialog>
+    }
   </div>
 </app-header>
 <div *ngIf="isShowToolbar">

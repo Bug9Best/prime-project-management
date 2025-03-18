@@ -12,7 +12,7 @@ import { SprintModel, SprintService, SprintStatus } from '../../../services/spri
 import { TaskScrumModel, TaskScrumService } from '../../../services/task_scrum/task_scrum.service';
 import { AppEmpty } from '../../../components/app-empty/app-empty.component';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectService } from '../../../services/project/project.service';
+import { ProjectService, ProjectsModel } from '../../../services/project/project.service';
 import { TaskWaterfallService } from '../../../services/task_waterfall/task_waterfall.service';
 import { TagModule } from 'primeng/tag';
 import { ProgressBarModule } from 'primeng/progressbar';
@@ -72,7 +72,7 @@ export class ProjectBacklog {
   emptySprintDescription: string = 'project.empty.sprint.description';
 
   projectID: string = '';
-  projectData: any = [];
+  projectData: ProjectsModel = <any>{};
   projectType: string = '';
   listSprint: SprintModel[] = [];
   listTask: TaskScrumModel[] = [];

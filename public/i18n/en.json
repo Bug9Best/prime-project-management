@@ -24,6 +24,7 @@
       "delete": "Delete",
       "copy": "Copy",
       "cancel": "Cancel",
+      "option": "Option",
       "promote": "Promote to Admin Role",
       "demote": "Demote to User Role",
       "close": "Close",
@@ -363,6 +364,7 @@
         "description": "You can manage privary settings for this project.",
         "archive": "Archive Project",
         "archiveDescription": "Archiving a project will hide it from the project list. You can unarchive it at any time.",
+        "unarchive": "Unarchive Project",
         "delete": "Delete Project",
         "deleteDescription": "Deleting a project will permanently remove it from the system. This action cannot be undone."
       }

@@ -9,17 +9,19 @@
         <div class="text-xl font-medium text-900 select-none">{{ labelSprint | translate }}</div>
         <div *ngIf="subtitle" class="text-xs text-500 select-none">{{ labelSprintDescription | translate }}</div>
       </div>
-      <app-dialog #dialogSprint
-        [icon]="'pi pi-plus'"
-        [width]="'60vw'"
-        [buttonStyleClass]="'p-button-secondary p-button-outlined'"
-        [label]="labelSprintButton"
-        [header]="labelSprintHeader"
-        (onCancelEvent)="onCancelFormSprint()"
-        (onSubmitEvent)="onValidateFormSprint()">
-          <form-sprint>
-          </form-sprint>
-      </app-dialog>
+      @if (!projectData.is_disable) {
+        <app-dialog #dialogSprint
+          [icon]="'pi pi-plus'"
+          [width]="'60vw'"
+          [buttonStyleClass]="'p-button-secondary p-button-outlined'"
+          [label]="labelSprintButton"
+          [header]="labelSprintHeader"
+          (onCancelEvent)="onCancelFormSprint()"
+          (onSubmitEvent)="onValidateFormSprint()">
+            <form-sprint>
+            </form-sprint>
+        </app-dialog>
+      }
     </div>
     <p-divider styleClass="mb-3"></p-divider>
 
@@ -114,18 +116,20 @@
         <div class="text-xl font-medium text-900 select-none">{{ labelTask | translate }}</div>
         <div *ngIf="subtitle" class="text-xs text-500 select-none">{{ labelTaskDescription | translate }}</div>
       </div>
-      <app-dialog #dialogTask
-        [icon]="'pi pi-file-plus'"
-        [width]="'60vw'"
-        [buttonStyleClass]="'p-button-secondary p-button-outlined'"
-        [label]="labelTaskButton"
-        [header]="labelTaskHeader"
-        [showFooter]="true"
-        (onCancelEvent)="onCancelFormTask()"
-        (onSubmitEvent)="onValidateFormTask()">
-          <form-task>
-          </form-task>
-      </app-dialog>
+      @if (!projectData.is_disable) {
+        <app-dialog #dialogTask
+          [icon]="'pi pi-file-plus'"
+          [width]="'60vw'"
+          [buttonStyleClass]="'p-button-secondary p-button-outlined'"
+          [label]="labelTaskButton"
+          [header]="labelTaskHeader"
+          [showFooter]="true"
+          (onCancelEvent)="onCancelFormTask()"
+          (onSubmitEvent)="onValidateFormTask()">
+            <form-task>
+            </form-task>
+        </app-dialog>
+      }
     </div>
     <p-divider styleClass="mb-3"></p-divider>
 

@@ -107,7 +107,7 @@ export class FeedbackList {
     }
 
     let values = this.formFeedbackSubmit.formGroup.value;
-    values.user_id = 1;
+    values.user_id = this.currentUserData.id;
     this.onSubmitFeeddback(values);
   }
 

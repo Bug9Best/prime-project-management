@@ -175,7 +175,7 @@
               </label>
               <div class="grid">
                 @for (item of listProjectType; track $index) {
-                  <div class="col-12 lg:col-4">
+                  <div class="col-12 lg:col-6">
                     <div class="shadow-1 border-round border-2 cursor-pointer surface-card h-full"
                       [ngClass]="{'border-transparent': selectedProjectType !== item.value, 'border-blue-500': selectedProjectType === item.value, 'shadow-3': selectedProjectType === item.value}"
                       (click)="selectedProjectType = item.value">

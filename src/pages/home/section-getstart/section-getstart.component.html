@@ -2,6 +2,15 @@
   <div class="text-center text-5xl font-medium">{{ title | translate }}</div>
   <div class="text-5xl text-blue-500 font-medium mb-4">Prime Project Manager</div>
   <div class="text-lg text-center w-7 mb-4 "> {{ description | translate }} </div>
+  <button pButton pRipple 
+    type="button"
+    [label]="buttonLabel | translate" 
+    icon="pi pi-arrow-right" 
+    iconPos="right"
+    size="large"
+    class="p-button-raised w-3"
+    (click)="getStarted()">
+  </button>
 </section>
 <div class="flex justify-content-center overflow-hidden">
   <img src="/image/ppm.png" height="500">

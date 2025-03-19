@@ -12,6 +12,7 @@
   </p-tabPanel>
   <p-tabPanel [header]="'project.tab.setting.customer' | translate">
     <setting-customer
+      (onEditProjectEvent)="getProjectData()"
       [customerData]="projectData.customer">
     </setting-customer>
   </p-tabPanel>

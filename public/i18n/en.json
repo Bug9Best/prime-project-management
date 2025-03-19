@@ -273,6 +273,7 @@
       "task": "Create Task",
       "resource": "Create Resource",
       "member": "Add Member",
+      "customer": "Add Customer",
       "setting": "Project Setting"
     },
     "title": {

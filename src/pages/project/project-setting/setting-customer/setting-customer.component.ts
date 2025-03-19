@@ -84,6 +84,8 @@ export class SettingCustomer {
 
     let values = this.customerForm.formGroup.value;
     values.project_id = this.projectID;
+    values.employ_start_date = new Date(values.employ_start_date).toDateString();
+    values.employ_end_date = new Date(values.employ_end_date).toDateString();
     this.onCreateProject(values);
   }
 

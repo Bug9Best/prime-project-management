@@ -10,6 +10,7 @@ import { AppDialog } from '../../../../components/app-dialog/app-dialog.componen
 import { FormFeedbackSubmit } from '../form-feedback-submit/form-feedback-submit.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
+import { DividerModule } from 'primeng/divider';
 
 @Component({
   selector: 'feedback-list',
@@ -21,7 +22,8 @@ import { ButtonModule } from 'primeng/button';
     AppScrolling,
     AppEmpty,
     FormFeedbackSubmit,
-    ButtonModule
+    ButtonModule,
+    DividerModule
   ],
   templateUrl: './feedback-list.component.html',
   styleUrl: './feedback-list.component.scss'
@@ -107,7 +109,9 @@ export class FeedbackList {
     }
 
     let values = this.formFeedbackSubmit.formGroup.value;
+    let content = this.formFeedbackSubmit.formContent.value;
     values.user_id = this.currentUserData.id;
+    values.content = content.content;
     this.onSubmitFeeddback(values);
   }
 

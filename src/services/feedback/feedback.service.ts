@@ -3,6 +3,10 @@ import { BaseModel, BaseService } from '../base/base.service';
 
 export interface FeedbackModel extends BaseModel {
   id: string;
+  function: number;
+  design: number;
+  speed: number;
+  satisfaction: number;
   content: string | number;
   submitter_name: string;
   submitter_email: string;

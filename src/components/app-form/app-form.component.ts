@@ -9,6 +9,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { listProjectType, ProjectType } from '../../../public/data/project-type';
 import { SelectButton } from 'primeng/selectbutton';
 import { DatePickerModule } from 'primeng/datepicker';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 export enum InputAppFormType {
   Text,
@@ -44,6 +45,8 @@ export class InputAppForm {
   filter?: boolean = false;
   isLimitLength?: boolean = false;
   minDate?: Date | null = null;
+  min?: number | null = null;
+  max?: number | null = null;
 }
 
 @Component({
@@ -55,6 +58,7 @@ export class InputAppForm {
     TranslateModule,
     DividerModule,
     InputTextModule,
+    InputNumberModule,
     TextareaModule,
     RadioButtonModule,
     SelectButton,

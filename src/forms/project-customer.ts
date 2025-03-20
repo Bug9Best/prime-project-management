@@ -36,7 +36,7 @@ export var listFormProjectCustomer: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: InputAppFormType.Date,
+        type: InputAppFormType.StartDate,
         label: "form.customer.employStart",
         field: "employ_start_date",
         required: true,
@@ -44,7 +44,7 @@ export var listFormProjectCustomer: InputAppForm[] = [
         colWidth: 12,
     },
     {
-        type: InputAppFormType.Date,
+        type: InputAppFormType.EndDate,
         label: "form.customer.employEnd",
         field: "employ_end_date",
         required: true,

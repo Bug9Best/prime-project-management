@@ -42,6 +42,14 @@ export class ProjectResourceService extends BaseService<ProjectResourceModel> {
     this.stateReload.next(stateReload);
   }
 
+  getResourceByProejct(projectId: string) {
+    return this.client.get<ProjectResourceModel[]>(`${this.getBaseUrl}/getResourceByProejct`, {
+      params: {
+        project_id: projectId
+      }
+    });
+  }
+
   createProjectResource(data: any) {
     return this.client.post<any>(`${this.getBaseUrl}/createProjectResource`, data);
   }

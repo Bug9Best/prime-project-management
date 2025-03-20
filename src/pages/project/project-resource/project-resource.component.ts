@@ -50,8 +50,8 @@ export class ProjectResource {
   emptyDescription: string = 'project.empty.resource.description';
 
   selectedResource?: ProjectResourceModel;
-  listResource: ProjectResourceModel[] = [];
-  tempListResource: ProjectResourceModel[] = [];
+  listResource: ProjectResourceModel[] = <any>{};
+  tempListResource: ProjectResourceModel[] = <any>{};
   listMenu: MenuItem[] = [
     {
       id: 'EDIT',
@@ -107,18 +107,17 @@ export class ProjectResource {
   @ViewChild(ResourceList) resourceList!: ResourceList;
   getResourceList() {
     this.projectResourceService
-      .getAll()
+      .getResourceByProejct(this.projectID)
       .subscribe((res: any) => {
-        const data = res.data;
-        this.listResource = data;
-        this.tempListResource = [...this.listResource];
+        this.listResource = res;
+        this.tempListResource = this.listResource;
       });
   }
 
   onSearch(event: any): void {
     if (!event || event.trim() === '') {
       this.isOnSearch = false;
-      this.listResource = [...this.tempListResource];
+      this.listResource = this.tempListResource;
       return;
     }
 

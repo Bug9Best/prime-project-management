@@ -81,7 +81,7 @@ export class FeedbackList {
       .getAll()
       .subscribe({
         next: (response: any) => {
-          this.listFeedbacks = response.data;
+          this.listFeedbacks = response;
         },
       });
   }

@@ -300,7 +300,7 @@
     },
     "description": {
       "sprint": "List of sprints that have not been closed",
-      "task": "List of tasks that are not yet completed and not assigned to any sprint"
+      "task": "Add tasks to the sprint by dragging and dropping tasks onto the sprint."
     },
     "empty": {
       "sprint": {

@@ -20,6 +20,12 @@ export class TaskActivity {
   @Input()
   listActivity: any = [];
 
+  formatDate = (date: Date): string => {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
 
   getLogging(item: any) {
     if (item.action_key == "assigned") {
@@ -28,9 +34,9 @@ export class TaskActivity {
     else if (item.action_key == "sprint_id") {
       return item.target_sprint_name;
     } else if (item.action_key == "start_date") {
-      return item.action_value;
+      return this.formatDate(new Date(item.action_value));
     } else if (item.action_key == "end_date") {
-      return item.action_value;
+      return this.formatDate(new Date(item.action_value));
     } else if (item.action_key == "estimate_time") {
       return item.action_value;
     } else if (item.action_key == "actual_time") {

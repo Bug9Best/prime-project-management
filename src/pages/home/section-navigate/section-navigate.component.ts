@@ -82,7 +82,7 @@ export class SectionNavigate {
           document.getElementById("googleSignIn"),
           { theme: "outline", size: "large" }
         );
-      }, 100);
+      }, 250);
     }
   }
 

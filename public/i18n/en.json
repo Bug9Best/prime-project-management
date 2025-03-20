@@ -377,7 +377,7 @@
   "form": {
     "feedback": {
       "content": "Feedback Content",
-      "function": "Functionality (Easy:1 - Difficult:10)",
+      "function": "Functionality (Difficult:1 - Easy:10)",
       "design": "Design (Ugly:1 - Beautiful:10)",
       "speed": "Speed (Slow:1 - Fast:10)",
       "satisfaction": "Satisfaction (Unsatisfied:1 - Satisfied:10)",

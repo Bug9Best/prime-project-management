@@ -204,6 +204,7 @@ export class WorkspaceContentProject {
 
     if (this.formProjectCreate.formGroup.invalid) {
       this.formProjectCreate.formGroup.markAllAsTouched();
+      this.showMessage('warn', 'Error', 'Please fill in all required fields');
       return;
     }
 

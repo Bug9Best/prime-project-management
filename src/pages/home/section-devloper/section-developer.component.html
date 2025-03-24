@@ -9,7 +9,10 @@
         @for (item of listProjectContributes; track $index) {
         <div class="col-12 md:col-6">
           <div class="border-round shadow-1 surface-border p-3">
-            <img [src]="item.imageURL" class="border-round-sm mb-2 w-full" />
+            <img [src]="item.imageURL" 
+              class="border-round-sm mb-2 w-full" 
+              style="aspect-ratio: 1/1; object-fit: cover;"
+              [ngClass]="{'position-2': $index === 2, 'position-3' : $index === 3 }"/>
             <div class="font-medium text-xl mb-1 text-900"> {{ item.full_name| translate }} </div>
             <span class="text-700 font-medium"> {{ item.position| translate }} </span>
           </div>

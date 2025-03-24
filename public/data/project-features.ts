@@ -10,16 +10,16 @@ export var listProjectFeatures: ProjectFeature[] = [
     description: 'home.feature.scrumDescription',
     icon: 'pi-spinner'
   },
-  {
-    title: 'home.feature.waterfall',
-    description: 'home.feature.waterfallDescription',
-    icon: 'pi-check-circle'
-  },
-  {
-    title: 'home.feature.kanban',
-    description: 'home.feature.kanbanDescription',
-    icon: 'pi-clipboard'
-  },
+  // {
+  //   title: 'home.feature.waterfall',
+  //   description: 'home.feature.waterfallDescription',
+  //   icon: 'pi-check-circle'
+  // },
+  // {
+  //   title: 'home.feature.kanban',
+  //   description: 'home.feature.kanbanDescription',
+  //   icon: 'pi-clipboard'
+  // },
   {
     title: 'home.feature.member',
     description: 'home.feature.memberDescription',
@@ -30,10 +30,9 @@ export var listProjectFeatures: ProjectFeature[] = [
     description: 'home.feature.resourceDescription',
     icon: 'pi-file'
   },
-  {
-    title: 'home.feature.notify',
-    description: 'home.feature.notifyDescription',
-    icon: 'pi-send'
-  },
-
+  // {
+  //   title: 'home.feature.notify',
+  //   description: 'home.feature.notifyDescription',
+  //   icon: 'pi-send'
+  // },
 ]

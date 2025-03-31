@@ -86,7 +86,7 @@ export class AppForm {
   toggleOptions: any = []
 
   listProjectType: ProjectType[] = listProjectType;
-  selectedProjectType: any = null;
+  selectedProjectType: any = 'SCRUM';
 
   invalid(control: any) {
     let formControl = this.formGroup.get(control);

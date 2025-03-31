@@ -55,7 +55,7 @@ export class ProjectPage {
       .subscribe((response: any) => {
         this.projectData = response;
         this.projectType = this.projectData.project_type;
-        this.projectSidebar.checkProjectType(this.projectType);
+        this.projectSidebar.checkProjectType(this.projectType, this.projectData);
       });
   }
 }

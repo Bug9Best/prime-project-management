@@ -33,12 +33,12 @@ export var listFormProjectCreate: InputAppForm[] = [
         disabled: false,
         colWidth: 12,
     },
-    {
-        type: InputAppFormType.ProjectType,
-        label: "form.project.type",
-        field: "project_type",
-        required: true,
-        disabled: false,
-        colWidth: 12,
-    },
+    // {
+    //     type: InputAppFormType.ProjectType,
+    //     label: "form.project.type",
+    //     field: "project_type",
+    //     required: true,
+    //     disabled: false,
+    //     colWidth: 12,
+    // },
 ]
